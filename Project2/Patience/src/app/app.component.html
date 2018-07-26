@@ -1,8 +1,31 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center; background-color: blue">
-  <h1 style="color: chartreuse">Team PatientForce</h1>
-  <h1 style="color: hotpink">Project Patience</h1>
-</div>
-<div>
-  <h1>Hello</h1>
-</div>
+<!--<div>
+    <ul class=”nav navbar-nav”>
+        <li><a routerLink=”/”>First Component</a></li>
+        <li><a routerLink=”/second”>Second Component</a></li>
+        <li><a routerLink=”/third”>Third Component</a></li>
+      </ul>
+
+    <br><hr><br>
+  <app-admin-page></app-admin-page>
+  <br><hr><br>
+  <app-doctor-page></app-doctor-page>
+  <br><hr><br>
+  <app-nurse-page></app-nurse-page>
+  <br><hr><br>
+  <app-patient-page></app-patient-page>
+  <br><hr><br>
+  <app-user-page></app-user-page>
+</div>-->
+    <div class="container-fluid">
+      <ul>
+        <li><a routerLink="/adminpage">routerLink="/adminpage"</a></li>
+        <li><a routerLink="/doctorpage">routerLink="/doctorpage"</a></li>
+        <li><a routerLink="/nursepage">routerLink="/nursepage"</a></li>
+        <li><a routerLink="/patientpage">routerLink="/patientpage"</a></li>
+        <li><a routerLink="/userpage">routerLink="/userpage"</a></li>
+      </ul>
+    </div>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
