@@ -8,7 +8,8 @@ import { PatientPageComponent } from './components/patient-page/patient-page.com
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { DoctorPageComponent } from './components/doctor-page/doctor-page.component';
 import { NursePageComponent } from './components/nurse-page/nurse-page.component';
-import { approutes } from './routing';
+
+import { AppRoutingModule, routingComponents } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,9 @@ import { approutes } from './routing';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(approutes)
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [AppComponent, routingComponents],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
