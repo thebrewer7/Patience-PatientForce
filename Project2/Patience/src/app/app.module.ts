@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +19,7 @@ import { NursePageComponent } from './components/nurse-page/nurse-page.component
 import { QuickLookupComponent } from './components/quick-lookup/quick-lookup.component';
 
 import { AppRoutingModule, routingComponents } from './app.routing';
+import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { AppRoutingModule, routingComponents } from './app.routing';
     DoctorPageComponent,
     NursePageComponent,
     QuickLookupComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    NurseDoctorEditInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { AppRoutingModule, routingComponents } from './app.routing';
     BsDropdownModule.forRoot(),
     FormsModule
   ],
-  providers: [AppComponent, routingComponents],
+  providers: [AppComponent, routingComponents,
+             {provide: APP_BASE_HREF, useValue: '/Patience/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

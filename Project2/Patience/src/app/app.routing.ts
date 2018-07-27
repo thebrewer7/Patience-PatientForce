@@ -7,6 +7,7 @@ import { NursePageComponent } from './components/nurse-page/nurse-page.component
 import { PatientPageComponent } from './components/patient-page/patient-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { LoginPageComponent} from './components/login-page/login-page.component';
+import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
 
 const routes: Routes = [
     {
@@ -32,7 +33,11 @@ const routes: Routes = [
     {
       path: 'login',
       component: LoginPageComponent
-  }
+    },
+    {
+      path: 'nursedoctoreditinfo',
+      component: NurseDoctorEditInfoComponent
+    }
 ];
 
 @NgModule({
@@ -47,5 +52,6 @@ export const routingComponents = [
     NursePageComponent,
     PatientPageComponent,
     UserPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    NurseDoctorEditInfoComponent
 ];
