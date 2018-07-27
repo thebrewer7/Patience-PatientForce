@@ -1,0 +1,19 @@
+.dropdown-toggle::after {
+    display:none;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown:hover .dropdown-toggle {
+    background-color: black;
+}
