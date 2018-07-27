@@ -20,6 +20,7 @@ import { QuickLookupComponent } from './components/quick-lookup/quick-lookup.com
 
 import { AppRoutingModule, routingComponents } from './app.routing';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-inf
     NursePageComponent,
     QuickLookupComponent,
     LoginPageComponent,
-    NurseDoctorEditInfoComponent
+    NurseDoctorEditInfoComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
