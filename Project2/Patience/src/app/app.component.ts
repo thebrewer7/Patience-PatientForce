@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from './components/login/login.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { PatientPageComponent } from './components/patient-page/patient-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';

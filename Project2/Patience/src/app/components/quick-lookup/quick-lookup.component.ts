@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuickLookupComponent implements OnInit {
 
+  searchText = '';
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  lookup() {
+    // search for the user
+  }
 }
