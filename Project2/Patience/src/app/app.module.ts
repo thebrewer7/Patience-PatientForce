@@ -21,7 +21,7 @@ import { QuickLookupComponent } from './components/quick-lookup/quick-lookup.com
 import { AppRoutingModule, routingComponents } from './app.routing';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
-
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     QuickLookupComponent,
     LoginPageComponent,
     NurseDoctorEditInfoComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule,

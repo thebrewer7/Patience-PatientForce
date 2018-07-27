@@ -6,6 +6,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { DoctorPageComponent } from './components/doctor-page/doctor-page.component';
 import { NursePageComponent } from './components/nurse-page/nurse-page.component';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 import { Router } from '@angular/router';
 

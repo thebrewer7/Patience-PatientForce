@@ -8,6 +8,7 @@ import { PatientPageComponent } from './components/patient-page/patient-page.com
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { LoginPageComponent} from './components/login-page/login-page.component';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 const routes: Routes = [
     {
@@ -37,6 +38,10 @@ const routes: Routes = [
     {
       path: 'nursedoctoreditinfo',
       component: NurseDoctorEditInfoComponent
+    },
+    {
+      path: 'profile',
+      component: ProfilePageComponent
     }
 ];
 
@@ -53,5 +58,6 @@ export const routingComponents = [
     PatientPageComponent,
     UserPageComponent,
     LoginPageComponent,
-    NurseDoctorEditInfoComponent
+    NurseDoctorEditInfoComponent,
+    ProfilePageComponent
 ];
