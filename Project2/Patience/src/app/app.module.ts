@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import {APP_BASE_HREF} from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { LoginComponent } from './components/login/login.component';
-import { LoginPageComponent} from './components/login-page/login-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { PatientPageComponent } from './components/patient-page/patient-page.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
@@ -30,6 +30,7 @@ import { NurseSidepanelComponent } from './components/nurse-sidepanel/nurse-side
 import { LoginService } from './services/login/login.service';
 import { RegistrationService } from './services/registration/registration.service';
 import { UserService } from './services/user/user.service';
+import { PatientService } from './services/patient/patient.service';
 
 @NgModule({
   declarations: [
@@ -57,8 +58,15 @@ import { UserService } from './services/user/user.service';
     BsDropdownModule.forRoot(),
     FormsModule
   ],
-  providers: [AppComponent, routingComponents, LoginService, RegistrationService, UserService,
-             {provide: APP_BASE_HREF, useValue: '/Patience/'}],
+  providers: [
+    AppComponent,
+    routingComponents,
+    LoginService,
+    RegistrationService,
+    UserService,
+    PatientService,
+    { provide: APP_BASE_HREF, useValue: '/Patience/' }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

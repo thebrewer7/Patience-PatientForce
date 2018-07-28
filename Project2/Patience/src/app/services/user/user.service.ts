@@ -11,6 +11,6 @@ export class UserService {
 
   getPatients(username: string) {
     console.log('UserService: getPatients()');
-    return this.http.post<Patient[]>('http://localhost:8085/PatienceMavenProject/UserGetPatientsServlet', {username: username});
+    return this.http.post<Patient[]>('http://localhost:8085/PatienceMavenProject/getUsersPatients.do', {username: username});
   }
 }
