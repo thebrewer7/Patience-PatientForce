@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -23,6 +24,7 @@ import { RaterComponent } from './components/rater/rater.component';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { ConnectorService } from './services/connector/connector.service';
 
 @NgModule({
   declarations: [
@@ -45,10 +47,12 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
     BrowserModule,
     AppRoutingModule,
     BsDropdownModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [AppComponent, routingComponents,
-             {provide: APP_BASE_HREF, useValue: '/Patience/'}],
+             {provide: APP_BASE_HREF, useValue: '/Patience/'},
+            ConnectorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

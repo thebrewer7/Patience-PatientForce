@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConnectorService } from '../../services/connector/connector.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private conn:ConnectorService) { }
 
   ngOnInit() {
   }
 
+  public fetchSearchResults(){
+    this.conn.getSearchResults().subscribe(
+      data => {
+       //save data to the dropdown
+      },
+      error => {
+        console.log("ERROR", error);
+      }
+    );
+  }
 }
