@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 
@@ -26,6 +27,9 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
 import { DoctorSidepanelComponent } from './components/doctor-sidepanel/doctor-sidepanel.component';
 import { NurseSidepanelComponent } from './components/nurse-sidepanel/nurse-sidepanel.component';
 
+import { LoginService } from './services/login/login.service';
+import { RegistrationService } from './services/registration/registration.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,10 +52,11 @@ import { NurseSidepanelComponent } from './components/nurse-sidepanel/nurse-side
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     FormsModule
   ],
-  providers: [AppComponent, routingComponents,
+  providers: [AppComponent, routingComponents, LoginService, RegistrationService,
              {provide: APP_BASE_HREF, useValue: '/Patience/'}],
   bootstrap: [AppComponent]
 })
