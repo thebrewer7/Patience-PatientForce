@@ -23,6 +23,8 @@ import { RaterComponent } from './components/rater/rater.component';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { DoctorSidepanelComponent } from './components/doctor-sidepanel/doctor-sidepanel.component';
+import { NurseSidepanelComponent } from './components/nurse-sidepanel/nurse-sidepanel.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
     LoginPageComponent,
     NurseDoctorEditInfoComponent,
     ProfilePageComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    DoctorSidepanelComponent,
+    NurseSidepanelComponent
   ],
   imports: [
     BrowserModule,
