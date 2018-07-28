@@ -19,8 +19,10 @@ import { NursePageComponent } from './components/nurse-page/nurse-page.component
 import { QuickLookupComponent } from './components/quick-lookup/quick-lookup.component';
 
 import { AppRoutingModule, routingComponents } from './app.routing';
+import { RaterComponent } from './components/rater/rater.component';
 import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
-
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,12 @@ import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-inf
     AdminPageComponent,
     DoctorPageComponent,
     NursePageComponent,
+    RaterComponent,
     QuickLookupComponent,
     LoginPageComponent,
-    NurseDoctorEditInfoComponent
+    NurseDoctorEditInfoComponent,
+    ProfilePageComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule,

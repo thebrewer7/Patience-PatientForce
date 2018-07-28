@@ -1,27 +1,20 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
-  <ul>
-    <li>
-      <a routerLink="/login">routerLink="/login"</a>
-    </li>
-    <li>
-      <a routerLink="/adminpage">routerLink="/adminpage"</a>
-    </li>
-    <li>
-      <a routerLink="/doctorpage">routerLink="/doctorpage"</a>
-    </li>
-    <li>
-      <a routerLink="/nursepage">routerLink="/nursepage"</a>
-    </li>
-    <li>
-      <a routerLink="/patientpage">routerLink="/patientpage"</a>
-    </li>
-    <li>
-      <a routerLink="/userpage">routerLink="/userpage"</a>
-    </li>
-  </ul>
-</div>
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6">
+          <ul>
+            <li><a routerLink="/adminpage">routerLink="/adminpage"</a></li>
+            <li><a routerLink="/doctorpage">routerLink="/doctorpage"</a></li>
+            <li><a routerLink="/nursepage">routerLink="/nursepage"</a></li>
+            <li><a routerLink="/patientpage">routerLink="/patientpage"</a></li>
+            <li><a routerLink="/userpage">routerLink="/userpage"</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <app-rater></app-rater>
+        </div>
+      </div>
+      <div>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>

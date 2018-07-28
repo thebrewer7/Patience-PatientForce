@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<form class="shadow p-3 mb-5 rounded">
+    <div class="rating">
+        <label>
+            <input type="radio" name="rating" value="5" title="5 stars" (click)="rating()"> 5
+        </label>
+        <label>
+            <input type="radio" name="rating" value="4" title="4 stars" (click)="rating()"> 4
+        </label>
+        <label>
+            <input type="radio" name="rating" value="3" title="3 stars" (click)="rating()"> 3
+        </label>
+        <label>
+            <input type="radio" name="rating" value="2" title="2 stars" (click)="rating()"> 2
+        </label>
+        <label>
+            <input type="radio" name="rating" value="1" title="1 star" (click)="rating()"> 1
+        </label>
+        <h6>click to rate</h6>
+    </div>
+
+    <div class="form-group center">
+        <h6 for="review">Review</h6>
+        <textarea class="form-control" id="review" rows="3"></textarea>
+    </div>
+    <div class="center">
+        <button type="button" class="btn btn-outline-dark my-2 my-sm-0">Submit</button>
+        <button type="button" class="btn btn-outline-dark my-2 my-sm-0">Reset</button>
+    </div>
+</form>
