@@ -31,6 +31,7 @@ import { LoginService } from './services/login/login.service';
 import { RegistrationService } from './services/registration/registration.service';
 import { UserService } from './services/user/user.service';
 import { PatientService } from './services/patient/patient.service';
+import { NurseService } from './services/nurse/nurse.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { PatientService } from './services/patient/patient.service';
     RegistrationService,
     UserService,
     PatientService,
+    NurseService,
     { provide: APP_BASE_HREF, useValue: '/Patience/' }
   ],
   bootstrap: [AppComponent]
