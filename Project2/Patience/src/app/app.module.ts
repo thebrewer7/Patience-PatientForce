@@ -16,6 +16,7 @@ import { DoctorPageComponent } from './components/doctor-page/doctor-page.compon
 import { NursePageComponent } from './components/nurse-page/nurse-page.component';
 
 import { AppRoutingModule, routingComponents } from './app.routing';
+import { RaterComponent } from './components/rater/rater.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AppRoutingModule, routingComponents } from './app.routing';
     PatientPageComponent,
     AdminPageComponent,
     DoctorPageComponent,
-    NursePageComponent
+    NursePageComponent,
+    RaterComponent
   ],
   imports: [
     BrowserModule,
