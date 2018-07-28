@@ -29,6 +29,7 @@ import { NurseSidepanelComponent } from './components/nurse-sidepanel/nurse-side
 
 import { LoginService } from './services/login/login.service';
 import { RegistrationService } from './services/registration/registration.service';
+import { UserService } from './services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { RegistrationService } from './services/registration/registration.servic
     BsDropdownModule.forRoot(),
     FormsModule
   ],
-  providers: [AppComponent, routingComponents, LoginService, RegistrationService,
+  providers: [AppComponent, routingComponents, LoginService, RegistrationService, UserService,
              {provide: APP_BASE_HREF, useValue: '/Patience/'}],
   bootstrap: [AppComponent]
 })
