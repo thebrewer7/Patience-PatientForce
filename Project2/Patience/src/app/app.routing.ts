@@ -6,6 +6,9 @@ import { DoctorPageComponent } from './components/doctor-page/doctor-page.compon
 import { NursePageComponent } from './components/nurse-page/nurse-page.component';
 import { PatientPageComponent } from './components/patient-page/patient-page.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import { LoginPageComponent} from './components/login-page/login-page.component';
+import { NurseDoctorEditInfoComponent } from './components/nurse-doctor-edit-info/nurse-doctor-edit-info.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 const routes: Routes = [
     {
@@ -27,6 +30,18 @@ const routes: Routes = [
     {
         path: 'userpage',
         component: UserPageComponent
+    },
+    {
+      path: 'login',
+      component: LoginPageComponent
+    },
+    {
+      path: 'nursedoctoreditinfo',
+      component: NurseDoctorEditInfoComponent
+    },
+    {
+      path: 'profile',
+      component: ProfilePageComponent
     }
 ];
 
@@ -35,11 +50,14 @@ const routes: Routes = [
    exports: [RouterModule],
 })
 export class AppRoutingModule { }
- 
+
 export const routingComponents = [
     AdminPageComponent,
     DoctorPageComponent,
     NursePageComponent,
     PatientPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    LoginPageComponent,
+    NurseDoctorEditInfoComponent,
+    ProfilePageComponent
 ];
