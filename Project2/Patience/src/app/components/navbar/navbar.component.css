@@ -1,11 +1,10 @@
 .dropdown-toggle::after {
-    display:none;
+  display: none;
 }
-.dropdown:hover>.dropdown-menu {
-    display: block;
-}
-.searchbar {
-    width: 50%;
+.dropdown:hover > .dropdown-menu {
+  display: block;
 }
 
-
+.seachbar {
+  width: 50%;
+}
