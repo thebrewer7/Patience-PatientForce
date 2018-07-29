@@ -8,4 +8,11 @@
       <app-rater></app-rater>
     </div>
   </div>
+  <div id='reviews'>
+    <h1>Reviews</h1>
+    <table *ngFor='let review of reviews'>
+      <tr><th>Rating:</th><td>{{ratingToStars(review.rating)}}</td></tr>
+      <tr><th>Review:</th><td>{{review.comment}}</td></tr>
+    </table>
+  </div>
 </div>
