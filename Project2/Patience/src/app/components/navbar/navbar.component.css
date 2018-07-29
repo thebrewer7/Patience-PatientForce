@@ -1,19 +1,10 @@
 .dropdown-toggle::after {
-    display:none;
+  display: none;
+}
+.dropdown:hover > .dropdown-menu {
+  display: block;
 }
 
-.dropdown-menu {
-    display: none;
-}
-
-.dropdown-menu li {
-    display: block;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown:hover .dropdown-toggle {
-    background-color: black;
+.seachbar {
+  width: 50%;
 }

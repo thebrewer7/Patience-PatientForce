@@ -33,6 +33,7 @@ import { UserService } from './services/user/user.service';
 import { PatientService } from './services/patient/patient.service';
 import { NurseService } from './services/nurse/nurse.service';
 import { DoctorService } from './services/doctor/doctor.service';
+import { ConnectorService } from './services/connector/connector.service';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { DoctorService } from './services/doctor/doctor.service';
     PatientService,
     NurseService,
     DoctorService,
+    ConnectorService,
     { provide: APP_BASE_HREF, useValue: '/Patience/' }
   ],
   bootstrap: [AppComponent]
