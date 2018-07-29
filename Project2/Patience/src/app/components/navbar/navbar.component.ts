@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectorService } from '../../services/connector/connector.service';
+import { tap } from '../../../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -13,10 +14,24 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  public fetchSearchResults(){
-    this.conn.getSearchResults().subscribe(
+  public fetchSearchFill(){
+    this.conn.getSearchFill().pipe(
+      tap(
+        data => {
+          // grab the data
+        },
+        error => {
+          console.log("ERROR",error);
+        }
+      )
+    );
+  }
+
+  public fetchSearchUserById(id) {
+    console.log("id: "+id);
+    this.conn.getSearchUserById(id).subscribe(
       data => {
-       //save data to the dropdown
+        console.log(data);
       },
       error => {
         console.log("ERROR", error);
