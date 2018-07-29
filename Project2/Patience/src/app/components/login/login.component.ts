@@ -53,8 +53,8 @@ export class LoginComponent implements OnInit {
     console.log('LoginComponent: register()');
     // send email, username and password to register servlet
     this.registrationService.register(this.email, this.username, this.password, this.passwordconfirm).subscribe (
-      PASS => {},
-      FAIL => {}
+      PASS => { console.log('pass'); },
+      FAIL => { console.log('failed'); }
     );
   }
 }
