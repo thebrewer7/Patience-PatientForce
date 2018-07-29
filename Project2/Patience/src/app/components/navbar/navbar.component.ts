@@ -9,7 +9,6 @@ import { tap } from '../../../../node_modules/rxjs/operators';
 })
 export class NavbarComponent implements OnInit {
   constructor(private conn: ConnectorService) {}
-  
   ngOnInit() {}
 
   public fetchSearchFill() {
@@ -24,7 +23,7 @@ export class NavbarComponent implements OnInit {
       )
     );
   }
-  
+
   public fetchSearchUserById(id) {
     console.log('id: ' + id);
     this.conn.getSearchUserById(id).subscribe(

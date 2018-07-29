@@ -8,7 +8,7 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class ConnectorService {
-<<<<<<< HEAD
+
   constructor(private http: HttpClient) { }
 
   getSearchFill() {
@@ -20,24 +20,6 @@ export class ConnectorService {
     params = params.append("id", id);
 
     return this.http.get("http://localhost:8085/PatienceMavenProject/SearchResults.do", {params: params});
-=======
-  constructor(private http: HttpClient) {}
 
-  getSearchFill() {
-    return this.http.get(
-      'http://localhost:8085/PatienceMavenProject/SearchFill.do',
-      { responseType: 'text' }
-    );
-  }
-
-  getSearchUserById(id) {
-    let params = new HttpParams();
-    params = params.append('id', id);
-
-    return this.http.get(
-      'http://localhost:8085/PatienceMavenProject/SearchResults.do',
-      { params: params }
-    );
->>>>>>> 1807Development
   }
 }
