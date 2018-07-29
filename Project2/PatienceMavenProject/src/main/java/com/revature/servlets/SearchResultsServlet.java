@@ -35,7 +35,7 @@ public class SearchResultsServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(UserService.getUserJSONById(id));
+		out.println();// TODO 
 	}
 
 	/**

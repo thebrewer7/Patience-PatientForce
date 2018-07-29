@@ -1,0 +1,63 @@
+package com.revature.beans;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "BloodPressure")
+public class BloodPressure {
+	@Id
+	@Column(name = "doctor_id")
+	@SequenceGenerator(sequenceName = "doctor_seq", name = "doctor_seq")
+	@GeneratedValue(generator = "doctor_seq", strategy = GenerationType.SEQUENCE)
+	private Integer id;
+	@Column(name = "bloodPressure_systolic_top")
+	private Integer systolic_top;
+	@Column(name = "bloodPressure_diastolic_bottom")
+	private Integer diastolic_bottom;
+
+	public BloodPressure() {
+		super();
+	}
+
+	public BloodPressure(Integer id, Integer systolic_top, Integer diastolic_bottom) {
+		this.id = id;
+		this.systolic_top = systolic_top;
+		this.diastolic_bottom = diastolic_bottom;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getSystolic_top() {
+		return systolic_top;
+	}
+
+	public void setSystolic_top(Integer systolic_top) {
+		this.systolic_top = systolic_top;
+	}
+
+	public Integer getDiastolic_bottom() {
+		return diastolic_bottom;
+	}
+
+	public void setDiastolic_bottom(Integer diastolic_bottom) {
+		this.diastolic_bottom = diastolic_bottom;
+	}
+
+	@Override
+	public String toString() {
+		return "BloodPressure [id=" + id + ", systolic_top=" + systolic_top + ", diastolic_bottom=" + diastolic_bottom
+				+ "]";
+	}
+}
