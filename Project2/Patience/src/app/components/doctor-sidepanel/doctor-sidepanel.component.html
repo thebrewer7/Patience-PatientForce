@@ -1,0 +1,15 @@
+<h2>Doctors</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doctor of doctors">
+      <td>{{doctor.name}}</td>
+      <td>{{ratingToStars(doctor.rating)}}</td>
+    </tr>
+  </tbody>
+</table>

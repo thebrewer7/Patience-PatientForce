@@ -1,0 +1,42 @@
+<div class="container-fluid" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-8">
+      <h5>Table of Doctors:</h5>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>DoctorName</th>
+            <th>NumberOfPatients</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr routerLink="/doctorpage">
+            <td>Logan</td>
+            <td>5</td>
+          </tr>
+          <tr routerLink="/doctorpage">
+            <td>Ray</td>
+            <td>10</td>
+          </tr>
+          <tr routerLink="/doctorpage">
+            <td>Austin</td>
+            <td>15</td>
+          </tr>
+          <tr routerLink="/doctorpage">
+            <td>Andrew</td>
+            <td>20</td>
+          </tr>
+          <tr routerLink="/doctorpage">
+            <td>Bobbert</td>
+            <td>25</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-4">
+      <app-doctor-sidepanel></app-doctor-sidepanel>
+      <app-nurse-sidepanel></app-nurse-sidepanel>
+    </div>
+  </div>
+</div>
