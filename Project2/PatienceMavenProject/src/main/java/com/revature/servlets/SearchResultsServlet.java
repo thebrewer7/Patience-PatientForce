@@ -2,14 +2,14 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.services.UserService;
+import com.revature.beans.User;
+import com.revature.services.ObjectToJSONService;
 
 /**
  * Servlet implementation class SearchResultsServlet
@@ -35,7 +35,7 @@ public class SearchResultsServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println();// TODO 
+		out.println(ObjectToJSONService.UserToJSONById(new User(id, "test")));// TODO 
 	}
 
 	/**

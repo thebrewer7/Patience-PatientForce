@@ -16,6 +16,12 @@ public class User implements Role {
 	public User() {
 		super();
 	}
+	
+	public User(Integer id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 
 	public User(Integer id, String name, String role, Date lastLogin) {
 		this.id = id;
