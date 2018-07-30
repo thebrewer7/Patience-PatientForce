@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
-
+import {APP_BASE_HREF} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -59,7 +58,8 @@ import { ConnectorService } from './services/connector/connector.service';
     AppRoutingModule,
     HttpClientModule,
     BsDropdownModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     AppComponent,
@@ -72,7 +72,7 @@ import { ConnectorService } from './services/connector/connector.service';
     DoctorService,
     ConnectorService,
     { provide: APP_BASE_HREF, useValue: '/Patience/' },
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
