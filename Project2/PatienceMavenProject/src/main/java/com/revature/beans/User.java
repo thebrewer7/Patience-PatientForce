@@ -15,7 +15,7 @@ import javax.persistence.SequenceGenerator;
 import com.revature.beans.interfaces.Role;
 
 @Entity
-public class User implements Role {
+public class User {
 	@Id
 	@SequenceGenerator(sequenceName = "review_seq", name = "review_seq")
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)

@@ -11,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 import com.revature.beans.interfaces.Role;
 
 @Entity
-public class Admin implements Role {
+public class Admin {
 	@Id
 	@SequenceGenerator(sequenceName = "admin_seq", name = "admin_seq")
 	@GeneratedValue(generator = "admin_seq", strategy = GenerationType.SEQUENCE)

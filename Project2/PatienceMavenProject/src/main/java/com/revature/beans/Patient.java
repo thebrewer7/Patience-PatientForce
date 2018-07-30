@@ -20,7 +20,7 @@ import com.revature.beans.nurse.Nurse;
 import com.revature.enums.ConditionTypes;
 
 @Entity
-public class Patient implements Role {
+public class Patient {
 	@Id
 	@SequenceGenerator(sequenceName = "patient_seq", name = "patient_seq")
 	@GeneratedValue(generator = "patient_seq", strategy = GenerationType.SEQUENCE)
