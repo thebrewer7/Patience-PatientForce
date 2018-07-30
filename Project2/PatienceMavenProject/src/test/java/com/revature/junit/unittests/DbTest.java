@@ -1,4 +1,4 @@
-package com.revature.junit;
+package com.revature.junit.unittests;
 
 import static org.junit.Assert.assertNotNull;
 

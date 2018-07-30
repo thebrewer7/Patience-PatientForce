@@ -101,34 +101,33 @@ public class UserService {
 				);
 	}
 	
-	@SuppressWarnings("unchecked")
-	private User beanToUser(GenericBean b) {
-		if(b.getItem("patients") != null && b.getItem("profilePicture") != null) {
-			return (new User(
-					toInt(b.getItem("id")),
-					b.getItem("name").toString(),
-					b.getItem("role").toString(),
-					toDt(b.getItem("lastLogin")),
-					(List<Patient>)b.getItem("patients"),
-					(Byte[])b.getItem("profilePicture")
-					));
-		}else if(b.getItem("profilePicture") != null) {
-			return (new User(
-					toInt(b.getItem("id")),
-					b.getItem("name").toString(),
-					b.getItem("role").toString(),
-					toDt(b.getItem("lastLogin")),
-					(List<Patient>)b.getItem("patients")
-					));
-		}else if(b.getItem("Patients") != null) {
-			return (new User(
-					toInt(b.getItem("id")),
-					b.getItem("name").toString(),
-					b.getItem("role").toString(),
-					toDt(b.getItem("lastLogin"))
-					));
-		}else {
-			return new User();
-		}
-	}
+//	@SuppressWarnings("unchecked")
+//	private User beanToUser(GenericBean b) {
+//		if(b.getItem("patients") != null && b.getItem("profilePicture") != null) {
+//			return (new User(
+//					b.getItem("name").toString(),
+//					b.getItem("role").toString(),
+//					toDt(b.getItem("lastLogin")),
+//					(List<Patient>)b.getItem("patients"),
+//					(Byte[])b.getItem("profilePicture")
+//					));
+//		}else if(b.getItem("profilePicture") != null) {
+//			return (new User(
+//					toInt(b.getItem("id")),
+//					b.getItem("name").toString(),
+//					b.getItem("role").toString(),
+//					toDt(b.getItem("lastLogin")),
+//					(List<Patient>)b.getItem("patients")
+//					));
+//		}else if(b.getItem("Patients") != null) {
+//			return (new User(
+//					toInt(b.getItem("id")),
+//					b.getItem("name").toString(),
+//					b.getItem("role").toString(),
+//					toDt(b.getItem("lastLogin"))
+//					));
+//		}else {
+//			return new User();
+//		}
+//	}
 }
