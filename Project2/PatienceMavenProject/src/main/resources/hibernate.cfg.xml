@@ -23,11 +23,11 @@
 		</property>
 
 		<property name="hibernate.connection.username">
-			patientpatients
+			project0
 		</property>
 
 		<property name="hibernate.connection.password">
-			patience
+			password
 		</property>
 
 		<!-- This determines how many connections a single user cna have to the 
