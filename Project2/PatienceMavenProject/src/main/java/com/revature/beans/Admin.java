@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import java.sql.Blob;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +16,10 @@ public class Admin implements Role {
 	@SequenceGenerator(sequenceName = "admin_seq", name = "admin_seq")
 	@GeneratedValue(generator = "admin_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	
+
 	private String name;
-	private String role;
+	private Blob profilePicture;
+	private final String ROLE = "admin";
 
 	public Admin() {
 		super();
@@ -24,15 +27,18 @@ public class Admin implements Role {
 
 	public Admin(String name) {
 		this.name = name;
-		this.role = "admin";
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Blob getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Blob profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	public String getName() {
@@ -44,16 +50,12 @@ public class Admin implements Role {
 	}
 
 	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		return ROLE;
 	}
 
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", name=" + name + ", role=" + role + "]";
+		return "Admin [id=" + id + ", name=" + name + ", role=" + ROLE + "]";
 	}
 
 }

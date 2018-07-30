@@ -1,10 +1,9 @@
 package com.revature.beans;
 
+import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.revature.beans.doctor.Doctor;
+import com.revature.beans.history.History;
 import com.revature.beans.interfaces.Role;
 import com.revature.beans.nurse.Nurse;
 import com.revature.enums.ConditionTypes;
@@ -25,27 +25,28 @@ public class Patient implements Role {
 	@SequenceGenerator(sequenceName = "patient_seq", name = "patient_seq")
 	@GeneratedValue(generator = "patient_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	
-	@ManyToMany(mappedBy="Patient")
+
+	@ManyToMany(mappedBy = "Patient")
 	@JoinTable
 	private List<User> users;
-	@ManyToMany(mappedBy="Patient")
+	@ManyToMany(mappedBy = "Patient")
 	@JoinTable
 	private List<Nurse> nurses;
-	@ManyToMany(mappedBy="Patient")
+	@ManyToMany(mappedBy = "Patient")
 	@JoinTable
 	private List<Doctor> doctors;
 
-	@OneToMany(mappedBy="Patient")
+	@OneToMany(mappedBy = "Patient")
 	@JoinColumn(name = "history_id")
 	private List<History> history;
 
 	private String name;
-	private String role;
 	private String location;
 	private String status;
 	private String condition;
+	private Blob profilePicture;
 	private String preferredDoctorName;
+	private final String ROLE = "patient";
 
 	public Patient() {
 		super();
@@ -55,7 +56,6 @@ public class Patient implements Role {
 			List<Nurse> nurses, List<Doctor> doctors, List<User> users, List<History> history) {
 		super();
 		this.name = name;
-		this.role = "patient";
 		this.location = location;
 		this.status = status;
 		this.condition = condition.toString();
@@ -66,17 +66,36 @@ public class Patient implements Role {
 		this.history = history;
 	}
 
+	public Patient(List<User> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history, String name,
+			String location, String status, String condition, Blob profilePicture, String preferredDoctorName) {
+		super();
+		this.users = users;
+		this.nurses = nurses;
+		this.doctors = doctors;
+		this.history = history;
+		this.name = name;
+		this.location = location;
+		this.status = status;
+		this.condition = condition;
+		this.profilePicture = profilePicture;
+		this.preferredDoctorName = preferredDoctorName;
+	}
+
 	@Override
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
 	public String getCondition() {
 		return condition;
+	}
+
+	public Blob getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Blob profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	public void setCondition(String condition) {
@@ -93,11 +112,7 @@ public class Patient implements Role {
 	}
 
 	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		return ROLE;
 	}
 
 	public String getLocation() {
@@ -158,7 +173,7 @@ public class Patient implements Role {
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", role=" + role + ", location=" + location + ", status="
+		return "Patient [id=" + id + ", name=" + name + ", role=" + ROLE + ", location=" + location + ", status="
 				+ status + ", preferredDoctorName=" + preferredDoctorName + ", nurses=" + nurses + ", doctors="
 				+ doctors + ", users=" + users + ", history=" + history + "]";
 	}

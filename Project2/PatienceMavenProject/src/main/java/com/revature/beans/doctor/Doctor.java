@@ -1,5 +1,6 @@
 package com.revature.beans.doctor;
 
+import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,16 +24,16 @@ public class Doctor {
 	@GeneratedValue(generator = "doctor_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany(mappedBy="Doctor")
-	@JoinColumn(name="cert_id")
+	@OneToMany(mappedBy = "Doctor")
+	@JoinColumn(name = "cert_id")
 	private List<DocCerts> certifications;
-	@OneToMany(mappedBy="Doctor")
-	@JoinColumn(name="cert_id")
+	@OneToMany(mappedBy = "Doctor")
+	@JoinColumn(name = "cert_id")
 	private List<DocDegree> degrees;
-	@OneToMany(mappedBy="Doctor")
-	@JoinColumn(name="cert_id")
+	@OneToMany(mappedBy = "Doctor")
+	@JoinColumn(name = "cert_id")
 	private List<DocExperience> experience;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "patient_2_doctor", joinColumns = @JoinColumn(name = "doctor_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
 	private List<Patient> patients;
@@ -40,18 +41,18 @@ public class Doctor {
 	private Integer rating;
 	private Review reviews;
 	private String name;
-	private String role;
+	private final String ROLE = "doctor";
 	private String department;
+	private Blob profilePicture;
 
 	public Doctor() {
 		super();
 	}
 
-	public Doctor(String name, String role, List<DocCerts> certifications, List<DocDegree> degrees,
-			List<DocExperience> experience, Integer rating, Review reviews, String department, List<Patient> patients) {
+	public Doctor(String name, List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience,
+			Integer rating, Review reviews, String department, List<Patient> patients) {
 		super();
 		this.name = name;
-		this.role = role;
 		this.certifications = certifications;
 		this.degrees = degrees;
 		this.experience = experience;
@@ -61,12 +62,31 @@ public class Doctor {
 		this.patients = patients;
 	}
 
+	public Doctor(List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience,
+			List<Patient> patients, Integer rating, Review reviews, String name, String department,
+			Blob profilePicture) {
+		super();
+		this.certifications = certifications;
+		this.degrees = degrees;
+		this.experience = experience;
+		this.patients = patients;
+		this.rating = rating;
+		this.reviews = reviews;
+		this.name = name;
+		this.department = department;
+		this.profilePicture = profilePicture;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Blob getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Blob profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	public String getName() {
@@ -78,11 +98,7 @@ public class Doctor {
 	}
 
 	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		return ROLE;
 	}
 
 	public List<DocCerts> getCertifications() {
@@ -143,7 +159,7 @@ public class Doctor {
 
 	@Override
 	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", role=" + role + ", certifications=" + certifications
+		return "Doctor [id=" + id + ", name=" + name + ", role=" + ROLE + ", certifications=" + certifications
 				+ ", degrees=" + degrees + ", experience=" + experience + ", rating=" + rating + ", reviews=" + reviews
 				+ ", department=" + department + ", patients=" + patients + "]";
 	}

@@ -9,8 +9,8 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Treatment {
 	@Id
-	@SequenceGenerator(sequenceName = "history_seq", name = "history_seq")
-	@GeneratedValue(generator = "history_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(sequenceName = "hstTreatment_seq", name = "hstTreatment_seq")
+	@GeneratedValue(generator = "hstTreatment_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
 	private String treatment;

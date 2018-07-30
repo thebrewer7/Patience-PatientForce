@@ -48,7 +48,7 @@ public class User implements Role {
 		this.patients = patients;
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Byte[] profilePicture) {
+	public User(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Blob profilePicture) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -82,11 +82,11 @@ public class User implements Role {
 		this.role = role;
 	}
 
-	public Byte[] getProfilePicture() {
+	public Blob getProfilePicture() {
 		return profilePicture;
 	}
 
-	public void setProfilePicture(Byte[] profilePicture) {
+	public void setProfilePicture(Blob profilePicture) {
 		this.profilePicture = profilePicture;
 	}
 

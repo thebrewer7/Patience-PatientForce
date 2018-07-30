@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.beans.history;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
