@@ -1,4 +1,4 @@
-package com.patience.beans;
+package com.revature.beans;
 
 import java.util.List;
 
@@ -15,9 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.revature.beans.interfaces.Role;
+
 @Entity
 @Table(name = "Patient")
-public class Patient {
+public class Patient implements Role{
 	@Id
 	@Column(name = "patient_id")
 	@SequenceGenerator(sequenceName = "patient_seq", name = "patient_seq")
@@ -50,14 +52,14 @@ public class Patient {
 
 	@OneToMany
 	@JoinColumn(name = "patient_id")
-	private History history;
+	private List<History> history;
 
 	public Patient() {
 		super();
 	}
 
 	public Patient(Integer id, String name, String role, String location, String status, String preferredDoctorName,
-			List<Nurse> nurses, List<Doctor> doctors, List<User> users, History history) {
+			List<Nurse> nurses, List<Doctor> doctors, List<User> users, List<History> history) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -71,6 +73,24 @@ public class Patient {
 		this.history = history;
 	}
 
+	@Override
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -135,11 +155,11 @@ public class Patient {
 		this.preferredDoctorName = preferredDoctorName;
 	}
 
-	public History getHistory() {
+	public List<History> getHistory() {
 		return history;
 	}
 
-	public void setHistory(History history) {
+	public void setHistory(List<History> history) {
 		this.history = history;
 	}
 
