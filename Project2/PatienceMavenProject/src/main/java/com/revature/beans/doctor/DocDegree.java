@@ -12,6 +12,7 @@ public class DocDegree {
 	@SequenceGenerator(sequenceName = "docDeg_seq", name = "docDeg_seq")
 	@GeneratedValue(generator = "docDeg_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
+	
 	private String degree;
 
 	public DocDegree(String degree) {

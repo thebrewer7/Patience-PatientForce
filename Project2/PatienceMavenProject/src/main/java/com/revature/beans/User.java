@@ -1,26 +1,42 @@
 package com.revature.beans;
 
+import java.sql.Blob;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
+
 import com.revature.beans.interfaces.Role;
 
+@Entity
 public class User implements Role {
+	@Id
+	@SequenceGenerator(sequenceName = "review_seq", name = "review_seq")
+	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	private String name;
-	private String role;
-	private Byte[] profilePicture;
-	private Date lastLogin;
+	
+	@ManyToMany(mappedBy="User")
+	@JoinTable
 	private List<Patient> patients;
 
+	private String name;
+	private String role;
+	private Blob profilePicture;
+	private Date lastLogin;
+	
 	public User() {
 		super();
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin) {
-		this.id = id;
+	public User(String name, Date lastLogin) {
 		this.name = name;
-		this.role = role;
+		this.role = "user";
 		this.lastLogin = lastLogin;
 	}
 

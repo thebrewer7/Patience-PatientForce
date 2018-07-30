@@ -12,6 +12,7 @@ public class DocExperience {
 	@SequenceGenerator(sequenceName = "docExp_seq", name = "docExp_seq")
 	@GeneratedValue(generator = "docExp_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
+	
 	private String experience;
 
 	public DocExperience(String experience) {

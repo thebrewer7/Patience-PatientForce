@@ -1,4 +1,4 @@
-package com.revature.beans;
+package com.revature.beans.nurse;
 
 import java.util.List;
 

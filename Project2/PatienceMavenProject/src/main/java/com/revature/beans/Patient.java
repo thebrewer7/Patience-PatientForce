@@ -13,59 +13,52 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
+import com.revature.beans.doctor.Doctor;
 import com.revature.beans.interfaces.Role;
+import com.revature.beans.nurse.Nurse;
+import com.revature.enums.ConditionTypes;
 
 @Entity
-@Table(name = "Patient")
-public class Patient implements Role{
+public class Patient implements Role {
 	@Id
-	@Column(name = "patient_id")
 	@SequenceGenerator(sequenceName = "patient_seq", name = "patient_seq")
 	@GeneratedValue(generator = "patient_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name = "patient_name")
-	private String name;
-	@Column(name = "patient_role")
-	private String role;
-	@Column(name = "patient_location")
-	private String location;
-	@Column(name = "patient_status")
-	private String status;
-	@Column(name = "patient_condition")
-	private String condition;
-	public static String[] conditionTypes = 
-		{"Undetermined", "Good", "Fair", "Serious", "Critical", "Deceased"};
-	@Column(name = "patient_prefferedDoctor")
-	private String preferredDoctorName;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_2_patient", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+	@ManyToMany(mappedBy="Patient")
+	@JoinTable
 	private List<User> users;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "patient_2_nurse", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "nurse_id"))
+	@ManyToMany(mappedBy="Patient")
+	@JoinTable
 	private List<Nurse> nurses;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "patient_2_doctor", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id"))
+	@ManyToMany(mappedBy="Patient")
+	@JoinTable
 	private List<Doctor> doctors;
 
-	@OneToMany
-	@JoinColumn(name = "patient_id")
+	@OneToMany(mappedBy="Patient")
+	@JoinColumn(name = "history_id")
 	private List<History> history;
+
+	private String name;
+	private String role;
+	private String location;
+	private String status;
+	private String condition;
+	private String preferredDoctorName;
 
 	public Patient() {
 		super();
 	}
 
-	public Patient(Integer id, String name, String role, String location, String status, String preferredDoctorName,
+	public Patient(String name, String location, String status, String preferredDoctorName, ConditionTypes condition,
 			List<Nurse> nurses, List<Doctor> doctors, List<User> users, List<History> history) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.role = role;
+		this.role = "patient";
 		this.location = location;
 		this.status = status;
+		this.condition = condition.toString();
 		this.preferredDoctorName = preferredDoctorName;
 		this.nurses = nurses;
 		this.doctors = doctors;

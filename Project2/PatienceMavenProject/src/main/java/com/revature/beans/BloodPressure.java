@@ -1,24 +1,18 @@
 package com.revature.beans;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "BloodPressure")
 public class BloodPressure {
 	@Id
-	@Column(name = "doctor_id")
-	@SequenceGenerator(sequenceName = "doctor_seq", name = "doctor_seq")
-	@GeneratedValue(generator = "doctor_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(sequenceName = "bloodPressure_seq", name = "bloodPressure_seq")
+	@GeneratedValue(generator = "bloodPressure_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name = "bloodPressure_systolic_top")
 	private Integer systolic_top;
-	@Column(name = "bloodPressure_diastolic_bottom")
 	private Integer diastolic_bottom;
 
 	public BloodPressure() {

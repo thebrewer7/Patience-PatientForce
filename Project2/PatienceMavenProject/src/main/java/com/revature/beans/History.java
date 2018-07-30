@@ -5,40 +5,43 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
+import com.revature.beans.history.Diagnosis;
+import com.revature.beans.history.Medication;
+import com.revature.beans.history.Treatment;
 
 @Entity
-@Table(name = "History")
 public class History {
 	@Id
-	@Column(name = "history_id")
 	@SequenceGenerator(sequenceName = "history_seq", name = "history_seq")
 	@GeneratedValue(generator = "history_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name = "history_age")
+
 	private Integer age;
-	@Column(name = "history_weight")
 	private Integer weight;
-	@Column(name = "history_height")
 	private Integer height;
-	@OneToOne(fetch = FetchType.LAZY)
+	private String bloodPressureCondition;
+	
+	@OneToOne(mappedBy="History")
 	@JoinColumn(name = "history_id")
 	private BloodPressure bloodPressure;
-	@Column(name = "history_bloodPressureCondition")
-	private String bloodPressureCondition;
-	@Column(name = "history_treatments")
-	private List<String> treatments;
-	@Column(name = "history_diagnoses")
-	private List<String> diagnoses;
-	@Column(name = "history_medication")
-	private List<String> medication;
+
+	@OneToMany(mappedBy="History")
+	@JoinColumn(name="treatment_id")
+	private Treatment treatments;
+	@OneToMany(mappedBy="History")
+	@JoinColumn(name="diagnosis_id")
+	private Diagnosis diagnoses;
+	@OneToMany(mappedBy="History")
+	@JoinColumn(name="diagnosis_id")
+	private Medication medication;
 	@Column(name = "history_vaccinations")
 	private List<String> vaccinations;
 
