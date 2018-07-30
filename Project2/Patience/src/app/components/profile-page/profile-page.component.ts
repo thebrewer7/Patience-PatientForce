@@ -1,20 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {Review } from '../../objects/review';
+import { Review } from '../../objects/review';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+  reviews: Review[] = [
+    {
+      id: 1,
+      rating: 3,
+      comment: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
+    },
+    {
+      id: 2,
+      rating: 4,
+      comment: 'dsfsdfsdf fdsdfsdf'
+    }
+  ];
 
-  reviews: Review[] = [{id: 1, rating: 3, comment: 'dsfsdfsdf fdsdfsdf'}];
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  ratingToStars(rating: number) {
+  public ratingToStars(rating: number) {
     let stars = '';
     for (let i = 0; i < 5; ++i) {
       if (i < rating) {
@@ -25,6 +34,4 @@ export class ProfilePageComponent implements OnInit {
     }
     return stars;
   }
-
-
 }
