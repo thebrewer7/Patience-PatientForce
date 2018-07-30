@@ -8,8 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import com.revature.beans.interfaces.Role;
-
 @Entity
 public class Admin {
 	@Id

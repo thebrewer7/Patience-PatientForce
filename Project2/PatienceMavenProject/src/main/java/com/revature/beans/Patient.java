@@ -15,7 +15,6 @@ import javax.persistence.SequenceGenerator;
 
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.history.History;
-import com.revature.beans.interfaces.Role;
 import com.revature.beans.nurse.Nurse;
 import com.revature.enums.ConditionTypes;
 
@@ -81,7 +80,6 @@ public class Patient {
 		this.preferredDoctorName = preferredDoctorName;
 	}
 
-	@Override
 	public Integer getId() {
 		return id;
 	}
@@ -102,7 +100,6 @@ public class Patient {
 		this.condition = condition;
 	}
 
-	@Override
 	public String getName() {
 		return name;
 	}
