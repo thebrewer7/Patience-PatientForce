@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { PathLocationStrategy, LocationStrategy } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -73,7 +73,7 @@ import { ConnectorService } from './services/connector/connector.service';
     DoctorService,
     ConnectorService,
     { provide: APP_BASE_HREF, useValue: '/Patience/' },
-    { provide: LocationStrategy, useClass: PathLocationStrategy }  
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
