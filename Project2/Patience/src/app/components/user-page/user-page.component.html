@@ -6,21 +6,26 @@
         <thead>
           <tr>
             <th>PatientLocation</th>
-            <td>Room 1231</td>
+            <td id="patientlocation">Room 1231</td>
           </tr>
           <tr>
             <th>PatientStatus</th>
-            <td>Operating Room</td>
+            <td id="patientstatus">Operating Room</td>
           </tr>
         </thead>
         <tbody>
             <tr routerLink="/profile">
                 <th>PatientName</th>
-                <td>Logan Brewer</td>
+                <td id="patientname">Logan Brewer</td>
               </tr>
         </tbody>
 
       </table>
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" (click)="fetchUserPatientsByUserName('logan', '3rd floor', 'moving to ER')">
+        <i class="fa fa-search"></i>
+        Update Patient
+      </button>
+
       <hr class="d-sm-none">
     </div>
     <div class="col-sm-4">

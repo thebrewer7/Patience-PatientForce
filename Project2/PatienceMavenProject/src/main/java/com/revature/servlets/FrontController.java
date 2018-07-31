@@ -25,9 +25,9 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("====" + this.getServletName() + "====");
+		//System.out.println("====" + this.getServletName() + "====");
 		String url = request.getRequestURI(); //Stores the url in a string (minues the http jargon)
-		System.out.println(url);			  //localhost:8085/something.do
+		//System.out.println(url);			  //localhost:8085/something.do
 		
 		RequestDispatcher rd;
 		
@@ -40,6 +40,10 @@ public class FrontController extends HttpServlet {
 		switch(action){
 		case "searchresults":
 			rd = request.getRequestDispatcher("SearchResultsServlet");
+			rd.forward(request, response);
+			break;
+		case "getuserspatients":
+			rd = request.getRequestDispatcher("getUsersPatientsServlet");
 			rd.forward(request, response);
 			break;
 		default:

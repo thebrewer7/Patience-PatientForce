@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Patient } from '../../objects/patient';
 
 @Injectable({
@@ -9,8 +9,13 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getPatients(username: string) {
-    console.log('UserService: getPatients()');
-    return this.http.post<Patient[]>('http://localhost:8085/PatienceMavenProject/getUsersPatients.do', {username: username});
+  getPatients(patientname: string, patientstatus: string, patientlocation: string) {
+
+    const params = new HttpParams()
+      .set('patientname', patientname,)
+      .set('patientstatus', patientstatus)
+      .set('patientlocation', patientlocation);
+
+    return this.http.post('http://localhost:8085/PatienceMavenProject/getUsersPatients.do', params);
   }
 }
