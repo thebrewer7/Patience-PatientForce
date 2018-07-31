@@ -13,6 +13,13 @@
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>8.5.32</version>
+		</dependency>
+
 		<dependency>
 			<artifactId>ojdbc7</artifactId>
 			<groupId>com.oracle</groupId>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class LoginService {
   constructor(private http: HttpClient) {}
   login(username: string, password: string) {
     console.log('LoginService: login()');
-    return this.http.post<any>('http://localhost:8085/PatienceMavenProject/login.do', {username: username, password: password});
+    const params = new HttpParams().set('username', username).set('password', password);
+    return this.http.post<any>('http://localhost:8085/PatienceMavenProject/login.do', params);
   }
 
   logout() {
