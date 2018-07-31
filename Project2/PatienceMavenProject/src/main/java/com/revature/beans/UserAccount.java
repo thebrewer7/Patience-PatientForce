@@ -8,17 +8,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class User {
+public class UserAccount {
 	@Id
 	@SequenceGenerator(sequenceName = "review_seq", name = "review_seq")
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	
-	@ManyToMany(mappedBy="User")
+	@ManyToMany
+	@JoinTable
 	private List<Patient> patients;
 
 	private String name;
@@ -26,17 +28,17 @@ public class User {
 	private Blob profilePicture;
 	private Date lastLogin;
 	
-	public User() {
+	public UserAccount() {
 		super();
 	}
 
-	public User(String name, Date lastLogin) {
+	public UserAccount(String name, Date lastLogin) {
 		this.name = name;
 		this.role = "user";
 		this.lastLogin = lastLogin;
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin, List<Patient> patients) {
+	public UserAccount(Integer id, String name, String role, Date lastLogin, List<Patient> patients) {
 		this.id = id;
 		this.name = name;
 		this.role = role;
@@ -44,7 +46,7 @@ public class User {
 		this.patients = patients;
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Blob profilePicture) {
+	public UserAccount(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Blob profilePicture) {
 		super();
 		this.id = id;
 		this.name = name;

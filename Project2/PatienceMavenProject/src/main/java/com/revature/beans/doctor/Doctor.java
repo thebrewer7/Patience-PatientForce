@@ -30,13 +30,14 @@ public class Doctor {
 	private List<DocDegree> degrees;
 	@OneToMany
 	private List<DocExperience> experience;
+	@OneToMany
+	private List<Review> reviews;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "patient_2_doctor", joinColumns = @JoinColumn(name = "doctor_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
 	private List<Patient> patients;
 
 	private Integer rating;
-	private Review reviews;
 	private String name;
 	private final String ROLE = "doctor";
 	private String department;
@@ -47,7 +48,7 @@ public class Doctor {
 	}
 
 	public Doctor(String name, List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience,
-			Integer rating, Review reviews, String department, List<Patient> patients) {
+			Integer rating, List<Review> reviews, String department, List<Patient> patients) {
 		super();
 		this.name = name;
 		this.certifications = certifications;
@@ -60,7 +61,7 @@ public class Doctor {
 	}
 
 	public Doctor(List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience,
-			List<Patient> patients, Integer rating, Review reviews, String name, String department,
+			List<Patient> patients, Integer rating, List<Review> reviews, String name, String department,
 			Blob profilePicture) {
 		super();
 		this.certifications = certifications;
@@ -130,11 +131,11 @@ public class Doctor {
 		this.rating = rating;
 	}
 
-	public Review getReviews() {
+	public List<Review> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(Review reviews) {
+	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
 

@@ -19,7 +19,7 @@ public class History {
 	@GeneratedValue(generator = "history_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToOne(mappedBy = "History")
+	@OneToOne
 	private BloodPressure bloodPressure;
 
 	@OneToMany

@@ -24,7 +24,7 @@ public class Patient {
 	private Integer id;
 
 	@ManyToMany
-	private List<User> users;
+	private List<UserAccount> users;
 	@ManyToMany
 	private List<Nurse> nurses;
 	@ManyToMany
@@ -46,7 +46,7 @@ public class Patient {
 	}
 
 	public Patient(String name, String location, String status, String preferredDoctorName, ConditionTypes condition,
-			List<Nurse> nurses, List<Doctor> doctors, List<User> users, List<History> history) {
+			List<Nurse> nurses, List<Doctor> doctors, List<UserAccount> users, List<History> history) {
 		super();
 		this.name = name;
 		this.location = location;
@@ -59,7 +59,7 @@ public class Patient {
 		this.history = history;
 	}
 
-	public Patient(List<User> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history, String name,
+	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history, String name,
 			String location, String status, String condition, Blob profilePicture, String preferredDoctorName) {
 		super();
 		this.users = users;
@@ -138,11 +138,11 @@ public class Patient {
 		this.doctors = doctors;
 	}
 
-	public List<User> getUsers() {
+	public List<UserAccount> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<UserAccount> users) {
 		this.users = users;
 	}
 
