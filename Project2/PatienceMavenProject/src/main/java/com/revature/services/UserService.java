@@ -31,6 +31,11 @@ public class UserService {
 
 		return new User();
 	}
+	
+	public static User getUserByFullName(String name) {
+		
+		return new User(name);
+	}
 
 	public List<User> getUsersByName(String name) {
 		List<GenericBean> beans = getBeans();

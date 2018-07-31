@@ -4,10 +4,10 @@
   </div>
   
   <div class="nav-item input-group searchbar mx-auto">
-    <input (click)=fetchSearchFill() type="text" class="form-control" placeholder="Search" aria-label="Search" dropdownToggle>
+    <input ngModel name="searchArea" #searchArea="ngModel" (click)=fetchSearchFill() type="text" class="form-control" placeholder="Search" aria-label="Search" dropdownToggle>
     <span class="input-group-btn">
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" 
-      (click)=fetchSearchUserById(1)>
+      (click)="fetchSearchUserById(searchArea)">
           <i class="fa fa-search"></i>
       </button>
       <div id="dropdown-alignment" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" role="menu" aria-labelledby="buttom-alignment">

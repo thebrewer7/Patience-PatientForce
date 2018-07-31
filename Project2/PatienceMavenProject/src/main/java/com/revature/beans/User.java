@@ -17,9 +17,8 @@ public class User implements Role {
 		super();
 	}
 	
-	public User(Integer id, String name) {
+	public User(String name) {
 		super();
-		this.id = id;
 		this.name = name;
 	}
 

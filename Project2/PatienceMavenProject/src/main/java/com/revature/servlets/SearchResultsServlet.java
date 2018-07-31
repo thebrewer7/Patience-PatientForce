@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.revature.beans.User;
 import com.revature.services.ObjectToJSONService;
+import com.revature.services.UserService;
 
 /**
  * Servlet implementation class SearchResultsServlet
@@ -31,11 +32,15 @@ public class SearchResultsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("===="+this.getServletName()+"====");
 		
-		int id = Integer.parseInt(request.getParameter("id"));
+		String name = request.getParameter("name");
 		
-		response.setContentType("text");
+		User user = UserService.getUserByFullName(name.toLowerCase());
+		
+		System.out.println("returning user:" + name);
+		
+		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.UserToJSONById(new User(id, "test")));// TODO 
+		out.println(ObjectToJSONService.UserToJSONById(user));// TODO grab user using user dao
 	}
 
 	/**
