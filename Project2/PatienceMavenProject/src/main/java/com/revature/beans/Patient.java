@@ -57,6 +57,14 @@ public class Patient implements Role{
 	public Patient() {
 		super();
 	}
+	
+	public Patient(String name, String location, String status)
+	{
+		super();
+		this.name = name;
+		this.location = location;
+		this.status = status;
+	}
 
 	public Patient(Integer id, String name, String role, String location, String status, String preferredDoctorName,
 			List<Nurse> nurses, List<Doctor> doctors, List<User> users, List<History> history) {
