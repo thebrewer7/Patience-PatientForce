@@ -34,6 +34,7 @@
 		<mapping class="com.revature.beans.Patient" />
 		<mapping class="com.revature.beans.Review" />
 		<mapping class="com.revature.beans.User" />
+		<mapping class="com.revature.beans.UserPass" />
 		<mapping class="com.revature.beans.doctor.DocCerts" />
 		<mapping class="com.revature.beans.doctor.DocDegree" />
 		<mapping class="com.revature.beans.doctor.DocExperience" />

@@ -4,11 +4,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.revature.util.HibernateUtil;
+
+@NamedQueries(value = { @NamedQuery(name="accountFromUserPass", query="FROM :tName WHERE :cr1 = :v1 AND :cr2 = v2"),
+					  	@NamedQuery(name="where", query="FROM :tName WHERE :cr1 = :v1")
+					  })
 
 public  class GenericDaoImpl<T>{
 	private List<T> returnableItems = null; //At this point, we have a transient state.
@@ -40,13 +48,33 @@ public  class GenericDaoImpl<T>{
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get(String columnName, String value) {
+		Query q = HibernateUtil.getSession().getNamedQuery("where");
+		q.setParameter("cr1", columnName);
+		q.setParameter("v1", value);
 		boolean success =
-		doTransaction((item, s) -> returnableItems = (List<T>) s.createQuery(
-				"FROM" + tClass + "WHERE " + tClass + "_" + columnName + " = " + value).list(), 
-				Arrays.asList(t)
-				);
+		doTransaction((item, s) -> returnableItems = 
+			(List<T>) s.getNamedQuery("where")
+				.setParameter("cr1", columnName)
+				.setParameter("v1", value).list(), 
+			Arrays.asList(t)
+		);
+		
 		System.out.println("Get w/ Column Name and Value: " + success);
 		return returnableItems;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <R> R getAccountFromType(String type, Integer id, R role) {
+		doTransaction((item, s) -> returnableItem = 
+				s.getNamedQuery("accountFromUserPass")
+					.setParameter("cr1", "type")
+					.setParameter("v1", type)
+					.setParameter("cr2", "id")
+					.setParameter("v2", id)
+					.uniqueResult(), 
+				Arrays.asList(t)
+		);
+		return (R) returnableItem; 	
 	}
 	
 	/**
@@ -58,13 +86,12 @@ public  class GenericDaoImpl<T>{
 	public T get(Integer id) {
 		boolean success =
 		doTransaction((item, s) -> returnableItem = s.createQuery(
-				"FROM" + tClass + "WHERE " + tClass + "_id = " + id.toString()).uniqueResult(), 
+				"FROM " + tClass + " WHERE id = " + id.toString()).uniqueResult(), 
 				Arrays.asList(t)
 				);
 		System.out.println("Get w/ Integer: " + success);
 		return (T)returnableItem;
 	}
-	
 	/**
 	 * Save or update persistent or detached entities.
 	 * @param input
