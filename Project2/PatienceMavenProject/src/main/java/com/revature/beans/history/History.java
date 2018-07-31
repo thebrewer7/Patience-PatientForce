@@ -1,65 +1,54 @@
-package com.revature.beans;
+package com.revature.beans.history;
 
-import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
+import com.revature.enums.BpCategories;
 
 @Entity
-@Table(name = "History")
 public class History {
 	@Id
-	@Column(name = "history_id")
 	@SequenceGenerator(sequenceName = "history_seq", name = "history_seq")
 	@GeneratedValue(generator = "history_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name = "history_age")
-	private Integer age;
-	@Column(name = "history_weight")
-	private Integer weight;
-	@Column(name = "history_height")
-	private Integer height;
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "history_id")
-	private BloodPressure bloodPressure;
-	@Column(name = "history_bloodPressureCondition")
-	private String bloodPressureCondition;
-	@Column(name = "history_treatments")
-	private List<String> treatments;
-	@Column(name = "history_diagnoses")
-	private List<String> diagnoses;
-	@Column(name = "history_medication")
-	private List<String> medication;
-	@Column(name = "history_vaccinations")
-	private List<String> vaccinations;
 
-	public static final List<String> bpCategories = Arrays.asList("Normal", "Elevated",
-			"High Blood Pressure (HyperTension) Stage 1", "High Blood Pressure (Hypertension) Stage 2",
-			"Hypertensive Crisis");
+	@OneToOne
+	private BloodPressure bloodPressure;
+
+	@OneToMany
+	private List<Treatment> treatments;
+	@OneToMany
+	private List<Diagnosis> diagnoses;
+	@OneToMany
+	private List<Medication> medication;
+	@OneToMany
+	private List<Vaccination> vaccinations;
+
+	private Integer age;
+	private Integer weight;
+	private Integer height;
+	private String bpCondition;
 
 	public History() {
 		super();
 	}
 
-	public History(Integer id, Integer age, Integer weight, Integer height, BloodPressure bloodPressure,
-			String bloodPressureCondition, List<String> treatments, List<String> diagnoses, List<String> medication,
-			List<String> vaccinations) {
+	public History(Integer age, Integer weight, Integer height, BloodPressure bloodPressure, BpCategories bpCondition,
+			List<Treatment> treatments, List<Diagnosis> diagnoses, List<Medication> medication,
+			List<Vaccination> vaccinations) {
 		super();
-		this.id = id;
 		this.age = age;
 		this.weight = weight;
 		this.height = height;
 		this.bloodPressure = bloodPressure;
-		this.bloodPressureCondition = bloodPressureCondition;
+		this.bpCondition = bpCondition.toString();
 		this.treatments = treatments;
 		this.diagnoses = diagnoses;
 		this.medication = medication;
@@ -107,51 +96,50 @@ public class History {
 	}
 
 	public String getBloodPressureCondition() {
-		return bloodPressureCondition;
+		return bpCondition;
 	}
 
 	public void setBloodPressureCondition(String bloodPressureCondition) {
-		this.bloodPressureCondition = bloodPressureCondition;
+		this.bpCondition = bloodPressureCondition;
 	}
 
-	public List<String> getTreatments() {
+	public List<Treatment> getTreatments() {
 		return treatments;
 	}
 
-	public void setTreatments(List<String> treatments) {
+	public void setTreatments(List<Treatment> treatments) {
 		this.treatments = treatments;
 	}
 
-	public List<String> getDiagnoses() {
+	public List<Diagnosis> getDiagnoses() {
 		return diagnoses;
 	}
 
-	public void setDiagnoses(List<String> diagnoses) {
+	public void setDiagnoses(List<Diagnosis> diagnoses) {
 		this.diagnoses = diagnoses;
 	}
 
-	public List<String> getMedication() {
+	public List<Medication> getMedication() {
 		return medication;
 	}
 
-	public void setMedication(List<String> medication) {
+	public void setMedication(List<Medication> medication) {
 		this.medication = medication;
 	}
 
-	public List<String> getVaccinations() {
+	public List<Vaccination> getVaccinations() {
 		return vaccinations;
 	}
 
-	public void setVaccinations(List<String> vaccinations) {
+	public void setVaccinations(List<Vaccination> vaccinations) {
 		this.vaccinations = vaccinations;
 	}
 
 	@Override
 	public String toString() {
 		return "History [id=" + id + ", age=" + age + ", weight=" + weight + ", height=" + height + ", bloodPressure="
-				+ bloodPressure + ", bloodPressureCondition=" + bloodPressureCondition + ", treatments=" + treatments
+				+ bloodPressure + ", bloodPressureCondition=" + bpCondition + ", treatments=" + treatments
 				+ ", diagnoses=" + diagnoses + ", medication=" + medication + ", vaccinations=" + vaccinations + "]";
 	}
 
-	
 }

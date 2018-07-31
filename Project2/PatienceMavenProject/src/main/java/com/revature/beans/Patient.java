@@ -1,58 +1,45 @@
 package com.revature.beans;
 
+import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
-import com.revature.beans.interfaces.Role;
+import com.revature.beans.doctor.Doctor;
+import com.revature.beans.history.History;
+import com.revature.beans.nurse.Nurse;
+import com.revature.enums.ConditionTypes;
 
 @Entity
-@Table(name = "Patient")
-public class Patient implements Role{
+public class Patient {
 	@Id
-	@Column(name = "patient_id")
 	@SequenceGenerator(sequenceName = "patient_seq", name = "patient_seq")
 	@GeneratedValue(generator = "patient_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name = "patient_name")
-	private String name;
-	@Column(name = "patient_role")
-	private String role;
-	@Column(name = "patient_location")
-	private String location;
-	@Column(name = "patient_status")
-	private String status;
-	@Column(name = "patient_condition")
-	private String condition;
-	public static String[] conditionTypes = 
-		{"Undetermined", "Good", "Fair", "Serious", "Critical", "Deceased"};
-	@Column(name = "patient_prefferedDoctor")
-	private String preferredDoctorName;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_2_patient", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-	private List<User> users;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "patient_2_nurse", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "nurse_id"))
+
+	@ManyToMany
+	private List<UserAccount> users;
+	@ManyToMany
 	private List<Nurse> nurses;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "patient_2_doctor", joinColumns = @JoinColumn(name = "patient_id"), inverseJoinColumns = @JoinColumn(name = "doctor_id"))
+	@ManyToMany
 	private List<Doctor> doctors;
 
 	@OneToMany
-	@JoinColumn(name = "patient_id")
 	private List<History> history;
+
+	private String name;
+	private String location;
+	private String status;
+	private String condition;
+	private Blob profilePicture;
+	private String preferredDoctorName;
+	private final String ROLE = "patient";
 
 	public Patient() {
 		super();
@@ -75,14 +62,13 @@ public class Patient implements Role{
 		this.status = status;
 	}
 
-	public Patient(Integer id, String name, String role, String location, String status, String preferredDoctorName,
-			List<Nurse> nurses, List<Doctor> doctors, List<User> users, List<History> history) {
+	public Patient(String name, String location, String status, String preferredDoctorName, ConditionTypes condition,
+			List<Nurse> nurses, List<Doctor> doctors, List<UserAccount> users, List<History> history) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.role = role;
 		this.location = location;
 		this.status = status;
+		this.condition = condition.toString();
 		this.preferredDoctorName = preferredDoctorName;
 		this.nurses = nurses;
 		this.doctors = doctors;
@@ -90,24 +76,41 @@ public class Patient implements Role{
 		this.history = history;
 	}
 
-	@Override
-	public Integer getId() {
-		return id;
+	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history, String name,
+			String location, String status, String condition, Blob profilePicture, String preferredDoctorName) {
+		super();
+		this.users = users;
+		this.nurses = nurses;
+		this.doctors = doctors;
+		this.history = history;
+		this.name = name;
+		this.location = location;
+		this.status = status;
+		this.condition = condition;
+		this.profilePicture = profilePicture;
+		this.preferredDoctorName = preferredDoctorName;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Integer getId() {
+		return id;
 	}
 
 	public String getCondition() {
 		return condition;
 	}
 
+	public Blob getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Blob profilePicture) {
+		this.profilePicture = profilePicture;
+	}
+
 	public void setCondition(String condition) {
 		this.condition = condition;
 	}
 
-	@Override
 	public String getName() {
 		return name;
 	}
@@ -117,11 +120,7 @@ public class Patient implements Role{
 	}
 
 	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		return ROLE;
 	}
 
 	public String getLocation() {
@@ -156,11 +155,11 @@ public class Patient implements Role{
 		this.doctors = doctors;
 	}
 
-	public List<User> getUsers() {
+	public List<UserAccount> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<User> users) {
+	public void setUsers(List<UserAccount> users) {
 		this.users = users;
 	}
 
@@ -182,7 +181,7 @@ public class Patient implements Role{
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", role=" + role + ", location=" + location + ", status="
+		return "Patient [id=" + id + ", name=" + name + ", role=" + ROLE + ", location=" + location + ", status="
 				+ status + ", preferredDoctorName=" + preferredDoctorName + ", nurses=" + nurses + ", doctors="
 				+ doctors + ", users=" + users + ", history=" + history + "]";
 	}

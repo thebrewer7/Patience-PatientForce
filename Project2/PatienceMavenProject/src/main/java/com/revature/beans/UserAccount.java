@@ -1,35 +1,49 @@
 package com.revature.beans;
 
+import java.sql.Blob;
 import java.sql.Date;
 import java.util.List;
 
-import com.revature.beans.interfaces.Role;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 
-public class User implements Role {
+@Entity
+public class UserAccount {
+	@Id
+	@SequenceGenerator(sequenceName = "review_seq", name = "review_seq")
+	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	private String name;
-	private String role;
-	private Byte[] profilePicture;
-	private Date lastLogin;
+	
+	@ManyToMany
+	@JoinTable
 	private List<Patient> patients;
 
-	public User() {
+	private String name;
+	private String role;
+	private Blob profilePicture;
+	private Date lastLogin;
+	
+	public UserAccount() {
 		super();
 	}
 	
-	public User(String name) {
+	public UserAccount(String name) {
 		super();
 		this.name = name;
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin) {
-		this.id = id;
+	public UserAccount(String name, Date lastLogin) {
 		this.name = name;
-		this.role = role;
+		this.role = "user";
 		this.lastLogin = lastLogin;
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin, List<Patient> patients) {
+	public UserAccount(Integer id, String name, String role, Date lastLogin, List<Patient> patients) {
 		this.id = id;
 		this.name = name;
 		this.role = role;
@@ -37,7 +51,7 @@ public class User implements Role {
 		this.patients = patients;
 	}
 
-	public User(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Byte[] profilePicture) {
+	public UserAccount(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Blob profilePicture) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -71,11 +85,11 @@ public class User implements Role {
 		this.role = role;
 	}
 
-	public Byte[] getProfilePicture() {
+	public Blob getProfilePicture() {
 		return profilePicture;
 	}
 
-	public void setProfilePicture(Byte[] profilePicture) {
+	public void setProfilePicture(Blob profilePicture) {
 		this.profilePicture = profilePicture;
 	}
 

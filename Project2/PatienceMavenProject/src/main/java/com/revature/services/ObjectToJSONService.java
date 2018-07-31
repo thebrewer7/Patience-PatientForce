@@ -3,10 +3,10 @@ package com.revature.services;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.beans.Patient;
-import com.revature.beans.User;
+import com.revature.beans.UserAccount;
 
 public class ObjectToJSONService {
-	public static String UserToJSONById(User user) {
+	public static String UserToJSONById(UserAccount user) {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = "";
 		
