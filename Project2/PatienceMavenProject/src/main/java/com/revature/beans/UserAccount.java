@@ -32,7 +32,7 @@ public class UserAccount {
 		super();
 	}
 	
-	public User(String name) {
+	public UserAccount(String name) {
 		super();
 		this.name = name;
 	}
