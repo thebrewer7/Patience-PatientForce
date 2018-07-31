@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -15,6 +16,9 @@ public class Admin {
 	@GeneratedValue(generator = "admin_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
+	@OneToOne
+	private UserPass userPass;
+
 	private String name;
 	private Blob profilePicture;
 	private final String ROLE = "admin";
@@ -23,12 +27,21 @@ public class Admin {
 		super();
 	}
 
-	public Admin(String name) {
+	public Admin(String name, UserPass userPass) {
 		this.name = name;
+		this.userPass = userPass;
 	}
 
 	public Integer getId() {
 		return id;
+	}
+
+	public UserPass getUserPass() {
+		return userPass;
+	}
+
+	public void setUserPass(UserPass userPass) {
+		this.userPass = userPass;
 	}
 
 	public Blob getProfilePicture() {

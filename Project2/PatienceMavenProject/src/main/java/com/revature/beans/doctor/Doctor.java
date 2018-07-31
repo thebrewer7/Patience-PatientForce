@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -29,7 +28,7 @@ public class Doctor {
 	private DocBackground background;
 	@OneToMany
 	private List<Review> reviews;
-	@ManyToOne
+	@OneToOne
 	private UserPass userPass;
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Patient> patients;

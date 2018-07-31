@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.revature.beans.doctor.Doctor;
@@ -32,6 +33,8 @@ public class Patient {
 
 	@OneToMany
 	private List<History> history;
+	@OneToOne
+	private UserPass userPass;
 
 	private String name;
 	private String location;
@@ -44,36 +47,56 @@ public class Patient {
 	public Patient() {
 		super();
 	}
-	
-	public Patient(String name, String location, String status)
-	{
-		super();
-		this.name = name;
-		this.location = location;
-		this.status = status;
-	}
 
-	public Patient(String name, String location, String status, String preferredDoctorName, ConditionTypes condition,
-			List<Nurse> nurses, List<Doctor> doctors, List<UserAccount> users, List<History> history) {
+	public Patient(UserPass userPass, String name, String location, String status, ConditionTypes condition) {
 		super();
+		this.userPass = userPass;
 		this.name = name;
 		this.location = location;
 		this.status = status;
 		this.condition = condition.toString();
-		this.preferredDoctorName = preferredDoctorName;
-		this.nurses = nurses;
-		this.doctors = doctors;
-		this.users = users;
-		this.history = history;
 	}
 
-	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history, String name,
-			String location, String status, String condition, Blob profilePicture, String preferredDoctorName) {
+	public Patient(Integer id, List<Nurse> nurses, List<Doctor> doctors, List<History> history, UserPass userPass,
+			String name, String location, String status, String condition, String preferredDoctorName) {
+		super();
+		this.id = id;
+		this.nurses = nurses;
+		this.doctors = doctors;
+		this.history = history;
+		this.userPass = userPass;
+		this.name = name;
+		this.location = location;
+		this.status = status;
+		this.condition = condition;
+		this.preferredDoctorName = preferredDoctorName;
+	}
+
+	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history,
+			UserPass userPass, String name, String location, String status, String condition,
+			String preferredDoctorName) {
 		super();
 		this.users = users;
 		this.nurses = nurses;
 		this.doctors = doctors;
 		this.history = history;
+		this.userPass = userPass;
+		this.name = name;
+		this.location = location;
+		this.status = status;
+		this.condition = condition;
+		this.preferredDoctorName = preferredDoctorName;
+	}
+
+	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history,
+			UserPass userPass, String name, String location, String status, String condition, Blob profilePicture,
+			String preferredDoctorName) {
+		super();
+		this.users = users;
+		this.nurses = nurses;
+		this.doctors = doctors;
+		this.history = history;
+		this.userPass = userPass;
 		this.name = name;
 		this.location = location;
 		this.status = status;
@@ -84,6 +107,14 @@ public class Patient {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public UserPass getUserPass() {
+		return userPass;
+	}
+
+	public void setUserPass(UserPass userPass) {
+		this.userPass = userPass;
 	}
 
 	public String getCondition() {
