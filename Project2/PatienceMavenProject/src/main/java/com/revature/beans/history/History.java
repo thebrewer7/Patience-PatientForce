@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -21,20 +20,15 @@ public class History {
 	private Integer id;
 
 	@OneToOne(mappedBy = "History")
-	@JoinColumn(name = "history_id")
 	private BloodPressure bloodPressure;
 
-	@OneToMany(mappedBy = "History")
-	@JoinColumn(name = "treatment_id")
+	@OneToMany
 	private List<Treatment> treatments;
-	@OneToMany(mappedBy = "History")
-	@JoinColumn(name = "diagnosis_id")
+	@OneToMany
 	private List<Diagnosis> diagnoses;
-	@OneToMany(mappedBy = "History")
-	@JoinColumn(name = "diagnosis_id")
+	@OneToMany
 	private List<Medication> medication;
-	@OneToMany(mappedBy = "History")
-	@JoinColumn(name = "diagnosis_id")
+	@OneToMany
 	private List<Vaccination> vaccinations;
 
 	private Integer age;

@@ -45,5 +45,7 @@
 		<mapping class="com.revature.beans.history.Medication" />
 		<mapping class="com.revature.beans.history.Treatment" />
 		<mapping class="com.revature.beans.history.Vaccination" />
+		<mapping class="com.revature.beans.nurse.Nurse" />
+		<mapping class="com.revature.beans.nurse.NurseCerts" />
 	</session-factory>
 </hibernate-configuration>

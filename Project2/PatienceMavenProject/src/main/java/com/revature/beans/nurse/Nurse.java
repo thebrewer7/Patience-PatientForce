@@ -24,10 +24,9 @@ public class Nurse {
 	@GeneratedValue(generator = "nurse_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany(mappedBy = "Nurse")
+	@OneToMany
 	private List<NurseCerts> certifications;
 	@OneToMany
-	@JoinColumn(name = "nurse_review_id")
 	private List<Review> reviews;
 
 	@ManyToMany(fetch = FetchType.EAGER)

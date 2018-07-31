@@ -24,14 +24,11 @@ public class Doctor {
 	@GeneratedValue(generator = "doctor_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany(mappedBy = "Doctor")
-	@JoinColumn(name = "cert_id")
+	@OneToMany
 	private List<DocCerts> certifications;
-	@OneToMany(mappedBy = "Doctor")
-	@JoinColumn(name = "cert_id")
+	@OneToMany
 	private List<DocDegree> degrees;
-	@OneToMany(mappedBy = "Doctor")
-	@JoinColumn(name = "cert_id")
+	@OneToMany
 	private List<DocExperience> experience;
 
 	@ManyToMany(fetch = FetchType.EAGER)

@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -20,7 +19,6 @@ public class User {
 	private Integer id;
 	
 	@ManyToMany(mappedBy="User")
-	@JoinTable
 	private List<Patient> patients;
 
 	private String name;

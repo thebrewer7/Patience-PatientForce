@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -25,18 +23,14 @@ public class Patient {
 	@GeneratedValue(generator = "patient_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@ManyToMany(mappedBy = "Patient")
-	@JoinTable
+	@ManyToMany
 	private List<User> users;
-	@ManyToMany(mappedBy = "Patient")
-	@JoinTable
+	@ManyToMany
 	private List<Nurse> nurses;
-	@ManyToMany(mappedBy = "Patient")
-	@JoinTable
+	@ManyToMany
 	private List<Doctor> doctors;
 
-	@OneToMany(mappedBy = "Patient")
-	@JoinColumn(name = "history_id")
+	@OneToMany
 	private List<History> history;
 
 	private String name;

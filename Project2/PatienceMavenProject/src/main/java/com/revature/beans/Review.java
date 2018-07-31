@@ -1,11 +1,10 @@
 package com.revature.beans;
 
+import javax.management.relation.Role;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -15,10 +14,7 @@ public class Review {
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	
-	@ManyToOne
-	@JoinColumn(name="role_id")
 	private String role;
-
 	private Integer rating;
 	private String review;
 	
@@ -26,10 +22,10 @@ public class Review {
 		super();
 	}
 
-	public Review(Integer rating, String role, String review) {
+	public Review(Integer rating, Role role, String review) {
 		super();
 		this.rating = rating;
-		this.role = role;
+		this.role = role.toString();
 		this.review = review;
 	}
 
