@@ -46,4 +46,14 @@
     <servlet-name>SearchResultsServlet</servlet-name>
     <url-pattern>/SearchResultsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>getUsersPatientsServlet</display-name>
+    <servlet-name>getUsersPatientsServlet</servlet-name>
+    <servlet-class>com.revature.servlets.getUsersPatientsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getUsersPatientsServlet</servlet-name>
+    <url-pattern>/getUsersPatientsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

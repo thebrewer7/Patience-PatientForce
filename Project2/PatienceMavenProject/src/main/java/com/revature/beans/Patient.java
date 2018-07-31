@@ -44,6 +44,14 @@ public class Patient {
 	public Patient() {
 		super();
 	}
+	
+	public Patient(String name, String location, String status)
+	{
+		super();
+		this.name = name;
+		this.location = location;
+		this.status = status;
+	}
 
 	public Patient(String name, String location, String status, String preferredDoctorName, ConditionTypes condition,
 			List<Nurse> nurses, List<Doctor> doctors, List<UserAccount> users, List<History> history) {

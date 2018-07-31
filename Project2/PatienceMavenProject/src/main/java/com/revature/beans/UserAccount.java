@@ -31,6 +31,11 @@ public class UserAccount {
 	public UserAccount() {
 		super();
 	}
+	
+	public User(String name) {
+		super();
+		this.name = name;
+	}
 
 	public UserAccount(String name, Date lastLogin) {
 		this.name = name;

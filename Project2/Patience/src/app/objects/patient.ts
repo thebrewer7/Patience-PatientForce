@@ -8,6 +8,7 @@ export class Patient {
   role: string;
   location: string;
   status: string;
+  condition: string;
   preferredDoctor: string;
   nurses: Nurse[];
   doctors: Doctor[];

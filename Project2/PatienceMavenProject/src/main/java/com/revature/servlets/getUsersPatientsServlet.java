@@ -2,27 +2,26 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.beans.UserAccount;
+import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.UserService;
 
 /**
- * Servlet implementation class SearchResultsServlet
+ * Servlet implementation class getUsersPatientsServlet
  */
-public class SearchResultsServlet extends HttpServlet {
+public class getUsersPatientsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchResultsServlet() {
+    public getUsersPatientsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,31 +30,28 @@ public class SearchResultsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
-		UserService userService = new UserService();
-		String name = request.getParameter("name");
-		UserAccount user = null;
-		List<UserAccount> receivedUsers = userService.getByName(name.toLowerCase());
 		
-		if(receivedUsers.size() > 1){
-			System.out.println("There is more than one user with the same name!");
-		} else {
-			user = receivedUsers.get(0);
-		}
+		String patientname = request.getParameter("patientname");
 		
-		System.out.println("returning user:" + name);
+		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 6) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
 		
-		response.setContentType("application/json");
+		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.UserToJSONById(user));// TODO grab user using user dao
+		out.println(ObjectToJSONService.PatientToJSONByUsername(new Patient(patientname, saltStr, saltStr)));// TODO 
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("======POST======");
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
