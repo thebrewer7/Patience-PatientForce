@@ -56,4 +56,14 @@
     <servlet-name>getUsersPatientsServlet</servlet-name>
     <url-pattern>/getUsersPatientsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SubmitReviewServlet</display-name>
+    <servlet-name>SubmitReviewServlet</servlet-name>
+    <servlet-class>com.revature.servlets.SubmitReviewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitReviewServlet</servlet-name>
+    <url-pattern>/SubmitReviewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
