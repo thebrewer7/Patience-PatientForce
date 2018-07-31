@@ -14,9 +14,9 @@ export class ConnectorService {
     return this.http.get("http://localhost:8085/PatienceMavenProject/SearchFill.do", { responseType: 'text' });
   }
 
-  getSearchUserById(id) {
+  getSearchUserById(name) {
     var params = new HttpParams();
-    params = params.append("id", id);
+    params = params.append("name", name);
 
     return this.http.get("http://localhost:8085/PatienceMavenProject/SearchResults.do", {params: params});
 

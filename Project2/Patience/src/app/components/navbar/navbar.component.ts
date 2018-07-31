@@ -25,9 +25,9 @@ export class NavbarComponent implements OnInit {
     );
   }
   
-  public fetchSearchUserById(id) {
-    console.log('id: ' + id);
-    this.conn.getSearchUserById(id).subscribe(
+  public fetchSearchUserById(name) {
+    console.log(name.control.value);
+    this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
         console.log(data);
       },

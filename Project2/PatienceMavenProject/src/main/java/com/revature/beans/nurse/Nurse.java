@@ -1,10 +1,8 @@
-package com.revature.beans;
+package com.revature.beans.nurse;
 
+import java.sql.Blob;
 import java.util.List;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,46 +13,40 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+
+import com.revature.beans.Patient;
+import com.revature.beans.Review;
 
 @Entity
-@Table(name = "Nurse")
 public class Nurse {
 	@Id
-	@Column(name = "nurse_id")
 	@SequenceGenerator(sequenceName = "nurse_seq", name = "nurse_seq")
 	@GeneratedValue(generator = "nurse_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name = "nurse_name")
-	private String name;
-	@Column(name = "nurse_role")
-	private String role;
 
-	@ElementCollection
-	@CollectionTable(name="NCerts", joinColumns=@JoinColumn(name="certificate_id"))
-	@Column(name = "nurse_certifications")
-	private List<String> certifications;
-	@Column(name = "nurse_department")
-	private String department;
-	@Column(name = "nurse_rating")
-	private Integer rating;
 	@OneToMany
-	@JoinColumn(name = "nurse_review_id")
+	private List<NurseCerts> certifications;
+	@OneToMany
 	private List<Review> reviews;
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "patient_2_nurse", joinColumns = @JoinColumn(name = "nurse_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
 	private List<Patient> patients;
+
+	private String name;
+	private String department;
+	private Blob profilePicture;
+	private Integer rating;
+	private final String ROLE = "nurse";
 
 	public Nurse() {
 		super();
 	}
 
-	public Nurse(Integer id, String name, String role, List<String> certifications, String department, Integer rating,
-			List<Review> reviews, List<Patient> patients) {
+	public Nurse(String name, List<NurseCerts> certifications, String department, Integer rating, List<Review> reviews,
+			List<Patient> patients) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.role = role;
 		this.certifications = certifications;
 		this.department = department;
 		this.rating = rating;
@@ -62,12 +54,28 @@ public class Nurse {
 		this.patients = patients;
 	}
 
+	public Nurse(List<NurseCerts> certifications, List<Review> reviews, List<Patient> patients, String name,
+			String department, Blob profilePicture, Integer rating) {
+		super();
+		this.certifications = certifications;
+		this.reviews = reviews;
+		this.patients = patients;
+		this.name = name;
+		this.department = department;
+		this.profilePicture = profilePicture;
+		this.rating = rating;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public Blob getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Blob profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	public String getName() {
@@ -79,18 +87,14 @@ public class Nurse {
 	}
 
 	public String getRole() {
-		return role;
+		return ROLE;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public List<String> getCertifications() {
+	public List<NurseCerts> getCertifications() {
 		return certifications;
 	}
 
-	public void setCertifications(List<String> certifications) {
+	public void setCertifications(List<NurseCerts> certifications) {
 		this.certifications = certifications;
 	}
 
@@ -128,7 +132,7 @@ public class Nurse {
 
 	@Override
 	public String toString() {
-		return "Nurse [id=" + id + ", name=" + name + ", role=" + role + ", certifications=" + certifications
+		return "Nurse [id=" + id + ", name=" + name + ", role=" + ROLE + ", certifications=" + certifications
 				+ ", department=" + department + ", rating=" + rating + ", reviews=" + reviews + ", patients="
 				+ patients + "]";
 	}
