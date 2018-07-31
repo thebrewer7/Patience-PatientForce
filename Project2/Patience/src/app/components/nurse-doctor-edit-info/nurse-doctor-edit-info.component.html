@@ -1,24 +1,54 @@
 <div class="container-fluid">
     <form action="/action_page.php">
+
       <div class="form-group">
         <label for="patientlocation">Patient Location:</label>
-        <input type="text" class="form-control" id="patientlocation">
+        <input type="text" class="form-control" id="patientlocation" required [(ngModel)]="patientlocationnew" name="patientlocationnew">
       </div>
+
       <div class="form-group">
         <label for="patientstatus">Patient Status:</label>
-        <select class="form-control" id="status" name="patientstatus`">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
+        <select class="form-control" id="patientstatus" name="patientstatusnew" required [(ngModel)]="patientstatusnew">
+          <option value="undetermined">Undetermined</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="serious">Serious</option>
+          <option value="critical">Critical</option>
+          <option value="deceased">Deceased</option>
         </select>
       </div>   
+
       <div class="form-group">
-          <label for="patientname">Patient Name:</label>
-          <input type="text" class="form-control" id="patientname">
-        </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+        <label for="patientname">Patient Name:</label>
+        <input type="text" class="form-control" id="patientname" required [(ngModel)]="patientnamenew" name="patientnamenew">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)=editPatientInfo(patientid)>Submit</button>
+
     </form> 
     <br>
     <a routerLink="/doctorpage" class="btn btn-info" role="button">Patient List</a>
+
+    
+    
+    <div>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>PatientName</th>
+                <th>PatientStatus</th>
+                <th>PatientLocation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let patient of patients">
+                <td id="patientname">{{patient.name}}</td>
+                <td id="patientstatus">{{patient.status}}</td>
+                <td id="patientlocation">{{patient.location}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+
 </div>

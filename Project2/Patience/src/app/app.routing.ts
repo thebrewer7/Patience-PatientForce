@@ -36,7 +36,7 @@ const routes: Routes = [
       component: LoginPageComponent
     },
     {
-      path: 'nursedoctoreditinfo',
+      path: 'nursedoctoreditinfo/:patientid',
       component: NurseDoctorEditInfoComponent
     },
     {

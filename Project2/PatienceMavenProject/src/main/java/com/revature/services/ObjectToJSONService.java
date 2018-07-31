@@ -33,4 +33,20 @@ public class ObjectToJSONService {
 		}
 		return json;
 	}
+	
+	public static String PatientToJSONById(Patient patient)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(patient);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
 }
