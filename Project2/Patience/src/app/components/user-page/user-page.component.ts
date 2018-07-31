@@ -11,8 +11,10 @@ export class UserPageComponent implements OnInit {
 
   patients: Patient[] = [
     {id: 1, name: 'Logan', role: 'normal patient', location: '1234', status: 'in ER', condition: 'healthy', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
-    {id: 2, name: 'Andrew', role: 'normal patient', location: '1111', status: 'in ER', condition: 'dying', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
-    {id: 3, name: 'Ray', role: 'normal patient', location: '2222', status: 'in surgery', condition: 'OK', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []}
+    {id: 2, name: 'Andrew', role: 'normal patient', location: '1235', status: 'outside', condition: 'healthy', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
+    {id: 3, name: 'Ray', role: 'normal patient', location: '1236', status: 'going to ER', condition: 'healthy', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
+    {id: 4, name: 'Austin', role: 'normal patient', location: '1237', status: 'normal room', condition: 'healthy', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
+    {id: 5, name: 'Bobbert', role: 'normal patient', location: '1238', status: 'out', condition: 'healthy', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []}
   ]
 
   constructor(private us: UserService) { }
@@ -20,29 +22,31 @@ export class UserPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  public fetchUserPatientsByUserName(patientname, patientstatus, patientlocation) {
-    let patientNameElement = document.getElementById("patientname");
-    let patientStatusElement = document.getElementById("patientstatus");
-    let patientLocationElement = document.getElementById("patientlocation");
+  public fetchUserPatientsByUserName(patientname) {
 
-    this.us.getPatients(patientname, patientstatus, patientlocation).subscribe(
+    this.us.getPatients(patientname).subscribe(
       data => {
-        // patients.id = data['id'];
-        // patient.name = data['name'];
-        // patient.role = data['role'];
-        // patient.location = data['location'];
-        // patient.status = data['status'];
-        // patient.condition = data['condition'];
-        // patient.preferredDoctor = data['preferredDoctorName'];
-        // patient.users = data['users'];
-        // patient.nurses = data['nurses'];
-        // patient.doctors = data['doctors'];
+        for ( var p in this.patients )
+        {
+          console.log("patientname: " + patientname);
+          console.log("patient[p][name]: " + this.patients[p]['name']);
+          if ( this.patients[p]['name'] == patientname)
+          {
+            console.log("inside if");
+            this.patients[p]['id'] = data['id'];
+            this.patients[p]['name'] = data['name'];
+            this.patients[p]['role'] = data['role'];
+            this.patients[p]['location'] = data['location'];
+            this.patients[p]['status'] = data['status'];
+            this.patients[p]['condition'] = data['condition'];
+            this.patients[p]['preferredDoctor'] = data['preferredDoctorName'];
+            this.patients[p]['users'] = data['users'];
+            this.patients[p]['nurses'] = data['nurses'];
+            this.patients[p]['doctors'] = data['doctors'];
+          }
+         }
 
         console.log("DATA: " + JSON.stringify(data));
-
-        patientNameElement.innerHTML = data['name'];
-        patientLocationElement.innerHTML = data['location'];
-        patientStatusElement.innerHTML = data['status'];
       },
       error => {
         console.log('ERROR', error);

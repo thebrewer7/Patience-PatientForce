@@ -9,12 +9,10 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getPatients(patientname: string, patientstatus: string, patientlocation: string) {
+  getPatients(patientname: string) {
 
     const params = new HttpParams()
-      .set('patientname', patientname,)
-      .set('patientstatus', patientstatus)
-      .set('patientlocation', patientlocation);
+      .set('patientname', patientname,);
 
     return this.http.post('http://localhost:8085/PatienceMavenProject/getUsersPatients.do', params);
   }

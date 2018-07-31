@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let patient of patients" routerLink="/profile">
+          <tr *ngFor="let patient of patients" (click)="fetchUserPatientsByUserName(patient.name)">
             <td id="patientname">{{patient.name}}</td>
             <td id="patientstatus">{{patient.status}}</td>
             <td id="patientlocation">{{patient.location}}</td>
@@ -19,7 +19,7 @@
         </tbody>
 
       </table>
-      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" (click)="fetchUserPatientsByUserName('logan', '3rd floor', 'moving to ER')">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
         <i class="fa fa-search"></i>
         Update Patient
       </button>
