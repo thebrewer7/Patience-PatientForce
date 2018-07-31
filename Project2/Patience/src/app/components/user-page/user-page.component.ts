@@ -10,7 +10,9 @@ import { Patient } from '../../objects/patient';
 export class UserPageComponent implements OnInit {
 
   patients: Patient[] = [
-    {id: 1, name: 'Logan', role: 'normal patient', location: '1234', status: 'healthy', condition: 'condition', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []}
+    {id: 1, name: 'Logan', role: 'normal patient', location: '1234', status: 'in ER', condition: 'healthy', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
+    {id: 2, name: 'Andrew', role: 'normal patient', location: '1111', status: 'in ER', condition: 'dying', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []},
+    {id: 3, name: 'Ray', role: 'normal patient', location: '2222', status: 'in surgery', condition: 'OK', preferredDoctor: 'Thomas', users: [], nurses: [], doctors: []}
   ]
 
   constructor(private us: UserService) { }
