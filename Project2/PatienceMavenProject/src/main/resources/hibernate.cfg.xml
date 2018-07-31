@@ -13,7 +13,7 @@
 		</property>
 		<!-- RDMS Url -->
 		<property name="hibernate.connection.url">
-			jdbc:oracle:thin:@hc-db.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:xe
+			jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl
 		</property>
 		<!-- Username & Password -->
 		<property name="hibernate.connection.username">Patience</property>
