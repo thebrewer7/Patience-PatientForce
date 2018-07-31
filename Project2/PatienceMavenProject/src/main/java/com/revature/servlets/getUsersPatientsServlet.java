@@ -31,7 +31,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String patientname = request.getParameter("patientname");
+		Integer patientid = Integer.parseInt(request.getParameter("patientid"));
 		
 		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder salt = new StringBuilder();
@@ -44,7 +44,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.PatientToJSONByUsername(new Patient(patientname, saltStr, saltStr)));// TODO 
+		out.println(ObjectToJSONService.PatientToJSONByUsername(new Patient("BlahFromDb", patientid, saltStr, saltStr)));// TODO 
 	}
 
 	/**

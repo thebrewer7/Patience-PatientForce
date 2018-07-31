@@ -66,9 +66,10 @@ public class Patient implements Role{
 		this.status = status;
 	}
 	
-	public Patient(Integer id, String location, String status)
+	public Patient(String name, Integer id, String location, String status)
 	{
 		super();
+		this.name = name;
 		this.id = id;
 		this.location = location;
 		this.status = status;
