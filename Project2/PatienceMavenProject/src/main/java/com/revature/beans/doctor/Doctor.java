@@ -8,14 +8,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
+import com.revature.beans.UserPass;
 
 @Entity
 public class Doctor {
@@ -24,17 +25,13 @@ public class Doctor {
 	@GeneratedValue(generator = "doctor_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany
-	private List<DocCerts> certifications;
-	@OneToMany
-	private List<DocDegree> degrees;
-	@OneToMany
-	private List<DocExperience> experience;
+	@OneToOne
+	private DocBackground background;
 	@OneToMany
 	private List<Review> reviews;
-
+	@ManyToOne
+	private UserPass userPass;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "patient_2_doctor", joinColumns = @JoinColumn(name = "doctor_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
 	private List<Patient> patients;
 
 	private Integer rating;
@@ -47,88 +44,37 @@ public class Doctor {
 		super();
 	}
 
-	public Doctor(String name, List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience,
-			Integer rating, List<Review> reviews, String department, List<Patient> patients) {
+	public Doctor(DocBackground background, List<Review> reviews, UserPass userPass, List<Patient> patients,
+			Integer rating, String name, String department) {
 		super();
-		this.name = name;
-		this.certifications = certifications;
-		this.degrees = degrees;
-		this.experience = experience;
-		this.rating = rating;
+		this.background = background;
 		this.reviews = reviews;
-		this.department = department;
+		this.userPass = userPass;
 		this.patients = patients;
+		this.rating = rating;
+		this.name = name;
+		this.department = department;
 	}
 
-	public Doctor(List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience,
-			List<Patient> patients, Integer rating, List<Review> reviews, String name, String department,
-			Blob profilePicture) {
+	public Doctor(DocBackground background, List<Review> reviews, UserPass userPass, List<Patient> patients,
+			Integer rating, String name, String department, Blob profilePicture) {
 		super();
-		this.certifications = certifications;
-		this.degrees = degrees;
-		this.experience = experience;
+		this.background = background;
+		this.reviews = reviews;
+		this.userPass = userPass;
 		this.patients = patients;
 		this.rating = rating;
-		this.reviews = reviews;
 		this.name = name;
 		this.department = department;
 		this.profilePicture = profilePicture;
 	}
 
-	public Integer getId() {
-		return id;
+	public DocBackground getBackground() {
+		return background;
 	}
 
-	public Blob getProfilePicture() {
-		return profilePicture;
-	}
-
-	public void setProfilePicture(Blob profilePicture) {
-		this.profilePicture = profilePicture;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getRole() {
-		return ROLE;
-	}
-
-	public List<DocCerts> getCertifications() {
-		return certifications;
-	}
-
-	public void setCertifications(List<DocCerts> certifications) {
-		this.certifications = certifications;
-	}
-
-	public List<DocDegree> getDegrees() {
-		return degrees;
-	}
-
-	public void setDegrees(List<DocDegree> degrees) {
-		this.degrees = degrees;
-	}
-
-	public List<DocExperience> getExperience() {
-		return experience;
-	}
-
-	public void setExperience(List<DocExperience> experience) {
-		this.experience = experience;
-	}
-
-	public Integer getRating() {
-		return rating;
-	}
-
-	public void setRating(Integer rating) {
-		this.rating = rating;
+	public void setBackground(DocBackground background) {
+		this.background = background;
 	}
 
 	public List<Review> getReviews() {
@@ -139,12 +85,12 @@ public class Doctor {
 		this.reviews = reviews;
 	}
 
-	public String getDepartment() {
-		return department;
+	public UserPass getUserPass() {
+		return userPass;
 	}
 
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setUserPass(UserPass userPass) {
+		this.userPass = userPass;
 	}
 
 	public List<Patient> getPatients() {
@@ -155,11 +101,45 @@ public class Doctor {
 		this.patients = patients;
 	}
 
-	@Override
-	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", role=" + ROLE + ", certifications=" + certifications
-				+ ", degrees=" + degrees + ", experience=" + experience + ", rating=" + rating + ", reviews=" + reviews
-				+ ", department=" + department + ", patients=" + patients + "]";
+	public Integer getRating() {
+		return rating;
 	}
 
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Blob getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Blob profilePicture) {
+		this.profilePicture = profilePicture;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getROLE() {
+		return ROLE;
+	}
+
+	
 }
