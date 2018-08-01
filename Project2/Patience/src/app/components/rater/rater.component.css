@@ -24,7 +24,7 @@
 
 .rating > label:before {
     position: relative;
-    font: 50px/1 FontAwesome;
+    font: 24px/1 FontAwesome;
     display: block;
     content: "\f005";
     color: #ccc;

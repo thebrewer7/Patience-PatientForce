@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login/login.service';
 import { RegistrationService } from '../../services/registration/registration.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 declare var $: any;
 @Component({
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   password = '';
   passwordconfirm = '';
 
-  constructor(private loginService: LoginService, private registrationService: RegistrationService) {}
+  constructor(private loginService: LoginService, private registrationService: RegistrationService, private router: Router, public cookieService: CookieService) {}//
 
   ngOnInit() {
     $(document).ready(function() {
@@ -44,8 +46,32 @@ export class LoginComponent implements OnInit {
     console.log('LoginComponent: login()');
     // send username and password to login servlet
     this.loginService.login(this.username, this.password).subscribe(
-      PASS => { console.log('pass'); },
-      FAIL => { console.log('failed'); }
+      DATA => {
+        // this.cookieService.set('data', DATA);
+        switch (DATA['role']) {
+          case 'admin':
+            this.router.navigate(['/adminpage']);
+            break;
+          case 'doctor':
+            this.router.navigate(['/doctorpage']);
+            break;
+          case 'nurse':
+            this.router.navigate(['/nursepage']);
+            break;
+          case 'patient':
+            this.router.navigate(['/patientpage']);
+            break;
+          case 'user':
+            this.router.navigate(['/userpage']);
+          break;
+          default:
+            this.router.navigate(['/login']);
+        }
+        console.log(DATA);
+      },
+      ERROR => {
+        console.log(ERROR + ' Error: login failed');
+      }
     );
   }
 

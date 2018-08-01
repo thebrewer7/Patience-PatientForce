@@ -52,6 +52,16 @@ public class FrontController extends HttpServlet {
 			break;
 		case "getnurses":
 			rd = request.getRequestDispatcher("/getNursesServlet");
+		case "login":
+			rd = request.getRequestDispatcher("/LoginServlet");
+			rd.forward(request, response);
+			break;
+		case "submitreview":
+			rd = request.getRequestDispatcher("SubmitReviewServlet");
+			rd.forward(request, response);
+			break;
+		case "fetchreview":
+			rd = request.getRequestDispatcher("FetchReviewServlet");
 			rd.forward(request, response);
 			break;
 		default:

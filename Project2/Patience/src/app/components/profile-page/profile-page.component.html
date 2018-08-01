@@ -1,7 +1,7 @@
 <div class="col-sm-12">
   <div class="row">
     <div class="col-sm-6">
-      <app-profile-details></app-profile-details>
+      <app-profile-details (dataEvent)="receiveData($event)"></app-profile-details>
     </div>
     <div class="col-sm-6">
       <h1>Rate and Review</h1>
@@ -14,7 +14,7 @@
     <div id='review' *ngFor='let review of reviews'>
       <table>
         <tr><th>Rating:</th><td>{{ratingToStars(review.rating)}}</td></tr>
-        <tr><th>Comment:</th><td>{{review.comment}}</td></tr>
+        <tr><th>Comment:</th><td>{{review.review}}</td></tr>
       </table>
       <hr>
     </div>

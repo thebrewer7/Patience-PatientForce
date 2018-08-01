@@ -1,27 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs/operators';
 import { Review } from '../../objects/review';
+import { Details } from '../../objects/details';
+import { ConnectorService } from '../../services/connector/connector.service';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+
+  public data: Details;
+
   reviews: Review[] = [
     {
       id: 1,
+      role: "",
       rating: 3,
-      comment: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
+      review: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
     },
     {
       id: 2,
+      role: "",
       rating: 4,
-      comment: 'dsfsdfsdf fdsdfsdf'
+      review: 'dsfsdfsdf fdsdfsdf'
     }
   ];
 
-  constructor() {}
+  constructor(private conn: ConnectorService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  receiveData($event){
+    this.data = $event;
+    this.fetchReviews();
+    console.log(this.data);
+  }
 
   public ratingToStars(rating: number) {
     let stars = '';
@@ -33,5 +48,17 @@ export class ProfilePageComponent implements OnInit {
       }
     }
     return stars;
+  }
+
+  fetchReviews(){
+    this.conn.getReviewByName(this.data.name).subscribe(
+        data => {
+          console.log(data);
+          this.reviews = data;
+        },
+        error => {
+          console.log("ERROR", error);
+        }
+    );
   }
 }

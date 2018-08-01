@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {	
+	public static SessionFactory sFactory = getSessionFactory();
 	public static SessionFactory getSessionFactory() {
 		SessionFactory sessionFactory = null;
 		if (sessionFactory == null) {
@@ -22,6 +23,7 @@ public class HibernateUtil {
 	}
 	
 	public static Session getSession() {
-		return getSessionFactory().openSession();
+		
+		return sFactory.openSession();
 	}
 }
