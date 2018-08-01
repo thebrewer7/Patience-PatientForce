@@ -10,4 +10,5 @@ export class Nurse  {
   rating: number;
   reviews: Review[];
   patients: Patient[];
+  locked: boolean;
 }
