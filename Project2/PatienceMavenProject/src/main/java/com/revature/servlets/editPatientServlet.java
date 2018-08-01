@@ -13,15 +13,15 @@ import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
 
 /**
- * Servlet implementation class getUsersPatientsServlet
+ * Servlet implementation class editPatientServlet
  */
-public class getUsersPatientsServlet extends HttpServlet {
+public class editPatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getUsersPatientsServlet() {
+    public editPatientServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,7 +30,6 @@ public class getUsersPatientsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Integer patientid = Integer.parseInt(request.getParameter("patientid"));
 		
 		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -44,7 +43,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.PatientToJSONByUsername(new Patient("BlahFromDb", patientid, saltStr, saltStr)));// TODO 
+		out.println(ObjectToJSONService.PatientToJSONById(new Patient("Logan", patientid, saltStr, saltStr)));// TODO 
 	}
 
 	/**

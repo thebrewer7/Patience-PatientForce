@@ -5,26 +5,19 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>PatientLocation</th>
-            <td id="patientlocation">Room 1231</td>
-          </tr>
-          <tr>
+            <th>PatientName</th>
             <th>PatientStatus</th>
-            <td id="patientstatus">Operating Room</td>
+            <th>PatientLocation</th>
           </tr>
         </thead>
         <tbody>
-            <tr routerLink="/profile">
-                <th>PatientName</th>
-                <td id="patientname">Logan Brewer</td>
-              </tr>
+          <tr *ngFor="let patient of patients" (click)="fetchUserPatientsByUserName(patient.id)">
+            <td id="patientname">{{patient.name}}</td>
+            <td id="patientstatus">{{patient.status}}</td>
+            <td id="patientlocation">{{patient.location}}</td>
+          </tr>
         </tbody>
-
       </table>
-      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" (click)="fetchUserPatientsByUserName('logan', '3rd floor', 'moving to ER')">
-        <i class="fa fa-search"></i>
-        Update Patient
-      </button>
 
       <hr class="d-sm-none">
     </div>
