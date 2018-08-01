@@ -20,7 +20,7 @@ export class DoctorSidepanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    var activeuserid = 6;
+    var activeuserid = 1;
     switch(activeuserid){
       case 1:
         for ( var i = 0; i < this.patients.length; i++ )
