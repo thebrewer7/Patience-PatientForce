@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,15 +35,13 @@ public class FetchReviewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("===="+this.getServletName()+"====");
 		
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		Date date = new Date();
-		
 		String name = request.getParameter("name");
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, formatter.format(date), 3, "test review"),
-														new Review(name, formatter.format(date), 2, "test review 2")})); 
+		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, 1533161580851.0, 3, "test review"),
+														new Review(name, 1533161630780.0, 2, "test review 2"),
+														new Review(name, 1533161539687.0, 2, "test review 3")})); 
 	}
 
 	/**

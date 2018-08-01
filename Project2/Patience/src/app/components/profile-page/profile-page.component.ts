@@ -12,17 +12,19 @@ export class ProfilePageComponent implements OnInit {
 
   public data: Details;
 
+  sortedReviewsByDate: Review[];
+
   reviews: Review[] = [
     {
       id: 1,
-      date: Date.now().toString(),
+      date: Date.now(),
       role: "",
       rating: 3,
       review: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
     },
     {
       id: 2,
-      date: Date.now().toString(),
+      date: Date.now(),
       role: "",
       rating: 4,
       review: 'dsfsdfsdf fdsdfsdf'
@@ -37,7 +39,6 @@ export class ProfilePageComponent implements OnInit {
   receiveData($event){
     this.data = $event;
     this.fetchReviews();
-    console.log(this.data);
   }
 
   public ratingToStars(rating: number) {
@@ -55,8 +56,14 @@ export class ProfilePageComponent implements OnInit {
   fetchReviews(){
     this.conn.getReviewByName(this.data.name).subscribe(
         data => {
-          console.log(data);
           this.reviews = data;
+          this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+          this.sortedReviewsByDate.sort((a, b) => {
+            if (a.date < b.date) return -1;
+            else if (a.date > b.date) return 1;
+            else return 0;
+          });
+          console.log(this.sortedReviewsByDate);
         },
         error => {
           console.log("ERROR", error);
