@@ -58,7 +58,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>SubmitReviewServlet</display-name>
     <servlet-name>SubmitReviewServlet</servlet-name>
     <servlet-class>com.revature.servlets.SubmitReviewServlet</servlet-class>
@@ -66,7 +65,8 @@
   <servlet-mapping>
     <servlet-name>SubmitReviewServlet</servlet-name>
     <url-pattern>/SubmitReviewServlet</url-pattern>
-=======
+  </servlet-mapping>
+  <servlet>
     <display-name>editPatientServlet</display-name>
     <servlet-name>editPatientServlet</servlet-name>
     <servlet-class>com.revature.servlets.editPatientServlet</servlet-class>
@@ -74,6 +74,5 @@
   <servlet-mapping>
     <servlet-name>editPatientServlet</servlet-name>
     <url-pattern>/editPatientServlet</url-pattern>
->>>>>>> Development
   </servlet-mapping>
 </web-app>
