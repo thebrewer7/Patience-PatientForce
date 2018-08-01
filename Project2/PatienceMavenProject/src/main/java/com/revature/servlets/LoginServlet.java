@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        logger.info("Username: " + username + " Password: " + password);
+        logger.info("Login: Username: " + username + " Password: " + password);
 
         UserPassService ups = new UserPassService();
         UserPass up = ups.getByUsername(username);
@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(new Cookie("role", "user"));
                 json = ObjectToJSONService.UserAccountToJSON(user);
                 logger.info(json);
+                writer.println(json);
                 return;
             }
 
@@ -55,6 +56,7 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(new Cookie("role", "patient"));
                 json = ObjectToJSONService.PatientToJSON(patient);
                 logger.info(json);
+                writer.println(json);
                 return;
             }
 
@@ -65,6 +67,7 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(new Cookie("role", "nurse"));
                 json = ObjectToJSONService.NurseToJSON(nurse);
                 logger.info(json);
+                writer.println(json);
                 return;
             }
 
@@ -75,10 +78,9 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(new Cookie("role", "doctor"));
                 json = ObjectToJSONService.DoctorToJSON(doctor);
                 logger.info(json);
+                writer.println(json);
                 return;
             }
-
-            writer.println(json);
         } else {
             writer.println("{ \"status\": \"login failure\", \"message:\": \"invalid credentials\" }");
         }
