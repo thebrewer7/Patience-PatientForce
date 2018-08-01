@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../../objects/doctor';
 
+import { DOCTORS } from '../../mock-doctors';
+
 @Component({
   selector: 'app-doctor-sidepanel',
   templateUrl: './doctor-sidepanel.component.html',
@@ -8,17 +10,38 @@ import { Doctor } from '../../objects/doctor';
 })
 export class DoctorSidepanelComponent implements OnInit {
   // mock data to simulate pulling from backend
-  doctors: Doctor[] = [
-    {id: 1, name: 'Logan', role: '', certifications: [], degrees: [], experience: '', rating: 5, reviews: [], department: '', patients: []},
-    {id: 2, name: 'Ray', role: '', certifications: [], degrees: [], experience: '', rating: 4, reviews: [], department: '', patients: []},
-    {id: 3, name: 'Austin', role: '', certifications: [], degrees: [], experience: '', rating: 3, reviews: [], department: '', patients: []},
-    {id: 4, name: 'Andrew', role: '', certifications: [], degrees: [], experience: '', rating: 2, reviews: [], department: '', patients: []},
-    {id: 5, name: 'Bobbert', role: '', certifications: [], degrees: [], experience: '', rating: 1, reviews: [], department: '', patients: []}
-  ];
+  doctors = DOCTORS;
+  newDoctors = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.randomizeDoctors(this.doctors);
+  }
+
+  randomizeDoctors(doctors: Doctor[])
+  {
+    var i = 0;
+    var random = 0;
+    var randomList = [];
+    for (i = 0; i < 5; i++)
+    {
+      random = Math.ceil(Math.random() * 10 - 1);
+      if ( !randomList.includes(random) )
+      {
+        randomList[i] = random;
+        this.newDoctors[i] = doctors[random];
+      }
+      else
+      {
+        while ( randomList.includes(random) )
+        {
+          random = Math.ceil(Math.random() * 10 - 1);
+        }
+        randomList[i] = random;
+        this.newDoctors[i] = doctors[random];
+      }
+    }
   }
 
   ratingToStars(rating: number) {

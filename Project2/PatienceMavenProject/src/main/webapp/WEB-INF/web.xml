@@ -66,4 +66,14 @@
     <servlet-name>editPatientServlet</servlet-name>
     <url-pattern>/editPatientServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>getNursesServlet</display-name>
+    <servlet-name>getNursesServlet</servlet-name>
+    <servlet-class>com.revature.servlets.getNursesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getNursesServlet</servlet-name>
+    <url-pattern>/getNursesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

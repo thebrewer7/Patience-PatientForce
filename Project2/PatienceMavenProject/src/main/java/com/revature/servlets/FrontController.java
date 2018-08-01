@@ -50,6 +50,10 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/editPatientServlet");
 			rd.forward(request, response);
 			break;
+		case "getnurses":
+			rd = request.getRequestDispatcher("/getNursesServlet");
+			rd.forward(request, response);
+			break;
 		default:
 			response.sendError(404);
 		}

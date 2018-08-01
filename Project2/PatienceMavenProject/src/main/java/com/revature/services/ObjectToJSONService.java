@@ -4,6 +4,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.beans.Patient;
 import com.revature.beans.UserAccount;
+import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
 	public static String UserToJSONById(UserAccount user) {
@@ -44,6 +45,22 @@ public class ObjectToJSONService {
 			json = mapper.writeValueAsString(patient);
 		}
 		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String nurseToJSON(Nurse nurse)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(nurse);
+		}
+		catch( Exception e)
 		{
 			e.printStackTrace();
 		}
