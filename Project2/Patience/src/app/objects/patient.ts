@@ -13,4 +13,5 @@ export class Patient {
   nurses: Nurse[];
   doctors: Doctor[];
   users: User[];
+  locked: boolean;
 }

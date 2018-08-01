@@ -6,7 +6,14 @@ import java.util.List;
 import com.revature.dao.GenericDaoImpl;
 
 public abstract class GenericService<T> {
-	T t;
+	static Object type = null;
+	public GenericService() {
+		super();
+	}
+	
+	public GenericService(T t) {
+		type = t;
+	}
 	
 	public  List<T> getAll() {
 		
@@ -17,12 +24,16 @@ public abstract class GenericService<T> {
 		return getDao().get(id);
 	}
 
-	public  Boolean saveOrUpdate(T doctor) {
-		return getDao().saveOrUpdate(Arrays.asList(doctor));
+	public  Boolean saveOrUpdate(T item) {
+		return getDao().saveOrUpdate(Arrays.asList(item));
+	}
+	
+	public Boolean delete(List<T> input) {
+		return getDao().delete(input);
 	}
 	
 	protected GenericDaoImpl<T> getDao() {
-		GenericDaoImpl<T> gdi = new GenericDaoImpl<>(t.getClass());
+		GenericDaoImpl<T> gdi = new GenericDaoImpl<>(type.getClass());
 		return gdi;
 	}
 }

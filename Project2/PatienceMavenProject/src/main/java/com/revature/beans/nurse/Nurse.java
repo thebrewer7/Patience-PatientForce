@@ -8,14 +8,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
+import com.revature.beans.UserPass;
 
 @Entity
 public class Nurse {
@@ -28,9 +28,9 @@ public class Nurse {
 	private List<NurseCerts> certifications;
 	@OneToMany
 	private List<Review> reviews;
-
+	@OneToOne
+	private UserPass userPass;
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "patient_2_nurse", joinColumns = @JoinColumn(name = "nurse_id"), inverseJoinColumns = @JoinColumn(name = "patient_id"))
 	private List<Patient> patients;
 
 	private String name;
@@ -42,23 +42,31 @@ public class Nurse {
 	public Nurse() {
 		super();
 	}
-
-	public Nurse(String name, List<NurseCerts> certifications, String department, Integer rating, List<Review> reviews,
-			List<Patient> patients) {
+	
+	public Nurse(String name)
+	{
 		super();
 		this.name = name;
-		this.certifications = certifications;
-		this.department = department;
-		this.rating = rating;
-		this.reviews = reviews;
-		this.patients = patients;
 	}
 
-	public Nurse(List<NurseCerts> certifications, List<Review> reviews, List<Patient> patients, String name,
-			String department, Blob profilePicture, Integer rating) {
+	public Nurse(List<NurseCerts> certifications, List<Review> reviews, UserPass userPass, List<Patient> patients,
+			String name, String department, Integer rating) {
 		super();
 		this.certifications = certifications;
 		this.reviews = reviews;
+		this.userPass = userPass;
+		this.patients = patients;
+		this.name = name;
+		this.department = department;
+		this.rating = rating;
+	}
+
+	public Nurse(List<NurseCerts> certifications, List<Review> reviews, UserPass userPass, List<Patient> patients,
+			String name, String department, Blob profilePicture, Integer rating) {
+		super();
+		this.certifications = certifications;
+		this.reviews = reviews;
+		this.userPass = userPass;
 		this.patients = patients;
 		this.name = name;
 		this.department = department;

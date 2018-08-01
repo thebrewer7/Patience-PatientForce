@@ -39,19 +39,21 @@ public class FrontController extends HttpServlet {
 		
 		switch(action){
 		case "searchresults":
-			rd = request.getRequestDispatcher("/SearchResultsServlet");
+			rd = request.getRequestDispatcher("SearchResultsServlet");
 			rd.forward(request, response);
 			break;
 		case "getuserspatients":
-			rd = request.getRequestDispatcher("/getUsersPatientsServlet");
+			rd = request.getRequestDispatcher("getUsersPatientsServlet");
 			rd.forward(request, response);
 			break;
 		case "editdoctorspatient":
-			rd = request.getRequestDispatcher("/editPatientServlet");
+			rd = request.getRequestDispatcher("editPatientServlet");
 			rd.forward(request, response);
 			break;
+		case "getnurses":
+			rd = request.getRequestDispatcher("getNursesServlet");
 		case "login":
-			rd = request.getRequestDispatcher("/LoginServlet");
+			rd = request.getRequestDispatcher("LoginServlet");
 			rd.forward(request, response);
 			break;
 		case "submitreview":

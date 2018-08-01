@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.apache.log4j.Logger;
 
@@ -71,8 +72,8 @@ public class LoginServlet extends HttpServlet {
         */
 
         // testing remove later
-        UserAccount user  = new UserAccount(username);
-        user.setRole(username);
+        UserPass userpass = new UserPass(username, password);
+        UserAccount user  = new UserAccount(userpass, "John Jacob Jingle Himer Schmidt", Date.valueOf(LocalDate.now()));
         String json = ObjectToJSONService.UserAccountToJSON(user);
         System.out.println(json);
 

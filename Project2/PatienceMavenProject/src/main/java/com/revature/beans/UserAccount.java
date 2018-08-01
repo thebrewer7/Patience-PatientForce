@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -18,55 +19,49 @@ public class UserAccount {
 	@SequenceGenerator(sequenceName = "review_seq", name = "review_seq")
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	
+
 	@ManyToMany
 	@JoinTable
 	private List<Patient> patients;
 
+	@OneToOne
+	private UserPass userPass;
+	
 	private String name;
-	private String role;
+	private final String ROLE = "user";
 	private Blob profilePicture;
 	private Date lastLogin;
-	
+
 	public UserAccount() {
 		super();
 	}
-	
-	public UserAccount(String name) {
+
+	public UserAccount(UserPass userPass, String name, Date lastLogin) {
 		super();
+		this.userPass = userPass;
 		this.name = name;
-	}
-
-	public UserAccount(String name, Date lastLogin) {
-		this.name = name;
-		this.role = "user";
 		this.lastLogin = lastLogin;
 	}
 
-	public UserAccount(Integer id, String name, String role, Date lastLogin, List<Patient> patients) {
-		this.id = id;
-		this.name = name;
-		this.role = role;
-		this.lastLogin = lastLogin;
+	public UserAccount(List<Patient> patients, UserPass userPass, String name, Blob profilePicture, Date lastLogin) {
+		super();
 		this.patients = patients;
-	}
-
-	public UserAccount(Integer id, String name, String role, Date lastLogin, List<Patient> patients, Blob profilePicture) {
-		super();
-		this.id = id;
+		this.userPass = userPass;
 		this.name = name;
-		this.role = role;
 		this.profilePicture = profilePicture;
 		this.lastLogin = lastLogin;
-		this.patients = patients;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public UserPass getUserPass() {
+		return userPass;
+	}
+
+	public void setUserPass(UserPass userPass) {
+		this.userPass = userPass;
 	}
 
 	public String getName() {
@@ -78,11 +73,7 @@ public class UserAccount {
 	}
 
 	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		return ROLE;
 	}
 
 	public Blob getProfilePicture() {
