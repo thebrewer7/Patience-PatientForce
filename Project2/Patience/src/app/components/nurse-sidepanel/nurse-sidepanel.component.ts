@@ -21,7 +21,7 @@ export class NurseSidepanelComponent implements OnInit {
   constructor(private ns: NurseService) { }
 
   ngOnInit() {
-    var activeuserid = 6;
+    var activeuserid = 3;
     switch(activeuserid){
       case 1:
         for ( var i = 0; i < this.patients.length; i++ )
