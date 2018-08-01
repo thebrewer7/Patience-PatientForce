@@ -16,7 +16,7 @@ public class Review {
 	
 	private String role;
 	private String name;
-	private String date;
+	private Double date;
 	private Integer rating;
 	private String review;
 	
@@ -24,7 +24,7 @@ public class Review {
 		super();
 	}
 	
-	public Review(String name, String date, Integer rating, String review) {
+	public Review(String name, Double date, Integer rating, String review) {
 		super();
 		this.name = name;
 		this.date = date;
@@ -79,11 +79,11 @@ public class Review {
 		this.name = name;
 	}
 
-	public String getDate() {
+	public Double getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Double date) {
 		this.date = date;
 	}
 

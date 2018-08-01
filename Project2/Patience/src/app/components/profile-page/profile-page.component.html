@@ -8,16 +8,17 @@
       <app-rater></app-rater>
     </div>
   </div>
-  <div id='reviews'>
-    <h1>Reviews</h1>
+  <div id='recentReviews'>
+    <h1>Recent Reviews</h1>
     <hr>
-    <div id='review' *ngFor='let review of reviews'>
+    <div id='review' *ngFor='let review of sortedReviewsByDate'>
       <table>
         <tr><th>Rating:</th><td>{{ratingToStars(review.rating)}}</td></tr>
         <tr><th>Comment:</th><td>{{review.review}}</td></tr>
+        <tr><th>Date:</th><td>{{review.date | date:'fullDate'}}</td></tr>
+        <tr><th>Time:</th><td>{{review.date | date:'h:mm a z'}}</td></tr>
       </table>
       <hr>
     </div>
-
   </div>
 </div>

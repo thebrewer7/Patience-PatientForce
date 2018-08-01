@@ -20,7 +20,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     
-      var activeuserid = 2;
+      var activeuserid = 1;
       switch(activeuserid){
         case 1:
           for ( var i = 0; i < this.users.length; i++ )
@@ -53,7 +53,7 @@ export class UserPageComponent implements OnInit {
             {
               for ( var j = 0; j < this.users[i]['patients'].length; j++ )
               {
-                this.patientsUsers[j] = this.users[i]['patients'][j];
+                this.patients[j] = this.users[i]['patients'][j];
               }
             }
           }
@@ -97,8 +97,8 @@ export class UserPageComponent implements OnInit {
           if ( this.patients[p]['id'] == patientid)
           {
             console.log("inside if");
-            this.patients[p]['location'] = data['location'];
-            this.patients[p]['status'] = data['status'];
+            this.patientsUsers[p]['location'] = data['location'];
+            this.patientsUsers[p]['status'] = data['status'];
           }
          }
 
