@@ -12,4 +12,5 @@ export class Doctor {
   reviews: Review[];
   department: string;
   patients: Patient[];
+  locked: boolean;
 }

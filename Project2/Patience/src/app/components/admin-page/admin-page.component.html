@@ -5,63 +5,52 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>AccountId</th>
             <th>AccountName</th>
             <th>AccountType</th>
-            <th>Approve/Deny</th>
+            <th>Locked/Unlocked</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="table-row" data-href="#">
-            <td>1</td>
-            <td>Logan</td>
-            <td>Patient</td>
-            <td>
-                <button type="button" class="btn btn-success">Unlock</button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger">Lock</button>
-            </td>
-          </tr>
-          <tr class="table-row" data-href="#">
-            <td>2</td>
-            <td>Ray</td>
-            <td>User</td>
-            <td>
-                <button type="button" class="btn btn-success">Unlock</button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger">Lock</button>
-            </td>
-          </tr>
-          <tr class="table-row" data-href="#">
-            <td>3</td>
-            <td>Austin</td>
-            <td>Nurse</td>
-            <td>
-                <button type="button" class="btn btn-success">Unlock</button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger">Lock</button>
-            </td>
-          </tr>
-          <tr class="table-row" data-href="#">
-            <td>4</td>
-            <td>Andrew</td>
-            <td>Doctor</td>
-            <td>
-                <button type="button" class="btn btn-success">Unlock</button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger">Lock</button>
-            </td>
-          </tr>
-          <tr class="table-row" data-href="#">
-            <td>5</td>
-            <td>Bobbert</td>
-            <td>Admin</td>
-            <td>
-                <button type="button" class="btn btn-success">Unlock</button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-danger">Lock</button>
-            </td>
-          </tr>
+            <tr *ngFor="let patient of patients">
+              <td id="patientname">{{patient.name}}</td>
+              <td id="patientrole">{{patient.role}}</td>
+              <td>
+                <label class="switch">
+                  <input type="checkbox" checked (click)=lockUnlockAccount()>
+                  <span class="slider round"></span>
+                </label>
+              </td>
+            </tr>
+            <tr *ngFor="let doctor of doctors">
+              <td id="doctorname">{{doctor.name}}</td>
+              <td id="doctorrole">{{doctor.role}}</td>
+              <td>
+                <label class="switch">
+                  <input type="checkbox" checked (click)=lockUnlockAccount()>
+                  <span class="slider round"></span>
+                </label>
+              </td>
+            </tr>
+            <tr *ngFor="let nurse of nurses">
+              <td id="nursename">{{nurse.name}}</td>
+              <td id="nurserole">{{nurse.role}}</td>
+              <td>
+                <label class="switch">
+                  <input type="checkbox" checked (click)=lockUnlockAccount()>
+                  <span class="slider round"></span>
+                </label>
+              </td>
+            </tr>
+            <tr *ngFor="let user of users">
+              <td id="username">{{user.name}}</td>
+              <td id="userrole">{{user.role}}</td>
+              <td>
+                <label class="switch">
+                  <input type="checkbox" checked (click)=lockUnlockAccount()>
+                  <span class="slider round"></span>
+                </label>
+              </td>
+            </tr>
         </tbody>
       </table>
       <hr class="d-sm-none">

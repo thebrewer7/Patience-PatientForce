@@ -7,6 +7,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserAccount;
+import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
 	
@@ -64,5 +65,21 @@ public class ObjectToJSONService {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static String nurseToJSON(Nurse nurse)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(nurse);
+		}
+		catch( Exception e)
+		{
+			e.printStackTrace();
+		}
+		return json;
 	}
 }

@@ -10,25 +10,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr routerLink="/doctorpage">
-            <td>Logan</td>
-            <td>5</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Ray</td>
-            <td>10</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Austin</td>
-            <td>15</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Andrew</td>
-            <td>20</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Bobbert</td>
-            <td>25</td>
+          <tr *ngFor="let patient of patientsUsers" (click)="fetchUserPatientsByUserName(patient.id)" routerLink="/doctorpage">
+            <td id="patientname">{{patient.name}}</td>
+            <td id="patientstatus">{{patient.status}}</td>
+            <td id="patientlocation">{{patient.location}}</td>
           </tr>
         </tbody>
       </table>

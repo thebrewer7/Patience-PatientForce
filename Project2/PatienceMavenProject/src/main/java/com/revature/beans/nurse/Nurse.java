@@ -42,6 +42,12 @@ public class Nurse {
 	public Nurse() {
 		super();
 	}
+	
+	public Nurse(String name)
+	{
+		super();
+		this.name = name;
+	}
 
 	public Nurse(List<NurseCerts> certifications, List<Review> reviews, UserPass userPass, List<Patient> patients,
 			String name, String department, Integer rating) {
