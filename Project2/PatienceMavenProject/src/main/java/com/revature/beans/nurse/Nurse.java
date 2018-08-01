@@ -46,6 +46,12 @@ public class Nurse {
 	public Nurse() {
 		super();
 	}
+	
+	public Nurse(String name)
+	{
+		super();
+		this.name = name;
+	}
 
 	@Transient
 	private int avg = 0;

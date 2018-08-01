@@ -6,29 +6,15 @@
         <thead>
           <tr>
             <th>DoctorName</th>
-            <th>NumberOfPatients</th>
+            <th>DoctorExperience</th>
+            <th>DoctorRating</th>
           </tr>
         </thead>
         <tbody>
-          <tr routerLink="/doctorpage">
-            <td>Logan</td>
-            <td>5</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Ray</td>
-            <td>10</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Austin</td>
-            <td>15</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Andrew</td>
-            <td>20</td>
-          </tr>
-          <tr routerLink="/doctorpage">
-            <td>Bobbert</td>
-            <td>25</td>
+          <tr *ngFor="let doctor of nursesDoctors" routerLink="/doctorpage">
+            <td id="doctorname">{{doctor.name}}</td>
+            <td id="doctorexperience">{{doctor.experience}}</td>
+            <td id="doctorrating">{{doctor.rating}}</td>
           </tr>
         </tbody>
       </table>

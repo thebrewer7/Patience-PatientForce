@@ -1,5 +1,5 @@
 import { Review } from './review';
-import { Patient } from './patient';
+import { Doctor } from './doctor';
 
 export class Nurse  {
   id: number;
@@ -9,5 +9,6 @@ export class Nurse  {
   department: string;
   rating: number;
   reviews: Review[];
-  patients: Patient[];
+  doctors: Doctor[];
+  locked: boolean;
 }

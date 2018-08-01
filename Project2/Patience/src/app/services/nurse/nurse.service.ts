@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Patient } from '../../objects/patient';
 import { Review } from '../../objects/review';
 
@@ -18,5 +18,12 @@ export class NurseService {
   getReviews(username: string) {
     console.log('NurseService: getReviews()');
     return this.http.post<Review[]>('http://localhost:8085/PatienceMavenProject/getNursesReviews.do', {username: username});
+  }
+
+  getNurses()
+  {
+    const params = new HttpParams();
+    console.log('NurseService: getParams()');
+    return this.http.post('http://localhost:8085/PatienceMavenProject/getNurses.do', params);
   }
 }

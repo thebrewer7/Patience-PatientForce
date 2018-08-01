@@ -90,6 +90,15 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>getNursesServlet</display-name>
+    <servlet-name>getNursesServlet</servlet-name>
+    <servlet-class>com.revature.servlets.getNursesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getNursesServlet</servlet-name>
+    <url-pattern>/getNursesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <display-name>FetchReviewServlet</display-name>
     <servlet-name>FetchReviewServlet</servlet-name>
     <servlet-class>com.revature.servlets.FetchReviewServlet</servlet-class>
@@ -97,5 +106,13 @@
   <servlet-mapping>
     <servlet-name>FetchReviewServlet</servlet-name>
     <url-pattern>/FetchReviewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>com.revature.servlets.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/RegistrationServlet</url-pattern>
   </servlet-mapping>
 </web-app>

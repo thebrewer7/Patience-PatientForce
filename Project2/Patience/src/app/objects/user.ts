@@ -6,4 +6,5 @@ export class User {
   role: string;
   lastLoggedIn: String;
   patients: Patient[];
+  locked: boolean;
 }
