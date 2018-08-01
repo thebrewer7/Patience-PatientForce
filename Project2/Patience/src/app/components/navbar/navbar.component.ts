@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnectorService } from '../../services/connector/connector.service';
-import { tap } from '../../../../node_modules/rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
