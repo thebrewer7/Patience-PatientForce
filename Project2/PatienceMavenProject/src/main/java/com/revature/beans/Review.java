@@ -15,11 +15,19 @@ public class Review {
 	private Integer id;
 	
 	private String role;
+	private String name;
 	private Integer rating;
 	private String review;
 	
 	public Review() {
 		super();
+	}
+	
+	public Review(String name, Integer rating, String review) {
+		super();
+		this.name = name;
+		this.rating = rating;
+		this.review = review;
 	}
 
 	public Review(Integer rating, Role role, String review) {

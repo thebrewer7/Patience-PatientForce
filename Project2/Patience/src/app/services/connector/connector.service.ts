@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Review } from '../../objects/review';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,12 @@ export class ConnectorService {
     params = params.append("name", name);
 
     return this.http.get("http://localhost:8085/PatienceMavenProject/SubmitReview.do", { responseType: 'text', params: params });
+  }
+
+  getReviewByName(name) {
+    var params = new HttpParams();
+    params = params.append("name", name);
+
+    return this.http.get<Review[]>("http://localhost:8085/PatienceMavenProject/FetchReview.do", { params: params });
   }
 }
