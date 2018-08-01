@@ -42,15 +42,11 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get(String columnName, String value) {
-		Query q = HibernateUtil.getSession().getNamedQuery("where");
-		q.setParameter("cr1", columnName);
-		q.setParameter("v1", value);
-		boolean success = doTransaction(
-				(item, s) -> returnableItems = (List<T>) s.createQuery("FROM :tName WHERE :cr1 = :v1")
-						.setParameter("tName", tClass).setParameter("cr1", columnName).setParameter("v1", value).list(),
-				Arrays.asList(t));
-
-		System.out.println("Get w/ Column Name and Value: " + success);
+		Query q = HibernateUtil.getSession().createQuery("FROM :tName WHERE :cr1 = :v1")
+				.setParameter("tName", tClass)
+				.setParameter("cr1", columnName)
+				.setParameter("v1", value);
+		returnableItems = (List<T>) q.list();
 		return returnableItems;
 	}
 
