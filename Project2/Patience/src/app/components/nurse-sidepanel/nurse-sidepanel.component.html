@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let nurse of newNurses" routerLink="/profile">
+    <tr *ngFor="let nurse of patientsNurses" routerLink="/profile">
       <td>{{nurse.name}}</td>
       <td>{{ratingToStars(nurse.rating)}}</td>
     </tr>
