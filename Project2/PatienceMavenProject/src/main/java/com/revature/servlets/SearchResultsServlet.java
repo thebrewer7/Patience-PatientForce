@@ -47,7 +47,7 @@ public class SearchResultsServlet extends HttpServlet {
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.UserToJSONById(user));// TODO grab user using user dao
+		out.println(ObjectToJSONService.UserAccountToJSON(user));// TODO grab user using user dao
 	}
 
 	/**

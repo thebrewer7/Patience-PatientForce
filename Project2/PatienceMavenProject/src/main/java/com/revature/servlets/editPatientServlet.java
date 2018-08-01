@@ -43,7 +43,7 @@ public class editPatientServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.PatientToJSONById(new Patient("Logan", patientid, saltStr, saltStr)));// TODO 
+		out.println(ObjectToJSONService.PatientToJSON(new Patient("Logan", patientid, saltStr, saltStr)));// TODO 
 	}
 
 	/**

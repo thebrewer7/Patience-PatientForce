@@ -35,7 +35,7 @@ public class FetchReviewServlet extends HttpServlet {
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.ReviewsToJSONById(new Review[] {new Review(name, 3, "test review"),
+		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, 3, "test review"),
 														new Review(name, 2, "test review 2")})); 
 	}
 
