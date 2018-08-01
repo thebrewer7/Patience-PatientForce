@@ -6,16 +6,16 @@
         <thead>
           <tr>
             <th>DoctorName</th>
-            <th>NumberOfPatients</th>
+            <th>DoctorExperience</th>
+            <th>DoctorRating</th>
           </tr>
         </thead>
         <tbody>
-          <!-- <tr *ngFor="let patient of patientsUsers" (click)="fetchUserPatientsByUserName(patient.id)" routerLink="/doctorpage">
-            <td id="patientname">{{patient.name}}</td>
-            <td id="patientstatus">{{patient.status}}</td>
-            <td id="patientlocation">{{patient.location}}</td>
-          </tr> -->
-          <tr><td>asda</td><td>asdasdad</td></tr>
+          <tr *ngFor="let doctor of nursesDoctors" routerLink="/doctorpage">
+            <td id="doctorname">{{doctor.name}}</td>
+            <td id="doctorexperience">{{doctor.experience}}</td>
+            <td id="doctorrating">{{doctor.rating}}</td>
+          </tr>
         </tbody>
       </table>
       <hr class="d-sm-none">

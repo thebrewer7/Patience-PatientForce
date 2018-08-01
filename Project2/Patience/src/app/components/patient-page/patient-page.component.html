@@ -5,26 +5,16 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>OperationName</th>
-            <th>PerformingDoctor</th>
-            <th>OperationCost</th>
+            <th>PatientName</th>
+            <th>PatientStatus</th>
+            <th>PatientLocation</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>FixArm</td>
-            <td>Dr.1</td>
-            <td>99999</td>
-          </tr>
-          <tr>
-            <td>FixLeg</td>
-            <td>Dr.2</td>
-            <td>12345</td>
-          </tr>
-          <tr>
-            <td>WaterBottle</td>
-            <td>Dr.3</td>
-            <td>50</td>
+          <tr *ngFor="let patient of newpatients">
+            <td id="patientname">{{patient.name}}</td>
+            <td id="patientstatus">{{patient.status}}</td>
+            <td id="patientlocation">{{patient.location}}</td>
           </tr>
         </tbody>
       </table>
