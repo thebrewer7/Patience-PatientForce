@@ -44,7 +44,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.PatientToJSONByUsername(new Patient(patientname, saltStr, saltStr)));// TODO 
+		//out.println(ObjectToJSONService.PatientToJSONByUsername(new Patient(patientname, saltStr, saltStr)));// TODO 
 	}
 
 	/**

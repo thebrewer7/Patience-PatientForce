@@ -1,5 +1,11 @@
 package com.revature.rnd;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import com.revature.beans.UserPass;
+
 public class Generator {
 	//Generated Names
 	public static String name[] = {
@@ -55,5 +61,124 @@ public class Generator {
 	    "Mechelle Monzo",
 	};
 	
+	public static String usernames[] = {
+			"hazel",
+			"daghda",
+			"sporulating",
+			"trophyless",	
+			"hurt",		  
+			"cellulating",	
+			"gaspinsula",	
+			"mastocarcinomata",	
+			"contraception",	
+			"graspingly",		
+			"idiosyncratic",	
+			"aritype",
+			"argantua",		
+			"estoration",		
+			"gape",
+		   "onremonstrance",	
+		   "uranic",
+		   "iscomfort",	
+		   "reromantic",	
+		   "edwing",		
+		   "emima",	
+		   "rerational",
+		   "andan",		  
+		   "ingfishes",		 
+		   "ynamics",		 
+		   "eteorically",	
+		   "ed",		  
+		   "econcilement",
+		   "utright",	
+		   "ylphid",		
+		   "hildersburg",
+		   "ightclubber",	
+		   "viduct",	
+		   "cabrous",		
+		   "urmi",		
+		   "opyhold",	
+		   "seudoindependent",		
+		   "onzero",		
+		   "lackboard",
+		   "cme",
+		   "zold",	
+		   "odeos",	
+		   "occygius",	
+		   "anitu",		
+		   "ackintosh",	
+		   "eakless",		  
+		   "onnautical",		
+		   "eptimal",	
+		   "verbrilliant",	
+		   "anthation"
+	};	
+	
+	public static String passwords[] = {
+			"hazel",
+			"daghda",
+			"sporulating",
+			"trophyless",	
+			"hurt",		  
+			"cellulating",	
+			"gaspinsula",	
+			"mastocarcinomata",	
+			"contraception",	
+			"graspingly",		
+			"idiosyncratic",	
+			"aritype",
+			"argantua",		
+			"estoration",		
+			"gape",
+		   "onremonstrance",	
+		   "uranic",
+		   "iscomfort",	
+		   "reromantic",	
+		   "edwing",		
+		   "emima",	
+		   "rerational",
+		   "andan",		  
+		   "ingfishes",		 
+		   "ynamics",		 
+		   "eteorically",	
+		   "ed",		  
+		   "econcilement",
+		   "utright",	
+		   "ylphid",		
+		   "hildersburg",
+		   "ightclubber",	
+		   "viduct",	
+		   "cabrous",		
+		   "urmi",		
+		   "opyhold",	
+		   "seudoindependent",		
+		   "onzero",		
+		   "lackboard",
+		   "cme",
+		   "zold",	
+		   "odeos",	
+		   "occygius",	
+		   "anitu",		
+		   "ackintosh",	
+		   "eakless",		  
+		   "onnautical",		
+		   "eptimal",	
+		   "verbrilliant",	
+		   "anthation"
+	};
+
+	public static Random random = new Random();
+	
+	public static List<UserPass> generateUserPass() {
+		List<UserPass> ups = new ArrayList<>();
+		for(int i = 0; i < 50; i++) {
+			ups.add(new UserPass(
+					usernames[random.nextInt(49)], 
+					passwords[random.nextInt(49)]
+					)
+				);
+		}
+		return ups;
+	}
 	
 }
