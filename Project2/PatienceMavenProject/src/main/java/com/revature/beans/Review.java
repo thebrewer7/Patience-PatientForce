@@ -16,6 +16,7 @@ public class Review {
 	
 	private String role;
 	private String name;
+	private String date;
 	private Integer rating;
 	private String review;
 	
@@ -23,9 +24,10 @@ public class Review {
 		super();
 	}
 	
-	public Review(String name, Integer rating, String review) {
+	public Review(String name, String date, Integer rating, String review) {
 		super();
 		this.name = name;
+		this.date = date;
 		this.rating = rating;
 		this.review = review;
 	}
@@ -69,4 +71,26 @@ public class Review {
 		this.review = review;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "Review [id=" + id + ", role=" + role + ", name=" + name + ", date=" + date + ", rating=" + rating
+				+ ", review=" + review + "]";
+	}
+	
 }
