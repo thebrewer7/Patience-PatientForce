@@ -15,12 +15,14 @@ export class ProfilePageComponent implements OnInit {
   reviews: Review[] = [
     {
       id: 1,
+      date: Date.now().toString(),
       role: "",
       rating: 3,
       review: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
     },
     {
       id: 2,
+      date: Date.now().toString(),
       role: "",
       rating: 4,
       review: 'dsfsdfsdf fdsdfsdf'
