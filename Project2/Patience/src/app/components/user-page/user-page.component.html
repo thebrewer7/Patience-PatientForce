@@ -11,18 +11,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let patient of patients" (click)="fetchUserPatientsByUserName(patient.name)">
+          <tr *ngFor="let patient of patients" (click)="fetchUserPatientsByUserName(patient.id)">
             <td id="patientname">{{patient.name}}</td>
             <td id="patientstatus">{{patient.status}}</td>
             <td id="patientlocation">{{patient.location}}</td>
           </tr>
         </tbody>
-
       </table>
-      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
-        <i class="fa fa-search"></i>
-        Update Patient
-      </button>
 
       <hr class="d-sm-none">
     </div>

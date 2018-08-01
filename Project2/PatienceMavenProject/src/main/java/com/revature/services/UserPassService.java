@@ -6,12 +6,10 @@ public class UserPassService extends GenericService<UserPass> {
 
 	public UserPassService() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public UserPassService(UserPass t) {
 		super(t);
-		// TODO Auto-generated constructor stub
 	}
 
 	public UserPass getByUsername(String username) {

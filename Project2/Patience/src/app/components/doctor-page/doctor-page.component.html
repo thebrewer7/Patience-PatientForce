@@ -11,30 +11,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr routerLink="/nursedoctoreditinfo">
-            <td>Logan</td>
-            <td>Broken Arm</td>
-            <td>Room 1231</td>
-          </tr>
-          <tr routerLink="/nursedoctoreditinfo">
-            <td>Ray</td>
-            <td>Broken Leg</td>
-            <td>Room 1232</td>
-          </tr>
-          <tr routerLink="/nursedoctoreditinfo">
-            <td>Austin</td>
-            <td>Broken Rib</td>
-            <td>Room 1233</td>
-          </tr>
-          <tr routerLink="/nursedoctoreditinfo">
-            <td>Andrew</td>
-            <td>Broken Knee</td>
-            <td>Room 1234</td>
-          </tr>
-          <tr routerLink="/nursedoctoreditinfo">
-            <td>Bobbert</td>
-            <td>Healthy</td>
-            <td>Room 1235</td>
+          <tr *ngFor="let patient of patients" [routerLink]="['/nursedoctoreditinfo', patient.id]">
+            <td id="patientname">{{patient.name}}</td>
+            <td id="patientstatus">{{patient.status}}</td>
+            <td id="patientlocation">{{patient.location}}</td>
           </tr>
         </tbody>
       </table>

@@ -21,4 +21,17 @@ export class ConnectorService {
     return this.http.get("http://localhost:8085/PatienceMavenProject/SearchResults.do", {params: params});
 
   }
+
+  submitReviewByName(rating, review, name) {
+    console.log("rating: "+rating);
+    console.log("review: "+review);
+    console.log("name: "+name);
+
+    var params = new HttpParams();
+    params = params.append("rating", rating);
+    params = params.append("review", review);
+    params = params.append("name", name);
+
+    return this.http.get("http://localhost:8085/PatienceMavenProject/SubmitReview.do", { responseType: 'text', params: params });
+  }
 }

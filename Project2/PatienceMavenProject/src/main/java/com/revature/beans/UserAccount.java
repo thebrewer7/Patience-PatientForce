@@ -28,7 +28,7 @@ public class UserAccount {
 	private UserPass userPass;
 	
 	private String name;
-	private String role;
+	private final String ROLE = "user";
 	private Blob profilePicture;
 	private Date lastLogin;
 
@@ -73,11 +73,7 @@ public class UserAccount {
 	}
 
 	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
+		return ROLE;
 	}
 
 	public Blob getProfilePicture() {

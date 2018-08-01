@@ -56,6 +56,15 @@ public class Patient {
 		this.status = status;
 		this.condition = condition.toString();
 	}
+	
+	public Patient(String name, Integer id, String location, String status)
+	{
+		super();
+		this.name = name;
+		this.id = id;
+		this.location = location;
+		this.status = status;
+	}
 
 	public Patient(Integer id, List<Nurse> nurses, List<Doctor> doctors, List<History> history, UserPass userPass,
 			String name, String location, String status, String condition, String preferredDoctorName) {
