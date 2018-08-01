@@ -6,8 +6,12 @@ import javax.persistence.Id;
 @Entity
 public class NurseCerts {
 	@Id
-	private Integer id;	
+	private Integer id;
 	private String cert;
+
+	public NurseCerts() {
+		super();
+	}
 
 	public NurseCerts(String cert) {
 		super();

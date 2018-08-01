@@ -15,6 +15,10 @@ public class Diagnosis {
 
 	private String diagnosis;
 
+	public Diagnosis() {
+		super();
+	}
+
 	public Diagnosis(String diagnosis) {
 		super();
 		this.diagnosis = diagnosis;

@@ -12,11 +12,14 @@ public class UserPass {
 	@SequenceGenerator(sequenceName = "up_seq", name = "up_seq")
 	@GeneratedValue(generator = "up_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	
+
 	private String username;
 	private String password;
-	
-	
+
+	public UserPass() {
+		super();
+	}
+
 	public UserPass(String username, String password) {
 		super();
 		this.username = username;
@@ -43,6 +46,5 @@ public class UserPass {
 	public Integer getId() {
 		return id;
 	}
-	
-	
+
 }

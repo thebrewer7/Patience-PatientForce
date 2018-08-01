@@ -19,7 +19,6 @@ public class SubmitReviewServlet extends HttpServlet {
      */
     public SubmitReviewServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

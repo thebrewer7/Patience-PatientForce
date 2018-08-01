@@ -22,7 +22,6 @@ public class FetchReviewServlet extends HttpServlet {
      */
     public FetchReviewServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
