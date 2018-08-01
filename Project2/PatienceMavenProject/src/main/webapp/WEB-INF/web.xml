@@ -88,4 +88,14 @@
     <servlet-name>editPatientServlet</servlet-name>
     <url-pattern>/editPatientServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FetchReviewServlet</display-name>
+    <servlet-name>FetchReviewServlet</servlet-name>
+    <servlet-class>com.revature.servlets.FetchReviewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchReviewServlet</servlet-name>
+    <url-pattern>/FetchReviewServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

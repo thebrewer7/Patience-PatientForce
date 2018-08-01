@@ -1,5 +1,6 @@
 export class Review {
   id: number;
+  role: string;
   rating: number;
-  comment: string; // optional field for end user
+  review: string; // optional field for end user
 }

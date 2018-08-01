@@ -58,6 +58,10 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("SubmitReviewServlet");
 			rd.forward(request, response);
 			break;
+		case "fetchreview":
+			rd = request.getRequestDispatcher("FetchReviewServlet");
+			rd.forward(request, response);
+			break;
 		default:
 			response.sendError(404);
 		}
