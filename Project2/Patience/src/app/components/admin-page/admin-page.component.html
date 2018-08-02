@@ -15,7 +15,7 @@
               <td id="patientname">{{patient.name}}</td>
               <td id="patientrole">{{patient.role}}</td>
               <td>
-                <label class="switch">
+                <label name="patientTog" class="switch">
                   <input type="checkbox" checked (click)=lockUnlockAccount()>
                   <span class="slider round"></span>
                 </label>
@@ -25,7 +25,7 @@
               <td id="doctorname">{{doctor.name}}</td>
               <td id="doctorrole">{{doctor.role}}</td>
               <td>
-                <label class="switch">
+                <label name="doctorTog" class="switch">
                   <input type="checkbox" checked (click)=lockUnlockAccount()>
                   <span class="slider round"></span>
                 </label>
@@ -35,7 +35,7 @@
               <td id="nursename">{{nurse.name}}</td>
               <td id="nurserole">{{nurse.role}}</td>
               <td>
-                <label class="switch">
+                <label name="nurseTog" class="switch">
                   <input type="checkbox" checked (click)=lockUnlockAccount()>
                   <span class="slider round"></span>
                 </label>
@@ -45,7 +45,7 @@
               <td id="username">{{user.name}}</td>
               <td id="userrole">{{user.role}}</td>
               <td>
-                <label class="switch">
+                <label name="userTog" class="switch">
                   <input type="checkbox" checked (click)=lockUnlockAccount()>
                   <span class="slider round"></span>
                 </label>

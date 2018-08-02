@@ -54,9 +54,9 @@ public class FetchReviewServlet extends HttpServlet {
 		
 		try {
 			date1 = new Date();
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(1);
 			date2 = new Date();
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(1);
 			date3 = new Date();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
