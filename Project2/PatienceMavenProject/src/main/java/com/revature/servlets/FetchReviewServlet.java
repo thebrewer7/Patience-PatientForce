@@ -2,10 +2,6 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,9 +39,14 @@ public class FetchReviewServlet extends HttpServlet {
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 
+<<<<<<< HEAD
 
 //		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(3, "test review", new Date(153316158085),
 //														new Review(2, "test review 2", 1533161630780.0),
+=======
+//		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, 1533161580851.0, 3, "test review"),
+//														new Review(name, 1533161630780.0, 2, "test review 2"),
+>>>>>>> Development
 //														new Review(name, 1533161539687.0, 2, "test review 3")})); 
 //		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161580851.0, 3, "test review"));
 //		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161630780.0, 2, "test review 2"));
