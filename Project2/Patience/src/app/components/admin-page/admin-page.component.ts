@@ -44,6 +44,11 @@ export class AdminPageComponent implements OnInit {
     this.as.getAllAdminAccounts().subscribe(
       data => {
         console.log("DATA: " + JSON.stringify(data));
+        for ( var i = 0; i < JSON.stringify(data).length; i++ )
+        {
+          this.allaccounts[i] = data[i];
+        }
+        console.log("allaccouts after");
       },
       error => {
         console.log('ERROR', error);
