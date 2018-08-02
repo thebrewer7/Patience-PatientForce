@@ -41,36 +41,46 @@ public class FrontController extends HttpServlet {
 		switch(action){
 		case "searchresults":
 			logger.info("FrontController: searchresults servlet hit.");
-			rd = request.getRequestDispatcher("SearchResultsServlet");
+			rd = request.getRequestDispatcher("/SearchResultsServlet");
 			rd.forward(request, response);
 			break;
 		case "getuserspatients":
 			logger.info("FrontController: getuserspatients servlet hit.");
-			rd = request.getRequestDispatcher("getUsersPatientsServlet");
+			rd = request.getRequestDispatcher("/getUsersPatientsServlet");
 			rd.forward(request, response);
 			break;
 		case "editdoctorspatient":
 			logger.info("FrontController: editdoctorspatient servlet hit.");
-			rd = request.getRequestDispatcher("editPatientServlet");
+			rd = request.getRequestDispatcher("/editPatientServlet");
 			rd.forward(request, response);
 			break;
 		case "getnurses":
 			logger.info("FrontController: getnurses servlet hit.");
-			rd = request.getRequestDispatcher("getNursesServlet");
+			rd = request.getRequestDispatcher("/getNursesServlet");
 			rd.forward(request, response);
 		case "login":
 			logger.info("FrontController: login servlet hit.");
-			rd = request.getRequestDispatcher("LoginServlet");
+			rd = request.getRequestDispatcher("/LoginServlet");
 			rd.forward(request, response);
 			break;
 		case "submitreview":
 			logger.info("FrontController: submitreview servlet hit.");
-			rd = request.getRequestDispatcher("SubmitReviewServlet");
+			rd = request.getRequestDispatcher("/SubmitReviewServlet");
 			rd.forward(request, response);
 			break;
 		case "fetchreview":
 			logger.info("FrontController: fetchreviewservlet servlet hit.");
-			rd = request.getRequestDispatcher("FetchReviewServlet");
+			rd = request.getRequestDispatcher("/FetchReviewServlet");
+			rd.forward(request, response);
+			break;
+		case "logout":
+			logger.info("FrontController: logout servlet hit.");
+			rd = request.getRequestDispatcher("/LogoutServlet");
+			rd.forward(request, response);
+			break;
+		case "register":
+			logger.info("FrontController: register servlet hit.");
+			rd = request.getRequestDispatcher("/RegistrationServlet");
 			rd.forward(request, response);
 			break;
 		default:
