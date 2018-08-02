@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * This is an Admin Account that oversees all application ongoins.
+ * @author Austin
+ *
+ */
 @Entity
 public class Admin {
 	@Id
@@ -23,10 +28,18 @@ public class Admin {
 	private Blob profilePicture;
 	private final String ROLE = "admin";
 
+	/**
+	 * No-Args Constructor
+	 */
 	public Admin() {
 		super();
 	}
 
+	/**
+	 * Just makes an admin with a name and userpass combo
+	 * @param name
+	 * @param userPass
+	 */
 	public Admin(String name, UserPass userPass) {
 		this.name = name;
 		this.userPass = userPass;

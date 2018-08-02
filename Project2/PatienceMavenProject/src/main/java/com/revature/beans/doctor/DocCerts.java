@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * Represents a doctor's certifications. Contains a string for a specific certification.
+ * @author Austin
+ *
+ */
 @Entity
 public class DocCerts {
 	@Id
@@ -15,10 +20,17 @@ public class DocCerts {
 
 	private String cert;
 
+	/**
+	 * No-Args Constructor
+	 */
 	public DocCerts() {
 		super();
 	}
 
+	/**
+	 * Full instantiation
+	 * @param cert
+	 */
 	public DocCerts(String cert) {
 		super();
 		this.cert = cert;

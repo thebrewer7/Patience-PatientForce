@@ -14,6 +14,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * Represents a user and the relationships with all associated patients.
+ * @author Austin
+ *
+ */
 @Entity
 public class UserAccount {
 	@Id
@@ -33,10 +38,19 @@ public class UserAccount {
 	private Blob profilePicture;
 	private Date lastLogin;
 
+	/**
+	 * No-Args Constructor.
+	 */
 	public UserAccount() {
 		super();
 	}
 
+	/**
+	 * Used to create a user that has no associated patients
+	 * @param userPass
+	 * @param name
+	 * @param lastLogin
+	 */
 	public UserAccount(UserPass userPass, String name, Date lastLogin) {
 		super();
 		this.userPass = userPass;
@@ -44,6 +58,14 @@ public class UserAccount {
 		this.lastLogin = lastLogin;
 	}
 
+	/**
+	 * used for full instantiated. Recommended for updates
+	 * @param patients
+	 * @param userPass
+	 * @param name
+	 * @param profilePicture
+	 * @param lastLogin
+	 */
 	public UserAccount(List<Patient> patients, UserPass userPass, String name, Blob profilePicture, Date lastLogin) {
 		super();
 		this.patients = patients;
