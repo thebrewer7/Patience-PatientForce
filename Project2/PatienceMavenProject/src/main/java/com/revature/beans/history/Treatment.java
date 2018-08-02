@@ -15,6 +15,10 @@ public class Treatment {
 
 	private String treatment;
 
+	public Treatment() {
+		super();
+	}
+
 	public Treatment(String treatment) {
 		super();
 		this.treatment = treatment;

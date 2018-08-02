@@ -21,7 +21,7 @@ public class FrontController extends HttpServlet {
      * Default constructor. 
      */
     public FrontController() {
-        // TODO Auto-generated constructor stub
+    	super();
     }
 
 	/**

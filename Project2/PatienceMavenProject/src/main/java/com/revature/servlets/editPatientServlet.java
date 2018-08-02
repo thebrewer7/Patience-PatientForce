@@ -26,7 +26,6 @@ public class editPatientServlet extends HttpServlet {
      */
     public editPatientServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

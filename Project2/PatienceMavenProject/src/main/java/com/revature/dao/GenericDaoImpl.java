@@ -1,6 +1,5 @@
 package com.revature.dao;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -12,9 +11,6 @@ import org.hibernate.Transaction;
 import com.revature.util.HibernateUtil;
 
 public class GenericDaoImpl<T> {
-	private List<T> returnableItems = null; // At this point, we have a transient state.
-	private Object returnableItem = null;
-	private T t = null;
 	private String tClass;
 
 	public GenericDaoImpl(Class<?> clazz) {
@@ -29,8 +25,8 @@ public class GenericDaoImpl<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> get() {
 		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass);
-		returnableItems = q.list();
-		return returnableItems;
+		if(q.list().isEmpty()) return null;
+		else return (List<T>) q.list();
 	}
 
 	/**
@@ -42,22 +38,18 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get(String columnName, String value) {
-		Query q = HibernateUtil.getSession().createQuery("FROM :tName WHERE :cr1 = :v1")
-				.setParameter("tName", tClass)
-				.setParameter("cr1", columnName)
-				.setParameter("v1", value);
-		returnableItems = (List<T>) q.list();
-		return returnableItems;
+		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE " + columnName + " = '" + value + "'");
+		
+		if(q.list().isEmpty()) return null;
+		else return (List<T>) q.list();
 	}
 
 	@SuppressWarnings("unchecked")
 	public <R> R getAccountFromType(String type, Integer id, R role) {
-		doTransaction((item,
-				s) -> returnableItem = s.createQuery("FROM :tName WHERE :cr1 = :v1 AND :cr2 = v2")
-						.setParameter("tName", tClass).setParameter("cr1", "type").setParameter("v1", type)
-						.setParameter("cr2", "id").setParameter("v2", id).uniqueResult(),
-				Arrays.asList(t));
-		return (R) returnableItem;
+		Query q = HibernateUtil.getSession()
+				.createQuery("FROM " + tClass + " WHERE type = '" + type + "' AND id = '" + id + "'");
+		
+		return (R) q.uniqueResult();
 	}
 
 	/**
@@ -69,11 +61,9 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T get(Integer id) {
-		boolean success = doTransaction((item,
-				s) -> returnableItem = s.createQuery("FROM " + tClass + " WHERE id = " + id.toString()).uniqueResult(),
-				Arrays.asList(t));
-		System.out.println("Get w/ Integer: " + success);
-		return (T) returnableItem;
+		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE id = " + id.toString());
+		
+		return (T) q.uniqueResult();
 	}
 
 	/**

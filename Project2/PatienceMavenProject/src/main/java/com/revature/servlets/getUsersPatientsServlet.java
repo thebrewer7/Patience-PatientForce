@@ -26,7 +26,6 @@ public class getUsersPatientsServlet extends HttpServlet {
      */
     public getUsersPatientsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
