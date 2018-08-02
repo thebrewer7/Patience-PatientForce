@@ -26,7 +26,13 @@ public class DocBackground {
 	public DocBackground() {
 		super();
 	}
-
+	
+	/**
+	 * 
+	 * @param certifications
+	 * @param degrees
+	 * @param experience
+	 */
 	public DocBackground(List<DocCerts> certifications, List<DocDegree> degrees, List<DocExperience> experience) {
 		super();
 		this.certifications = certifications;

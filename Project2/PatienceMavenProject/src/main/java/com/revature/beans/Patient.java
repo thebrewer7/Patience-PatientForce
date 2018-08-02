@@ -25,11 +25,11 @@ public class Patient {
 	private Integer id;
 
 	@ManyToMany
-	private List<UserAccount> users;
+	public List<UserAccount> users;
 	@ManyToMany
-	private List<Nurse> nurses;
+	public List<Nurse> nurses;
 	@ManyToMany
-	private List<Doctor> doctors;
+	public List<Doctor> doctors;
 
 	@OneToMany
 	private List<History> history;
@@ -50,6 +50,7 @@ public class Patient {
 
 	/**
 	 * Used to instantiate a Patient with no associate users, doctors, or nuses
+	 * 
 	 * @param userPass
 	 * @param name
 	 * @param location
@@ -64,9 +65,8 @@ public class Patient {
 		this.status = status;
 		this.condition = condition.toString();
 	}
-	
-	public Patient(String name, Integer id, String location, String status)
-	{
+
+	public Patient(String name, Integer id, String location, String status) {
 		super();
 		this.name = name;
 		this.id = id;
@@ -176,30 +176,6 @@ public class Patient {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public List<Nurse> getNurses() {
-		return nurses;
-	}
-
-	public void setNurses(List<Nurse> nurses) {
-		this.nurses = nurses;
-	}
-
-	public List<Doctor> getDoctors() {
-		return doctors;
-	}
-
-	public void setDoctors(List<Doctor> doctors) {
-		this.doctors = doctors;
-	}
-
-	public List<UserAccount> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<UserAccount> users) {
-		this.users = users;
 	}
 
 	public String getPreferredDoctorName() {

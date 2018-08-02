@@ -10,7 +10,7 @@ public class UserService extends RoleService<UserAccount>{
 	public  List<UserAccount> getUsersByPatientId(Integer id){
 		List<UserAccount> users = new ArrayList<>();
 		for (UserAccount user : getDao().get()) {
-			for (Patient p : user.getPatients()) {
+			for (Patient p : user.patients) {
 				if (p.getId() == id) {
 					users.add(user);
 				}

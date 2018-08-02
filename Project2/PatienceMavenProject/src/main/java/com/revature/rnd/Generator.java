@@ -4,14 +4,23 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import com.revature.beans.Admin;
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
+import com.revature.beans.doctor.DocBackground;
+import com.revature.beans.doctor.DocCerts;
+import com.revature.beans.doctor.DocDegree;
+import com.revature.beans.doctor.DocExperience;
+import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.beans.nurse.NurseCerts;
 import com.revature.enums.ConditionTypes;
@@ -60,10 +69,15 @@ public class Generator {
 
 	// Bean Components
 	public static UserPass[] generateUserPass(int quantity) {
+		Set<String> users = new HashSet<>();
 		List<UserPass> ups = new ArrayList<>();
-		for (int i = 0; i < quantity; i++) {
-			ups.add(new UserPass(usernames[random.nextInt(49)], passwords[random.nextInt(49)]));
-		}
+
+		do {
+			users.add(usernames[random.nextInt(49)]);
+		} while (users.size() < quantity);
+
+		users.forEach(username -> ups.add(new UserPass(username, passwords[random.nextInt(49)])));
+
 		return (UserPass[]) ups.toArray(new UserPass[ups.size()]);
 	}
 
@@ -123,6 +137,67 @@ public class Generator {
 		return conditions;
 	}
 
+	private static DocBackground[] generateDocBackground(int quantity) {
+		DocBackground[] backgrounds = new DocBackground[quantity];
+		List<DocCerts> certs = generateDocCerts(quantity);
+		List<DocDegree> degrees = generateDocDegrees(quantity);
+		List<DocExperience> experience = generateDocExperience(quantity);
+
+		for (int i = 0; i < quantity; i++) {
+			backgrounds[i] = new DocBackground(certs, degrees, experience);
+		}
+
+		return backgrounds;
+	}
+
+	private static List<DocExperience> generateDocExperience(int quantity) {
+		List<DocExperience> experience = new ArrayList<>();
+		String[][] branches = {
+				{ "Immunology", "Anesthesiology", "Cardiology", "Colon", "Rectal", "Critical Care", "Dermatology",
+						"Endocrinology", "Emergency Medicine", "Gastroenterology" },
+				{ "Beriatric Surgeries", "Breast Augmentations", "Breast Reduction Surgeries", "Thyroid Surgeries",
+						"Minimally Invasive Parathyroidectomies", "Laparoscopic Adrenalectomies", "General Surgeries",
+						"Gynecological Surgeries", "Endometrial Ablations", "Gynecologic Cancer Surgeries",
+						"Interventional Radiologies", "Tubal Ligations" } };
+		for (int i = 0; i < quantity; i++) {
+			int selected = random.nextInt(1);
+			String[] branch = branches[selected];
+
+			if (selected == 0) {
+				experience.add(new DocExperience((random.nextInt(30) + 1) + // number of years
+						"years in " + branch[random.nextInt(branch.length)]));// Field of Practice
+			}
+			experience.add(new DocExperience((random.nextInt(300) + 1) + branch[random.nextInt(branch.length)]));
+		}
+
+		return experience;
+	}
+
+	private static List<DocDegree> generateDocDegrees(int quantity) {
+		String[] degree = { "Doctor of Medicine by research", "Doctor of Philosophy", "Master of Clinical Medicine",
+				"Master of Medical Science", "Master of Medicine", "Master of Philosophy", "Master of Surgery",
+				"Master of Science in Medicine", "Doctor of Clinical Medicine", "Doctor of Clinical Surgery",
+				"Doctor of Medical Science", "Doctor of Surgery" };
+		List<DocDegree> degrees = new ArrayList<>();
+
+		for (int i = 0; i < quantity; i++) {
+			degrees.add(new DocDegree(degree[random.nextInt(degree.length)]));
+		}
+
+		return degrees;
+	}
+
+	private static List<DocCerts> generateDocCerts(int quantity) {
+		String[] cert = { "ACCME", "ACGME", "AHA", "AMA", "AAMC", "CMSS", "ECFMG", "FSMB", "NBME" };
+		List<DocCerts> certs = new ArrayList<>();
+
+		for (int i = 0; i < quantity; i++) {
+			certs.add(new DocCerts(cert[random.nextInt(cert.length)] + "Board Certified"));
+		}
+
+		return certs;
+	}
+
 	// End Bean Components
 
 	// Bean Modules
@@ -143,55 +218,45 @@ public class Generator {
 		String[] locations = generateLocations(quantity);
 		String[] statuses = generatePatientStatus(quantity);
 		ConditionTypes[] conditions = generateCondition(quantity);
-		
-		for(int i = 0; i < quantity; i++) {
-			patients.add(new Patient(
-						ups[i],
-						name[i],
-						locations[i],
-						statuses[i],
-						conditions[i]
-					));
+
+		for (int i = 0; i < quantity; i++) {
+			patients.add(new Patient(ups[i], name[i], locations[i], statuses[i], conditions[i]));
 		}
-		
+
 		return patients;
 	}
 
 	private static List<Review> generateReviews(int quantity) {
-		String[][][] branches = {
-				{//negative - beginning, middle, and end
-					{"What the hell, ", "My god what is wrong with, ", "Let me tell you, ", "I asked for the manager and "},
-					{"this thing just really ", "the doctors here ", "this doctor ", "this nurse ", "got hit with a trombone ", "got propositioned by "},
-					{", seriously...","really pompous.", "really pompous. Not coming back. EVER.", ". I just wonder why...", "tacos. And stuff..."}
-				},
-				{//neutral
-					{"I don't really know why ", "No real feelings on ", "You'll never guess what happens when ", "Okay, ", "Alright, sooo "},
-					{"just kinda meh ", "that really happened ", "things and stuff ", "I don't know "},
-					{"I don't know...", "meh.", "lots of puss.", "my aching tentacles.", "that kind of thing."}
-				},
-				{//positive
-					{"They really helped me a lot with ", "This cured all of my ", "So many tentacles got ", "Centuries of ", "What's up, "},
-					{"my lot in life ", "my shrunken head collection ", "a lot of tentacles ", "... I forgot ", "alien baths "},
-					{"along with my wife.", "horsing around.", " a tanning bed.", "so many tentacles"}
-				}
-		};
-		
+		String[][][] branches = { { // negative - beginning, middle, and end
+				{ "What the hell, ", "My god what is wrong with, ", "Let me tell you, ",
+						"I asked for the manager and " },
+				{ "this thing just really ", "the doctors here ", "this doctor ", "this nurse ",
+						"got hit with a trombone ", "got propositioned by " },
+				{ ", seriously...", "really pompous.", "really pompous. Not coming back. EVER.",
+						". I just wonder why...", "tacos. And stuff..." } },
+				{ // neutral
+						{ "I don't really know why ", "No real feelings on ", "You'll never guess what happens when ",
+								"Okay, ", "Alright, sooo " },
+						{ "just kinda meh ", "that really happened ", "things and stuff ", "I don't know " },
+						{ "I don't know...", "meh.", "lots of puss.", "my aching tentacles.", "that kind of thing." } },
+				{ // positive
+						{ "They really helped me a lot with ", "This cured all of my ", "So many tentacles got ",
+								"Centuries of ", "What's up, " },
+						{ "my lot in life ", "my shrunken head collection ", "a lot of tentacles ", "... I forgot ",
+								"alien baths " },
+						{ "along with my wife.", "horsing around.", " a tanning bed.", "so many tentacles" } } };
+
 		String[] reviewsContent = new String[quantity];
 		List<Review> reviews = new ArrayList<>();
-		for(int i = 0; i < quantity; i++) {
+		for (int i = 0; i < quantity; i++) {
 			String[][] branch = branches[random.nextInt(3)];
-			
-			reviewsContent[i] = branch[0][random.nextInt(branch[0].length)] +
-						 branch[1][random.nextInt(branch[1].length)] +
-						 branch[2][random.nextInt(branch[2].length)];
+
+			reviewsContent[i] = branch[0][random.nextInt(branch[0].length)]
+					+ branch[1][random.nextInt(branch[1].length)] + branch[2][random.nextInt(branch[2].length)];
 			System.out.println(reviewsContent[i]);
-			String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(12))+ "-" + (random.nextInt(28));
+			String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(11) + 1) + "-" + (random.nextInt(27) + 1);
 			System.out.println(date);
-			reviews.add(new Review(
-						random.nextInt(5),
-						reviewsContent[i],
-						Date.valueOf(date)
-					));
+			reviews.add(new Review(random.nextInt(5), reviewsContent[i], Date.valueOf(date)));
 			System.out.println(reviews.get(i));
 		}
 		return reviews;
@@ -224,6 +289,57 @@ public class Generator {
 
 		return nurses;
 	}
+
+	public static List<Doctor> generateDoctors(int quantity) {
+		List<Doctor> doctors = new ArrayList<>();
+		DocBackground[] backgrounds = generateDocBackground(quantity);
+		UserPass[] ups = generateUserPass(quantity);
+		String[] name = generateNames(quantity);
+		String[] departments = generateDepartments(quantity);
+
+		for (int i = 0; i < quantity; i++) {
+			doctors.add(new Doctor(backgrounds[i], generateReviews(10), ups[i], name[i], departments[i]));
+		}
+
+		return doctors;
+	}
 	// End Bean Modules
 
+	public static Map<String, List<?>> generateAll(int quantity) {
+		List<Admin> admins = generateAdmins(quantity);
+		List<Patient> patients = generatePatients(quantity);
+		List<UserAccount> users = generateUsers(quantity);
+		List<Nurse> nurses = generateNurses(quantity);
+		List<Doctor> doctors = generateDoctors(quantity);
+		Map<String, List<?>> map = new HashMap<>();
+		List<Integer> nums = new ArrayList<>();
+
+		for (int i = 0; i < quantity; i++) {
+			Integer a = random.nextInt(quantity);
+			if (nums.contains(a)) {
+				users.get(a).patients = new ArrayList<>();
+				nurses.get(a).patients = new ArrayList<>();
+				doctors.get(a).patients = new ArrayList<>();
+				patients.get(a).users = new ArrayList<>();
+				patients.get(a).nurses = new ArrayList<>();
+				patients.get(a).doctors = new ArrayList<>();
+				
+				users.get(a).patients.add(patients.get(a));
+				nurses.get(a).patients.add(patients.get(a));
+				doctors.get(a).patients.add(patients.get(a));
+				patients.get(a).users.add(users.get(a));
+				patients.get(a).nurses.add(nurses.get(a));
+				patients.get(a).doctors.add(doctors.get(a));
+			}
+			nums.add(a);
+		}
+
+		map.put("admins", admins);
+		map.put("patients", patients);
+		map.put("users", users);
+		map.put("nurses", nurses);
+		map.put("doctors", doctors);
+
+		return map;
+	}
 }

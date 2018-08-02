@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
@@ -31,7 +32,7 @@ public class Doctor {
 	@OneToOne
 	private UserPass userPass;
 	@ManyToMany(fetch = FetchType.EAGER)
-	private List<Patient> patients;
+	public List<Patient> patients;
 
 	private Integer rating;
 	private String name;
@@ -42,30 +43,55 @@ public class Doctor {
 	public Doctor() {
 		super();
 	}
+	/**
+	 * Creates an unassociated doctor containing history
+	 * @param background
+	 * @param reviews
+	 * @param userPass
+	 * @param name
+	 * @param department
+	 */
+	public Doctor(DocBackground background, List<Review> reviews, UserPass userPass, String name, String department) {
+		super();
+		this.background = background;
+		this.reviews = reviews;
+		this.userPass = userPass;
+		this.name = name;
+		this.department = department;
+		setRatingWithReviews(reviews);
+	}
 
 	public Doctor(DocBackground background, List<Review> reviews, UserPass userPass, List<Patient> patients,
-			Integer rating, String name, String department) {
+			String name, String department) {
 		super();
 		this.background = background;
 		this.reviews = reviews;
 		this.userPass = userPass;
 		this.patients = patients;
-		this.rating = rating;
+		setRatingWithReviews(reviews);
 		this.name = name;
 		this.department = department;
 	}
 
 	public Doctor(DocBackground background, List<Review> reviews, UserPass userPass, List<Patient> patients,
-			Integer rating, String name, String department, Blob profilePicture) {
+			String name, String department, Blob profilePicture) {
 		super();
 		this.background = background;
 		this.reviews = reviews;
 		this.userPass = userPass;
 		this.patients = patients;
-		this.rating = rating;
+		setRatingWithReviews(reviews);
 		this.name = name;
 		this.department = department;
 		this.profilePicture = profilePicture;
+	}
+
+	@Transient
+	private int avg = 0;
+
+	public void setRatingWithReviews(List<Review> reviews) {
+		reviews.forEach(review -> avg += review.getRating());
+		this.rating = avg / reviews.size();
 	}
 
 	public DocBackground getBackground() {
@@ -90,14 +116,6 @@ public class Doctor {
 
 	public void setUserPass(UserPass userPass) {
 		this.userPass = userPass;
-	}
-
-	public List<Patient> getPatients() {
-		return patients;
-	}
-
-	public void setPatients(List<Patient> patients) {
-		this.patients = patients;
 	}
 
 	public Integer getRating() {
@@ -140,5 +158,4 @@ public class Doctor {
 		return ROLE;
 	}
 
-	
 }

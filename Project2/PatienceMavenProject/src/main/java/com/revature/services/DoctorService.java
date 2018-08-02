@@ -10,7 +10,7 @@ public class DoctorService extends RoleService<Doctor> {
 	public List<Doctor> getByPatientId(Integer id) {
 		List<Doctor> doctors = new ArrayList<>();
 		for (Doctor d : getDao().get()) {
-			for (Patient p : d.getPatients()) {
+			for (Patient p : d.patients) {
 				if (p.getId() == id) {
 					doctors.add(d);
 				}

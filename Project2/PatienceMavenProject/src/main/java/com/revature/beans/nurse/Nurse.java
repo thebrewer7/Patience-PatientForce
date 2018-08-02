@@ -32,7 +32,7 @@ public class Nurse {
 	@OneToOne
 	private UserPass userPass;
 	@ManyToMany(fetch = FetchType.EAGER)
-	private List<Patient> patients;
+	public List<Patient> patients;
 
 	private String name;
 	private String department;
@@ -46,9 +46,8 @@ public class Nurse {
 	public Nurse() {
 		super();
 	}
-	
-	public Nurse(String name)
-	{
+
+	public Nurse(String name) {
 		super();
 		this.name = name;
 	}
@@ -63,7 +62,7 @@ public class Nurse {
 	 * @param userPass
 	 * @param name
 	 * @param department
-	 *Note: Also, instantiates rating
+	 *            Note: Also, instantiates rating
 	 */
 	public Nurse(List<NurseCerts> certifications, List<Review> reviews, UserPass userPass, String name,
 			String department) {
@@ -124,7 +123,7 @@ public class Nurse {
 		this.profilePicture = profilePicture;
 		setRatingWithReviews(reviews);
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -177,7 +176,7 @@ public class Nurse {
 		reviews.forEach(review -> avg += review.getRating());
 		this.rating = avg / reviews.size();
 	}
-	
+
 	public List<Review> getReviews() {
 		return reviews;
 	}
@@ -185,17 +184,9 @@ public class Nurse {
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
-	
+
 	public void addReview(Review review) {
 		this.reviews.add(review);
-	}
-
-	public List<Patient> getPatients() {
-		return patients;
-	}
-
-	public void setPatients(List<Patient> patients) {
-		this.patients = patients;
 	}
 
 	@Override
