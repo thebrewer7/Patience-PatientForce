@@ -31,13 +31,13 @@ export class DoctorPageComponent implements OnInit {
     this.ds.getPatients().subscribe(
       data => {
         console.log("DATA: " + JSON.stringify(data));
-        // for ( var d in data )
-        // {
-        //   this.doctorsPatients[d] = data[d];
-        //   console.log(data[d]);
-        // }
-        // console.log("AMOUNTOFPATIENTS: " + d);
-        // console.log("allpatients after: " + this.doctorsPatients);
+        for ( var d in data )
+        {
+          this.doctorsPatients[d] = data[d];
+          console.log(data[d]);
+        }
+        console.log("AMOUNTOFPATIENTS: " + d);
+        console.log("allpatients after: " + this.doctorsPatients);
       },
       error => {
         console.log('ERROR', error);
