@@ -15,8 +15,8 @@
       <table>
         <tr><th>Rating:</th><td>{{ratingToStars(review.rating)}}</td></tr>
         <tr><th>Comment:</th><td>{{review.review}}</td></tr>
-        <tr><th>Date:</th><td>{{review.date | date:'fullDate'}}</td></tr>
-        <tr><th>Time:</th><td>{{review.date | date:'h:mm a z'}}</td></tr>
+        <tr><th>Date:</th><td>{{review.datePosted | date:'fullDate'}}</td></tr>
+        <tr><th>Time:</th><td>{{review.datePosted | date:'h:mm:ss a z'}}</td></tr>
       </table>
       <hr>
     </div>
