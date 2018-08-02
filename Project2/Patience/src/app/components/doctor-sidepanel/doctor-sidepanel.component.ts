@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../../objects/doctor';
-
-import { DOCTORS } from '../../mock-doctors';
-import { PATIENTS } from '../../mock-patients';
+import { DoctorService } from '../../services/doctor/doctor.service';
 
 @Component({
   selector: 'app-doctor-sidepanel',
@@ -11,84 +9,31 @@ import { PATIENTS } from '../../mock-patients';
 })
 export class DoctorSidepanelComponent implements OnInit {
   // mock data to simulate pulling from backend
-  doctors = DOCTORS;
-  patients = PATIENTS;
   newDoctors = [];
   patientsDoctors = [];
   patientsNurses = [];
 
-  constructor() { }
+  constructor(private ds: DoctorService) { }
 
   ngOnInit() {
-    var activeuserid = 1;
-    switch(activeuserid){
-      case 1:
-        for ( var i = 0; i < this.patients.length; i++ )
-        {
-          if ( this.patients[i]['id'] == 1 )
-          {
-            for ( var j = 0; j < this.patients[i]['doctors'].length; j++ )
-            {
-              this.patientsDoctors[j] = this.patients[i]['doctors'][j];
-            }
-          }
-        }
-        break;
-      case 2:
-        for ( var i = 0; i < this.patients.length; i++ )
-        {
-          if ( this.patients[i]['id'] == 2 )
-          {
-            for ( var j = 0; j < this.patients[i]['doctors'].length; j++ )
-            {
-              this.patientsDoctors[j] = this.patients[i]['doctors'][j];
-            }
-          }
-        }
-        break;
-      case 3:
-        for ( var i = 0; i < this.patients.length; i++ )
-        {
-          if ( this.patients[i]['id'] == 3 )
-          {
-            for ( var j = 0; j < this.patients[i]['doctors'].length; j++ )
-            {
-              this.patientsDoctors[j] = this.patients[i]['doctors'][j];
-            }
-          }
-        }
-        break;
-      case 4:
-        for ( var i = 0; i < this.patients.length; i++ )
-        {
-          if ( this.patients[i]['id'] == 4 )
-          {
-            for ( var j = 0; j < this.patients[i]['doctors'].length; j++ )
-            {
-              this.patientsDoctors[j] = this.patients[i]['doctors'][j];
-            }
-          }
-        }
-        break;
-      case 5:
-        for ( var i = 0; i < this.patients.length; i++ )
-        {
-          if ( this.patients[i]['id'] == 5 )
-          {
-            for ( var j = 0; j < this.patients[i]['doctors'].length; j++ )
-            {
-              this.patientsDoctors[j] = this.patients[i]['doctors'][j];
-            }
-          }
-        }
-        break;
-      case 6:
-        this.randomizeDoctors(this.doctors);
-        this.patientsDoctors = [];
-        this.patientsDoctors = this.newDoctors;
-        break;
-    }
+    this.getAllDoctors();
+  }
 
+  getAllDoctors()
+  {
+    this.ds.getDoctors().subscribe(
+      data => {
+        //console.log(data);
+        for ( var d in data )
+        {
+          this.patientsDoctors[d] = data[d];
+          //console.log(data[d]);
+        }
+      },
+      error => {
+        console.log('ERROR', error);
+      }
+    );
   }
 
   randomizeDoctors(doctors: Doctor[])

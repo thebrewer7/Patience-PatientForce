@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../../objects/patient';
 
-import { DOCTORS } from '../../mock-doctors';
-import { PATIENTS } from '../../mock-patients';
 import { DoctorService } from '../../services/doctor/doctor.service';
 
 @Component({
@@ -12,8 +10,6 @@ import { DoctorService } from '../../services/doctor/doctor.service';
 })
 export class DoctorPageComponent implements OnInit {
 
-  doctors = DOCTORS;
-  patients = PATIENTS;
   doctorsPatients = []
 
   constructor(private ds: DoctorService) { }
@@ -28,7 +24,7 @@ export class DoctorPageComponent implements OnInit {
   {
     this.ds.getPatients().subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         for ( var d in data )
         {
           this.doctorsPatients[d] = data[d];

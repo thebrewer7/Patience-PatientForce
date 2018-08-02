@@ -9,6 +9,11 @@ export class DoctorService {
 
   constructor(private http: HttpClient) {}
 
+  getDoctors() {
+    const params = new HttpParams();
+    return this.http.post('http://localhost:8085/PatienceMavenProject/getDoctors.do', params);
+  }
+
   getPatients() {
     const params = new HttpParams();
     return this.http.post('http://localhost:8085/PatienceMavenProject/getAllDoctorsPatients.do', params);
