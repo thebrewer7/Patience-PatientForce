@@ -8,7 +8,7 @@ import { User } from '../../objects/user';
 export class RegistrationService {
 
   constructor(private http: HttpClient) {}
-  register(email: string, username: string, password: string, passwordconfirm: string) {
+  register(username: string, password: string, passwordconfirm: string) {
     console.log('RegistrationService: register()');
     const params = new HttpParams().set('username', username).set('password', password);
     return this.http.post<User>('http://localhost:8085/PatienceMavenProject/register.do', params);

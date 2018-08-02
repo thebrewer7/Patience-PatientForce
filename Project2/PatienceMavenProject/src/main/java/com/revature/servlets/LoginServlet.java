@@ -16,12 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
 public class LoginServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);
+
+    private static final String invalidCredentials = "{ \"status\": \"failure\", \"message:\": \"Username and Password combination is invalid\" }";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
@@ -35,56 +36,61 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/json");
         PrintWriter writer = response.getWriter();
 
-        if (up.getPassword().equals(password)) {
+        if (up != null && up.getPassword().equals(password)) {
+            logger.info("UserPass: Username: " + up.getUsername() + " Password: " + up.getPassword() + "UserID: " + up.getId());
+            int userId = up.getId();
+            String role = up.getRole();
+
             String json = "";
 
-            response.addCookie(new Cookie("username", username));
+            switch (role) {
+                case "user":
+                    UserService us = new UserService();
+                    UserAccount user = us.getByUserPass(userId);
+                    logger.info(user);
+                    if (user != null) {
+                        json = ObjectToJSONService.UserAccountToJSON(user);
+                    }
+                    break;
 
-            UserService us = new UserService();
-            List<UserAccount> users = us.getByName(username);
-            if (users.size() > 0) {
-                UserAccount user = users.get(0);
-                response.addCookie(new Cookie("role", "user"));
-                json = ObjectToJSONService.UserAccountToJSON(user);
+                case "patient":
+                    PatientService ps = new PatientService();
+                    Patient patient = ps.getByUserPass(userId);
+                    logger.info(patient);
+                    if (patient != null) {
+                        json = ObjectToJSONService.PatientToJSON(patient);
+                    }
+                    break;
+
+                case "nurse":
+                    NurseService ns = new NurseService();
+                    Nurse nurse = ns.getByUserPass(userId);
+                    logger.info(nurse);
+                    if (nurse != null) {
+                        json = ObjectToJSONService.NurseToJSON(nurse);
+                    }
+                    break;
+
+                case "doctor":
+                    DoctorService ds = new DoctorService();
+                    Doctor doctor = ds.getByUserPass(userId);
+                    logger.info(doctor);
+                    if (doctor != null) {
+
+                        json = ObjectToJSONService.DoctorToJSON(doctor);
+                    }
+                    break;
+
+            }
+            if (!json.equals("")) {
+                response.addCookie(new Cookie("username", username));
+                response.addCookie(new Cookie("role", up.getRole()));
                 logger.info(json);
                 writer.println(json);
-                return;
             }
 
-            PatientService ps = new PatientService();
-            List<Patient> patients = ps.getByName(username);
-            if (patients.size() > 0) {
-                Patient patient = patients.get(0);
-                response.addCookie(new Cookie("role", "patient"));
-                json = ObjectToJSONService.PatientToJSON(patient);
-                logger.info(json);
-                writer.println(json);
-                return;
-            }
-
-            NurseService ns = new NurseService();
-            List<Nurse> nurses = ns.getByName(username);
-            if (nurses.size() > 0) {
-                Nurse nurse = nurses.get(0);
-                response.addCookie(new Cookie("role", "nurse"));
-                json = ObjectToJSONService.NurseToJSON(nurse);
-                logger.info(json);
-                writer.println(json);
-                return;
-            }
-
-            DoctorService ds = new DoctorService();
-            List<Doctor> doctors = ds.getByName(username);
-            if (doctors.size() > 0) {
-                Doctor doctor = doctors.get(0);
-                response.addCookie(new Cookie("role", "doctor"));
-                json = ObjectToJSONService.DoctorToJSON(doctor);
-                logger.info(json);
-                writer.println(json);
-                return;
-            }
         } else {
-            writer.println("{ \"status\": \"login failure\", \"message:\": \"invalid credentials\" }");
+            writer.println(invalidCredentials);
         }
 
     }
