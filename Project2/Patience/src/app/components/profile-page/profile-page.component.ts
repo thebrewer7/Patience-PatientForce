@@ -17,15 +17,15 @@ export class ProfilePageComponent implements OnInit {
   reviews: Review[] = [
     {
       id: 1,
-      date: Date.now(),
-      role: "",
+      name: "Logan",
+      datePosted: Date.now().toLocaleString(),
       rating: 3,
       review: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
     },
     {
       id: 2,
-      date: Date.now(),
-      role: "",
+      name: "Logan",
+      datePosted: Date.now().toLocaleString(),
       rating: 4,
       review: 'dsfsdfsdf fdsdfsdf'
     }
@@ -56,11 +56,12 @@ export class ProfilePageComponent implements OnInit {
   fetchReviews(){
     this.conn.getReviewByName(this.data.name).subscribe(
         data => {
+          console.log(data);
           this.reviews = data;
           this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
           this.sortedReviewsByDate.sort((a, b) => {
-            if (a.date < b.date) return -1;
-            else if (a.date > b.date) return 1;
+            if (a.datePosted < b.datePosted) return -1;
+            else if (a.datePosted > b.datePosted) return 1;
             else return 0;
           });
           console.log(this.sortedReviewsByDate);
