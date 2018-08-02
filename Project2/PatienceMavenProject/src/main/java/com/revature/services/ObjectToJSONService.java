@@ -16,7 +16,7 @@ public class ObjectToJSONService {
 	public static String ReviewsToJSON(Review[] reviews)
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm a z");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm:ss a z");
 		mapper.setDateFormat(dateFormat);
 		String json = "";
 		
