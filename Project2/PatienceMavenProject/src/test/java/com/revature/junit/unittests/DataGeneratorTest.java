@@ -1,11 +1,13 @@
 package com.revature.junit.unittests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import com.revature.rnd.Generator;
 
+@Ignore
 class DataGeneratorTest {
 
 	@Test

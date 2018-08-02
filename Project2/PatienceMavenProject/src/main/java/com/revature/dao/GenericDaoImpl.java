@@ -45,11 +45,11 @@ public class GenericDaoImpl<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <R> R getAccountFromType(String type, Integer id, R role) {
+	public T getRoleByUserPass(Integer userpass_id) {
 		Query q = HibernateUtil.getSession()
-				.createQuery("FROM " + tClass + " WHERE type = '" + type + "' AND id = '" + id + "'");
+				.createQuery("FROM " + tClass + " WHERE userpass_id = '" + userpass_id + "'");
 		
-		return (R) q.uniqueResult();
+		return (T) q.uniqueResult();
 	}
 
 	/**

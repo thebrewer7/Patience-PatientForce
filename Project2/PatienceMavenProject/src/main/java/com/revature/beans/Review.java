@@ -1,12 +1,14 @@
 package com.revature.beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Review {
@@ -15,7 +17,9 @@ public class Review {
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
+	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date datePosted;
+	
 	private Integer rating;
 	private String review;
 
