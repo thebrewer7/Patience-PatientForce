@@ -2533,6 +2533,7 @@ line 1:6: unexpected token: :
 
 2018-08-02 02:36:28 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
 2018-08-02 02:36:29 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+
 2018-08-02 10:14:56 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
 2018-08-02 10:14:57 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
 2018-08-02 10:14:57 INFO  Environment:239 - HHH000206: hibernate.properties not found

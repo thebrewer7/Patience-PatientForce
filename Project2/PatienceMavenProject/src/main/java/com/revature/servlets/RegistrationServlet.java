@@ -18,7 +18,7 @@ import java.time.LocalDate;
 
 public class RegistrationServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);
-
+    private static final String usernameTakerError = "{ \"status\": \"failure\", \"message:\": \"User account taken\" }";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -40,8 +40,7 @@ public class RegistrationServlet extends HttpServlet {
         UserPass userPass = ups.getByUsername(username);
 
         if (userPass != null) {
-            // already exists
-            writer.println("{ \"status\": \"register failure\", \"message:\": \"User account taken\" }");
+            writer.println(usernameTakerError);
         } else {
             UserService us = new UserService();
             userPass = new UserPass(username, password);
@@ -52,7 +51,6 @@ public class RegistrationServlet extends HttpServlet {
             String json = ObjectToJSONService.UserAccountToJSON(user);
             logger.info(json);
             writer.println(json);
-            return;
         }
     }
 }

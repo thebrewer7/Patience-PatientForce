@@ -27,7 +27,7 @@ class FetchReviewServletTest {
 	}
 
 	@Test
-	void test() {
+	void testFetchingAReview() {
 		assertNotNull(1);
 	}
 

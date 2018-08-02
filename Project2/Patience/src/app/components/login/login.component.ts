@@ -12,10 +12,11 @@ declare var $: any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username = '';
-  email = '';
-  password = '';
-  passwordconfirm = '';
+  login_username = '';
+  login_password = '';
+  register_username = '';
+  register_password = '';
+  password_confirm = '';
 
   constructor(private loginService: LoginService, private registrationService: RegistrationService, private router: Router, public cookieService: CookieService) {}//
 
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
   login() {
     console.log('LoginComponent: login()');
     // send username and password to login servlet
-    this.loginService.login(this.username, this.password).subscribe(
+    this.loginService.login(this.login_username, this.login_password).subscribe(
       DATA => {
         // this.cookieService.set('data', DATA);
         switch (DATA['role']) {
@@ -78,7 +79,7 @@ export class LoginComponent implements OnInit {
   register() {
     console.log('LoginComponent: register()');
     // send email, username and password to register servlet
-    this.registrationService.register(this.email, this.username, this.password, this.passwordconfirm).subscribe (
+    this.registrationService.register(this.register_username, this.register_password, this.password_confirm).subscribe (
       PASS => { console.log('pass'); },
       FAIL => { console.log('failed'); }
     );
