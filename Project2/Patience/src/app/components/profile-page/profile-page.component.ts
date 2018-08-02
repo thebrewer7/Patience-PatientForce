@@ -37,6 +37,7 @@ export class ProfilePageComponent implements OnInit {
   receiveData($event){
     this.data = $event;
     this.fetchReviews();
+    console.log("receiveDATA: " + this.data);
     console.log(this.data);
   }
 
@@ -55,6 +56,7 @@ export class ProfilePageComponent implements OnInit {
   fetchReviews(){
     this.conn.getReviewByName(this.data.name).subscribe(
         data => {
+          console.log("FETCHREVIEWS: " + data);
           console.log(data);
           this.reviews = data;
         },

@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class FrontController
  */
 public class FrontController extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
 
     /**
@@ -25,9 +28,7 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//System.out.println("====" + this.getServletName() + "====");
-		String url = request.getRequestURI(); //Stores the url in a string (minues the http jargon)
-		//System.out.println(url);			  //localhost:8085/something.do
+		String url = request.getRequestURI();
 		
 		RequestDispatcher rd;
 		
@@ -39,32 +40,41 @@ public class FrontController extends HttpServlet {
 		
 		switch(action){
 		case "searchresults":
+			logger.info("FrontController: searchresults servlet hit.");
 			rd = request.getRequestDispatcher("SearchResultsServlet");
 			rd.forward(request, response);
 			break;
 		case "getuserspatients":
+			logger.info("FrontController: getuserspatients servlet hit.");
 			rd = request.getRequestDispatcher("getUsersPatientsServlet");
 			rd.forward(request, response);
 			break;
 		case "editdoctorspatient":
+			logger.info("FrontController: editdoctorspatient servlet hit.");
 			rd = request.getRequestDispatcher("editPatientServlet");
 			rd.forward(request, response);
 			break;
 		case "getnurses":
+			logger.info("FrontController: getnurses servlet hit.");
 			rd = request.getRequestDispatcher("getNursesServlet");
+			rd.forward(request, response);
 		case "login":
+			logger.info("FrontController: login servlet hit.");
 			rd = request.getRequestDispatcher("LoginServlet");
 			rd.forward(request, response);
 			break;
 		case "submitreview":
+			logger.info("FrontController: submitreview servlet hit.");
 			rd = request.getRequestDispatcher("SubmitReviewServlet");
 			rd.forward(request, response);
 			break;
 		case "fetchreview":
+			logger.info("FrontController: fetchreviewservlet servlet hit.");
 			rd = request.getRequestDispatcher("FetchReviewServlet");
 			rd.forward(request, response);
 			break;
 		default:
+			logger.info("FrontController: no corresponding servlet found.");
 			response.sendError(404);
 		}
 	}

@@ -8,10 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 /**
  * Servlet implementation class SubmitReviewServlet
  */
 public class SubmitReviewServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -26,8 +29,6 @@ public class SubmitReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
-		
 		int rating = Integer.parseInt(request.getParameter("rating"));
 		String review = request.getParameter("review");
 		String name = request.getParameter("name");
@@ -38,6 +39,7 @@ public class SubmitReviewServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		System.out.println("Rating: "+rating+"\nReview: "+review+"\nName: "+name);
 		out.println("server: received review");
+		logger.info("SubmitReviewServlet received a review");
 	}
 
 	/**
