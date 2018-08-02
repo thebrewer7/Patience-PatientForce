@@ -17,13 +17,9 @@ public class Review {
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-<<<<<<< HEAD
 	@Temporal(value = TemporalType.TIMESTAMP)
-=======
-	private String name;
->>>>>>> Development
 	private Date datePosted;
-	
+
 	private Integer rating;
 	private String review;
 
@@ -42,14 +38,6 @@ public class Review {
 		this.datePosted = datePosted;
 		this.rating = rating;
 		this.review = review;
-	}
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Date getDatePosted() {
@@ -83,5 +71,5 @@ public class Review {
 	public void setReview(String review) {
 		this.review = review;
 	}
-	
+
 }
