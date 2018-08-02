@@ -11,39 +11,9 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let patient of patients">
-              <td id="patientname">{{patient.name}}</td>
-              <td id="patientrole">{{patient.role}}</td>
-              <td>
-                <label class="switch">
-                  <input type="checkbox" checked (click)=lockUnlockAccount()>
-                  <span class="slider round"></span>
-                </label>
-              </td>
-            </tr>
-            <tr *ngFor="let doctor of doctors">
-              <td id="doctorname">{{doctor.name}}</td>
-              <td id="doctorrole">{{doctor.role}}</td>
-              <td>
-                <label class="switch">
-                  <input type="checkbox" checked (click)=lockUnlockAccount()>
-                  <span class="slider round"></span>
-                </label>
-              </td>
-            </tr>
-            <tr *ngFor="let nurse of nurses">
-              <td id="nursename">{{nurse.name}}</td>
-              <td id="nurserole">{{nurse.role}}</td>
-              <td>
-                <label class="switch">
-                  <input type="checkbox" checked (click)=lockUnlockAccount()>
-                  <span class="slider round"></span>
-                </label>
-              </td>
-            </tr>
-            <tr *ngFor="let user of users">
-              <td id="username">{{user.name}}</td>
-              <td id="userrole">{{user.role}}</td>
+            <tr *ngFor="let account of allaccounts">
+              <td id="accountname">{{account.name}}</td>
+              <td id="accountrole">{{account.role}}</td>
               <td>
                 <label class="switch">
                   <input type="checkbox" checked (click)=lockUnlockAccount()>
