@@ -15,6 +15,10 @@ public class DocExperience {
 	
 	private String experience;
 
+	public DocExperience() {
+		super();
+	}
+
 	public DocExperience(String experience) {
 		super();
 		this.experience = experience;

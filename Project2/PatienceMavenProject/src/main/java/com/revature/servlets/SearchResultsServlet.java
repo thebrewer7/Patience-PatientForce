@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.beans.UserAccount;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.UserService;
@@ -17,6 +19,7 @@ import com.revature.services.UserService;
  * Servlet implementation class SearchResultsServlet
  */
 public class SearchResultsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -24,7 +27,6 @@ public class SearchResultsServlet extends HttpServlet {
      */
     public SearchResultsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -38,6 +40,7 @@ public class SearchResultsServlet extends HttpServlet {
 		List<UserAccount> receivedUsers = userService.getByName(name.toLowerCase());
 		
 		if(receivedUsers.size() > 1){
+			logger.info("SearchResultsServlet found more than one of the same name.");
 			System.out.println("There is more than one user with the same name!");
 		} else {
 			user = receivedUsers.get(0);
@@ -48,6 +51,7 @@ public class SearchResultsServlet extends HttpServlet {
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		out.println(ObjectToJSONService.UserAccountToJSON(user));// TODO grab user using user dao
+		logger.info("SearchResultsServlet returned JSON: " + ObjectToJSONService.UserAccountToJSON(user));
 	}
 
 	/**

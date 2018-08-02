@@ -15,6 +15,10 @@ public class Medication {
 
 	private String medication;
 
+	public Medication() {
+		super();
+	}
+
 	public Medication(String medication) {
 		super();
 		this.medication = medication;

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
 
@@ -16,6 +18,7 @@ import com.revature.services.ObjectToJSONService;
  * Servlet implementation class getUsersPatientsServlet
  */
 public class getUsersPatientsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -23,7 +26,6 @@ public class getUsersPatientsServlet extends HttpServlet {
      */
     public getUsersPatientsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -45,6 +47,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
 		out.println(ObjectToJSONService.PatientToJSON(new Patient("BlahFromDb", patientid, saltStr, saltStr)));// TODO 
+		logger.info("getUsersPatientsServlet returned JSON: " + ObjectToJSONService.PatientToJSON(new Patient("BlahFromDb", patientid, saltStr, saltStr)));
 	}
 
 	/**

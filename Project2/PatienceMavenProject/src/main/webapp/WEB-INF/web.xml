@@ -115,4 +115,20 @@
     <servlet-name>RegistrationServlet</servlet-name>
     <url-pattern>/RegistrationServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.revature.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>QuickLookupServlet</servlet-name>
+    <servlet-class>com.revature.servlets.QuickLookupServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuickLookupServlet</servlet-name>
+    <url-pattern>/QuickLookupServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

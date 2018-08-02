@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.NurseService;
 import com.revature.services.ObjectToJSONService;
@@ -16,6 +18,7 @@ import com.revature.services.ObjectToJSONService;
  * Servlet implementation class getNursesServlet
  */
 public class getNursesServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -36,6 +39,7 @@ public class getNursesServlet extends HttpServlet {
 		
 		//out.println(ns.getByPatientId(1));
 		out.println(ObjectToJSONService.nurseToJSON(new Nurse("SERVLETNURSE")));
+		logger.info("getNursesServlet returned JSON: " + ObjectToJSONService.nurseToJSON(new Nurse("SERVLETNURSE")));
 	}
 
 	/**

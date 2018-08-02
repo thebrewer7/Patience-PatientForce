@@ -15,6 +15,10 @@ public class Vaccination {
 
 	private String vaccination;
 
+	public Vaccination() {
+		super();
+	}
+
 	public Vaccination(String vaccination) {
 		super();
 		this.vaccination = vaccination;
