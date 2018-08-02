@@ -7,6 +7,10 @@ import com.revature.beans.Patient;
 import com.revature.beans.doctor.Doctor;
 
 public class DoctorService extends RoleService<Doctor> {
+	public DoctorService() {
+		super(new Doctor());
+	}
+
 	public List<Doctor> getByPatientId(Integer id) {
 		List<Doctor> doctors = new ArrayList<>();
 		for (Doctor d : getDao().get()) {
