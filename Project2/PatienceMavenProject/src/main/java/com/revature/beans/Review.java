@@ -1,6 +1,7 @@
 package com.revature.beans;
 
-import javax.management.relation.Role;
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,29 +14,25 @@ public class Review {
 	@SequenceGenerator(sequenceName = "review_seq", name = "review_seq")
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	
-	private String role;
-	private String name;
-	private Double date;
+
+	private Date date;
 	private Integer rating;
 	private String review;
-	
+
 	public Review() {
 		super();
 	}
-	
-	public Review(String name, Double date, Integer rating, String review) {
+
+	/**
+	 * 
+	 * @param rating
+	 * @param review
+	 * @param date
+	 */
+	public Review(Integer rating, String review, Date date) {
 		super();
-		this.name = name;
 		this.date = date;
 		this.rating = rating;
-		this.review = review;
-	}
-
-	public Review(Integer rating, Role role, String review) {
-		super();
-		this.rating = rating;
-		this.role = role.toString();
 		this.review = review;
 	}
 
@@ -55,14 +52,6 @@ public class Review {
 		this.rating = rating;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
 	public String getReview() {
 		return review;
 	}
@@ -71,26 +60,18 @@ public class Review {
 		this.review = review;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Double getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(Double date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", role=" + role + ", name=" + name + ", date=" + date + ", rating=" + rating
+		return "Review [id=" + id + ", date=" + date + ", rating=" + rating
 				+ ", review=" + review + "]";
 	}
-	
+
 }

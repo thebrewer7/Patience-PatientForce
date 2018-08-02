@@ -48,6 +48,14 @@ public class Patient {
 		super();
 	}
 
+	/**
+	 * Used to instantiate a Patient with no associate users, doctors, or nuses
+	 * @param userPass
+	 * @param name
+	 * @param location
+	 * @param status
+	 * @param condition
+	 */
 	public Patient(UserPass userPass, String name, String location, String status, ConditionTypes condition) {
 		super();
 		this.userPass = userPass;

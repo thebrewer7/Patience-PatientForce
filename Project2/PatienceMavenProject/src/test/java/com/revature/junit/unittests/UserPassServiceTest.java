@@ -1,7 +1,6 @@
 package com.revature.junit.unittests;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ class UserPassServiceTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		ups = new UserPassService(new UserPass("",""));
+		ups = new UserPassService();
 	}
 
 	@AfterEach
@@ -51,7 +50,7 @@ class UserPassServiceTest {
 	@Test
 	void _4_getByUsernameTest(){
 		System.out.println("================STARTING GET USERNAME TEST================");
-		assertNotNull("Get by username failed", ups.getByUsername("iscomfort"));
+		assertNotNull("Get by username failed", ups.getByUsername("zold"));
 	}
 	
 //	@Test

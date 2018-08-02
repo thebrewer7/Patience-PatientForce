@@ -5,11 +5,7 @@ import com.revature.beans.UserPass;
 public class UserPassService extends GenericService<UserPass> {
 
 	public UserPassService() {
-		super();
-	}
-
-	public UserPassService(UserPass t) {
-		super(t);
+		super(new UserPass());
 	}
 
 	public UserPass getByUsername(String username) {

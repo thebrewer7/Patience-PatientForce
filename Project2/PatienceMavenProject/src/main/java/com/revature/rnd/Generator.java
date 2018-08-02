@@ -14,6 +14,7 @@ import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.nurse.Nurse;
 import com.revature.beans.nurse.NurseCerts;
+import com.revature.enums.ConditionTypes;
 
 public class Generator {
 	// Generated Names
@@ -90,6 +91,38 @@ public class Generator {
 
 		return returning;
 	}
+
+	private static String[] generateLocations(int quantity) {
+		String[] locations = new String[quantity];
+		for (int i = 0; i < quantity; i++) {
+			locations[i] = "RM" + random.nextInt(300);
+		}
+
+		return locations;
+	}
+
+	private static String[] generatePatientStatus(int quantity) {
+		String[] statusesPossible = { "Sleeping", "Comatose", "In Surgery", "Eating", "Being Discharged",
+				"Surgery Prep", "Paperwork", "On-Boarding" };
+		String[] statuses = new String[quantity];
+
+		for (int i = 0; i < quantity; i++) {
+			statuses[i] = statusesPossible[random.nextInt(statusesPossible.length)];
+		}
+
+		return statuses;
+	}
+
+	public static ConditionTypes[] generateCondition(int quantity) {
+		ConditionTypes[] conditions = new ConditionTypes[quantity];
+
+		for (int i = 0; i < quantity; i++) {
+			conditions[i] = ConditionTypes.values()[random.nextInt(ConditionTypes.values().length)];
+		}
+
+		return conditions;
+	}
+
 	// End Bean Components
 
 	// Bean Modules
@@ -104,12 +137,64 @@ public class Generator {
 	}
 
 	public static List<Patient> generatePatients(int quantity) {
-		return null;
+		List<Patient> patients = new ArrayList<>();
+		UserPass[] ups = generateUserPass(quantity);
+		String[] name = generateNames(quantity);
+		String[] locations = generateLocations(quantity);
+		String[] statuses = generatePatientStatus(quantity);
+		ConditionTypes[] conditions = generateCondition(quantity);
+		
+		for(int i = 0; i < quantity; i++) {
+			patients.add(new Patient(
+						ups[i],
+						name[i],
+						locations[i],
+						statuses[i],
+						conditions[i]
+					));
+		}
+		
+		return patients;
 	}
 
 	private static List<Review> generateReviews(int quantity) {
-		// TODO Auto-generated method stub
-		return null;
+		String[][][] branches = {
+				{//negative - beginning, middle, and end
+					{"What the hell, ", "My god what is wrong with, ", "Let me tell you, ", "I asked for the manager and "},
+					{"this thing just really ", "the doctors here ", "this doctor ", "this nurse ", "got hit with a trombone ", "got propositioned by "},
+					{", seriously...","really pompous.", "really pompous. Not coming back. EVER.", ". I just wonder why...", "tacos. And stuff..."}
+				},
+				{//neutral
+					{"I don't really know why ", "No real feelings on ", "You'll never guess what happens when ", "Okay, ", "Alright, sooo "},
+					{"just kinda meh ", "that really happened ", "things and stuff ", "I don't know "},
+					{"I don't know...", "meh.", "lots of puss.", "my aching tentacles.", "that kind of thing."}
+				},
+				{//positive
+					{"They really helped me a lot with ", "This cured all of my ", "So many tentacles got ", "Centuries of ", "What's up, "},
+					{"my lot in life ", "my shrunken head collection ", "a lot of tentacles ", "... I forgot ", "alien baths "},
+					{"along with my wife.", "horsing around.", " a tanning bed.", "so many tentacles"}
+				}
+		};
+		
+		String[] reviewsContent = new String[quantity];
+		List<Review> reviews = new ArrayList<>();
+		for(int i = 0; i < quantity; i++) {
+			String[][] branch = branches[random.nextInt(3)];
+			
+			reviewsContent[i] = branch[0][random.nextInt(branch[0].length)] +
+						 branch[1][random.nextInt(branch[1].length)] +
+						 branch[2][random.nextInt(branch[2].length)];
+			System.out.println(reviewsContent[i]);
+			String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(12))+ "-" + (random.nextInt(28));
+			System.out.println(date);
+			reviews.add(new Review(
+						random.nextInt(5),
+						reviewsContent[i],
+						Date.valueOf(date)
+					));
+			System.out.println(reviews.get(i));
+		}
+		return reviews;
 	}
 
 	public static List<UserAccount> generateUsers(int quantity) {
@@ -134,12 +219,7 @@ public class Generator {
 		// Omitted Profile Pic
 
 		for (int i = 0; i < quantity; i++) {
-			nurses.add(new Nurse(
-					generateNurseCerts(10), 
-					generateReviews(10), 
-					ups[i], 
-					name[i], 
-					deps[i]));
+			nurses.add(new Nurse(generateNurseCerts(10), generateReviews(10), ups[i], name[i], deps[i]));
 		}
 
 		return nurses;
