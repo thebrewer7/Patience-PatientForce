@@ -4,16 +4,15 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
 import com.revature.beans.Admin;
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
+import com.revature.beans.SuperBean;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.doctor.DocBackground;
@@ -24,6 +23,18 @@ import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.beans.nurse.NurseCerts;
 import com.revature.enums.ConditionTypes;
+import com.revature.services.AdminService;
+import com.revature.services.PatientService;
+import com.revature.services.ReviewService;
+import com.revature.services.UserPassService;
+import com.revature.services.UserService;
+import com.revature.services.doctor.DocBackgroundService;
+import com.revature.services.doctor.DocCertsService;
+import com.revature.services.doctor.DocDegreeService;
+import com.revature.services.doctor.DocExperienceService;
+import com.revature.services.doctor.DoctorService;
+import com.revature.services.nurse.NurseCertsService;
+import com.revature.services.nurse.NurseService;
 
 public class Generator {
 	// Generated Names
@@ -71,13 +82,12 @@ public class Generator {
 	public static UserPass[] generateUserPass(int quantity) {
 		Set<String> users = new HashSet<>();
 		List<UserPass> ups = new ArrayList<>();
-
 		do {
 			users.add(usernames[random.nextInt(49)]);
 		} while (users.size() < quantity);
 
 		users.forEach(username -> ups.add(new UserPass(username, passwords[random.nextInt(49)])));
-
+		ups.forEach(new UserPassService()::saveOrUpdate);
 		return (UserPass[]) ups.toArray(new UserPass[ups.size()]);
 	}
 
@@ -90,6 +100,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			certs.add(new NurseCerts(nurseCertifications[random.nextInt(nurseCertifications.length)]));
 		}
+		certs.forEach(new NurseCertsService()::saveOrUpdate);
 		return certs;
 	}
 
@@ -138,16 +149,16 @@ public class Generator {
 	}
 
 	private static DocBackground[] generateDocBackground(int quantity) {
-		DocBackground[] backgrounds = new DocBackground[quantity];
+		List<DocBackground> backgrounds = new ArrayList<>();
 		List<DocCerts> certs = generateDocCerts(quantity);
 		List<DocDegree> degrees = generateDocDegrees(quantity);
 		List<DocExperience> experience = generateDocExperience(quantity);
 
 		for (int i = 0; i < quantity; i++) {
-			backgrounds[i] = new DocBackground(certs, degrees, experience);
+			backgrounds.add(new DocBackground(certs, degrees, experience));
 		}
-
-		return backgrounds;
+		backgrounds.forEach(new DocBackgroundService()::saveOrUpdate);
+		return (DocBackground[]) backgrounds.toArray(new DocBackground[backgrounds.size()]);
 	}
 
 	private static List<DocExperience> generateDocExperience(int quantity) {
@@ -170,6 +181,7 @@ public class Generator {
 			experience.add(new DocExperience((random.nextInt(300) + 1) + branch[random.nextInt(branch.length)]));
 		}
 
+		experience.forEach(new DocExperienceService()::saveOrUpdate);
 		return experience;
 	}
 
@@ -184,6 +196,7 @@ public class Generator {
 			degrees.add(new DocDegree(degree[random.nextInt(degree.length)]));
 		}
 
+		degrees.forEach(new DocDegreeService()::saveOrUpdate);
 		return degrees;
 	}
 
@@ -195,6 +208,7 @@ public class Generator {
 			certs.add(new DocCerts(cert[random.nextInt(cert.length)] + "Board Certified"));
 		}
 
+		certs.forEach(new DocCertsService()::saveOrUpdate);
 		return certs;
 	}
 
@@ -208,6 +222,8 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			admins.add(new Admin(str[i], ups[i]));
 		}
+		
+		admins.forEach(new AdminService()::saveOrUpdate);
 		return admins;
 	}
 
@@ -223,6 +239,7 @@ public class Generator {
 			patients.add(new Patient(ups[i], name[i], locations[i], statuses[i], conditions[i]));
 		}
 
+		patients.forEach(new PatientService()::saveOrUpdate);
 		return patients;
 	}
 
@@ -259,6 +276,8 @@ public class Generator {
 			reviews.add(new Review(random.nextInt(5), reviewsContent[i], Date.valueOf(date)));
 			System.out.println(reviews.get(i));
 		}
+		
+		reviews.forEach(new ReviewService()::saveOrUpdate);
 		return reviews;
 	}
 
@@ -272,7 +291,8 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			accounts.add(new UserAccount(ups[i], name[i], Date.valueOf(LocalDate.now())));
 		}
-
+		
+		accounts.forEach(new UserService()::saveOrUpdate);
 		return accounts;
 	}
 
@@ -287,6 +307,7 @@ public class Generator {
 			nurses.add(new Nurse(generateNurseCerts(10), generateReviews(10), ups[i], name[i], deps[i]));
 		}
 
+		nurses.forEach(new NurseService()::saveOrUpdate);
 		return nurses;
 	}
 
@@ -301,29 +322,30 @@ public class Generator {
 			doctors.add(new Doctor(backgrounds[i], generateReviews(10), ups[i], name[i], departments[i]));
 		}
 
+		doctors.forEach(new DoctorService()::saveOrUpdate);
 		return doctors;
 	}
 	// End Bean Modules
 
-	public static Map<String, List<?>> generateAll(int quantity) {
+	public static SuperBean generateAll(int quantity) {
+		SuperBean bean = new SuperBean();
 		List<Admin> admins = generateAdmins(quantity);
 		List<Patient> patients = generatePatients(quantity);
 		List<UserAccount> users = generateUsers(quantity);
 		List<Nurse> nurses = generateNurses(quantity);
 		List<Doctor> doctors = generateDoctors(quantity);
-		Map<String, List<?>> map = new HashMap<>();
 		List<Integer> nums = new ArrayList<>();
 
 		for (int i = 0; i < quantity; i++) {
 			Integer a = random.nextInt(quantity);
-			if (nums.contains(a)) {
+			if (!nums.contains(a)) {
 				users.get(a).patients = new ArrayList<>();
 				nurses.get(a).patients = new ArrayList<>();
 				doctors.get(a).patients = new ArrayList<>();
 				patients.get(a).users = new ArrayList<>();
 				patients.get(a).nurses = new ArrayList<>();
 				patients.get(a).doctors = new ArrayList<>();
-				
+
 				users.get(a).patients.add(patients.get(a));
 				nurses.get(a).patients.add(patients.get(a));
 				doctors.get(a).patients.add(patients.get(a));
@@ -333,13 +355,12 @@ public class Generator {
 			}
 			nums.add(a);
 		}
+		bean.setAdmins(admins);
+		bean.setPatients(patients);
+		bean.setUsers(users);
+		bean.setNurses(nurses);
+		bean.setDoctors(doctors);
 
-		map.put("admins", admins);
-		map.put("patients", patients);
-		map.put("users", users);
-		map.put("nurses", nurses);
-		map.put("doctors", doctors);
-
-		return map;
+		return bean;
 	}
 }

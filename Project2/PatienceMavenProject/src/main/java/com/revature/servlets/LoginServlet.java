@@ -6,6 +6,8 @@ import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.*;
+import com.revature.services.doctor.DoctorService;
+import com.revature.services.nurse.NurseService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;

@@ -15,7 +15,7 @@ public class Review {
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	private Date date;
+	private Date datePosted;
 	private Integer rating;
 	private String review;
 
@@ -27,11 +27,11 @@ public class Review {
 	 * 
 	 * @param rating
 	 * @param review
-	 * @param date
+	 * @param datePosted
 	 */
-	public Review(Integer rating, String review, Date date) {
+	public Review(Integer rating, String review, Date datePosted) {
 		super();
-		this.date = date;
+		this.datePosted = datePosted;
 		this.rating = rating;
 		this.review = review;
 	}
@@ -61,16 +61,16 @@ public class Review {
 	}
 
 	public Date getDate() {
-		return date;
+		return datePosted;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.datePosted = date;
 	}
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", date=" + date + ", rating=" + rating
+		return "Review [id=" + id + ", date=" + datePosted + ", rating=" + rating
 				+ ", review=" + review + "]";
 	}
 

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.revature.beans.nurse.Nurse;
-import com.revature.services.NurseService;
 import com.revature.services.ObjectToJSONService;
+import com.revature.services.nurse.NurseService;
 
 /**
  * Servlet implementation class getNursesServlet

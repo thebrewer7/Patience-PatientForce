@@ -1,10 +1,11 @@
-package com.revature.services;
+package com.revature.services.nurse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.beans.Patient;
 import com.revature.beans.nurse.Nurse;
+import com.revature.services.RoleService;
 
 public class NurseService extends RoleService<Nurse> {
 	public NurseService() {
