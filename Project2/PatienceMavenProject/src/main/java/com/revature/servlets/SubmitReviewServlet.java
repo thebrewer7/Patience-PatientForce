@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,12 +32,13 @@ public class SubmitReviewServlet extends HttpServlet {
 		int rating = Integer.parseInt(request.getParameter("rating"));
 		String review = request.getParameter("review");
 		String name = request.getParameter("name");
+		Date date = Date.valueOf(request.getParameter("date"));
 		
 		// TODO use rating dao to submit above information
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		System.out.println("Rating: "+rating+"\nReview: "+review+"\nName: "+name);
+		System.out.println("Rating: "+rating+"\nReview: "+review+"\nName: "+name+"\nDate: "+date);
 		out.println("server: received review");
 		logger.info("SubmitReviewServlet received a review");
 	}

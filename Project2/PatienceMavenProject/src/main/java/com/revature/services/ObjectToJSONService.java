@@ -1,12 +1,14 @@
 package com.revature.services;
 
-import com.revature.beans.doctor.Doctor;
-import com.revature.beans.nurse.Nurse;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserAccount;
+import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
@@ -14,6 +16,8 @@ public class ObjectToJSONService {
 	public static String ReviewsToJSON(Review[] reviews)
 	{
 		ObjectMapper mapper = new ObjectMapper();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm:ss a z");
+		mapper.setDateFormat(dateFormat);
 		String json = "";
 		
 		try
@@ -24,6 +28,7 @@ public class ObjectToJSONService {
 		{
 			e.printStackTrace();
 		}
+		System.out.println("review JSON: "+json);
 		return json;
 	}
 

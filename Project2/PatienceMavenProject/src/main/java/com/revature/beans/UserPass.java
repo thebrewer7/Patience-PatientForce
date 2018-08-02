@@ -15,6 +15,7 @@ public class UserPass {
 
 	private String username;
 	private String password;
+	private String role;
 
 	public UserPass() {
 		super();
@@ -24,7 +25,13 @@ public class UserPass {
 		super();
 		this.username = username;
 		this.password = password;
-
+	}
+	
+	public UserPass(String username, String password, String role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
 	}
 
 	public String getUsername() {
@@ -45,6 +52,14 @@ public class UserPass {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

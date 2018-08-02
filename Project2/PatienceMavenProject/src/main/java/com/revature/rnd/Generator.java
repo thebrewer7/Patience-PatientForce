@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -79,16 +80,17 @@ public class Generator {
 	private static Random random = new Random();
 
 	// Bean Components
-	public static UserPass[] generateUserPass(int quantity) {
+	private static Iterator<UserPass> userPassIterator;
+	public static void generateUserPass(int quantity) {
 		Set<String> users = new HashSet<>();
 		List<UserPass> ups = new ArrayList<>();
 		do {
 			users.add(usernames[random.nextInt(49)]);
-		} while (users.size() < quantity);
+		} while (users.size() < quantity * 5);
 
 		users.forEach(username -> ups.add(new UserPass(username, passwords[random.nextInt(49)])));
 		ups.forEach(new UserPassService()::saveOrUpdate);
-		return (UserPass[]) ups.toArray(new UserPass[ups.size()]);
+		userPassIterator = ups.iterator();
 	}
 
 	public static String[] generateNames(int quantity) {
@@ -218,9 +220,10 @@ public class Generator {
 	public static List<Admin> generateAdmins(int quantity) {
 		List<Admin> admins = new ArrayList<>();
 		String[] str = generateNames(quantity);
-		UserPass[] ups = generateUserPass(quantity);
 		for (int i = 0; i < quantity; i++) {
-			admins.add(new Admin(str[i], ups[i]));
+			UserPass up = userPassIterator.next();
+			up.setRole("admin");
+			admins.add(new Admin(str[i], up));
 		}
 		
 		admins.forEach(new AdminService()::saveOrUpdate);
@@ -229,14 +232,15 @@ public class Generator {
 
 	public static List<Patient> generatePatients(int quantity) {
 		List<Patient> patients = new ArrayList<>();
-		UserPass[] ups = generateUserPass(quantity);
 		String[] name = generateNames(quantity);
 		String[] locations = generateLocations(quantity);
 		String[] statuses = generatePatientStatus(quantity);
 		ConditionTypes[] conditions = generateCondition(quantity);
 
 		for (int i = 0; i < quantity; i++) {
-			patients.add(new Patient(ups[i], name[i], locations[i], statuses[i], conditions[i]));
+			UserPass up = userPassIterator.next();
+			up.setRole("patient");
+			patients.add(new Patient(up, name[i], locations[i], statuses[i], conditions[i]));
 		}
 
 		patients.forEach(new PatientService()::saveOrUpdate);
@@ -282,14 +286,15 @@ public class Generator {
 	}
 
 	public static List<UserAccount> generateUsers(int quantity) {
-		UserPass[] ups = generateUserPass(quantity);
 		String[] name = generateNames(quantity);
 		List<UserAccount> accounts = new ArrayList<>();
 		// omitted lastlogin and profilepics
 		// TODO:If I come back to this, include
 
 		for (int i = 0; i < quantity; i++) {
-			accounts.add(new UserAccount(ups[i], name[i], Date.valueOf(LocalDate.now())));
+			UserPass up = userPassIterator.next();
+			up.setRole("user");
+			accounts.add(new UserAccount(up, name[i], Date.valueOf(LocalDate.now())));
 		}
 		
 		accounts.forEach(new UserService()::saveOrUpdate);
@@ -298,13 +303,14 @@ public class Generator {
 
 	public static List<Nurse> generateNurses(int quantity) {
 		List<Nurse> nurses = new ArrayList<>();
-		UserPass[] ups = generateUserPass(quantity);
 		String[] name = generateNames(quantity);
 		String[] deps = generateDepartments(quantity);
 		// Omitted Profile Pic
 
 		for (int i = 0; i < quantity; i++) {
-			nurses.add(new Nurse(generateNurseCerts(10), generateReviews(10), ups[i], name[i], deps[i]));
+			UserPass up = userPassIterator.next();
+			up.setRole("nurse");
+			nurses.add(new Nurse(generateNurseCerts(10), generateReviews(10), up, name[i], deps[i]));
 		}
 
 		nurses.forEach(new NurseService()::saveOrUpdate);
@@ -314,12 +320,13 @@ public class Generator {
 	public static List<Doctor> generateDoctors(int quantity) {
 		List<Doctor> doctors = new ArrayList<>();
 		DocBackground[] backgrounds = generateDocBackground(quantity);
-		UserPass[] ups = generateUserPass(quantity);
 		String[] name = generateNames(quantity);
 		String[] departments = generateDepartments(quantity);
 
 		for (int i = 0; i < quantity; i++) {
-			doctors.add(new Doctor(backgrounds[i], generateReviews(10), ups[i], name[i], departments[i]));
+			UserPass up = userPassIterator.next();
+			up.setRole("doctor");
+			doctors.add(new Doctor(backgrounds[i], generateReviews(10), up, name[i], departments[i]));
 		}
 
 		doctors.forEach(new DoctorService()::saveOrUpdate);
@@ -328,6 +335,7 @@ public class Generator {
 	// End Bean Modules
 
 	public static SuperBean generateAll(int quantity) {
+		generateUserPass(quantity);
 		SuperBean bean = new SuperBean();
 		List<Admin> admins = generateAdmins(quantity);
 		List<Patient> patients = generatePatients(quantity);
