@@ -38,19 +38,13 @@ public class FetchReviewServlet extends HttpServlet {
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-<<<<<<< HEAD
+
 //		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, 1533161580851.0, 3, "test review"),
 //														new Review(name, 1533161630780.0, 2, "test review 2"),
 //														new Review(name, 1533161539687.0, 2, "test review 3")})); 
-=======
-
-		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, 1533161580851.0, 3, "test review"),
-														new Review(name, 1533161630780.0, 2, "test review 2"),
-														new Review(name, 1533161539687.0, 2, "test review 3")})); 
-		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161580851.0, 3, "test review"));
-		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161630780.0, 2, "test review 2"));
-		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161539687.0, 2, "test review 3"));
->>>>>>> Development
+//		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161580851.0, 3, "test review"));
+//		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161630780.0, 2, "test review 2"));
+//		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161539687.0, 2, "test review 3"));
 	}
 
 	/**
