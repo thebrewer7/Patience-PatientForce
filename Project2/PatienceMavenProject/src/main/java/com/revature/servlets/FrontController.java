@@ -83,6 +83,11 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/RegistrationServlet");
 			rd.forward(request, response);
 			break;
+		case "getpatient":
+			logger.info("FrontController: register servlet hit.");
+			rd = request.getRequestDispatcher("/QuickSearchServlet");
+			rd.forward(request, response);
+			break;
 		default:
 			logger.info("FrontController: no corresponding servlet found.");
 			response.sendError(404);
