@@ -2,20 +2,14 @@ package com.revature.junit.unittests;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.revature.beans.UserPass;
-import com.revature.rnd.Generator;
 import com.revature.services.UserPassService;
 
 class UserPassServiceTest {
 	UserPassService ups;
-	List<UserPass> us = Arrays.asList((Generator.generateUserPass(50)));
 	
 	@BeforeEach
 	void setUp() throws Exception {

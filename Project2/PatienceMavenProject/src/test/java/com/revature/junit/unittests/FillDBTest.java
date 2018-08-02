@@ -1,6 +1,6 @@
 package com.revature.junit.unittests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class FillDBTest {
 
 	@Test
 	void fillTest() {
-		assertTrue(FillDB.fill(2));
+		assertTrue(FillDB.fill(4));
 	}
 
 }

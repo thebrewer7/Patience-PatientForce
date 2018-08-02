@@ -1,49 +1,56 @@
 package com.revature.junit.unittests;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class NurseServiceTest {
+import com.revature.beans.nurse.Nurse;
+import com.revature.services.nurse.NurseService;
 
+class NurseServiceTest {
+	NurseService service;
 	@BeforeEach
 	void setUp() throws Exception {
+		service = new NurseService();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
+		service = null;
 	}
 
 	@Test
 	void testGetByName() {
-		fail("Not yet implemented");
+		assertNotNull(service.getByName("Temeka Cornforth"));
 	}
 
 	@Test
 	void testGetAll() {
-		fail("Not yet implemented");
+		assertNotNull(service.getAll());
 	}
-
+	
+	Nurse a = null;
 	@Test
 	void testGetById() {
-		fail("Not yet implemented");
+		a = service.getById(50);
+		assertNotNull(a);
 	}
 
 	@Test
 	void testSaveOrUpdate() {
-		fail("Not yet implemented");
+		assertTrue(service.saveOrUpdate(a));
 	}
 
 	@Test
 	void testDelete() {
-		fail("Not yet implemented");
+		assertTrue(service.saveOrUpdate(a));
 	}
-
+	
 	@Test
-	void testGetDao() {
-		fail("Not yet implemented");
+	void testGetByUserPass() {
+		assertNotNull(service.getByUserPass(56));
 	}
-
 }

@@ -1,12 +1,14 @@
 package com.revature.beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Review {
@@ -15,7 +17,9 @@ public class Review {
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
+	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date datePosted;
+
 	private Integer rating;
 	private String review;
 
@@ -34,6 +38,14 @@ public class Review {
 		this.datePosted = datePosted;
 		this.rating = rating;
 		this.review = review;
+	}
+
+	public Date getDatePosted() {
+		return datePosted;
+	}
+
+	public void setDatePosted(Date datePosted) {
+		this.datePosted = datePosted;
 	}
 
 	public Integer getId() {
@@ -58,20 +70,6 @@ public class Review {
 
 	public void setReview(String review) {
 		this.review = review;
-	}
-
-	public Date getDate() {
-		return datePosted;
-	}
-
-	public void setDate(Date date) {
-		this.datePosted = date;
-	}
-
-	@Override
-	public String toString() {
-		return "Review [id=" + id + ", date=" + datePosted + ", rating=" + rating
-				+ ", review=" + review + "]";
 	}
 
 }
