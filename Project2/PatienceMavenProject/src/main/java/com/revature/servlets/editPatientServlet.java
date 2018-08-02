@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
 
@@ -16,6 +18,7 @@ import com.revature.services.ObjectToJSONService;
  * Servlet implementation class editPatientServlet
  */
 public class editPatientServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -23,7 +26,6 @@ public class editPatientServlet extends HttpServlet {
      */
     public editPatientServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -43,14 +45,14 @@ public class editPatientServlet extends HttpServlet {
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.PatientToJSON(new Patient("Logan", patientid, saltStr, saltStr)));// TODO 
+		out.println(ObjectToJSONService.PatientToJSON(new Patient("Logan", patientid, saltStr, saltStr)));
+		logger.info("editPatientServlet returned JSON: " + ObjectToJSONService.PatientToJSON(new Patient("Logan", patientid, saltStr, saltStr)));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

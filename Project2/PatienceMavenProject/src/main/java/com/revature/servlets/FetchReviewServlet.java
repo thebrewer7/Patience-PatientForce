@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
+import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.services.ObjectToJSONService;
 
@@ -19,6 +22,7 @@ import com.revature.services.ObjectToJSONService;
  * Servlet implementation class FetchReviewServlet
  */
 public class FetchReviewServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -26,7 +30,6 @@ public class FetchReviewServlet extends HttpServlet {
      */
     public FetchReviewServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -39,9 +42,13 @@ public class FetchReviewServlet extends HttpServlet {
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
+
 		out.println(ObjectToJSONService.ReviewsToJSON(new Review[] {new Review(name, 1533161580851.0, 3, "test review"),
 														new Review(name, 1533161630780.0, 2, "test review 2"),
 														new Review(name, 1533161539687.0, 2, "test review 3")})); 
+		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161580851.0, 3, "test review"));
+		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161630780.0, 2, "test review 2"));
+		logger.info("FetchReviewServlet returned JSON: " + new Review(name, 1533161539687.0, 2, "test review 3"));
 	}
 
 	/**
