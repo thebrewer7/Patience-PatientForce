@@ -16,7 +16,12 @@ import com.revature.beans.doctor.Doctor;
 import com.revature.beans.history.History;
 import com.revature.beans.nurse.Nurse;
 import com.revature.enums.ConditionTypes;
-
+/**
+ * Represents a Patient Account and relationships to all associated accounts with users, nurses,
+ * and doctors.
+ * @author Austin
+ *
+ */
 @Entity
 public class Patient {
 	@Id
@@ -44,12 +49,15 @@ public class Patient {
 	private String preferredDoctorName;
 	private final String ROLE = "patient";
 
+	/**
+	 * No-Args Constructor
+	 */
 	public Patient() {
 		super();
 	}
 
 	/**
-	 * Used to instantiate a Patient with no associate users, doctors, or nuses
+	 * Used to instantiate a Patient with no associated users, doctors, or nuses
 	 * 
 	 * @param userPass
 	 * @param name
@@ -66,6 +74,14 @@ public class Patient {
 		this.condition = condition.toString();
 	}
 
+	/**
+	 * Instantiate a patient with no associated nurses, doctors, or users. Also lacks profile picture and
+	 * current condition.
+	 * @param name
+	 * @param id
+	 * @param location
+	 * @param status
+	 */
 	public Patient(String name, Integer id, String location, String status) {
 		super();
 		this.name = name;
@@ -74,6 +90,19 @@ public class Patient {
 		this.status = status;
 	}
 
+	/**
+	 * Full instantiation without a profile picture
+	 * @param id
+	 * @param nurses
+	 * @param doctors
+	 * @param history
+	 * @param userPass
+	 * @param name
+	 * @param location
+	 * @param status
+	 * @param condition
+	 * @param preferredDoctorName
+	 */
 	public Patient(Integer id, List<Nurse> nurses, List<Doctor> doctors, List<History> history, UserPass userPass,
 			String name, String location, String status, String condition, String preferredDoctorName) {
 		super();
@@ -89,6 +118,19 @@ public class Patient {
 		this.preferredDoctorName = preferredDoctorName;
 	}
 
+	/**
+	 * 
+	 * @param users
+	 * @param nurses
+	 * @param doctors
+	 * @param history
+	 * @param userPass
+	 * @param name
+	 * @param location
+	 * @param status
+	 * @param condition
+	 * @param preferredDoctorName
+	 */
 	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history,
 			UserPass userPass, String name, String location, String status, String condition,
 			String preferredDoctorName) {
@@ -105,6 +147,20 @@ public class Patient {
 		this.preferredDoctorName = preferredDoctorName;
 	}
 
+	/**
+	 * 
+	 * @param users
+	 * @param nurses
+	 * @param doctors
+	 * @param history
+	 * @param userPass
+	 * @param name
+	 * @param location
+	 * @param status
+	 * @param condition
+	 * @param profilePicture
+	 * @param preferredDoctorName
+	 */
 	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history,
 			UserPass userPass, String name, String location, String status, String condition, Blob profilePicture,
 			String preferredDoctorName) {

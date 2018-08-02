@@ -6,6 +6,11 @@ import java.util.List;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 
+/**
+ * This is an object to move an entire database worth of information. Contains all Bean Modules
+ * @author Austin
+ *
+ */
 public class SuperBean {
 	private List<Admin> admins = new ArrayList<>();
 	private List<Patient> patients = new ArrayList<>();

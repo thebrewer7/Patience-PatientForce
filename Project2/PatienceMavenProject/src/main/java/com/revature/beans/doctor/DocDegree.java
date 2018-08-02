@@ -6,6 +6,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * Represents a doctoral medical degreed
+ * @author Austin
+ *
+ */
 @Entity
 public class DocDegree {
 	@Id
@@ -15,10 +20,17 @@ public class DocDegree {
 
 	private String degree;
 
+	/**
+	 * No-Args Constructor
+	 */
 	public DocDegree() {
 		super();
 	}
 
+	/**
+	 * Full instantiation
+	 * @param degree
+	 */
 	public DocDegree(String degree) {
 		super();
 		this.degree = degree;

@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * Represents a doctors background. It contains a doctor's certifications, medical degrees, and past experience.
+ * @author Austin
+ *
+ */
 @Entity
 public class DocBackground {
 
@@ -23,6 +28,9 @@ public class DocBackground {
 	@OneToMany
 	private List<DocExperience> experience;
 
+	/**
+	 * No-Args Constructor
+	 */
 	public DocBackground() {
 		super();
 	}
