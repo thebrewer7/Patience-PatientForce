@@ -146,4 +146,14 @@
     <servlet-name>GetAllDoctorsPatientsServlet</servlet-name>
     <url-pattern>/GetAllDoctorsPatientsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetNursesDoctorsServlet</display-name>
+    <servlet-name>GetNursesDoctorsServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetNursesDoctorsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetNursesDoctorsServlet</servlet-name>
+    <url-pattern>/GetNursesDoctorsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
