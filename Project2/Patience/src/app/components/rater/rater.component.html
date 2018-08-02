@@ -2,30 +2,30 @@
 
 <form class="shadow p-3 mb-5 rounded form-group">
     <div class="rating" (click)="rating()">
-        <label>
-            <input ngModel name="rate5" #rate5="ngModel" type="radio" name="rating" value="5" title="5 stars"> 5
+        <label name="rate5">
+            <input ngModel #rate5="ngModel" type="radio" name="rating" value="5" title="5 stars"> 5
         </label>
-        <label>
-            <input ngModel name="rate4" #rate4="ngModel" type="radio" name="rating" value="4" title="4 stars"> 4
+        <label name="rate4">
+            <input ngModel #rate4="ngModel" type="radio" name="rating" value="4" title="4 stars"> 4
         </label>
-        <label>
-            <input ngModel name="rate3" #rate3="ngModel" type="radio" name="rating" value="3" title="3 stars"> 3
+        <label name="rate3">
+            <input ngModel #rate3="ngModel" type="radio" name="rating" value="3" title="3 stars"> 3
         </label>
-        <label>
-            <input ngModel name="rate2" #rate2="ngModel" type="radio" name="rating" value="2" title="2 stars"> 2
+        <label name="rate2">
+            <input ngModel #rate2="ngModel" type="radio" name="rating" value="2" title="2 stars"> 2
         </label>
-        <label>
-            <input ngModel name="rate1" #rate1="ngModel" type="radio" name="rating" value="1" title="1 star"> 1
+        <label name="rate1">
+            <input ngModel #rate1="ngModel" type="radio" name="rating" value="1" title="1 star"> 1
         </label>
         <h6>click to rate</h6>
     </div>
 
     <div class="center">
         <h6 for="review">Review</h6>
-        <textarea ngModel name="review" #review="ngModel" class="form-control" id="review" rows="3"></textarea>
+        <textarea ngModel name="reviewTxtArea" #review="ngModel" class="form-control" id="review" rows="3"></textarea>
     </div>
     <div class="center">
-        <button (click)="submitReview(review, rate1)" type="button" class="btn btn-outline-dark my-2 my-sm-0">Submit</button>
+        <button name="reviewSubmitBtn" (click)="submitReview(review, rate1)" type="button" class="btn btn-outline-dark my-2 my-sm-0">Submit</button>
         <button type="button" class="btn btn-outline-dark my-2 my-sm-0">Reset</button>
     </div>
 </form>

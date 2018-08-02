@@ -36,29 +36,24 @@
     <filter-name>corsFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
   <servlet>
     <description></description>
     <display-name>SearchResultsServlet</display-name>
     <servlet-name>SearchResultsServlet</servlet-name>
     <servlet-class>com.revature.servlets.SearchResultsServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>SearchResultsServlet</servlet-name>
     <url-pattern>/SearchResultsServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.revature.servlets.LoginServlet</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description></description>
     <display-name>getUsersPatientsServlet</display-name>
@@ -130,5 +125,25 @@
   <servlet-mapping>
     <servlet-name>QuickLookupServlet</servlet-name>
     <url-pattern>/QuickLookupServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllAccountsForAdmin</display-name>
+    <servlet-name>GetAllAccountsForAdmin</servlet-name>
+    <servlet-class>com.revature.servlets.GetAllAccountsForAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllAccountsForAdmin</servlet-name>
+    <url-pattern>/GetAllAccountsForAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllDoctorsPatientsServlet</display-name>
+    <servlet-name>GetAllDoctorsPatientsServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetAllDoctorsPatientsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllDoctorsPatientsServlet</servlet-name>
+    <url-pattern>/GetAllDoctorsPatientsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

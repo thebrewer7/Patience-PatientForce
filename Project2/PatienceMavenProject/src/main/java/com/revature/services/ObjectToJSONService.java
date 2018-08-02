@@ -2,12 +2,14 @@ package com.revature.services;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserAccount;
+import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 
@@ -82,6 +84,38 @@ public class ObjectToJSONService {
 			json = mapper.writeValueAsString(nurse);
 		}
 		catch( Exception e)
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String allAccountsToJSON(List<UserPass> upl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(upl);
+		}
+		catch( Exception e)
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String doctorsPatientsToJSON(List<Patient> pl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(pl);
+		}
+		catch ( Exception e )
 		{
 			e.printStackTrace();
 		}

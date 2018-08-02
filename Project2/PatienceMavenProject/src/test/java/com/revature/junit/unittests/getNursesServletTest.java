@@ -27,7 +27,7 @@ class getNursesServletTest {
 	}
 
 	@Test
-	void test() {
+	void testGettingNursesForSidePanel() {
 		assertNotNull(1);
 	}
 

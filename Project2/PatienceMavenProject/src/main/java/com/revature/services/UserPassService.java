@@ -2,6 +2,8 @@ package com.revature.services;
 
 import com.revature.beans.UserPass;
 
+import java.util.List;
+
 public class UserPassService extends GenericService<UserPass> {
 
 	public UserPassService() {
@@ -9,6 +11,7 @@ public class UserPassService extends GenericService<UserPass> {
 	}
 
 	public UserPass getByUsername(String username) {
-		return getDao().get("username", username).get(0);
+		List<UserPass> users = getDao().get("username", username);
+		return (users == null) ? null : users.get(0);
 	}
 }

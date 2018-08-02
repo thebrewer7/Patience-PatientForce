@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.history.History;
 import com.revature.beans.nurse.Nurse;
@@ -29,10 +31,13 @@ public class Patient {
 	@GeneratedValue(generator = "patient_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
+	@JsonIgnore
 	@ManyToMany
 	public List<UserAccount> users;
+	@JsonIgnore
 	@ManyToMany
 	public List<Nurse> nurses;
+	@JsonIgnore
 	@ManyToMany
 	public List<Doctor> doctors;
 
