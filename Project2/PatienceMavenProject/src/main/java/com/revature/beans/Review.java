@@ -10,6 +10,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Represents a review containing a rating, a review, and the date it was created.
+ * @author Austin
+ *
+ */
 @Entity
 public class Review {
 	@Id
