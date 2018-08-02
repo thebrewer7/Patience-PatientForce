@@ -20,10 +20,9 @@ export class NurseService {
     return this.http.post<Review[]>('http://localhost:8085/PatienceMavenProject/getNursesReviews.do', {username: username});
   }
 
-  getNurses()
+  getNursesDoctors()
   {
     const params = new HttpParams();
-    console.log('NurseService: getParams()');
-    return this.http.post('http://localhost:8085/PatienceMavenProject/getNurses.do', params);
+    return this.http.post('http://localhost:8085/PatienceMavenProject/getNursesDoctors.do', params);
   }
 }

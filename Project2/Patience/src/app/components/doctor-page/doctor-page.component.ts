@@ -26,24 +26,18 @@ export class DoctorPageComponent implements OnInit {
 
   getAllDoctorsPatients()
   {
-
-    console.log("IN GETALLdoctorspatients");
     this.ds.getPatients().subscribe(
       data => {
-        console.log("DATA: " + JSON.stringify(data));
-        // for ( var d in data )
-        // {
-        //   this.doctorsPatients[d] = data[d];
-        //   console.log(data[d]);
-        // }
-        // console.log("AMOUNTOFPATIENTS: " + d);
-        // console.log("allpatients after: " + this.doctorsPatients);
+        console.log(data);
+        for ( var d in data )
+        {
+          this.doctorsPatients[d] = data[d];
+        }
       },
       error => {
         console.log('ERROR', error);
       }
     );
-
   }
 
 }

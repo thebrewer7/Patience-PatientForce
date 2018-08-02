@@ -121,4 +121,20 @@ public class ObjectToJSONService {
 		}
 		return json;
 	}
+	
+	public static String nursesDoctorsToJSON(List<Doctor> dl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(dl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
 }
