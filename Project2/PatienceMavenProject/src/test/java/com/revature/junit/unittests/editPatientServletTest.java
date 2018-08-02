@@ -27,7 +27,7 @@ class editPatientServletTest {
 	}
 
 	@Test
-	void test() {
+	void testNurseDoctorEditAPatientsInfo() {
 		assertNotNull(1);
 	}
 
