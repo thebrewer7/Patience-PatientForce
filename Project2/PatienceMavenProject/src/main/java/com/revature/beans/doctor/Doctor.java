@@ -14,10 +14,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonTypeInfo;
+
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserPass;
-
+/**
+ * Represents a doctor and the relations ships that associate them to their patients
+ * @author Austin
+ *
+ */
 @Entity
 public class Doctor {
 	@Id
@@ -40,6 +46,9 @@ public class Doctor {
 	private String department;
 	private Blob profilePicture;
 
+	/**
+	 * No-Args Constructor
+	 */
 	public Doctor() {
 		super();
 	}
@@ -61,6 +70,15 @@ public class Doctor {
 		setRatingWithReviews(reviews);
 	}
 
+	/**
+	 * A fully instantiated
+	 * @param background
+	 * @param reviews
+	 * @param userPass
+	 * @param patients
+	 * @param name
+	 * @param department
+	 */
 	public Doctor(DocBackground background, List<Review> reviews, UserPass userPass, List<Patient> patients,
 			String name, String department) {
 		super();

@@ -223,6 +223,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("admin");
+			new UserPassService().saveOrUpdate(up);
 			admins.add(new Admin(str[i], up));
 		}
 		
@@ -240,6 +241,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("patient");
+			new UserPassService().saveOrUpdate(up);
 			patients.add(new Patient(up, name[i], locations[i], statuses[i], conditions[i]));
 		}
 
@@ -294,6 +296,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("user");
+			new UserPassService().saveOrUpdate(up);
 			accounts.add(new UserAccount(up, name[i], Date.valueOf(LocalDate.now())));
 		}
 		
@@ -310,6 +313,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("nurse");
+			new UserPassService().saveOrUpdate(up);
 			nurses.add(new Nurse(generateNurseCerts(10), generateReviews(10), up, name[i], deps[i]));
 		}
 
@@ -326,6 +330,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("doctor");
+			new UserPassService().saveOrUpdate(up);
 			doctors.add(new Doctor(backgrounds[i], generateReviews(10), up, name[i], departments[i]));
 		}
 
@@ -360,6 +365,11 @@ public class Generator {
 				patients.get(a).users.add(users.get(a));
 				patients.get(a).nurses.add(nurses.get(a));
 				patients.get(a).doctors.add(doctors.get(a));
+				
+				new UserService().saveOrUpdate(users.get(a));
+				new NurseService().saveOrUpdate(nurses.get(a));
+				new DoctorService().saveOrUpdate(doctors.get(a));
+				new PatientService().saveOrUpdate(patients.get(a));
 			}
 			nums.add(a);
 		}
