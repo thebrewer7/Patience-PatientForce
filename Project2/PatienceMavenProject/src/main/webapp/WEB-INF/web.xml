@@ -136,4 +136,14 @@
     <servlet-name>GetAllAccountsForAdmin</servlet-name>
     <url-pattern>/GetAllAccountsForAdmin</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllDoctorsPatientsServlet</display-name>
+    <servlet-name>GetAllDoctorsPatientsServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetAllDoctorsPatientsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllDoctorsPatientsServlet</servlet-name>
+    <url-pattern>/GetAllDoctorsPatientsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

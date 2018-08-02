@@ -93,6 +93,11 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/GetAllAccountsForAdmin");
 			rd.forward(request, response);
 			break;
+		case "getalldoctorspatients":
+			logger.info("FrontController: getalldoctorspatients servlet hit.");
+			rd = request.getRequestDispatcher("/GetAllDoctorsPatientsServlet");
+			rd.forward(request, response);
+			break;
 		default:
 			logger.info("FrontController: no corresponding servlet found.");
 			response.sendError(404);
