@@ -27,5 +27,10 @@ class DataGeneratorTest {
 	void testGenerateNurses() {
 		assertNotNull(Generator.generateNurses(10));
 	}
+	
+	@Test
+	void testGenerateAll() {
+		assertNotNull(Generator.generateAll(10));
+	}
 
 }

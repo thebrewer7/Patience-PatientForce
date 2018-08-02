@@ -9,10 +9,15 @@ import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 
 public class PatientService extends RoleService<Patient> {
+	
+	public PatientService() {
+		super(new Patient());
+	}
+	
 	public List<Patient> getByUser(Integer id) {
 		List<Patient> patients = new ArrayList<>();
 		for (Patient patient : getDao().get()) {
-			for (UserAccount user : patient.getUsers()) {
+			for (UserAccount user : patient.users) {
 				if (user.getId() == id) {
 					patients.add(patient);
 				}
@@ -25,7 +30,7 @@ public class PatientService extends RoleService<Patient> {
 	public List<Patient> getByNurse(Integer id) {
 		List<Patient> patients = new ArrayList<>();
 		for (Patient patient : getDao().get()) {
-			for (Nurse nurse : patient.getNurses()) {
+			for (Nurse nurse : patient.nurses) {
 				if (nurse.getId() == id) {
 					patients.add(patient);
 				}
@@ -38,7 +43,7 @@ public class PatientService extends RoleService<Patient> {
 	public List<Patient> getByDoctor(Integer id) {
 		List<Patient> patients = new ArrayList<>();
 		for (Patient patient : getDao().get()) {
-			for (Doctor doctor : patient.getDoctors()) {
+			for (Doctor doctor : patient.doctors) {
 				if (doctor.getId() == id) {
 					patients.add(patient);
 				}
