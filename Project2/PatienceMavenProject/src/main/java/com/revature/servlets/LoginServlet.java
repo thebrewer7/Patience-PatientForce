@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -38,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
 
         if (up != null && up.getPassword().equals(password)) {
-            logger.info("UserPass: Username: " + up.getUsername() + " Password: " +up.getPassword() + "UserID: " + up.getId());
+            logger.info("UserPass: Username: " + up.getUsername() + " Password: " + up.getPassword() + "UserID: " + up.getId());
             int userId = up.getId();
             String role = up.getRole();
 
@@ -47,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             switch (role) {
                 case "user":
                     UserService us = new UserService();
-                    UserAccount user = us.getByUserPassId(userId);
+                    UserAccount user = us.getByUserPass(userId);
                     logger.info(user);
                     if (user != null) {
                         json = ObjectToJSONService.UserAccountToJSON(user);
@@ -56,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 
                 case "patient":
                     PatientService ps = new PatientService();
-                    Patient patient = ps.getByUserPassId(userId);
+                    Patient patient = ps.getByUserPass(userId);
                     logger.info(patient);
                     if (patient != null) {
                         json = ObjectToJSONService.PatientToJSON(patient);
@@ -65,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 
                 case "nurse":
                     NurseService ns = new NurseService();
-                    Nurse nurse = ns.getByUserPassId(userId);
+                    Nurse nurse = ns.getByUserPass(userId);
                     logger.info(nurse);
                     if (nurse != null) {
                         json = ObjectToJSONService.NurseToJSON(nurse);
@@ -74,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 
                 case "doctor":
                     DoctorService ds = new DoctorService();
-                    Doctor doctor = ds.getByUserPassId(userId);
+                    Doctor doctor = ds.getByUserPass(userId);
                     logger.info(doctor);
                     if (doctor != null) {
 
@@ -88,8 +87,6 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(new Cookie("role", up.getRole()));
                 logger.info(json);
                 writer.println(json);
-
-
             }
 
         } else {
