@@ -26,7 +26,7 @@ export class AdminPageComponent implements OnInit {
     this.getAllAccounts();
   }
 
-  lockUnlockAccounts()
+  lockUnlockAccount()
   {
     if ( this.patients[0]['locked'] == true )
     {
@@ -44,10 +44,12 @@ export class AdminPageComponent implements OnInit {
     this.as.getAllAdminAccounts().subscribe(
       data => {
         console.log("DATA: " + JSON.stringify(data));
-        for ( var i = 0; i < JSON.stringify(data).length; i++ )
+        for ( var d in data )
         {
-          this.allaccounts[i] = data[i];
+          this.allaccounts[d] = data[d];
+          console.log(data[d]);
         }
+        console.log("AMOUNTOFACCOUNTS: " + d);
         console.log("allaccouts after");
       },
       error => {
