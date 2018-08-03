@@ -37,7 +37,6 @@ public class FrontController extends HttpServlet {
 		
 		action = action.substring(0, action.length()-3).toLowerCase();//something
 		
-		
 		switch(action){
 		case "searchresults":
 			logger.info("FrontController: searchresults servlet hit.");

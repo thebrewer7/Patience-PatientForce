@@ -186,4 +186,36 @@ public class ObjectToJSONService {
 		}
 		return json;
 	}
+	
+	public static String userAccountsToJSON(List<UserAccount> ul)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(ul);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String patientsToJSON(List<Patient> pl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(pl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
 }

@@ -49,6 +49,10 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.login_username, this.login_password).subscribe(
       DATA => {
         // this.cookieService.set('data', DATA);
+        localStorage.setItem('userpassid', DATA['userpassid']);
+        localStorage.setItem('role', DATA['role']);
+        console.log(localStorage.getItem('role'));
+        console.log(localStorage.getItem('userpassid'));
         switch (DATA['role']) {
           case 'admin':
             this.router.navigate(['/adminpage']);
