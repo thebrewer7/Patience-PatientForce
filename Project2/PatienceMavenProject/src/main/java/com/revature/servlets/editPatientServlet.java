@@ -41,6 +41,7 @@ public class editPatientServlet extends HttpServlet {
 		//logger.info("person before change :" + editpatient);
 		editpatient.setLocation(patientlocation);
 		editpatient.setStatus(patientstatus);
+		ps.saveOrUpdate(editpatient);
 		//logger.info("person after change :" + editpatient);
 		
 		response.setContentType("text");
