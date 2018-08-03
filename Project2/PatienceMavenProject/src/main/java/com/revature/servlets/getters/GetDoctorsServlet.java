@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,18 +16,17 @@ import com.revature.services.ObjectToJSONService;
 import com.revature.services.doctor.DoctorService;
 
 /**
- * Servlet implementation class GetNursesDoctorsServlet
+ * Servlet implementation class GetDoctorsServlet
  */
-public class GetNursesDoctorsServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(GetNursesDoctorsServlet.class);
+public class GetDoctorsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetDoctorsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetNursesDoctorsServlet() {
+    public GetDoctorsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,20 +35,19 @@ public class GetNursesDoctorsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		DoctorService ps = new DoctorService();
+		DoctorService ds = new DoctorService();
 		List<Doctor> dl;
 		
-		dl = ps.getAll();
+		dl = ds.getAll();
 		
-		out.println(ObjectToJSONService.nursesDoctorsToJSON(dl));
-		logger.info("GetAllDoctorsPatients returned JSON: " + ObjectToJSONService.nursesDoctorsToJSON(dl));
+		out.println(ObjectToJSONService.doctorsToJSON(dl));
+		logger.info("GetDoctors returned JSON: " + ObjectToJSONService.doctorsToJSON(dl));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

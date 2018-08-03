@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../../objects/patient';
-
+import { Router } from '../../../../node_modules/@angular/router';
 import { DoctorService } from '../../services/doctor/doctor.service';
 
 @Component({
@@ -12,10 +11,18 @@ export class DoctorPageComponent implements OnInit {
 
   doctorsPatients = []
 
-  constructor(private ds: DoctorService) { }
+  constructor(private ds: DoctorService, private router: Router) { }
 
   ngOnInit() {
-
+    if ( localStorage.getItem('role') == 'null' )
+    {
+      this.router.navigate(['/login']);
+    }
+    else if ( localStorage.getItem('role') != 'doctor' )
+    {
+      var redirect = localStorage.getItem('role');
+      this.router.navigate(['/'+ redirect + 'page']);
+    }
     this.getAllDoctorsPatients();
 
   }

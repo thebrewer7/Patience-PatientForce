@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '../../../../node_modules/@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { QuickLookupComponent } from '../quick-lookup/quick-lookup.component';
 
@@ -10,9 +10,14 @@ import { QuickLookupComponent } from '../quick-lookup/quick-lookup.component';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    if ( !(localStorage.getItem('role') == 'null') )
+    {
+      var redirect = localStorage.getItem('role');
+      this.router.navigate(['/'+ redirect + 'page']);
+    }
   }
 
 }

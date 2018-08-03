@@ -1,23 +1,17 @@
 package com.revature.servlets;
 
-import com.revature.beans.Patient;
-import com.revature.beans.UserAccount;
-import com.revature.beans.UserPass;
-import com.revature.beans.doctor.Doctor;
-import com.revature.beans.nurse.Nurse;
-import com.revature.services.*;
-import com.revature.services.doctor.DoctorService;
-import com.revature.services.nurse.NurseService;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
+
+import com.revature.beans.UserPass;
+import com.revature.services.UserPassService;
 
 public class LoginServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);
@@ -41,53 +35,9 @@ public class LoginServlet extends HttpServlet {
             int userId = up.getId();
             String role = up.getRole();
 
-            String json = "";
-
-            switch (role) {
-                case "user":
-                    UserService us = new UserService();
-                    UserAccount user = us.getByUserPass(userId);
-                    logger.info(user);
-                    if (user != null) {
-                        json = ObjectToJSONService.UserAccountToJSON(user);
-                    }
-                    break;
-
-                case "patient":
-                    PatientService ps = new PatientService();
-                    Patient patient = ps.getByUserPass(userId);
-                    logger.info(patient);
-                    if (patient != null) {
-                        json = ObjectToJSONService.PatientToJSON(patient);
-                    }
-                    break;
-
-                case "nurse":
-                    NurseService ns = new NurseService();
-                    Nurse nurse = ns.getByUserPass(userId);
-                    logger.info(nurse);
-                    if (nurse != null) {
-                        json = ObjectToJSONService.NurseToJSON(nurse);
-                    }
-                    break;
-
-                case "doctor":
-                    DoctorService ds = new DoctorService();
-                    Doctor doctor = ds.getByUserPass(userId);
-                    logger.info(doctor);
-                    if (doctor != null) {
-
-                        json = ObjectToJSONService.DoctorToJSON(doctor);
-                    }
-                    break;
-
-            }
-            if (!json.equals("")) {
-                response.addCookie(new Cookie("username", username));
-                response.addCookie(new Cookie("role", up.getRole()));
-                logger.info(json);
-                writer.println(json);
-            }
+            String json = "{ \"userpassid\": \"" + userId +  "\", \"role\": \"" + role + "\" }";
+            logger.info(json);
+            writer.println(json);
 
         } else {
             writer.println(invalidCredentials);

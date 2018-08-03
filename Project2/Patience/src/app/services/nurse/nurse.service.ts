@@ -12,17 +12,17 @@ export class NurseService {
 
   getNurses() {
     const params = new HttpParams();
-    return this.http.post('http://localhost:8085/PatienceMavenProject/getNurses.do', params);
+    return this.http.post('http://34.205.71.228:8085/PatienceMavenProject/getNurses.do', params);
   }
 
   getReviews(username: string) {
     console.log('NurseService: getReviews()');
-    return this.http.post<Review[]>('http://localhost:8085/PatienceMavenProject/getNursesReviews.do', {username: username});
+    return this.http.post<Review[]>('http://34.205.71.228:8085/PatienceMavenProject/getNursesReviews.do', {username: username});
   }
 
   getNursesDoctors()
   {
     const params = new HttpParams();
-    return this.http.post('http://localhost:8085/PatienceMavenProject/getNursesDoctors.do', params);
+    return this.http.post('http://34.205.71.228:8085/PatienceMavenProject/getNursesDoctors.do', params);
   }
 }

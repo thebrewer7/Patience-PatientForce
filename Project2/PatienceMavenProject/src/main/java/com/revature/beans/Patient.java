@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -41,8 +40,8 @@ public class Patient {
 	@ManyToMany
 	public List<Doctor> doctors;
 
-	@OneToMany
-	private List<History> history;
+	@OneToOne
+	private History history;
 	@OneToOne
 	private UserPass userPass;
 
@@ -80,6 +79,25 @@ public class Patient {
 	}
 
 	/**
+	 * Used to instantiate a Patient with no associated users, doctors, or nuses
+	 * 
+	 * @param userPass
+	 * @param name
+	 * @param location
+	 * @param status
+	 * @param condition
+	 */
+	public Patient(UserPass userPass, String name, String location, String status, ConditionTypes condition, History history) {
+		super();
+		this.userPass = userPass;
+		this.name = name;
+		this.location = location;
+		this.status = status;
+		this.condition = condition.toString();
+		this.history = history;
+	}
+	
+	/**
 	 * Instantiate a patient with no associated nurses, doctors, or users. Also lacks profile picture and
 	 * current condition.
 	 * @param name
@@ -93,6 +111,24 @@ public class Patient {
 		this.id = id;
 		this.location = location;
 		this.status = status;
+	}
+	
+	/**
+	 * Instantiate a patient with no associated nurses, doctors, or users. Also lacks profile picture and
+	 * current condition.
+	 * @param name
+	 * @param id
+	 * @param location
+	 * @param history
+	 * @param status
+	 */
+	public Patient(String name, Integer id, String location, String status, History history) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.location = location;
+		this.status = status;
+		this.history = history;
 	}
 
 	/**
@@ -108,7 +144,7 @@ public class Patient {
 	 * @param condition
 	 * @param preferredDoctorName
 	 */
-	public Patient(Integer id, List<Nurse> nurses, List<Doctor> doctors, List<History> history, UserPass userPass,
+	public Patient(Integer id, List<Nurse> nurses, List<Doctor> doctors, History history, UserPass userPass,
 			String name, String location, String status, String condition, String preferredDoctorName) {
 		super();
 		this.id = id;
@@ -136,7 +172,7 @@ public class Patient {
 	 * @param condition
 	 * @param preferredDoctorName
 	 */
-	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history,
+	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, History history,
 			UserPass userPass, String name, String location, String status, String condition,
 			String preferredDoctorName) {
 		super();
@@ -166,7 +202,7 @@ public class Patient {
 	 * @param profilePicture
 	 * @param preferredDoctorName
 	 */
-	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, List<History> history,
+	public Patient(List<UserAccount> users, List<Nurse> nurses, List<Doctor> doctors, History history,
 			UserPass userPass, String name, String location, String status, String condition, Blob profilePicture,
 			String preferredDoctorName) {
 		super();
@@ -247,11 +283,11 @@ public class Patient {
 		this.preferredDoctorName = preferredDoctorName;
 	}
 
-	public List<History> getHistory() {
+	public History getHistory() {
 		return history;
 	}
 
-	public void setHistory(List<History> history) {
+	public void setHistory(History history) {
 		this.history = history;
 	}
 

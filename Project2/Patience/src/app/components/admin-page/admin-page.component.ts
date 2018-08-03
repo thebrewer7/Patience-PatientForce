@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { Router } from '../../../../node_modules/@angular/router';
 
 
 import { AdminserviceService } from '../../services/adminservice/adminservice.service';
@@ -14,9 +15,18 @@ export class AdminPageComponent implements OnInit {
 
   allaccounts = [];
 
-  constructor(private as: AdminserviceService) { }
+  constructor(private as: AdminserviceService, private router: Router) { }
 
   ngOnInit() {
+    if ( localStorage.getItem('role') == 'null' )
+    {
+      this.router.navigate(['/login']);
+    }
+    else if ( localStorage.getItem('role') != 'doctor' )
+    {
+      var redirect = localStorage.getItem('role');
+      this.router.navigate(['/'+ redirect + 'page']);
+    }
     this.getAllAccounts();
   }
 

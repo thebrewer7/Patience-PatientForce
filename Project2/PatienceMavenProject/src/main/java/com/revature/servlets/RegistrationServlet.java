@@ -1,20 +1,23 @@
 package com.revature.servlets;
 
-import com.revature.beans.UserAccount;
-import com.revature.beans.UserPass;
-import com.revature.services.*;
-import org.apache.log4j.Logger;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
-import java.time.LocalDate;
 
+import org.apache.log4j.Logger;
+
+import com.revature.beans.UserAccount;
+import com.revature.beans.UserPass;
+import com.revature.services.ObjectToJSONService;
+import com.revature.services.UserPassService;
+import com.revature.services.UserService;
 
 public class RegistrationServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);
@@ -43,7 +46,8 @@ public class RegistrationServlet extends HttpServlet {
             writer.println(usernameTakerError);
         } else {
             UserService us = new UserService();
-            userPass = new UserPass(username, password);
+            userPass = new UserPass(username, password, "user");
+            ups.saveOrUpdate(userPass);
             UserAccount user = new UserAccount(userPass, username, Date.valueOf(LocalDate.now()));
             us.saveOrUpdate(user);
             response.addCookie(new Cookie("username", username));

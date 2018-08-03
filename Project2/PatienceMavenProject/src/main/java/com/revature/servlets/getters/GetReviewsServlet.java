@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,19 +17,23 @@ import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.doctor.DoctorService;
+<<<<<<< HEAD:Project2/PatienceMavenProject/src/main/java/com/revature/servlets/FetchReviewServlet.java
 import com.revature.services.nurse.NurseService;
+=======
+import com.revature.servlets.FrontController;
+>>>>>>> Development:Project2/PatienceMavenProject/src/main/java/com/revature/servlets/getters/GetReviewsServlet.java
 
 /**
  * Servlet implementation class FetchReviewServlet
  */
-public class FetchReviewServlet extends HttpServlet {
+public class GetReviewsServlet extends HttpServlet {
 	final static Logger logger = Logger.getLogger(FrontController.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchReviewServlet() {
+    public GetReviewsServlet() {
         super();
     }
 
@@ -72,7 +76,6 @@ public class FetchReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

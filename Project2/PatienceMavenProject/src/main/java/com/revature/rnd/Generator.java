@@ -21,10 +21,19 @@ import com.revature.beans.doctor.DocCerts;
 import com.revature.beans.doctor.DocDegree;
 import com.revature.beans.doctor.DocExperience;
 import com.revature.beans.doctor.Doctor;
+import com.revature.beans.history.BloodPressure;
+import com.revature.beans.history.Diagnosis;
+import com.revature.beans.history.History;
+import com.revature.beans.history.Medication;
+import com.revature.beans.history.Treatment;
+import com.revature.beans.history.Vaccination;
 import com.revature.beans.nurse.Nurse;
 import com.revature.beans.nurse.NurseCerts;
+import com.revature.enums.BpCategories;
 import com.revature.enums.ConditionTypes;
 import com.revature.services.AdminService;
+import com.revature.services.GenericService;
+import com.revature.services.HistoryService;
 import com.revature.services.PatientService;
 import com.revature.services.ReviewService;
 import com.revature.services.UserPassService;
@@ -81,6 +90,7 @@ public class Generator {
 
 	// Bean Components
 	private static Iterator<UserPass> userPassIterator;
+
 	public static void generateUserPass(int quantity) {
 		Set<String> users = new HashSet<>();
 		List<UserPass> ups = new ArrayList<>();
@@ -214,6 +224,99 @@ public class Generator {
 		return certs;
 	}
 
+	private static List<BpCategories> generateBPCondition(int quantity) {
+		List<BpCategories> cats = new ArrayList<>();
+		for (int i = 0; i < quantity; i++) {
+			cats.add(BpCategories.values()[random.nextInt(BpCategories.values().length)]);
+		}
+		return cats;
+	}
+
+	private static List<Integer> generateHeight(int quantity) {
+		List<Integer> nums = new ArrayList<>();
+		for (int i = 0; i < quantity; i++) {
+			nums.add(random.nextInt(23) + 152);
+		}
+		return nums;
+	}
+
+	private static List<Integer> generateWeight(int quantity) {
+		List<Integer> nums = new ArrayList<>();
+		for (int i = 0; i < quantity; i++) {
+			nums.add(random.nextInt(154) + 91);
+		}
+		return nums;
+	}
+
+	private static List<Integer> generateAge(int quantity) {
+		List<Integer> nums = new ArrayList<>();
+		for (int i = 0; i < quantity; i++) {
+			nums.add(random.nextInt(111) + 7);
+		}
+		return nums;
+	}
+
+	private static List<Vaccination> generateVaccinations(int quantity) {
+		List<Vaccination> vacs = new ArrayList<>();
+		String[] strs = { "Polio", "DTP", "MMR", "Hepatitis B", "Vericella" };
+
+		for (int i = 0; i < quantity; i++) {
+			vacs.add(new Vaccination(strs[random.nextInt(strs.length)]));
+		}
+		vacs.forEach(new GenericService<Vaccination>(new Vaccination())::saveOrUpdate);
+		return vacs;
+	}
+
+	private static List<Medication> generateMedication(int quantity) {
+		List<Medication> meds = new ArrayList<>();
+		String[] strs = { "Levothyroxine", "Rosuvastatin", "albuterol", "esomeprazole", "fluticasone",
+				"insulin glargine", "lisdexamfetamine", "pregabalin", "tiotropium", "sitagliptin" };
+
+		for (int i = 0; i < quantity; i++) {
+			meds.add(new Medication(strs[random.nextInt(strs.length)]));
+		}
+		meds.forEach(new GenericService<Medication>(new Medication())::saveOrUpdate);
+		return meds;
+	}
+
+	private static List<Diagnosis> generateDiagnoses(int quantity) {
+		List<Diagnosis> diags = new ArrayList<>();
+		String[] strs = { "Hypertension", "Hyperlipidemia", "Diabetes", "Back pain", "Anxiety", "Obesity",
+				"Allergic rhinitis", "Reflux esophagitis", "Respiratory problems", "Hypothyroidism",
+				"Visual refractive errors", "General medical exam", "Osteoarthritis", "Fibromyalgia / myositis",
+				"Malaise and fatigue", "Pain in joint", "Acute laryngopharyngitis", "Acute maxillary sinusitis",
+				"Major depressive disorder", "Acute bronchitis", "Asthma", "Depressive disorder", "Nail fungus",
+				"Coronary atherosclerosis", "Urinary tract infection" };
+
+		for (int i = 0; i < quantity; i++) {
+			diags.add(new Diagnosis(strs[random.nextInt(strs.length)]));
+		}
+		diags.forEach(new GenericService<Diagnosis>(new Diagnosis())::saveOrUpdate);
+		return diags;
+	}
+
+	private static List<BloodPressure> generateBloodPressure(int quantity) {
+		List<BloodPressure> bps = new ArrayList<>();
+
+		for (int i = 0; i < quantity; i++) {
+			bps.add(new BloodPressure(random.nextInt(220) + 40, random.nextInt(100) + 60));
+		}
+		bps.forEach(new GenericService<BloodPressure>(new BloodPressure())::saveOrUpdate);
+		return bps;
+	}
+
+	private static List<Treatment> generateTreatments(int quantity) {
+		List<Treatment> treatments = new ArrayList<>();
+		String[] strs = { "Chemoterapy", "Radiation Therapy", "Targeted Therapy", "Immunotherapy",
+				"Stem Cell Transplant", "Hyperthermia", "Photodynamic Therapy", "Blood Transfusion",
+				"Laser Cancer Treatment" };
+
+		for (int i = 0; i < quantity; i++) {
+			treatments.add(new Treatment(strs[random.nextInt(strs.length)]));
+		}
+		treatments.forEach(new GenericService<Treatment>(new Treatment())::saveOrUpdate);
+		return treatments;
+	}
 	// End Bean Components
 
 	// Bean Modules
@@ -223,15 +326,35 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("admin");
+			new UserPassService().saveOrUpdate(up);
 			admins.add(new Admin(str[i], up));
 		}
-		
+
 		admins.forEach(new AdminService()::saveOrUpdate);
 		return admins;
 	}
 
+	public static List<History> generateHistory(int quantity) {
+		List<History> histories = new ArrayList<>();
+		List<BloodPressure> bp = generateBloodPressure(quantity);
+		List<Integer> ages = generateAge(quantity);
+		List<Integer> weight = generateWeight(quantity);
+		List<Integer> height = generateHeight(quantity);
+		List<BpCategories> bpCondition = generateBPCondition(quantity);
+
+		for (int i = 0; i < quantity; i++) {
+			histories.add(new History(ages.get(i), weight.get(i), height.get(i), bp.get(i), bpCondition.get(i),
+					generateTreatments(quantity), generateDiagnoses(quantity), generateMedication(quantity),
+					generateVaccinations(quantity)));
+		}
+
+		histories.forEach(new HistoryService()::saveOrUpdate);
+		return histories;
+	}
+
 	public static List<Patient> generatePatients(int quantity) {
 		List<Patient> patients = new ArrayList<>();
+		List<History> histories = generateHistory(quantity);
 		String[] name = generateNames(quantity);
 		String[] locations = generateLocations(quantity);
 		String[] statuses = generatePatientStatus(quantity);
@@ -240,7 +363,8 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("patient");
-			patients.add(new Patient(up, name[i], locations[i], statuses[i], conditions[i]));
+			new UserPassService().saveOrUpdate(up);
+			patients.add(new Patient(up, name[i], locations[i], statuses[i], conditions[i], histories.get(i)));
 		}
 
 		patients.forEach(new PatientService()::saveOrUpdate);
@@ -249,7 +373,7 @@ public class Generator {
 
 	private static List<Review> generateReviews(int quantity) {
 		String[][][] branches = { { // negative - beginning, middle, and end
-				{ "What the hell, ", "My god what is wrong with, ", "Let me tell you, ",
+				{ "What the heck, ", "My god what is wrong with, ", "Let me tell you, ",
 						"I asked for the manager and " },
 				{ "this thing just really ", "the doctors here ", "this doctor ", "this nurse ",
 						"got hit with a trombone ", "got propositioned by " },
@@ -275,12 +399,14 @@ public class Generator {
 			reviewsContent[i] = branch[0][random.nextInt(branch[0].length)]
 					+ branch[1][random.nextInt(branch[1].length)] + branch[2][random.nextInt(branch[2].length)];
 			System.out.println(reviewsContent[i]);
-			String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(11) + 1) + "-" + (random.nextInt(27) + 1);
-			System.out.println(date);
-			reviews.add(new Review(random.nextInt(5), reviewsContent[i], Date.valueOf(date)));
+			// String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(2) + 10) +
+			// "-" + (random.nextInt(18) + 10) + "T" + (random.nextInt(23) + 1) + ":" +
+			// (random.nextInt(58) + 1) + ":" + (random.nextInt(48) + 10) + ".00Z";
+			// System.out.println(date);
+			reviews.add(new Review(random.nextInt(5) + 1, reviewsContent[i], Date.valueOf(LocalDate.now())));
 			System.out.println(reviews.get(i));
 		}
-		
+
 		reviews.forEach(new ReviewService()::saveOrUpdate);
 		return reviews;
 	}
@@ -294,9 +420,10 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("user");
+			new UserPassService().saveOrUpdate(up);
 			accounts.add(new UserAccount(up, name[i], Date.valueOf(LocalDate.now())));
 		}
-		
+
 		accounts.forEach(new UserService()::saveOrUpdate);
 		return accounts;
 	}
@@ -310,6 +437,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("nurse");
+			new UserPassService().saveOrUpdate(up);
 			nurses.add(new Nurse(generateNurseCerts(10), generateReviews(10), up, name[i], deps[i]));
 		}
 
@@ -326,6 +454,7 @@ public class Generator {
 		for (int i = 0; i < quantity; i++) {
 			UserPass up = userPassIterator.next();
 			up.setRole("doctor");
+			new UserPassService().saveOrUpdate(up);
 			doctors.add(new Doctor(backgrounds[i], generateReviews(10), up, name[i], departments[i]));
 		}
 
@@ -360,6 +489,11 @@ public class Generator {
 				patients.get(a).users.add(users.get(a));
 				patients.get(a).nurses.add(nurses.get(a));
 				patients.get(a).doctors.add(doctors.get(a));
+
+				new UserService().saveOrUpdate(users.get(a));
+				new NurseService().saveOrUpdate(nurses.get(a));
+				new DoctorService().saveOrUpdate(doctors.get(a));
+				new PatientService().saveOrUpdate(patients.get(a));
 			}
 			nums.add(a);
 		}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../../services/patient/patient.service';
+import { Patient } from '../../objects/patient';
 
 @Component({
   selector: 'app-quick-lookup',
@@ -9,18 +10,21 @@ import { PatientService } from '../../services/patient/patient.service';
 export class QuickLookupComponent implements OnInit {
 
   username = '';
+  patient: Patient;
 
   constructor(private patientService: PatientService) { }
 
   ngOnInit() {
+    this.patient = new Patient();
   }
 
   lookup() {
     // search for the patient
     console.log('QuickLookupComponent: search()');
     this.patientService.search(this.username).subscribe(
-      PASS => { console.log('pass'); },
-      FAIL => { console.log('failed'); }
+      PASS => { this.patient = PASS;
+        console.log(PASS); },
+      FAIL => { console.log(FAIL); }
     );
   }
 }

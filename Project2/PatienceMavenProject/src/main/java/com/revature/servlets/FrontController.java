@@ -37,7 +37,6 @@ public class FrontController extends HttpServlet {
 		
 		action = action.substring(0, action.length()-3).toLowerCase();//something
 		
-		
 		switch(action){
 		case "searchresults":
 			logger.info("FrontController: searchresults servlet hit.");
@@ -69,9 +68,9 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/SubmitReviewServlet");
 			rd.forward(request, response);
 			break;
-		case "fetchreview":
-			logger.info("FrontController: fetchreviewservlet servlet hit.");
-			rd = request.getRequestDispatcher("/FetchReviewServlet");
+		case "getreviews":
+			logger.info("FrontController: getreviewsservlet servlet hit.");
+			rd = request.getRequestDispatcher("/GetReviewsServlet");
 			rd.forward(request, response);
 			break;
 		case "logout":
@@ -86,7 +85,7 @@ public class FrontController extends HttpServlet {
 			break;
 		case "getpatient":
 			logger.info("FrontController: register servlet hit.");
-			rd = request.getRequestDispatcher("/QuickSearchServlet");
+			rd = request.getRequestDispatcher("/QuickLookupServlet");
 			rd.forward(request, response);
 			break;
 		case "getallaccounts":
@@ -109,6 +108,11 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/GetDoctorsServlet");
 			rd.forward(request, response);
 			break;
+		case "gethistory":
+			logger.info("FrontController: gethistory servlet hit.");
+			rd = request.getRequestDispatcher("/GetHistoryServlet");
+			rd.forward(request, response);
+			break;
 		default:
 			logger.info("FrontController: no corresponding servlet found.");
 			response.sendError(404);
@@ -119,7 +123,6 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

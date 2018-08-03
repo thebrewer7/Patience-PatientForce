@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.revature.dao.GenericDaoImpl;
 
-public abstract class GenericService<T> {
+public class GenericService<T> {
 	static Object type = null;
 	public GenericService() {
 		super();

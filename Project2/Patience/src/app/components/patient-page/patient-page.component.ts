@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { PATIENTS } from '../../mock-patients'; 
+import { HistoryService } from '../../services/history/history.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-patient-page',
@@ -9,30 +9,39 @@ import { PATIENTS } from '../../mock-patients';
 })
 export class PatientPageComponent implements OnInit {
 
-  patients = PATIENTS;
-  newpatients = [];
+  allHistories = [];
 
-  constructor() { }
+  constructor(private hs: HistoryService, private router: Router) { }
 
   ngOnInit() {
-    var activeuserid = 1;
-      switch(activeuserid){
-        case 1:
-          this.newpatients[0] = this.patients[0];
-          break;
-        case 2:
-          this.newpatients[1] = this.patients[1];
-          break;
-        case 3:
-          this.newpatients[3] = this.patients[3];
-          break;
-        case 4:
-          this.newpatients[4] = this.patients[4];
-          break;
-        case 5:
-          this.newpatients[5] = this.patients[5];
-          break;
+    if ( localStorage.getItem('role') == 'null' )
+    {
+      this.router.navigate(['/login']);
+    }
+    else if ( localStorage.getItem('role') != 'doctor' )
+    {
+      var redirect = localStorage.getItem('role');
+      this.router.navigate(['/'+ redirect + 'page']);
+    }
+    this.getHistory();
+  }
+
+  getHistory()
+  {
+    this.hs.getHistory().subscribe(
+      data => {
+        console.log(data);
+        for ( var d in data )
+        {
+          this.allHistories[d] = data[d];
+          console.log("HISTORY: " + JSON.stringify(this.allHistories[d]));
+        }
+        
+      },
+      error => {
+        console.log("ERROR", error);
       }
+  );
   }
 
 }
