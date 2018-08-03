@@ -39,6 +39,6 @@ export class ConnectorService {
     params = params.append("id", id);
     params = params.append("role", role);
 
-    return this.http.get<Review[]>("http://34.205.71.228:8085/PatienceMavenProject/FetchReview.do", { params: params });
+    return this.http.get<Review[]>("http://34.205.71.228:8085/PatienceMavenProject/GetReviews.do", { params: params });
   }
 }
