@@ -3840,3 +3840,288 @@ line 1:6: unexpected token: :
 2018-08-02 16:19:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
 2018-08-02 16:19:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
 2018-08-02 16:19:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:54:34 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 19:54:34 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 19:54:34 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 19:54:34 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 19:54:34 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 19:54:34 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 19:54:34 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 19:54:35 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 19:54:37 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 19:54:37 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 19:54:37 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 19:54:37 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 19:54:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 19:54:37 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 19:54:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 19:54:38 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 19:54:46 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 19:55:15 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 19:55:15 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 19:55:15 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:15 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 19:55:15 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 19:55:15 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:15 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 19:55:15 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 19:55:15 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:20 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:20 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 19:55:20 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:20 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:20 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 19:55:20 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:20 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:20 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 19:55:20 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:21 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:21 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:21 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:21 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:21 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:22 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:22 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:23 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:23 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:23 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:23 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:23 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:23 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:25 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:25 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:25 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:10:58 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:10:58 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:10:58 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:10:58 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:10:58 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:10:58 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:10:58 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:10:58 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:11:00 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:11:00 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:11:00 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:11:00 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:11:00 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:11:00 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:11:00 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:11:01 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:11:10 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:23:16 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:23:16 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:23:16 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:23:16 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:23:16 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:23:16 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:23:16 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:23:16 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:23:17 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:23:18 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:23:18 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:23:18 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:23:18 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:23:18 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:23:18 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:23:18 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:23:27 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:28:14 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:28:14 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:28:14 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:28:14 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:28:14 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:28:14 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:28:14 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:28:14 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:28:15 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:28:15 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:28:15 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:28:15 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:28:15 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:28:15 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:28:15 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:28:16 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:28:25 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:30:33 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:30:33 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:30:33 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:30:33 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:30:33 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:30:33 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:30:33 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:30:33 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:30:36 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:30:37 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:30:37 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:30:37 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:30:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:30:37 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:30:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:30:37 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:30:47 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:32:39 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:32:39 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:32:39 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:32:39 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:32:39 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:32:39 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:32:39 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:32:39 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:32:41 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:32:41 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:32:41 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:32:41 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:32:41 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:32:41 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:32:41 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:32:42 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:32:49 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:34:46 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:34:46 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:34:46 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:34:46 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:34:46 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:34:46 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:34:46 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:34:47 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:34:48 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:34:48 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:34:48 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:34:48 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:34:48 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:34:48 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:34:48 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:34:49 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:34:56 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:35:22 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:35:22 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:35:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:22 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:35:22 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:35:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:22 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:35:22 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:35:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:26 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:26 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:35:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:26 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:26 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:35:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:26 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:26 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:35:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:27 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:27 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:27 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:35:27 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:29 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:29 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:35:29 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:14 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:41:14 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:41:14 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:41:14 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:41:14 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:41:14 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:41:14 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:41:14 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:41:15 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:41:16 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:41:16 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:41:16 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:41:16 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:41:16 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:41:16 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:41:16 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:41:24 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:41:49 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:41:49 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:41:49 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:49 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:41:49 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:41:49 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:50 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:41:50 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:41:50 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:54 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:54 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:41:54 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:54 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:54 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:41:54 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:54 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:54 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:41:54 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:56 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:57 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:57 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:41:57 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:59 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:59 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:41:59 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:42:00 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:42:00 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:42:00 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
