@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,23 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.nurse.Nurse;
+import com.revature.beans.doctor.Doctor;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.nurse.NurseService;
+import com.revature.services.doctor.DoctorService;
 
 /**
- * Servlet implementation class getNursesServlet
+ * Servlet implementation class GetDoctorsServlet
  */
-public class getNursesServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(getNursesServlet.class);
+public class GetDoctorsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetDoctorsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getNursesServlet() {
+    public GetDoctorsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,20 +35,19 @@ public class getNursesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		NurseService ns = new NurseService();
-		List<Nurse> nl = null;
+		DoctorService ds = new DoctorService();
+		List<Doctor> dl;
 		
-		nl = ns.getAll();
+		dl = ds.getAll();
 		
-		out.println(ObjectToJSONService.nursesToJSON(nl));
-		logger.info("GetNursesServlet returned JSON: " + ObjectToJSONService.nursesToJSON(nl));
+		out.println(ObjectToJSONService.doctorsToJSON(dl));
+		logger.info("GetDoctors returned JSON: " + ObjectToJSONService.doctorsToJSON(dl));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

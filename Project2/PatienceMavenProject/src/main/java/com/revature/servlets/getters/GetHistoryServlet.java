@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,23 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.Patient;
+import com.revature.beans.history.History;
+import com.revature.services.HistoryService;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.PatientService;
 
 /**
- * Servlet implementation class GetAllDoctorsPatientsServlet
+ * Servlet implementation class GetHistoryServlet
  */
-public class GetAllDoctorsPatientsServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(GetAllDoctorsPatientsServlet.class);
+public class GetHistoryServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetHistoryServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAllDoctorsPatientsServlet() {
+    public GetHistoryServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -36,21 +35,19 @@ public class GetAllDoctorsPatientsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		PatientService ps = new PatientService();
-		List<Patient> pl;
+		HistoryService hs = new HistoryService();
+		List<History> hl;
 		
-		pl = ps.getAll();
-		//System.out.println("PL: " + pl);
+		hl = hs.getAll();
 		
-		out.println(ObjectToJSONService.doctorsPatientsToJSON(pl));
-		logger.info("GetAllDoctorsPatients returned JSON: " + ObjectToJSONService.doctorsPatientsToJSON(pl));
+		out.println(ObjectToJSONService.historyToJSON(hl));
+		logger.info("GetHistory returned JSON: " + ObjectToJSONService.historyToJSON(hl));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

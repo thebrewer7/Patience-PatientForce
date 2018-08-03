@@ -1,8 +1,8 @@
 package com.revature.services;
 
-import com.revature.beans.UserPass;
-
 import java.util.List;
+
+import com.revature.beans.UserPass;
 
 public class UserPassService extends GenericService<UserPass> {
 

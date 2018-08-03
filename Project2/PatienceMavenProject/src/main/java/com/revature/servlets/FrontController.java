@@ -68,9 +68,9 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/SubmitReviewServlet");
 			rd.forward(request, response);
 			break;
-		case "fetchreview":
-			logger.info("FrontController: fetchreviewservlet servlet hit.");
-			rd = request.getRequestDispatcher("/FetchReviewServlet");
+		case "getreviews":
+			logger.info("FrontController: getreviewsservlet servlet hit.");
+			rd = request.getRequestDispatcher("/GetReviewsServlet");
 			rd.forward(request, response);
 			break;
 		case "logout":
@@ -123,7 +123,6 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

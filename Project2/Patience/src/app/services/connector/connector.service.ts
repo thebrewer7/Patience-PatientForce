@@ -23,15 +23,13 @@ export class ConnectorService {
 
   }
 
-  submitReviewByName(rating, review, name) {
+  submitReviewByName(rating, review) {
     console.log("rating: "+rating);
     console.log("review: "+review);
-    console.log("name: "+name);
 
     var params = new HttpParams();
     params = params.append("rating", rating);
     params = params.append("review", review);
-    params = params.append("name", name);
 
     return this.http.get("http://34.205.71.228:8085/PatienceMavenProject/SubmitReview.do", { responseType: 'text', params: params });
   }
@@ -41,6 +39,6 @@ export class ConnectorService {
     params = params.append("id", id);
     params = params.append("role", role);
 
-    return this.http.get<Review[]>("http://34.205.71.228:8085/PatienceMavenProject/FetchReview.do", { params: params });
+    return this.http.get<Review[]>("http://34.205.71.228:8085/PatienceMavenProject/GetReviews.do", { params: params });
   }
 }

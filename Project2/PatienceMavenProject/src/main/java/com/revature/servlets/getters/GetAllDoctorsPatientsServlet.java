@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,22 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.Review;
-import com.revature.beans.doctor.Doctor;
+import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.doctor.DoctorService;
+import com.revature.services.PatientService;
 
 /**
- * Servlet implementation class FetchReviewServlet
+ * Servlet implementation class GetAllDoctorsPatientsServlet
  */
-public class FetchReviewServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+public class GetAllDoctorsPatientsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetAllDoctorsPatientsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchReviewServlet() {
+    public GetAllDoctorsPatientsServlet() {
         super();
     }
 
@@ -34,27 +33,22 @@ public class FetchReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
-		
-		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
-		Doctor doc = new DoctorService().getById(id);
-		
-		List<Review> reviews = doc.getReviews();
-		
-		response.setContentType("application/json");
+		response.setContentType("text");
 		PrintWriter out = response.getWriter();
+		PatientService ps = new PatientService();
+		List<Patient> pl;
 		
-
-		out.println(ObjectToJSONService.ReviewsToJSON(reviews)); 
-		logger.info("FetchReviewServlet returned JSON: " + reviews);
+		pl = ps.getAll();
+		//System.out.println("PL: " + pl);
+		
+		out.println(ObjectToJSONService.doctorsPatientsToJSON(pl));
+		logger.info("GetAllDoctorsPatients returned JSON: " + ObjectToJSONService.doctorsPatientsToJSON(pl));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
