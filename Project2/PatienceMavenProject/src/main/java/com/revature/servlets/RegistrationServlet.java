@@ -43,7 +43,7 @@ public class RegistrationServlet extends HttpServlet {
             writer.println(usernameTakerError);
         } else {
             UserService us = new UserService();
-            userPass = new UserPass(username, password);
+            userPass = new UserPass(username, password, "user");
             ups.saveOrUpdate(userPass);
             UserAccount user = new UserAccount(userPass, username, Date.valueOf(LocalDate.now()));
             us.saveOrUpdate(user);
