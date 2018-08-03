@@ -27,7 +27,6 @@ public class GetAllDoctorsPatientsServlet extends HttpServlet {
      */
     public GetAllDoctorsPatientsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -50,7 +49,6 @@ public class GetAllDoctorsPatientsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -3,6 +3,7 @@ package com.revature.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +33,7 @@ public class SubmitReviewServlet extends HttpServlet {
 		int rating = Integer.parseInt(request.getParameter("rating"));
 		String review = request.getParameter("review");
 		String name = request.getParameter("name");
-		Date date = Date.valueOf(request.getParameter("date"));
+		Date date = Date.valueOf(LocalDate.now());
 		
 		// TODO use rating dao to submit above information
 		
@@ -47,7 +48,6 @@ public class SubmitReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
