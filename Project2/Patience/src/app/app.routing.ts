@@ -40,7 +40,7 @@ const routes: Routes = [
       component: NurseDoctorEditInfoComponent
     },
     {
-      path: 'profile',
+      path: 'profile/:userpassid',
       component: ProfilePageComponent
     }
 ];

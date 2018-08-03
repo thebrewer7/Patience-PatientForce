@@ -13,6 +13,6 @@ export class UserDataService {
   constructor() { }
 
   changeData(data: Details) {
-    this.dataSource.next(data)
+    this.dataSource.next(data);
   }
 }
