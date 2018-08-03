@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { History } from '../../objects/history';
 import { HistoryService } from '../../services/history/history.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-patient-page',
@@ -11,9 +11,14 @@ export class PatientPageComponent implements OnInit {
 
   allHistories = [];
 
-  constructor(private hs: HistoryService) { }
+  constructor(private hs: HistoryService, private router: Router) { }
 
   ngOnInit() {
+    if ( localStorage.getItem('role') != 'patient' )
+    {
+      var redirect = localStorage.getItem('role');
+      this.router.navigate(['/'+ redirect + 'page']);
+    }
     this.getHistory();
   }
 
