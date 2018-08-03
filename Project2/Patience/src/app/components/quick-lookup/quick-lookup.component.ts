@@ -15,6 +15,7 @@ export class QuickLookupComponent implements OnInit {
   constructor(private patientService: PatientService) { }
 
   ngOnInit() {
+    this.patient = new Patient();
   }
 
   lookup() {
