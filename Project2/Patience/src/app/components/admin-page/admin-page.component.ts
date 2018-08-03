@@ -18,7 +18,11 @@ export class AdminPageComponent implements OnInit {
   constructor(private as: AdminserviceService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') != 'admin' )
+    if ( localStorage.getItem('role') == 'null' )
+    {
+      this.router.navigate(['/login']);
+    }
+    else if ( localStorage.getItem('role') != 'doctor' )
     {
       var redirect = localStorage.getItem('role');
       this.router.navigate(['/'+ redirect + 'page']);

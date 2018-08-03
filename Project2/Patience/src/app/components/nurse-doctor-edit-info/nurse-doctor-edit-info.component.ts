@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../../objects/patient';
 import { ActivatedRoute } from '@angular/router';
 import { DoctoreditinfoService } from '../../services/doctoreditinfo/doctoreditinfo.service';
-
-import { PATIENTS } from '../../mock-patients';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-nurse-doctor-edit-info',
@@ -13,44 +11,28 @@ import { PATIENTS } from '../../mock-patients';
 export class NurseDoctorEditInfoComponent implements OnInit {
 
   patientid: number;
-  patientnamenew: string;
-  patientlocationnew: string;
-  patientstatusnew: string;
 
-  patients = PATIENTS;
+  constructor(private route: ActivatedRoute, private deis: DoctoreditinfoService, private router: Router) { }
 
-  constructor(private route: ActivatedRoute, private deis: DoctoreditinfoService) { }
+  doctorsPatients = [];
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.patientid = parseInt(params.get('patientid'));
     });
-    
   }
 
-  public editPatientInfo(patientid)
+  public editPatientInfo(patientid,patientlocation,patientstatus)
   {
-    
-
-    this.deis.editPatient(patientid).subscribe(
+    this.deis.editPatient(patientid,patientlocation,patientstatus).subscribe(
       data => {
-        for ( var p in this.patients )
-        {
-          if ( this.patients[p]['id'] == this.patientid)
-          {
-            console.log("inside if");
-            this.patients[p]['location'] = this.patientlocationnew;
-            this.patients[p]['status'] = this.patientstatusnew;
-          }
-         }
-
-        console.log("DATA: " + JSON.stringify(data));
+        console.log(data);
+        this.router.navigate(['/doctorpage']);
       },
       error => {
         console.log('ERROR', error);
       }
     );
   }
- 
 
 }

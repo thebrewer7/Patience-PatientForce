@@ -14,7 +14,11 @@ export class DoctorPageComponent implements OnInit {
   constructor(private ds: DoctorService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') != 'doctor' )
+    if ( localStorage.getItem('role') == 'null' )
+    {
+      this.router.navigate(['/login']);
+    }
+    else if ( localStorage.getItem('role') != 'doctor' )
     {
       var redirect = localStorage.getItem('role');
       this.router.navigate(['/'+ redirect + 'page']);
