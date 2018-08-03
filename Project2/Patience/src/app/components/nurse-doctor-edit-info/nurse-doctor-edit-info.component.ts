@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../../objects/patient';
 import { ActivatedRoute } from '@angular/router';
 import { DoctoreditinfoService } from '../../services/doctoreditinfo/doctoreditinfo.service';
 import { Router } from '../../../../node_modules/@angular/router';
-import { PATIENTS } from '../../mock-patients';
-import { DoctorService } from '../../services/doctor/doctor.service';
 
 @Component({
   selector: 'app-nurse-doctor-edit-info',

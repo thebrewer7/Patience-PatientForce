@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.google.gson.Gson;
 import com.revature.beans.Patient;
-import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 
 /**
@@ -38,12 +38,15 @@ public class editPatientServlet extends HttpServlet {
 		PatientService ps = new PatientService();
 		
 		Patient editpatient = ps.getById(patientid);
+		//logger.info("person before change :" + editpatient);
 		editpatient.setLocation(patientlocation);
 		editpatient.setStatus(patientstatus);
+		//logger.info("person after change :" + editpatient);
 		
-		response.setContentType("text/json");
+		response.setContentType("text");
+		
 		PrintWriter out = response.getWriter();
-		out.println("{ PatientID: " + patientid + " has been updated. }");
+		out.println();
 		logger.info("editPatientServlet updated a patient");
 	}
 
