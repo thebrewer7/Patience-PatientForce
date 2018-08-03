@@ -36,13 +36,14 @@ public class editPatientServlet extends HttpServlet {
 		String patientlocation = request.getParameter("patientlocation");
 		String patientstatus = request.getParameter("patientstatus");
 		PatientService ps = new PatientService();
+		
 		Patient editpatient = ps.getById(patientid);
 		editpatient.setLocation(patientlocation);
 		editpatient.setStatus(patientstatus);
 		
-		response.setContentType("text");
+		response.setContentType("text/json");
 		PrintWriter out = response.getWriter();
-		out.println("PatientID: " + patientid + " has been updated.");
+		out.println("{ PatientID: " + patientid + " has been updated. }");
 		logger.info("editPatientServlet updated a patient");
 	}
 
