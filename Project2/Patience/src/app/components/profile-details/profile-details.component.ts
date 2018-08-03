@@ -15,7 +15,7 @@ export class ProfileDetailsComponent implements OnInit {
   @Output() dataEvent = new EventEmitter<Details>();
 
   constructor(private userData: UserDataService) { 
-    this.data = {id: 1, name: 'Logan', role: 'Doctor', certifications: ['OCA', 'OCP'], degrees: ['B.S. Health Science'], 
+    this.data = {id: 50, name: 'Logan', role: 'Doctor', certifications: ['OCA', 'OCP'], degrees: ['B.S. Health Science'], 
                  experience: '1 year', rating: 5, reviews: [], department: 'West Wing', patients: []};
     this.userData.changeData(this.data);
   }

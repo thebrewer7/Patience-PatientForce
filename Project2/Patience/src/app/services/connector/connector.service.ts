@@ -36,9 +36,10 @@ export class ConnectorService {
     return this.http.get("http://localhost:8085/PatienceMavenProject/SubmitReview.do", { responseType: 'text', params: params });
   }
 
-  getReviewByName(name) {
+  getReviewByName(id, role) {
     var params = new HttpParams();
-    params = params.append("name", name);
+    params = params.append("id", id);
+    params = params.append("role", role);
 
     return this.http.get<Review[]>("http://localhost:8085/PatienceMavenProject/FetchReview.do", { params: params });
   }
