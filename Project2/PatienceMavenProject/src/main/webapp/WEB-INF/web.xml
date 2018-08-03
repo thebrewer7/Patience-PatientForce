@@ -166,4 +166,14 @@
     <servlet-name>GetDoctorsServlet</servlet-name>
     <url-pattern>/GetDoctorsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetHistoryServlet</display-name>
+    <servlet-name>GetHistoryServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetHistoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetHistoryServlet</servlet-name>
+    <url-pattern>/GetHistoryServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

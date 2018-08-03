@@ -3,6 +3,7 @@ import { tap } from 'rxjs/operators';
 import { Review } from '../../objects/review';
 import { Details } from '../../objects/details';
 import { ConnectorService } from '../../services/connector/connector.service';
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -71,4 +72,5 @@ export class ProfilePageComponent implements OnInit {
         }
     );
   }
+
 }

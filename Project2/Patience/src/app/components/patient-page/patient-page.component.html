@@ -5,17 +5,19 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>PatientName</th>
-            <th>PatientStatus</th>
-            <th>PatientLocation</th>
+            <th>HistoryAge</th>
+            <th>HistoryWeight</th>
+            <th>HistoryHeight</th>
+            <th>HistoryBloodPressureCondition</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let patient of newpatients">
-            <td id="patientname">{{patient.name}}</td>
-            <td id="patientstatus">{{patient.status}}</td>
-            <td id="patientlocation">{{patient.location}}</td>
-          </tr>
+            <tr *ngFor="let history of allHistories">
+                <td id="historyage">{{history.age}}</td>
+                <td id="historyweight">{{history.weight}}</td>
+                <td id="historyheight">{{history.height}}</td>
+                <td id="historybpcondition">{{history.bloodPressureCondition}}</td>
+              </tr>
         </tbody>
       </table>
       <hr class="d-sm-none">
