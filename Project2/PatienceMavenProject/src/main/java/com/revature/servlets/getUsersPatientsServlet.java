@@ -34,6 +34,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Integer patientid = Integer.parseInt(request.getParameter("patientid"));
+		//System.err.println(this.getServletContext().getInitParameter("userpassid"));
 		
 		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder salt = new StringBuilder();

@@ -12,7 +12,7 @@ export class NurseSidepanelComponent implements OnInit {
 
   newNurses = [];
   patientsNurses = [];
-  
+
   constructor(private ns: NurseService) { }
 
   ngOnInit() {
