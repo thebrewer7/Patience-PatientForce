@@ -13,16 +13,16 @@ export class PatientService {
 
   getDoctors(username: string) {
     console.log('PatientService: getPatients()');
-    return this.http.post<Doctor[]>('http://localhost:8085/PatienceMavenProject/getPatientsDoctors.do', {username: username});
+    return this.http.post<Doctor[]>('http://34.205.71.228:8085/PatienceMavenProject/getPatientsDoctors.do', {username: username});
   }
 
   getNurses(username: string) {
     console.log('PatientService: getPatients()');
-    return this.http.post<Nurse[]>('http://localhost:8085/PatienceMavenProject/getPatientsNurses.do', {username: username});
+    return this.http.post<Nurse[]>('http://34.205.71.228:8085/PatienceMavenProject/getPatientsNurses.do', {username: username});
   }
 
   search(username: string) {
     console.log('PatientService: search()');
-    return this.http.post<Patient>('http://localhost:8085/PatienceMavenProject/getPatient.do', {username: username});
+    return this.http.post<Patient>('http://34.205.71.228:8085/PatienceMavenProject/getPatient.do', {username: username});
   }
 }
