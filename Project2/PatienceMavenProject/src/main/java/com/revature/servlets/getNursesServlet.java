@@ -2,6 +2,7 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import com.revature.services.nurse.NurseService;
  * Servlet implementation class getNursesServlet
  */
 public class getNursesServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+	final static Logger logger = Logger.getLogger(getNursesServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -36,10 +37,12 @@ public class getNursesServlet extends HttpServlet {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
 		NurseService ns = new NurseService();
+		List<Nurse> nl = null;
 		
-		//out.println(ns.getByPatientId(1));
-		out.println(ObjectToJSONService.nurseToJSON(new Nurse("SERVLETNURSE")));
-		logger.info("getNursesServlet returned JSON: " + ObjectToJSONService.nurseToJSON(new Nurse("SERVLETNURSE")));
+		nl = ns.getAll();
+		
+		out.println(ObjectToJSONService.nursesToJSON(nl));
+		logger.info("GetNursesServlet returned JSON: " + ObjectToJSONService.nursesToJSON(nl));
 	}
 
 	/**
