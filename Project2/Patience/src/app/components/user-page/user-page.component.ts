@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-user-page',
@@ -10,9 +11,14 @@ export class UserPageComponent implements OnInit {
 
   patientsUsers = [];
 
-  constructor(private us: UserService) { }
+  constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
+    if ( localStorage.getItem('role') != 'user' )
+    {
+      var redirect = localStorage.getItem('role');
+      this.router.navigate(['/'+ redirect + 'page']);
+    }
     console.log(localStorage.getItem('userpassid'));
     console.log(localStorage.getItem('role'));
     this.fetchUserPatientsByUserName();

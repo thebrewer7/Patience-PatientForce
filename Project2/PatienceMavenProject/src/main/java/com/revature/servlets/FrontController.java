@@ -85,7 +85,7 @@ public class FrontController extends HttpServlet {
 			break;
 		case "getpatient":
 			logger.info("FrontController: register servlet hit.");
-			rd = request.getRequestDispatcher("/QuickSearchServlet");
+			rd = request.getRequestDispatcher("/QuickLookupServlet");
 			rd.forward(request, response);
 			break;
 		case "getallaccounts":
