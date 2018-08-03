@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
-import { Patient } from '../../objects/patient';
-
-import { PATIENTS } from '../../mock-patients';
-import { USERS } from '../../mock-users';
 
 @Component({
   selector: 'app-user-page',
@@ -12,8 +8,6 @@ import { USERS } from '../../mock-users';
 })
 export class UserPageComponent implements OnInit {
 
-  patients = PATIENTS;
-  users = USERS;
   patientsUsers = [];
 
   constructor(private us: UserService) { }
@@ -21,11 +15,12 @@ export class UserPageComponent implements OnInit {
   ngOnInit() {
     console.log(localStorage.getItem('userpassid'));
     console.log(localStorage.getItem('role'));
+    this.fetchUserPatientsByUserName();
   }
 
-  public fetchUserPatientsByUserName(patientid) {
+  public fetchUserPatientsByUserName() {
 
-    this.us.getPatients(patientid).subscribe(
+    this.us.getPatients().subscribe(
       data => {
         for ( var d in data )
         {
