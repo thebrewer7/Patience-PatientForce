@@ -2,7 +2,6 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
+import com.revature.services.PatientService;
 
 /**
  * Servlet implementation class editPatientServlet
@@ -33,20 +33,17 @@ public class editPatientServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer patientid = Integer.parseInt(request.getParameter("patientid"));
-		
-		String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        while (salt.length() < 6) { // length of the random string.
-            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
-            salt.append(SALTCHARS.charAt(index));
-        }
-        String saltStr = salt.toString();
+		String patientlocation = request.getParameter("patientlocation");
+		String patientstatus = request.getParameter("patientstatus");
+		PatientService ps = new PatientService();
+		Patient editpatient = ps.getById(patientid);
+		editpatient.setLocation(patientlocation);
+		editpatient.setStatus(patientstatus);
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.PatientToJSON(new Patient("Logan", patientid, saltStr, saltStr)));
-		logger.info("editPatientServlet returned JSON: " + ObjectToJSONService.PatientToJSON(new Patient("Logan", patientid, saltStr, saltStr)));
+		out.println("PatientID: " + patientid + " has been updated.");
+		logger.info("editPatientServlet updated a patient");
 	}
 
 	/**

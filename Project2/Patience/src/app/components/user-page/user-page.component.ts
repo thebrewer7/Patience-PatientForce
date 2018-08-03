@@ -14,7 +14,11 @@ export class UserPageComponent implements OnInit {
   constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') != 'user' )
+    if ( localStorage.getItem('role') == 'null' )
+    {
+      this.router.navigate(['/login']);
+    }
+    else if ( localStorage.getItem('role') != 'doctor' )
     {
       var redirect = localStorage.getItem('role');
       this.router.navigate(['/'+ redirect + 'page']);

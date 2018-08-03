@@ -1,14 +1,14 @@
 <div class="container-fluid">
-    <form action="/action_page.php">
+    <form>
 
       <div class="form-group">
         <label for="patientlocation">Patient Location:</label>
-        <input type="text" class="form-control" id="patientlocation" required [(ngModel)]="patientlocationnew" name="patientlocationnew">
+        <input type="text" class="form-control" id="patientlocation" #patientlocation required [(ngModel)]="patientlocationnew" name="patientlocationnew">
       </div>
 
       <div class="form-group">
         <label for="patientstatus">Patient Status:</label>
-        <select class="form-control" id="patientstatus" name="patientstatusnew" required [(ngModel)]="patientstatusnew">
+        <select class="form-control" id="patientstatus" name="patientstatusnew" #patientstatus required [(ngModel)]="patientstatusnew">
           <option value="undetermined">Undetermined</option>
           <option value="good">Good</option>
           <option value="fair">Fair</option>
@@ -18,7 +18,7 @@
         </select>
       </div>   
 
-      <button type="submit" class="btn btn-primary" (click)=editPatientInfo(patientid)>Submit</button>
+      <button type="submit" class="btn btn-primary" (click)=editPatientInfo(patientid,patientlocation.value,patientstatus.value)>Submit</button>
 
     </form> 
     <br>
