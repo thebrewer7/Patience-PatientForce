@@ -19,7 +19,8 @@ export class UserPageComponent implements OnInit {
   constructor(private us: UserService) { }
 
   ngOnInit() {
-    
+    console.log(localStorage.getItem('userpassid'));
+    console.log(localStorage.getItem('role'));
       var activeuserid = 1;
       switch(activeuserid){
         case 1:
@@ -83,7 +84,7 @@ export class UserPageComponent implements OnInit {
           }
           break;
       }
-      
+
   }
 
   public fetchUserPatientsByUserName(patientid) {

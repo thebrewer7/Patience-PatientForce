@@ -3,11 +3,11 @@
   <div class="pull-sm-left">
     <a class="navbar-brand" href="#">Patience</a>
   </div>
-  
+
   <div class="nav-item input-group searchbar mx-auto">
     <input class="form-control"  ngModel name="searchArea" #searchArea="ngModel" (click)=fetchSearchFill() type="text" placeholder="Search" aria-label="Search">
     <span class="input-group-btn" style="margin-left: 0.5rem;">
-      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" 
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"
       (click)="fetchSearchUserById(searchArea)">
           <i class="fa fa-search"></i>
       </button>
@@ -26,6 +26,7 @@
       <a name="patientPageLink" class="dropdown-item" routerLink="/patientpage">Patient Landing</a>
       <a name="userPageLink" class="dropdown-item" routerLink="/userpage">User Landing</a>
       <a name="loginPageLink" class="dropdown-item" routerLink="/login">Login</a>
+      <a name="loginPageLink" class="dropdown-item" (click)=logout()>Logout</a>
     </div>
   </div>
 </nav>
