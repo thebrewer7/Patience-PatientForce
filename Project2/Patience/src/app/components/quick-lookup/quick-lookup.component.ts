@@ -19,8 +19,8 @@ export class QuickLookupComponent implements OnInit {
     // search for the patient
     console.log('QuickLookupComponent: search()');
     this.patientService.search(this.username).subscribe(
-      PASS => { console.log('pass'); },
-      FAIL => { console.log('failed'); }
+      PASS => { console.log(PASS); },
+      FAIL => { console.log(FAIL); }
     );
   }
 }
