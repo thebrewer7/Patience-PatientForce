@@ -58,6 +58,7 @@ public class FrontController extends HttpServlet {
 			logger.info("FrontController: getnurses servlet hit.");
 			rd = request.getRequestDispatcher("/getNursesServlet");
 			rd.forward(request, response);
+			break;
 		case "login":
 			logger.info("FrontController: login servlet hit.");
 			rd = request.getRequestDispatcher("/LoginServlet");
@@ -96,6 +97,16 @@ public class FrontController extends HttpServlet {
 		case "getalldoctorspatients":
 			logger.info("FrontController: getalldoctorspatients servlet hit.");
 			rd = request.getRequestDispatcher("/GetAllDoctorsPatientsServlet");
+			rd.forward(request, response);
+			break;
+		case "getnursesdoctors":
+			logger.info("FrontController: getnursesdoctors servlet hit.");
+			rd = request.getRequestDispatcher("/GetNursesDoctorsServlet");
+			rd.forward(request, response);
+			break;
+		case "getdoctors":
+			logger.info("FrontController: getdoctors servlet hit.");
+			rd = request.getRequestDispatcher("/GetDoctorsServlet");
 			rd.forward(request, response);
 			break;
 		default:

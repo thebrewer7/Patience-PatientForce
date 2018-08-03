@@ -6,14 +6,14 @@
         <thead>
           <tr>
             <th>DoctorName</th>
-            <th>DoctorExperience</th>
+            <th>DoctorDepartment</th>
             <th>DoctorRating</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let doctor of nursesDoctors" routerLink="/doctorpage">
             <td id="doctorname">{{doctor.name}}</td>
-            <td id="doctorexperience">{{doctor.experience}}</td>
+            <td id="doctordepartment">{{doctor.department}}</td>
             <td id="doctorrating">{{doctor.rating}}</td>
           </tr>
         </tbody>

@@ -11,43 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.Review;
 import com.revature.beans.doctor.Doctor;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.doctor.DoctorService;
 
 /**
- * Servlet implementation class FetchReviewServlet
+ * Servlet implementation class GetDoctorsServlet
  */
-public class FetchReviewServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+public class GetDoctorsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetDoctorsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchReviewServlet() {
+    public GetDoctorsServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
-		
-		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
-		Doctor doc = new DoctorService().getById(id);
-		
-		List<Review> reviews = doc.getReviews();
-		
-		response.setContentType("application/json");
+		response.setContentType("text");
 		PrintWriter out = response.getWriter();
+		DoctorService ds = new DoctorService();
+		List<Doctor> dl;
 		
-
-		out.println(ObjectToJSONService.ReviewsToJSON(reviews)); 
-		logger.info("FetchReviewServlet returned JSON: " + reviews);
+		dl = ds.getAll();
+		
+		out.println(ObjectToJSONService.doctorsToJSON(dl));
+		logger.info("GetDoctors returned JSON: " + ObjectToJSONService.doctorsToJSON(dl));
 	}
 
 	/**

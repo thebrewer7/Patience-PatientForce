@@ -15,7 +15,7 @@ import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
 	
-	public static String ReviewsToJSON(Review[] reviews)
+	public static String ReviewsToJSON(List<Review> reviews)
 	{
 		ObjectMapper mapper = new ObjectMapper();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm:ss a z");
@@ -114,6 +114,54 @@ public class ObjectToJSONService {
 		try
 		{
 			json = mapper.writeValueAsString(pl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String nursesDoctorsToJSON(List<Doctor> dl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(dl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String nursesToJSON(List<Nurse> nl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(nl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String doctorsToJSON(List<Doctor> dl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(dl);
 		}
 		catch ( Exception e )
 		{
