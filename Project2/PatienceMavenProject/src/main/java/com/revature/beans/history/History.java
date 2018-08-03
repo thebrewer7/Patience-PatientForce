@@ -40,6 +40,18 @@ public class History {
 		super();
 	}
 
+	/**
+	 * 
+	 * @param age Integer
+	 * @param weight Integer
+	 * @param height Integer
+	 * @param bloodPressure BloodPressure
+	 * @param bpCondition BpConditions
+	 * @param treatments Treatment
+	 * @param diagnoses Diagnosis
+	 * @param medication Medication
+	 * @param vaccinations Vaccination
+	 */
 	public History(Integer age, Integer weight, Integer height, BloodPressure bloodPressure, BpCategories bpCondition,
 			List<Treatment> treatments, List<Diagnosis> diagnoses, List<Medication> medication,
 			List<Vaccination> vaccinations) {

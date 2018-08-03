@@ -38,6 +38,7 @@ public class UserPass {
 		super();
 		this.username = username;
 		this.password = password;
+		role = "user";
 	}
 	
 	/**

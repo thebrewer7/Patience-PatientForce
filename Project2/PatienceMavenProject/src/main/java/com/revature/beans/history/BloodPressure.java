@@ -19,8 +19,7 @@ public class BloodPressure {
 		super();
 	}
 
-	public BloodPressure(Integer id, Integer systolic_top, Integer diastolic_bottom) {
-		this.id = id;
+	public BloodPressure(Integer systolic_top, Integer diastolic_bottom) {
 		this.systolic_top = systolic_top;
 		this.diastolic_bottom = diastolic_bottom;
 	}
