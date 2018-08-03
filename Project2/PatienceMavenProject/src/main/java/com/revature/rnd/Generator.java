@@ -373,7 +373,7 @@ public class Generator {
 
 	private static List<Review> generateReviews(int quantity) {
 		String[][][] branches = { { // negative - beginning, middle, and end
-				{ "What the hell, ", "My god what is wrong with, ", "Let me tell you, ",
+				{ "What the heck, ", "My god what is wrong with, ", "Let me tell you, ",
 						"I asked for the manager and " },
 				{ "this thing just really ", "the doctors here ", "this doctor ", "this nurse ",
 						"got hit with a trombone ", "got propositioned by " },
@@ -399,8 +399,10 @@ public class Generator {
 			reviewsContent[i] = branch[0][random.nextInt(branch[0].length)]
 					+ branch[1][random.nextInt(branch[1].length)] + branch[2][random.nextInt(branch[2].length)];
 			System.out.println(reviewsContent[i]);
-//			String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(2) + 10) + "-" + (random.nextInt(18) + 10) + "T" + (random.nextInt(23) + 1) + ":" + (random.nextInt(58) + 1) + ":"  + (random.nextInt(48) + 10) + ".00Z";
-//			System.out.println(date);
+			// String date = (random.nextInt(18) + 2000) + "-" + (random.nextInt(2) + 10) +
+			// "-" + (random.nextInt(18) + 10) + "T" + (random.nextInt(23) + 1) + ":" +
+			// (random.nextInt(58) + 1) + ":" + (random.nextInt(48) + 10) + ".00Z";
+			// System.out.println(date);
 			reviews.add(new Review(random.nextInt(5) + 1, reviewsContent[i], Date.valueOf(LocalDate.now())));
 			System.out.println(reviews.get(i));
 		}
