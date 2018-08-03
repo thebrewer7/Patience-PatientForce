@@ -6,6 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * Represents a doctors past experience. Typically will be either years of experience or number of a 
+ * specific procedure performed.
+ * @author Austin
+ *
+ */
 @Entity
 public class DocExperience {
 	@Id
@@ -15,10 +21,17 @@ public class DocExperience {
 	
 	private String experience;
 
+	/**
+	 * No-Args Constructor
+	 */
 	public DocExperience() {
 		super();
 	}
 
+	/**
+	 * Fully instantiated
+	 * @param experience
+	 */
 	public DocExperience(String experience) {
 		super();
 		this.experience = experience;

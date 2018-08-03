@@ -3013,43 +3013,1115 @@ line 1:6: unexpected token: :
 2018-08-02 14:37:08 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
 2018-08-02 14:37:08 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
 2018-08-02 14:37:08 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
-2018-08-02 19:02:17 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2018-08-02 19:02:17 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
-2018-08-02 19:02:17 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2018-08-02 19:02:17 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2018-08-02 19:02:17 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
-2018-08-02 19:02:17 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
-2018-08-02 19:02:17 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
-2018-08-02 19:02:17 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2018-08-02 19:02:17 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
-2018-08-02 19:02:17 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
-2018-08-02 19:02:17 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2018-08-02 19:02:17 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
-2018-08-02 19:02:18 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2018-08-02 19:02:19 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
-2018-08-02 19:02:19 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2018-08-02 19:02:19 WARN  SettingsFactory:367 - Unrecognized value for "hibernate.hbm2ddl.auto": none
-2018-08-02 19:02:19 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
-2018-08-02 19:02:19 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
-2018-08-02 19:02:19 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
-2018-08-02 19:02:19 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
-2018-08-02 19:03:17 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-2018-08-02 19:03:17 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
-2018-08-02 19:03:17 INFO  Environment:239 - HHH000206: hibernate.properties not found
-2018-08-02 19:03:17 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
-2018-08-02 19:03:17 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
-2018-08-02 19:03:17 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
-2018-08-02 19:03:17 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
-2018-08-02 19:03:18 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
-2018-08-02 19:03:18 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
-2018-08-02 19:03:18 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
-2018-08-02 19:03:18 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
-2018-08-02 19:03:18 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
-2018-08-02 19:03:19 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-2018-08-02 19:03:19 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
-2018-08-02 19:03:19 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
-2018-08-02 19:03:19 WARN  SettingsFactory:367 - Unrecognized value for "hibernate.hbm2ddl.auto": none
-2018-08-02 19:03:19 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
-2018-08-02 19:03:19 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
-2018-08-02 19:03:19 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
-2018-08-02 19:03:19 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 14:46:03 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 14:46:03 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 14:46:03 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 14:46:03 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 14:46:03 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 14:46:03 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 14:46:04 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 14:46:04 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 14:46:04 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 14:46:04 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 14:46:04 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 14:46:04 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 14:46:04 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 14:46:04 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 14:46:04 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 14:46:04 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 14:46:04 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 14:46:04 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 14:46:04 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 14:46:05 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 14:46:05 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 14:46:05 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 14:46:05 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 14:46:05 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 14:46:05 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 14:46:06 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 14:46:06 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 14:46:06 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 14:46:06 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 14:46:06 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 14:46:06 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 14:46:06 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 14:46:07 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 14:46:07 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 14:46:07 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 14:46:07 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 14:46:07 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 14:46:07 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 14:46:07 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 14:46:07 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 14:46:07 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Admin cascade constraints
+2018-08-02 14:46:07 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table BloodPressure cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Diagnosis cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocBackground cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocBackground_DocCerts cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocBackground_DocDegree cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocBackground_DocExperience cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocCerts cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocDegree cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table DocExperience cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Doctor cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Doctor_Patient cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:08 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Doctor_Review cascade constraints
+2018-08-02 14:46:08 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table History cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table History_Diagnosis cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table History_Medication cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table History_Treatment cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table History_Vaccination cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Medication cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Nurse cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table NurseCerts cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Nurse_NurseCerts cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Nurse_Patient cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Nurse_Review cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Patient cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:09 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Patient_Doctor cascade constraints
+2018-08-02 14:46:09 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Patient_History cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Patient_Nurse cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Patient_UserAccount cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Review cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Treatment cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table UserAccount cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table UserAccount_Patient cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table UserPass cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop table Vaccination cascade constraints
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-00942: table or view does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence admin_seq
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence bloodPressure_seq
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:10 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence docBackground_seq
+2018-08-02 14:46:10 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence docCert_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence docDeg_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence docExp_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence doctor_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence history_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence hstDiag_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence hstMed_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence hstTreatment_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence hstVac_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence nurseCerts_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence nurse_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence patient_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:11 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence review_seq
+2018-08-02 14:46:11 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: drop sequence up_seq
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-02289: sequence does not exist
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Admin (id number(10,0) not null, ROLE varchar2(255 char), name varchar2(255 char), profilePicture blob, userPass_id number(10,0), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table BloodPressure (id number(10,0) not null, diastolic_bottom number(10,0), systolic_top number(10,0), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Diagnosis (id number(10,0) not null, diagnosis varchar2(255 char), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocBackground (id number(10,0) not null, primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocBackground_DocCerts (DocBackground_id number(10,0) not null, certifications_id number(10,0) not null)
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocBackground_DocDegree (DocBackground_id number(10,0) not null, degrees_id number(10,0) not null)
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocBackground_DocExperience (DocBackground_id number(10,0) not null, experience_id number(10,0) not null)
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocCerts (id number(10,0) not null, cert varchar2(255 char), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocDegree (id number(10,0) not null, degree varchar2(255 char), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table DocExperience (id number(10,0) not null, experience varchar2(255 char), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:12 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Doctor (id number(10,0) not null, ROLE varchar2(255 char), department varchar2(255 char), name varchar2(255 char), profilePicture blob, rating number(10,0), background_id number(10,0), userPass_id number(10,0), primary key (id))
+2018-08-02 14:46:12 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Doctor_Patient (Doctor_id number(10,0) not null, patients_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Doctor_Review (Doctor_id number(10,0) not null, reviews_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table History (id number(10,0) not null, age number(10,0), bpCondition varchar2(255 char), height number(10,0), weight number(10,0), bloodPressure_id number(10,0), primary key (id))
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table History_Diagnosis (History_id number(10,0) not null, diagnoses_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table History_Medication (History_id number(10,0) not null, medication_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table History_Treatment (History_id number(10,0) not null, treatments_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table History_Vaccination (History_id number(10,0) not null, vaccinations_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Medication (id number(10,0) not null, medication varchar2(255 char), primary key (id))
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Nurse (id number(10,0) not null, ROLE varchar2(255 char), department varchar2(255 char), name varchar2(255 char), profilePicture blob, rating number(10,0), userPass_id number(10,0), primary key (id))
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table NurseCerts (id number(10,0) not null, cert varchar2(255 char), primary key (id))
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Nurse_NurseCerts (Nurse_id number(10,0) not null, certifications_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Nurse_Patient (Nurse_id number(10,0) not null, patients_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:13 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Nurse_Review (Nurse_id number(10,0) not null, reviews_id number(10,0) not null)
+2018-08-02 14:46:13 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Patient (id number(10,0) not null, ROLE varchar2(255 char), condition varchar2(255 char), location varchar2(255 char), name varchar2(255 char), preferredDoctorName varchar2(255 char), profilePicture blob, status varchar2(255 char), userPass_id number(10,0), primary key (id))
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Patient_Doctor (Patient_id number(10,0) not null, doctors_id number(10,0) not null)
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Patient_History (Patient_id number(10,0) not null, history_id number(10,0) not null)
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Patient_Nurse (Patient_id number(10,0) not null, nurses_id number(10,0) not null)
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Patient_UserAccount (Patient_id number(10,0) not null, users_id number(10,0) not null)
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Review (id number(10,0) not null, datePosted timestamp, rating number(10,0), review varchar2(255 char), primary key (id))
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Treatment (id number(10,0) not null, treatment varchar2(255 char), primary key (id))
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table UserAccount (id number(10,0) not null, ROLE varchar2(255 char), lastLogin date, name varchar2(255 char), profilePicture blob, userPass_id number(10,0), primary key (id))
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table UserAccount_Patient (UserAccount_id number(10,0) not null, patients_id number(10,0) not null)
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table UserPass (id number(10,0) not null, password varchar2(255 char), role varchar2(255 char), username varchar2(255 char), primary key (id))
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create table Vaccination (id number(10,0) not null, vaccination varchar2(255 char), primary key (id))
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:14 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocCerts add constraint UK_ak3jiqcqb0j02320qvslgriu8 unique (certifications_id)
+2018-08-02 14:46:14 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocDegree add constraint UK_m9060oermvducwwh49e5cy1nh unique (degrees_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocExperience add constraint UK_gonnjhhcf2qsl8etvu7p3dpr3 unique (experience_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor_Review add constraint UK_53w5oh10m9en6x1g9bgwvna4b unique (reviews_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Diagnosis add constraint UK_o7y36r4co90tkxvah99jijw3k unique (diagnoses_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Medication add constraint UK_apeevp3fclb3o8ahhw9rr9tcy unique (medication_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Treatment add constraint UK_h70ptf4c1uyrixy3733kxm3ox unique (treatments_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Vaccination add constraint UK_bb74jiqq1wlw59gns3joi2y59 unique (vaccinations_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_NurseCerts add constraint UK_gpd6iic8osy1ukyacmxi8moyg unique (certifications_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_Review add constraint UK_dwj6259nf64fn8te0igmpxdiu unique (reviews_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_History add constraint UK_8xys2ihuniceop1119y42vtuv unique (history_id)
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02261: such unique or primary key already exists in the table
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Admin add constraint FK_qx4jcqdavu8btlyhnebks8mv6 foreign key (userPass_id) references UserPass
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-00054: resource busy and acquire with NOWAIT specified or timeout expired
+
+2018-08-02 14:46:15 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocCerts add constraint FK_ak3jiqcqb0j02320qvslgriu8 foreign key (certifications_id) references DocCerts
+2018-08-02 14:46:15 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocCerts add constraint FK_mj111cax18vw6eoe6y6242isv foreign key (DocBackground_id) references DocBackground
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocDegree add constraint FK_m9060oermvducwwh49e5cy1nh foreign key (degrees_id) references DocDegree
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocDegree add constraint FK_3p5sgxa0ocjy33ae77nnfqkly foreign key (DocBackground_id) references DocBackground
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocExperience add constraint FK_gonnjhhcf2qsl8etvu7p3dpr3 foreign key (experience_id) references DocExperience
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table DocBackground_DocExperience add constraint FK_g8jjdrdoevqe4vloxgr8hkqjb foreign key (DocBackground_id) references DocBackground
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor add constraint FK_10p7lfet2p0amvmy9jkmme3f7 foreign key (background_id) references DocBackground
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor add constraint FK_324pb8f7xx91qiw7dyyv4blon foreign key (userPass_id) references UserPass
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor_Patient add constraint FK_2xya4wst8ew93h1w5miskll4m foreign key (patients_id) references Patient
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor_Patient add constraint FK_kr76ilr8j4rnpvhriab98hyg9 foreign key (Doctor_id) references Doctor
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor_Review add constraint FK_53w5oh10m9en6x1g9bgwvna4b foreign key (reviews_id) references Review
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:16 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Doctor_Review add constraint FK_n1r9edlkju1eyrafe4umq5hcp foreign key (Doctor_id) references Doctor
+2018-08-02 14:46:16 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History add constraint FK_7ifkei12bty2h5rjqgclsgohj foreign key (bloodPressure_id) references BloodPressure
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Diagnosis add constraint FK_o7y36r4co90tkxvah99jijw3k foreign key (diagnoses_id) references Diagnosis
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Diagnosis add constraint FK_if9dr14rm5psbsj2mh1h0a27h foreign key (History_id) references History
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Medication add constraint FK_apeevp3fclb3o8ahhw9rr9tcy foreign key (medication_id) references Medication
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Medication add constraint FK_k9q0w2qrec5knjp7e0y433dfk foreign key (History_id) references History
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Treatment add constraint FK_h70ptf4c1uyrixy3733kxm3ox foreign key (treatments_id) references Treatment
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Treatment add constraint FK_ov84dp90y70o12kv8ufrcx239 foreign key (History_id) references History
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Vaccination add constraint FK_bb74jiqq1wlw59gns3joi2y59 foreign key (vaccinations_id) references Vaccination
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table History_Vaccination add constraint FK_bifmvgh1wwi6mabdotrary4s4 foreign key (History_id) references History
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse add constraint FK_gb2by5lxspnj1opvmabpd1cvb foreign key (userPass_id) references UserPass
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_NurseCerts add constraint FK_gpd6iic8osy1ukyacmxi8moyg foreign key (certifications_id) references NurseCerts
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_NurseCerts add constraint FK_ejxh6t848woigay5ja04ccmrd foreign key (Nurse_id) references Nurse
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:17 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_Patient add constraint FK_4mtq176s8qe8vdkc8n281aeau foreign key (patients_id) references Patient
+2018-08-02 14:46:17 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_Patient add constraint FK_m5q3tkgrk6e4b73pjyjk4r87e foreign key (Nurse_id) references Nurse
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_Review add constraint FK_dwj6259nf64fn8te0igmpxdiu foreign key (reviews_id) references Review
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Nurse_Review add constraint FK_q8nmg3ycqkn8vgvo8gnss6454 foreign key (Nurse_id) references Nurse
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient add constraint FK_j5te3obhp4ls6qh9gcpyu3xbp foreign key (userPass_id) references UserPass
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_Doctor add constraint FK_rivhjuct4jqth9m6o8vajgei5 foreign key (doctors_id) references Doctor
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_Doctor add constraint FK_jt2opf73fphe3yf52n4ubq30e foreign key (Patient_id) references Patient
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_History add constraint FK_8xys2ihuniceop1119y42vtuv foreign key (history_id) references History
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_History add constraint FK_jqgw9xxwdo0gglx91asl5muat foreign key (Patient_id) references Patient
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_Nurse add constraint FK_7nhxaspxle4r3ipcdekd7aeav foreign key (nurses_id) references Nurse
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_Nurse add constraint FK_7x3bk2ngyuldct6mq07h29drj foreign key (Patient_id) references Patient
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:18 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_UserAccount add constraint FK_a4hootkvjdcgt2yqh2q803ho foreign key (users_id) references UserAccount
+2018-08-02 14:46:18 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table Patient_UserAccount add constraint FK_h1thjnp5thpsp2gyugkby7mkk foreign key (Patient_id) references Patient
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table UserAccount add constraint FK_93lbraovctkg75rv6b5ue5b9w foreign key (userPass_id) references UserPass
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table UserAccount_Patient add constraint FK_ni34hxwn7vwegj7lhtdwf65n foreign key (patients_id) references Patient
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: alter table UserAccount_Patient add constraint FK_s6c4l3rmudmv34okml5o066mi foreign key (UserAccount_id) references UserAccount
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-02275: such a referential constraint already exists in the table
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence admin_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence bloodPressure_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence docBackground_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence docCert_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence docDeg_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence docExp_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:19 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence doctor_seq
+2018-08-02 14:46:19 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence history_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence hstDiag_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence hstMed_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence hstTreatment_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence hstVac_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence nurseCerts_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence nurse_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence patient_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence review_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 ERROR SchemaExport:426 - HHH000389: Unsuccessful: create sequence up_seq
+2018-08-02 14:46:20 ERROR SchemaExport:427 - ORA-00955: name is already used by an existing object
+
+2018-08-02 14:46:20 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 14:46:33 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:46:33 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:46:33 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:33 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:46:33 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:46:33 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:34 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:46:34 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:46:34 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:39 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:39 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:46:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:39 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:39 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:46:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:39 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:39 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:46:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:40 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:40 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:46:40 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:41 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:46:41 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:46:41 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:41 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:41 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:46:41 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:41 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:46:41 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:46:41 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:41 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:46:41 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:46:41 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:41 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:41 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:46:41 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:43 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:43 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:43 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:48 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:48 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:46:48 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:49 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:49 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:46:49 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:49 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:49 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:46:49 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:50 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:46:50 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:46:50 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:52 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:52 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:46:52 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:51:47 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 14:51:47 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 14:51:47 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 14:51:47 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 14:51:47 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 14:51:47 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 14:51:47 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 14:51:47 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 14:51:47 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 14:51:47 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 14:51:47 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 14:51:47 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 14:51:49 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 14:51:49 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 14:51:49 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 14:51:49 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 14:51:49 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 14:51:49 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 14:51:49 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 14:51:50 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 14:51:59 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 14:52:29 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:52:29 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:52:29 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:29 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:52:29 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:52:29 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:30 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:52:30 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:52:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:36 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:52:36 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:52:36 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:37 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:52:37 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:52:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:37 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:52:37 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:52:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:38 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:52:38 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:52:38 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:39 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:52:39 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:52:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:39 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:52:39 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:52:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:42 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:42 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:52:43 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:04 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 14:57:04 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 14:57:04 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 14:57:04 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 14:57:04 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 14:57:04 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 14:57:05 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 14:57:05 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 14:57:05 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 14:57:05 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 14:57:05 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 14:57:05 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 14:57:06 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 14:57:07 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 14:57:07 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 14:57:07 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 14:57:07 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 14:57:07 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 14:57:07 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 14:57:07 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 14:57:15 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 14:57:31 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:57:31 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:57:31 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:31 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:57:31 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:57:31 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:31 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 14:57:31 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 14:57:31 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:35 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:57:35 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:57:35 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:35 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:57:35 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:57:35 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:35 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:57:35 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 14:57:35 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:36 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:57:36 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:57:36 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:37 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:57:37 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:57:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:37 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 14:57:37 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 14:57:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 14:57:39 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:03:27 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 15:03:27 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 15:03:27 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 15:03:27 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 15:03:27 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 15:03:27 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 15:03:27 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 15:03:27 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 15:03:28 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 15:03:28 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 15:03:28 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 15:03:28 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 15:03:29 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 15:03:30 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 15:03:30 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 15:03:30 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 15:03:30 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 15:03:30 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 15:03:30 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 15:03:31 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 15:03:40 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 15:03:57 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 15:03:57 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 15:03:57 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:03:57 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 15:03:57 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 15:03:57 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:03:57 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 15:03:57 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 15:03:57 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:01 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 15:04:01 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 15:04:01 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:02 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 15:04:02 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 15:04:02 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:02 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 15:04:02 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 15:04:02 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:03 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 15:04:03 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 15:04:03 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:05 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:05 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 15:04:05 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:18:56 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 16:18:56 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 16:18:56 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 16:18:56 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 16:18:56 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 16:18:56 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 16:18:56 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 16:18:57 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 16:18:57 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 16:18:57 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 16:18:57 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 16:18:57 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 16:18:58 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 16:18:58 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 16:18:58 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 16:18:58 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 16:18:58 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 16:18:58 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 16:18:58 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 16:18:59 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 16:19:09 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 16:19:26 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 16:19:26 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 16:19:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:27 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 16:19:27 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 16:19:27 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:27 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 16:19:27 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 16:19:27 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:31 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:31 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 16:19:31 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:31 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:31 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 16:19:31 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:31 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:31 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 16:19:31 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:32 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:32 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:32 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 16:19:32 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:34 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:34 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:34 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 16:19:34 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:34 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:35 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:35 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 16:19:35 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:35 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:35 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 16:19:35 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:36 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:36 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 16:19:36 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:36 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 16:19:36 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 16:19:36 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 16:19:37 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:54:34 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 19:54:34 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 19:54:34 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 19:54:34 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 19:54:34 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 19:54:34 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 19:54:34 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 19:54:35 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 19:54:35 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 19:54:37 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 19:54:37 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 19:54:37 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 19:54:37 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 19:54:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 19:54:37 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 19:54:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 19:54:38 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 19:54:46 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 19:55:15 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 19:55:15 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 19:55:15 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:15 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 19:55:15 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 19:55:15 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:15 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 19:55:15 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 19:55:15 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:20 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:20 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 19:55:20 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:20 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:20 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 19:55:20 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:20 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:20 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 19:55:20 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:21 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:21 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:21 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:21 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:21 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:22 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:22 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:23 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:23 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:23 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:23 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 19:55:23 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 19:55:23 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:25 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:25 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 19:55:25 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:10:58 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:10:58 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:10:58 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:10:58 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:10:58 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:10:58 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:10:58 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:10:58 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:10:58 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:11:00 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:11:00 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:11:00 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:11:00 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:11:00 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:11:00 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:11:00 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:11:01 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:11:10 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:23:16 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:23:16 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:23:16 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:23:16 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:23:16 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:23:16 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:23:16 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:23:16 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:23:16 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:23:17 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:23:18 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:23:18 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:23:18 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:23:18 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:23:18 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:23:18 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:23:18 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:23:27 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:28:14 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:28:14 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:28:14 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:28:14 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:28:14 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:28:14 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:28:14 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:28:14 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:28:14 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:28:15 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:28:15 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:28:15 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:28:15 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:28:15 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:28:15 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:28:15 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:28:16 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:28:25 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:30:33 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:30:33 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:30:33 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:30:33 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:30:33 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:30:33 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:30:33 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:30:33 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:30:33 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:30:36 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:30:37 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:30:37 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:30:37 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:30:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:30:37 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:30:37 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:30:37 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:30:47 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:32:39 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:32:39 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:32:39 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:32:39 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:32:39 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:32:39 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:32:39 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:32:39 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:32:40 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:32:41 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:32:41 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:32:41 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:32:41 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:32:41 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:32:41 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:32:41 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:32:42 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:32:49 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:34:46 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:34:46 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:34:46 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:34:46 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:34:46 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:34:46 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:34:46 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:34:47 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:34:47 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:34:48 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:34:48 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:34:48 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:34:48 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:34:48 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:34:48 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:34:48 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:34:49 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:34:56 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:35:22 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:35:22 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:35:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:22 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:35:22 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:35:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:22 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:35:22 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:35:22 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:26 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:26 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:35:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:26 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:26 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:35:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:26 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:26 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:35:26 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:27 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:27 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:27 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:35:27 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:29 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:35:29 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:35:29 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:35:30 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:14 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-02 20:41:14 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-02 20:41:14 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-02 20:41:14 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-02 20:41:14 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-02 20:41:14 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-02 20:41:14 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-02 20:41:14 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-02 20:41:14 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-02 20:41:15 INFO  Dialect:145 - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+2018-08-02 20:41:16 INFO  TransactionFactoryInitiator:62 - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2018-08-02 20:41:16 INFO  ASTQueryTranslatorFactory:47 - HHH000397: Using ASTQueryTranslatorFactory
+2018-08-02 20:41:16 INFO  UpdateTimestampsCache:72 - HHH000250: Starting update timestamps cache at region: org.hibernate.cache.spi.UpdateTimestampsCache
+2018-08-02 20:41:16 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
+2018-08-02 20:41:16 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
+2018-08-02 20:41:16 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-02 20:41:16 INFO  SchemaExport:344 - HHH000227: Running hbm2ddl schema export
+2018-08-02 20:41:24 INFO  SchemaExport:406 - HHH000230: Schema export complete
+2018-08-02 20:41:49 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:41:49 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:41:49 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:49 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:41:49 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:41:49 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:50 WARN  SqlExceptionHelper:144 - SQL Error: 1, SQLState: 23000
+2018-08-02 20:41:50 ERROR SqlExceptionHelper:146 - ORA-00001: unique constraint (PATIENCE.UK_AK3JIQCQB0J02320QVSLGRIU8) violated
+
+2018-08-02 20:41:50 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:54 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:54 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:41:54 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:54 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:54 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:41:54 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:54 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:54 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_10P7LFET2P0AMVMY9JKMME3F7) violated - parent key not found
+
+2018-08-02 20:41:54 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:56 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:57 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:57 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:41:57 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:41:59 WARN  SqlExceptionHelper:144 - SQL Error: 2291, SQLState: 23000
+2018-08-02 20:41:59 ERROR SqlExceptionHelper:146 - ORA-02291: integrity constraint (PATIENCE.FK_RIVHJUCT4JQTH9M6O8VAJGEI5) violated - parent key not found
+
+2018-08-02 20:41:59 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:42:00 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:42:00 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
+2018-08-02 20:42:00 INFO  AbstractBatchImpl:208 - HHH000010: On release of batch it still contained JDBC statements
