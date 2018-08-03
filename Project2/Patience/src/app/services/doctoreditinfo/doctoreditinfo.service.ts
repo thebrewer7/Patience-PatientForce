@@ -13,6 +13,6 @@ export class DoctoreditinfoService {
     const params = new HttpParams()
       .set('patientid', patientid.toString());
 
-    return this.http.post('http://localhost:8085/PatienceMavenProject/editDoctorsPatient.do', params);
+    return this.http.post('http://34.205.71.228:8085/PatienceMavenProject/editDoctorsPatient.do', params);
   }
 }
