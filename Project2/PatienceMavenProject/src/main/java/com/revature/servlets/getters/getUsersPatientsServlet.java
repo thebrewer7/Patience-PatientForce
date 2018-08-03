@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,21 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.nurse.Nurse;
+import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.nurse.NurseService;
+import com.revature.services.PatientService;
 
 /**
- * Servlet implementation class getNursesServlet
+ * Servlet implementation class getUsersPatientsServlet
  */
-public class getNursesServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(getNursesServlet.class);
+public class getUsersPatientsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(getUsersPatientsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getNursesServlet() {
+    public getUsersPatientsServlet() {
         super();
     }
 
@@ -35,13 +35,13 @@ public class getNursesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		NurseService ns = new NurseService();
-		List<Nurse> nl = null;
+		PatientService ps = new PatientService();
+		List<Patient> pl;
 		
-		nl = ns.getAll();
+		pl = ps.getAll();
 		
-		out.println(ObjectToJSONService.nursesToJSON(nl));
-		logger.info("GetNursesServlet returned JSON: " + ObjectToJSONService.nursesToJSON(nl));
+		out.println(ObjectToJSONService.patientsToJSON(pl));
+		logger.info("getUsersPatientsServlet returned JSON: " + ObjectToJSONService.patientsToJSON(pl));
 	}
 
 	/**

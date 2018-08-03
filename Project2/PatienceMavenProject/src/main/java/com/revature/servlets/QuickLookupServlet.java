@@ -1,18 +1,19 @@
 package com.revature.servlets;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
 import com.revature.beans.Patient;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
-import org.apache.log4j.Logger;
 
 public class QuickLookupServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(QuickLookupServlet.class);

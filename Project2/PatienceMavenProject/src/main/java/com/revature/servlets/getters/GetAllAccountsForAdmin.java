@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,22 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.Review;
-import com.revature.beans.doctor.Doctor;
+import com.revature.beans.UserPass;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.doctor.DoctorService;
+import com.revature.services.UserPassService;
 
 /**
- * Servlet implementation class FetchReviewServlet
+ * Servlet implementation class GetAllAccountsForAdmin
  */
-public class FetchReviewServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+public class GetAllAccountsForAdmin extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetAllAccountsForAdmin.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchReviewServlet() {
+    public GetAllAccountsForAdmin() {
         super();
     }
 
@@ -34,20 +33,16 @@ public class FetchReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
-		
-		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println(id);
-		Doctor doc = new DoctorService().getById(id);
-		
-		List<Review> reviews = doc.getReviews();
-		
-		response.setContentType("application/json");
+		response.setContentType("text");
 		PrintWriter out = response.getWriter();
+		UserPassService ups = new UserPassService();
+		List<UserPass> upl;
 		
-
-		out.println(ObjectToJSONService.ReviewsToJSON(reviews)); 
-		logger.info("FetchReviewServlet returned JSON: " + reviews);
+		upl = ups.getAll();
+		System.out.println("UPL: " + upl);
+		
+		out.println(ObjectToJSONService.allAccountsToJSON(upl));
+		logger.info("GetAllAccountsForAdmin returned JSON: " + ObjectToJSONService.allAccountsToJSON(upl));
 	}
 
 	/**

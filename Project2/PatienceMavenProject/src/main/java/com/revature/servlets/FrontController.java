@@ -68,9 +68,9 @@ public class FrontController extends HttpServlet {
 			rd = request.getRequestDispatcher("/SubmitReviewServlet");
 			rd.forward(request, response);
 			break;
-		case "fetchreview":
-			logger.info("FrontController: fetchreviewservlet servlet hit.");
-			rd = request.getRequestDispatcher("/FetchReviewServlet");
+		case "getreviews":
+			logger.info("FrontController: getreviewsservlet servlet hit.");
+			rd = request.getRequestDispatcher("/GetReviewsServlet");
 			rd.forward(request, response);
 			break;
 		case "logout":

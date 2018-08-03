@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,16 +16,16 @@ import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 
 /**
- * Servlet implementation class getUsersPatientsServlet
+ * Servlet implementation class GetAllDoctorsPatientsServlet
  */
-public class getUsersPatientsServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(getUsersPatientsServlet.class);
+public class GetAllDoctorsPatientsServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetAllDoctorsPatientsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getUsersPatientsServlet() {
+    public GetAllDoctorsPatientsServlet() {
         super();
     }
 
@@ -39,9 +39,10 @@ public class getUsersPatientsServlet extends HttpServlet {
 		List<Patient> pl;
 		
 		pl = ps.getAll();
+		//System.out.println("PL: " + pl);
 		
-		out.println(ObjectToJSONService.patientsToJSON(pl));
-		logger.info("getUsersPatientsServlet returned JSON: " + ObjectToJSONService.patientsToJSON(pl));
+		out.println(ObjectToJSONService.doctorsPatientsToJSON(pl));
+		logger.info("GetAllDoctorsPatients returned JSON: " + ObjectToJSONService.doctorsPatientsToJSON(pl));
 	}
 
 	/**

@@ -1,14 +1,17 @@
 package com.revature.servlets;
 
-import com.revature.beans.UserPass;
-import com.revature.services.UserPassService;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
+
+import com.revature.beans.UserPass;
+import com.revature.services.UserPassService;
 
 public class LoginServlet extends HttpServlet {
     final static Logger logger = Logger.getLogger(LoginServlet.class);

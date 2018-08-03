@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,22 +11,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.UserPass;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.UserPassService;
+import com.revature.services.nurse.NurseService;
 
 /**
- * Servlet implementation class GetAllAccountsForAdmin
+ * Servlet implementation class getNursesServlet
  */
-public class GetAllAccountsForAdmin extends HttpServlet {
-	final static Logger logger = Logger.getLogger(GetAllAccountsForAdmin.class);
+public class getNursesServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(getNursesServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetAllAccountsForAdmin() {
+    public getNursesServlet() {
         super();
     }
 
@@ -36,14 +35,13 @@ public class GetAllAccountsForAdmin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		UserPassService ups = new UserPassService();
-		List<UserPass> upl;
+		NurseService ns = new NurseService();
+		List<Nurse> nl = null;
 		
-		upl = ups.getAll();
-		System.out.println("UPL: " + upl);
+		nl = ns.getAll();
 		
-		out.println(ObjectToJSONService.allAccountsToJSON(upl));
-		logger.info("GetAllAccountsForAdmin returned JSON: " + ObjectToJSONService.allAccountsToJSON(upl));
+		out.println(ObjectToJSONService.nursesToJSON(nl));
+		logger.info("GetNursesServlet returned JSON: " + ObjectToJSONService.nursesToJSON(nl));
 	}
 
 	/**
