@@ -11,6 +11,7 @@ import com.revature.beans.Review;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
+import com.revature.beans.history.History;
 import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
@@ -162,6 +163,22 @@ public class ObjectToJSONService {
 		try
 		{
 			json = mapper.writeValueAsString(dl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String historyToJSON(List<History> hl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(hl);
 		}
 		catch ( Exception e )
 		{
