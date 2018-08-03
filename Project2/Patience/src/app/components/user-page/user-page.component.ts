@@ -24,18 +24,8 @@ export class UserPageComponent implements OnInit {
       data => {
         for ( var d in data )
         {
-          //console.log("patientname: " + patientid);
-          //console.log("patient[p][id]: " + this.patients[p]['id']);
-          // if ( this.patients[p]['id'] == patientid)
-          // {
-          //   console.log("inside if");
-          //   this.patientsUsers[p]['location'] = data['location'];
-          //   this.patientsUsers[p]['status'] = data['status'];
-          // }
           this.patientsUsers[d] = data[d];
          }
-         console.log("DATA:");
-         console.log(JSON.stringify(data));
       },
       error => {
         console.log('ERROR', error);
