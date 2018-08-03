@@ -23,7 +23,7 @@ export class ConnectorService {
 
   }
 
-  submitReviewByName(rating, review, name) {
+  submitReviewByName(rating, review, role, date, id) {
     console.log("rating: "+rating);
     console.log("review: "+review);
     console.log("name: "+name);
@@ -31,7 +31,9 @@ export class ConnectorService {
     var params = new HttpParams();
     params = params.append("rating", rating);
     params = params.append("review", review);
-    params = params.append("name", name);
+    params = params.append("role", role);
+    params = params.append("date", date);
+    params = params.append("id", id);
 
     return this.http.get("http://localhost:8085/PatienceMavenProject/SubmitReview.do", { responseType: 'text', params: params });
   }

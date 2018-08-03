@@ -77,4 +77,9 @@ public class Review {
 		this.review = review;
 	}
 
+	@Override
+	public String toString() {
+		return "Review [id=" + id + ", datePosted=" + datePosted + ", rating=" + rating + ", review=" + review + "]";
+	}
+	
 }
