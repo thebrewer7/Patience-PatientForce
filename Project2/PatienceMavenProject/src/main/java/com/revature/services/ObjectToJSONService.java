@@ -105,4 +105,68 @@ public class ObjectToJSONService {
 		}
 		return json;
 	}
+	
+	public static String doctorsPatientsToJSON(List<Patient> pl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(pl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String nursesDoctorsToJSON(List<Doctor> dl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(dl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String nursesToJSON(List<Nurse> nl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(nl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	public static String doctorsToJSON(List<Doctor> dl)
+	{
+		ObjectMapper mapper = new ObjectMapper();
+		String json = "";
+		
+		try
+		{
+			json = mapper.writeValueAsString(dl);
+		}
+		catch ( Exception e )
+		{
+			e.printStackTrace();
+		}
+		return json;
+	}
 }

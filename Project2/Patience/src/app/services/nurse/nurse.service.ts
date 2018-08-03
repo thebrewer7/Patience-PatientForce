@@ -10,9 +10,9 @@ export class NurseService {
 
   constructor(private http: HttpClient) {}
 
-  getPatients(username: string) {
-    console.log('NurseService: getPatients()');
-    return this.http.post<Patient[]>('http://localhost:8085/PatienceMavenProject/getNursesPatients.do', {username: username});
+  getNurses() {
+    const params = new HttpParams();
+    return this.http.post('http://localhost:8085/PatienceMavenProject/getNurses.do', params);
   }
 
   getReviews(username: string) {
@@ -20,10 +20,9 @@ export class NurseService {
     return this.http.post<Review[]>('http://localhost:8085/PatienceMavenProject/getNursesReviews.do', {username: username});
   }
 
-  getNurses()
+  getNursesDoctors()
   {
     const params = new HttpParams();
-    console.log('NurseService: getParams()');
-    return this.http.post('http://localhost:8085/PatienceMavenProject/getNurses.do', params);
+    return this.http.post('http://localhost:8085/PatienceMavenProject/getNursesDoctors.do', params);
   }
 }

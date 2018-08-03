@@ -14,9 +14,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserPass;
+
 
 @Entity
 public class Nurse {
@@ -31,6 +34,7 @@ public class Nurse {
 	private List<Review> reviews;
 	@OneToOne
 	private UserPass userPass;
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER)
 	public List<Patient> patients;
 

@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,11 +13,15 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+
 /**
  * Represents a user and the relationships with all associated patients.
  * @author Austin
  *
  */
+
 @Entity
 public class UserAccount {
 	@Id
@@ -26,7 +29,8 @@ public class UserAccount {
 	@GeneratedValue(generator = "review_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@ManyToMany(fetch=FetchType.EAGER)
+	@JsonIgnore
+	@ManyToMany
 	@JoinTable
 	public List<Patient> patients;
 
