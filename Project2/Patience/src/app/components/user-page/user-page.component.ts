@@ -39,8 +39,8 @@ export class UserPageComponent implements OnInit {
           // }
           this.patientsUsers[d] = data[d];
          }
-
-        console.log("DATA: " + JSON.stringify(data));
+         console.log("DATA:");
+         console.log(JSON.stringify(data));
       },
       error => {
         console.log('ERROR', error);
