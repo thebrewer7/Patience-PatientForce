@@ -13,8 +13,10 @@ import org.apache.log4j.Logger;
 
 import com.revature.beans.Patient;
 import com.revature.beans.UserAccount;
+import com.revature.beans.UserPass;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
+import com.revature.services.UserPassService;
 import com.revature.services.UserService;
 
 /**
@@ -40,10 +42,13 @@ public class getUsersPatientsServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		PatientService ps = new PatientService();
 		UserService us = new UserService();
+		UserPassService ups = new UserPassService();
 		
 		List<Patient> pl;
 		
-		pl = us.getByName(username).get(0).patients;
+		UserPass up = ups.getByUsername(username);
+		UserAccount ua = us.getByUserPass(up.getId());
+		pl = ua.patients;
 		
 		out.println(ObjectToJSONService.patientsToJSON(pl));
 		logger.info("getuserspatientsservlet returned a list of patients");
