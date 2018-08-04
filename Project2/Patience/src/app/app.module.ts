@@ -34,6 +34,7 @@ import { NurseService } from './services/nurse/nurse.service';
 import { DoctorService } from './services/doctor/doctor.service';
 import { ConnectorService } from './services/connector/connector.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CookieService } from 'ngx-cookie-service';
     ProfilePageComponent,
     ProfileDetailsComponent,
     DoctorSidepanelComponent,
-    NurseSidepanelComponent
+    NurseSidepanelComponent,
+    MiniMenuComponent
   ],
   imports: [
     BrowserModule,

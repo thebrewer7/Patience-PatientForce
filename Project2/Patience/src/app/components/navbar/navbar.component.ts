@@ -13,19 +13,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
 
-  public fetchSearchFill() {
-    this.conn.getSearchFill().pipe(
-      tap(
-        data => {
-          // grab the data
-        },
-        error => {
-          console.log('ERROR', error);
-        }
-      )
-    );
-  }
-
   public fetchSearchUserById(name) {
     console.log(name.control.value);
     this.conn.getSearchUserById(name.control.value).subscribe(
