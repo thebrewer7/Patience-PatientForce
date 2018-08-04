@@ -12,7 +12,7 @@ export class HistoryService {
 
     const params = new HttpParams();
 
-    return this.http.post('http://34.205.71.228:8085/PatienceMavenProject/getHistory.do', params);
+    return this.http.post('http://18.208.144.106:8085/PatienceMavenProject/getHistory.do', params);
   }
 
 }

@@ -20,8 +20,7 @@ export class NavbarComponent implements OnInit {
   }
 
   public fetchSearchFill() {
-    this.conn.getSearchFill().pipe(
-      tap(
+    this.conn.getSearchFill().subscribe(
         data => {
           // grab the data
         },

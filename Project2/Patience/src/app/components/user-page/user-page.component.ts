@@ -14,7 +14,7 @@ export class UserPageComponent implements OnInit {
   constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') == 'null' )
+    if ( localStorage.getItem('role') === '' )
     {
       this.router.navigate(['/login']);
     }

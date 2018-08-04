@@ -5,6 +5,7 @@ import { Details } from '../../objects/details';
 import { ConnectorService } from '../../services/connector/connector.service';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { UserDataService } from '../../services/userData/user-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,34 +13,23 @@ import { UserDataService } from '../../services/userData/user-data.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+  userpassid: number;
 
   public data: Details;
 
   sortedReviewsByDate: Review[];
 
-  reviews: Review[] = [
-    {
-      id: 1,
-      name: "Logan",
-      datePosted: Date.now().toLocaleString(),
-      rating: 3,
-      review: 'dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf dsfsdfsdf fdsdfsdf '
-    },
-    {
-      id: 2,
-      name: "Logan",
-      datePosted: Date.now().toLocaleString(),
-      rating: 4,
-      review: 'dsfsdfsdf fdsdfsdf'
-    }
-  ];
+  reviews: Review[];
 
-  constructor(private conn: ConnectorService, private dataServ: UserDataService) {}
+  constructor(private conn: ConnectorService, private dataServ: UserDataService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.userpassid = parseInt(params.get('userpassid'), 10);
+    });
   }
 
-  receiveData($event){
+  receiveData($event) {
     this.data = $event;
     this.fetchReviews();
   }
@@ -56,7 +46,7 @@ export class ProfilePageComponent implements OnInit {
     return stars;
   }
 
-  fetchReviews(){
+  fetchReviews() {
     this.conn.getReviewByName(this.data.id, this.data.role).subscribe(
         data => {
           console.log(data);

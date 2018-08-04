@@ -34,6 +34,7 @@ import { NurseService } from './services/nurse/nurse.service';
 import { DoctorService } from './services/doctor/doctor.service';
 import { ConnectorService } from './services/connector/connector.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ProfileDetailsService } from './services/profiledetails/profiledetails.service';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { CookieService } from 'ngx-cookie-service';
     DoctorService,
     ConnectorService,
     CookieService,
+    ProfileDetailsService,
     { provide: APP_BASE_HREF, useValue: '/Patience/' },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
