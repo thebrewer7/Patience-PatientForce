@@ -35,6 +35,7 @@ import { DoctorService } from './services/doctor/doctor.service';
 import { ConnectorService } from './services/connector/connector.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
+import { ProfileDetailsService } from './services/profiledetails/profiledetails.service';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { MiniMenuComponent } from './components/mini-menu/mini-menu.component';
     DoctorService,
     ConnectorService,
     CookieService,
+    ProfileDetailsService,
     { provide: APP_BASE_HREF, useValue: '/Patience/' },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],

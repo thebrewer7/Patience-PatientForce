@@ -13,7 +13,7 @@ export class LoginPageComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if ( !(localStorage.getItem('role') == null) )
+    if ( !(localStorage.getItem('role') == 'null') )
     {
       var redirect = localStorage.getItem('role');
       this.router.navigate(['/'+ redirect + 'page']);

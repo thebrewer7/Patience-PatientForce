@@ -24,6 +24,19 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
+  public fetchSearchFill() {
+    this.conn.getSearchFill().pipe(
+    tap(
+      data => {
+        // grab the data
+      },
+      error => {
+        console.log('ERROR', error);
+      }
+    )
+  );
+}
+
 
   logout() {
     console.log('NavbarComponent: logout()');
