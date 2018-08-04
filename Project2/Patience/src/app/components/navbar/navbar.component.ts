@@ -27,8 +27,7 @@ export class NavbarComponent implements OnInit {
         error => {
           console.log('ERROR', error);
         }
-      )
-    );
+      );
   }
 
   public fetchSearchUserById(name) {
