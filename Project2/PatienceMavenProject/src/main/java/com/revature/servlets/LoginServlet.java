@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             int userId = up.getId();
             String role = up.getRole();
 
-            String json = "{ \"userpassid\": \"" + userId +  "\", \"role\": \"" + role + "\" }";
+            String json = "{ \"username\": \"" + username +  "\", \"role\": \"" + role + "\" }";
             logger.info(json);
             writer.println(json);
 
