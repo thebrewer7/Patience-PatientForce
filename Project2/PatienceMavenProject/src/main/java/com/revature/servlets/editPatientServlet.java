@@ -44,7 +44,6 @@ public class editPatientServlet extends HttpServlet {
 		Patient editpatient = ps.getById(patientid);
 		
 		editpatient.setLocation(patientlocation);
-		ps.saveOrUpdate(editpatient);
 		editpatient.setStatus(patientstatus);
 		ps.saveOrUpdate(editpatient);
 		
