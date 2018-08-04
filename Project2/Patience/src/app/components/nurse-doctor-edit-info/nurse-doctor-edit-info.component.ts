@@ -36,7 +36,7 @@ export class NurseDoctorEditInfoComponent implements OnInit {
       data => {
         console.log("=====================data received==================");
         console.log(data);
-        console.log("======================data========================")
+        console.log("==============================================")
         this.router.navigate(['/doctorpage']);
       },
       error => {

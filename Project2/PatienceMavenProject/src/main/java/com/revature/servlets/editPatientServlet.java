@@ -42,10 +42,18 @@ public class editPatientServlet extends HttpServlet {
 		PatientService ps = new PatientService();
 		
 		Patient editpatient = ps.getById(patientid);
+		
+		String test = ObjectToJSONService.PatientToJSON(editpatient);
+		System.out.println("editpatient: " + test);
+		
 		editpatient.setLocation(patientlocation);
 		ps.saveOrUpdate(editpatient);
 		editpatient.setStatus(patientstatus);
 		ps.saveOrUpdate(editpatient);
+		
+		test = ObjectToJSONService.PatientToJSON(editpatient);
+		System.out.println("editpatient: " + test);
+		
 //		ps.getById(patientid).setLocation(patientlocation);
 //		ps.saveOrUpdate(ps.getById(patientid));
 //		ps.getById(patientid).setStatus(patientstatus);
