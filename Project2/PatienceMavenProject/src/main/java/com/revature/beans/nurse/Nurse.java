@@ -181,6 +181,10 @@ public class Nurse {
 		this.rating = avg / reviews.size();
 	}
 
+	public UserPass getUserPass() {
+		return userPass;
+	}
+
 	public List<Review> getReviews() {
 		return reviews;
 	}

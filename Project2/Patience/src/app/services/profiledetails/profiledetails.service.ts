@@ -9,8 +9,8 @@ import { Details } from '../../objects/details';
 export class ProfileDetailsService {
   constructor(private http: HttpClient) {}
 
-  getDetails(userpassid) {
-    const params = new HttpParams().set('userpassid', userpassid);
+  getDetails(username) {
+    const params = new HttpParams().set('username', username);
     return this.http.post<Details>('http://34.205.71.228:8085/PatienceMavenProject/getProfileDetails.do', params);
   }
 
