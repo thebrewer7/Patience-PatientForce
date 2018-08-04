@@ -14,7 +14,9 @@ export class NurseSidepanelComponent implements OnInit {
   constructor(private ns: NurseService) {}
 
   ngOnInit() {
-    this.getAllNurses();
+    if (localStorage.getItem('role') !== '') {
+      this.getAllNurses();
+    }
   }
 
   getAllNurses() {

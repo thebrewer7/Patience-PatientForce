@@ -13,7 +13,9 @@ export class DoctorSidepanelComponent implements OnInit {
   constructor(private ds: DoctorService) { }
 
   ngOnInit() {
-    this.getAllDoctors();
+    if (localStorage.getItem('role') !== '') {
+      this.getAllDoctors();
+    }
   }
 
   getAllDoctors() {
