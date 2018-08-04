@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Patient;
+import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 
 /**
@@ -47,8 +48,8 @@ public class editPatientServlet extends HttpServlet {
 		
 		response.setContentType("text/json");
 		
-		String json = "{ \"editpatientid\": \"" + patientid + "\" }";
-      		
+		//String json = "{ \"editpatientid\": \"" + patientid + "\" }";
+      	String json = ObjectToJSONService.PatientToJSON(editpatient);
 		PrintWriter out = response.getWriter();
 		out.println(json);
 		logger.info("editPatientServlet updated a patient with patientid = " + patientid);
