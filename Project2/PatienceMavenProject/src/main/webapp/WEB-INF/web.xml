@@ -9,7 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
   <servlet>
     <description></description>
     <display-name>FrontController</display-name>
@@ -176,5 +175,15 @@
   <servlet-mapping>
     <servlet-name>GetHistoryServlet</servlet-name>
     <url-pattern>/GetHistoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetAllUsersServlet</display-name>
+    <servlet-name>GetAllUsersServlet</servlet-name>
+    <servlet-class>com.revature.servlets.GetAllUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAllUsersServlet</servlet-name>
+    <url-pattern>/GetAllUsersServlet</url-pattern>
   </servlet-mapping>
 </web-app>

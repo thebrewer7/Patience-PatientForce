@@ -2,16 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ConnectorService } from '../../services/connector/connector.service';
 import { LoginService } from '../../services/login/login.service';
 import { tap } from 'rxjs/operators';
+import { Details } from '../../objects/details';
 import { Router } from '../../../../node_modules/@angular/router';
+import { UserDataService } from '../../services/userData/user-data.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private conn: ConnectorService, private loginService: LoginService, private router: Router) {}
+  public data: Details;
 
-  ngOnInit() {}
+  constructor(private conn: ConnectorService, private dateServ: UserDataService, private loginService: LoginService, private router: Router) {}
+
+  ngOnInit() {
+    this.dateServ.currentData.subscribe(data => this.data = data);
+  }
 
   public fetchSearchFill() {
     this.conn.getSearchFill().pipe(
@@ -30,7 +36,8 @@ export class NavbarComponent implements OnInit {
     console.log(name.control.value);
     this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
-        console.log(data);
+        this.dateServ.changeData(data);
+        this.router.navigate(['/profile']);
       },
       error => {
         console.log('ERROR', error);

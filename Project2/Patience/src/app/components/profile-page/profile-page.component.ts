@@ -3,6 +3,8 @@ import { tap } from 'rxjs/operators';
 import { Review } from '../../objects/review';
 import { Details } from '../../objects/details';
 import { ConnectorService } from '../../services/connector/connector.service';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { UserDataService } from '../../services/userData/user-data.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -32,7 +34,7 @@ export class ProfilePageComponent implements OnInit {
     }
   ];
 
-  constructor(private conn: ConnectorService) {}
+  constructor(private conn: ConnectorService, private dataServ: UserDataService) {}
 
   ngOnInit() {
   }

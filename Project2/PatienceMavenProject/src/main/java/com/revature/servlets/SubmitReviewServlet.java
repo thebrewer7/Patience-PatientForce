@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.revature.servlets;
 
 import java.io.IOException;
@@ -61,8 +60,8 @@ public class SubmitReviewServlet extends HttpServlet {
 			break;
 		}
 		
-		new ReviewService().saveOrUpdate(inReview);
 		new DoctorService().saveOrUpdate(doc);
+		new ReviewService().saveOrUpdate(inReview);
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
@@ -80,65 +79,3 @@ public class SubmitReviewServlet extends HttpServlet {
 	}
 
 }
-=======
-package com.revature.servlets;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Date;
-import java.time.LocalDate;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
-
-import com.revature.beans.Review;
-import com.revature.services.ReviewService;
-
-/**
- * Servlet implementation class SubmitReviewServlet
- */
-public class SubmitReviewServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public SubmitReviewServlet() {
-		super();
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		int rating = Integer.parseInt(request.getParameter("rating"));
-		String review = request.getParameter("review");
-		Date date = Date.valueOf(LocalDate.now());
-
-		new ReviewService().saveOrUpdate(new Review(rating, review, date));
-		
-		response.setContentType("text");
-		PrintWriter out = response.getWriter();
-		System.out.println("Rating: " + rating + "\nReview: " + review + "\nDate: " + date);
-		out.println("server: received review");
-		logger.info("SubmitReviewServlet received a review");
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
-
-}
->>>>>>> Development

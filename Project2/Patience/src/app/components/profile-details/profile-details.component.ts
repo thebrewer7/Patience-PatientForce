@@ -17,15 +17,20 @@ export class ProfileDetailsComponent implements OnInit {
   constructor(private userData: UserDataService) { 
     this.data = {id: 50, name: 'Logan', role: 'Doctor', certifications: ['OCA', 'OCP'], degrees: ['B.S. Health Science'], 
                  experience: '1 year', rating: 5, reviews: [], department: 'West Wing', patients: []};
-    this.userData.changeData(this.data);
   }
 
   sendData() {
     this.dataEvent.emit(this.data);
   }
 
+  recieveData($event){
+    this.data = $event;
+    console.log(this.data);
+  }
+
   ngOnInit() {
     this.userData.currentData.subscribe(data => this.data = data)
+    console.log(this.data);
     this.sendData();
   }
 
