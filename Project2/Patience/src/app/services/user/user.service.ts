@@ -13,6 +13,6 @@ export class UserService {
 
     const params = new HttpParams();
 
-    return this.http.post<Patient[]>('http://18.208.144.106:8085/PatienceMavenProject/getUsersPatients.do', params);
+    return this.http.post<Patient[]>('http://18.205.153.39:8085/PatienceMavenProject/getUsersPatients.do', params);
   }
 }
