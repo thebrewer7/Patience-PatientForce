@@ -40,8 +40,6 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     console.log('NavbarComponent: logout()');
-    localStorage.removeItem('userid');
-    localStorage.removeItem('role');
 
     this.loginService.logout().subscribe (
       PASS => {
