@@ -30,7 +30,6 @@ public class GetAllUsersServlet extends HttpServlet {
      */
     public GetAllUsersServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -52,7 +51,7 @@ public class GetAllUsersServlet extends HttpServlet {
 					nur.getRating(), nur.getReviews(), nur.getDepartment(), nur.patients));
 		}
 		
-		response.setContentType("application/json");
+		response.setContentType("text/json");
 		PrintWriter out = response.getWriter();
 		out.println(ObjectToJSONService.SeachDetailsToJSON(sdets));
 	}
