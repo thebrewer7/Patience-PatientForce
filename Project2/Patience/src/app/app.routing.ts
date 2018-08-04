@@ -42,6 +42,10 @@ const routes: Routes = [
     {
       path: 'profile/:userpassid',
       component: ProfilePageComponent
+    },
+    {
+      path: 'profile',
+      component: ProfilePageComponent
     }
 ];
 

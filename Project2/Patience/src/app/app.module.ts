@@ -35,6 +35,7 @@ import { DoctorService } from './services/doctor/doctor.service';
 import { ConnectorService } from './services/connector/connector.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ProfileDetailsService } from './services/profiledetails/profiledetails.service';
+import { SbDropdownComponent } from './components/sb-dropdown/sb-dropdown.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { ProfileDetailsService } from './services/profiledetails/profiledetails.
     ProfilePageComponent,
     ProfileDetailsComponent,
     DoctorSidepanelComponent,
-    NurseSidepanelComponent
+    NurseSidepanelComponent,
+    SbDropdownComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,11 @@
     <a class="navbar-brand" href="#">Patience</a>
   </div>
 
-  <div class="nav-item input-group searchbar mx-auto">
-    <input class="form-control"  ngModel name="searchArea" #searchArea="ngModel" (click)=fetchSearchFill() type="text" placeholder="Search" aria-label="Search">
+  <div class="nav-item input-group searchbar mx-auto" placement="bottom right">
+    <input id="searchArea" (keyup)="filterDropdown()" class="form-control"  ngModel name="searchArea" #searchArea="ngModel" (click)=fetchSearchFill() type="text" placeholder="Search" aria-label="Search">
+    <div id="myDropdown" class="dropdown-content dropdown-sb" role="menu">
+        <li value="{{detail.id}}" *ngFor="let detail of searchData; let i = index" (click)="setUserBySearchBar(i)" class="dropdown-item">{{detail.name}}</li>
+    </div>
     <span class="input-group-btn" style="margin-left: 0.5rem;">
       <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"
       (click)="fetchSearchUserById(searchArea)">
@@ -18,7 +21,7 @@
     <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <img dropdownToggle name="dropdownToggle" src="https://cdn2.iconfinder.com/data/icons/set-of-menu-icon/512/menu_lines_Bullet_Hamburger_-512.png" width="40" height="40">
     </a>
-    <div id="dropdown-alignment" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" role="menu" aria-labelledby="buttom-alignment">
+    <div id="dropdown-alignment" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" role="menu" aria-labelledby="button-alignment">
       <a name="profilePageLink" class="dropdown-item" routerLink="/profile">Profile</a>
       <a name="adminPageLink" class="dropdown-item" routerLink="/adminpage">Admin Landing</a>
       <a name="doctorPageLink" class="dropdown-item" routerLink="/doctorpage">Doctor Landing</a>

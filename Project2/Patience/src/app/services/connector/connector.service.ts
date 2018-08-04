@@ -5,6 +5,7 @@ import { catchError, retry, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Details } from '../../objects/details';
 import { Review } from '../../objects/review';
+import { SearchDetails } from '../../objects/searchDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ConnectorService {
   constructor(private http: HttpClient) { }
 
   getSearchFill() {
-    return this.http.get("http://localhost:8085/PatienceMavenProject/SearchFill.do", { responseType: 'text' });
+    return this.http.get<Details[]>("http://localhost:8085/PatienceMavenProject/SearchFill.do");
   }
 
   getSearchUserById(name) {

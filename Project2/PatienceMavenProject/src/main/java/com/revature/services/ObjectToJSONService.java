@@ -8,6 +8,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.revature.beans.Patient;
 import com.revature.beans.Review;
+import com.revature.beans.SearchDetails;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
@@ -33,6 +34,16 @@ public class ObjectToJSONService {
 		}
 		System.out.println("review JSON: "+json);
 		return json;
+	}
+	
+	public static String SeachDetailsToJSON(List<SearchDetails> details) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			return mapper.writeValueAsString(details);
+		} catch ( Exception e ) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public static String PatientToJSON(Patient patient) {

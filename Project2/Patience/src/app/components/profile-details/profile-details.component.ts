@@ -17,7 +17,7 @@ export class ProfileDetailsComponent implements OnInit {
   @Output() dataEvent = new EventEmitter<Details>();
 
   constructor(private userData: UserDataService, private profileDetailsService: ProfileDetailsService, private route: ActivatedRoute) {
-    this.userData.changeData(this.data);
+    //this.userData.changeData(this.data);
   }
 
   sendData() {
@@ -30,13 +30,12 @@ export class ProfileDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userData.currentData.subscribe(data => this.data = data)
+    this.userData.currentData.subscribe(data => this.data = data);
     console.log(this.data);
     this.route.paramMap.subscribe(params => {
       this.userpassid = parseInt(params.get('userpassid'));
     });
-    this.getDetails();
-    this.userData.currentData.subscribe(data => this.data = data);
+    //this.getDetails();
     this.sendData();
   }
 
