@@ -14,16 +14,13 @@ export class UserPageComponent implements OnInit {
   constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') === '' )
-    {
+    if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
+    } else if ( localStorage.getItem('role') !== 'doctor' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
     }
-    else if ( localStorage.getItem('role') != 'doctor' )
-    {
-      var redirect = localStorage.getItem('role');
-      this.router.navigate(['/'+ redirect + 'page']);
-    }
-    console.log(localStorage.getItem('userpassid'));
+    console.log(localStorage.getItem('username'));
     console.log(localStorage.getItem('role'));
     this.fetchUserPatientsByUserName();
   }
@@ -32,10 +29,7 @@ export class UserPageComponent implements OnInit {
 
     this.us.getPatients().subscribe(
       data => {
-        for ( var d in data )
-        {
-          this.patientsUsers[d] = data[d];
-         }
+        this.patientsUsers = data;
       },
       error => {
         console.log('ERROR', error);

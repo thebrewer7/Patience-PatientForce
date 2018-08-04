@@ -49,10 +49,10 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.login_username, this.login_password).subscribe(
       DATA => {
         // this.cookieService.set('data', DATA);
-        localStorage.setItem('userpassid', DATA['userpassid']);
+        localStorage.setItem('username', DATA['username']);
         localStorage.setItem('role', DATA['role']);
         console.log(localStorage.getItem('role'));
-        console.log(localStorage.getItem('userpassid'));
+        console.log(localStorage.getItem('username'));
         switch (DATA['role']) {
           case 'admin':
             this.router.navigate(['/adminpage']);
@@ -84,8 +84,10 @@ export class LoginComponent implements OnInit {
     console.log('LoginComponent: register()');
     // send email, username and password to register servlet
     this.registrationService.register(this.register_username, this.register_password, this.password_confirm).subscribe (
-      PASS => {
-        console.log(PASS);
+      DATA => {
+        console.log(DATA);
+        localStorage.setItem('username', DATA['username']);
+        localStorage.setItem('role', DATA['role']);
         this.router.navigate(['/userpage']);
       },
       FAIL => { console.log(FAIL); }

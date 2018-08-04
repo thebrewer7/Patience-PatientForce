@@ -9,37 +9,28 @@ import { Router } from '../../../../node_modules/@angular/router';
 })
 export class PatientPageComponent implements OnInit {
 
-  allHistories = [];
+  allHistories: History[];
 
   constructor(private hs: HistoryService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') == '' )
-    {
+    if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
-    }
-    else if ( localStorage.getItem('role') != 'doctor' )
-    {
-      var redirect = localStorage.getItem('role');
-      this.router.navigate(['/'+ redirect + 'page']);
+    } else if ( localStorage.getItem('role') !== 'doctor' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
     }
     this.getHistory();
   }
 
-  getHistory()
-  {
+  getHistory() {
     this.hs.getHistory().subscribe(
       data => {
         console.log(data);
-        for ( var d in data )
-        {
-          this.allHistories[d] = data[d];
-          console.log("HISTORY: " + JSON.stringify(this.allHistories[d]));
-        }
-        
+        this.allHistories = data;
       },
       error => {
-        console.log("ERROR", error);
+        console.log('ERROR', error);
       }
   );
   }

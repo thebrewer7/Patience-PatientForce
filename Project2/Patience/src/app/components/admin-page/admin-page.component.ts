@@ -18,20 +18,16 @@ export class AdminPageComponent implements OnInit {
   constructor(private as: AdminserviceService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') == '' )
-    {
+    if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
-    }
-    else if ( localStorage.getItem('role') != 'doctor' )
-    {
-      var redirect = localStorage.getItem('role');
-      this.router.navigate(['/'+ redirect + 'page']);
+    } else if ( localStorage.getItem('role') !== 'doctor' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
     }
     this.getAllAccounts();
   }
 
-  getAllAccounts()
-  {
+  getAllAccounts() {
     //console.log("IN GETALLACCOUNTS");
     this.as.getAllAdminAccounts().subscribe(
       data => {

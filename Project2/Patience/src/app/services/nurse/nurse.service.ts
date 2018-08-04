@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Patient } from '../../objects/patient';
 import { Review } from '../../objects/review';
 import { Nurse } from '../../objects/nurse';
+import { Doctor } from '../../objects/doctor';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,12 @@ export class NurseService {
 
   getReviews(username: string) {
     console.log('NurseService: getReviews()');
-    return this.http.post<Review[]>('http://18.208.144.106:8085/PatienceMavenProject/getNursesReviews.do', {username: username});
+    const params = new HttpParams().set('username', username);
+    return this.http.post<Review[]>('http://18.208.144.106:8085/PatienceMavenProject/getNursesReviews.do', params);
   }
 
-  getNursesDoctors()
-  {
+  getNursesDoctors() {
     const params = new HttpParams();
-    return this.http.post('http://18.208.144.106:8085/PatienceMavenProject/getNursesDoctors.do', params);
+    return this.http.post<Doctor[]>('http://18.208.144.106:8085/PatienceMavenProject/getNursesDoctors.do', params);
   }
 }
