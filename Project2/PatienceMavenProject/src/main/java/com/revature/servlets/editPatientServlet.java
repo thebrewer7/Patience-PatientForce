@@ -31,17 +31,19 @@ public class editPatientServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		logger.info("inside the editpatientservlet");
 		Integer patientid = Integer.parseInt(request.getParameter("patientid"));
 		String patientlocation = request.getParameter("patientlocation");
 		String patientstatus = request.getParameter("patientstatus");
+		logger.info("patientid in editpatientservlet: " + patientid);
+		logger.info("patientlocation in editpatientservlet: " + patientlocation);
+		logger.info("patientstatus in editpatientservlet: " + patientstatus);
 		PatientService ps = new PatientService();
 		
 		Patient editpatient = ps.getById(patientid);
-		//logger.info("person before change :" + editpatient);
 		editpatient.setLocation(patientlocation);
 		editpatient.setStatus(patientstatus);
 		ps.saveOrUpdate(editpatient);
-		//logger.info("person after change :" + editpatient);
 		
 		response.setContentType("text/json");
 		
@@ -49,7 +51,7 @@ public class editPatientServlet extends HttpServlet {
       		
 		PrintWriter out = response.getWriter();
 		out.println(json);
-		logger.info("editPatientServlet updated a patient");
+		logger.info("editPatientServlet updated a patient with patientid = " + patientid);
 	}
 
 	/**
