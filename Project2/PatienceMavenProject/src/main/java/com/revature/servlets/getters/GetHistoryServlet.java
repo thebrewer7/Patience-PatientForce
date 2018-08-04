@@ -49,7 +49,7 @@ public class GetHistoryServlet extends HttpServlet {
 		History hl;
 		
 		UserPass up = ups.getByUsername(username);
-		Patient patient = ps.getById(up.getId());
+		Patient patient = ps.getByUserPass(up.getId());
 		hl = hs.getById(patient.getId());
 		
 		out.println(ObjectToJSONService.oneHistoryToJSON(hl));
