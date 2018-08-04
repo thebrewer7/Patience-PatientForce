@@ -2,6 +2,7 @@ package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,9 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Review;
-import com.revature.beans.doctor.Doctor;
 import com.revature.services.ObjectToJSONService;
+import com.revature.services.UserPassService;
 import com.revature.services.doctor.DoctorService;
+import com.revature.services.nurse.NurseService;
 import com.revature.servlets.FrontController;
 
 /**
@@ -38,11 +40,19 @@ public class GetReviewsServlet extends HttpServlet {
 		System.out.println("===="+this.getServletName()+"====");
 		
 		int id = Integer.parseInt(request.getParameter("id"));
+		String role = request.getParameter("role");
+		List<Review> reviews = new ArrayList<>();
 		System.out.println(id);
-		Doctor doc = new DoctorService().getById(id);
-		
-		List<Review> reviews = doc.getReviews();
-		
+		System.out.println(role);
+
+		switch(role) {
+		case "nurse":
+			reviews = new NurseService().getById(id).getReviews();
+			break;
+		case "doctor":
+			reviews = new DoctorService().getById(id).getReviews();
+		}
+		new UserPassService().getById(new DoctorService().getById(50).getUserPass().getId());
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		

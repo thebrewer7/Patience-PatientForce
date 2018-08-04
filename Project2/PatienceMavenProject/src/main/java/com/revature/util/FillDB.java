@@ -1,5 +1,8 @@
 package com.revature.util;
 
+import java.util.function.Function;
+
+import com.revature.beans.Admin;
 import com.revature.beans.SuperBean;
 import com.revature.rnd.Generator;
 import com.revature.services.AdminService;
@@ -11,7 +14,7 @@ import com.revature.services.nurse.NurseService;
 public class FillDB {
 	public static Boolean fill(int quantity) {
 		SuperBean data = Generator.generateAll(quantity);
-		
+
 		try {
 		data.getAdmins().forEach(new AdminService()::saveOrUpdate);
 		data.getPatients().forEach(new PatientService()::saveOrUpdate);

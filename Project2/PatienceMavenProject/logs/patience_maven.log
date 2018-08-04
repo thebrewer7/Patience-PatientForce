@@ -4161,3 +4161,27 @@ line 1:6: unexpected token: :
 2018-08-02 21:15:55 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.spi.UpdateTimestampsCache]; using defaults.
 2018-08-02 21:15:55 INFO  StandardQueryCache:90 - HHH000248: Starting query cache at region: org.hibernate.cache.internal.StandardQueryCache
 2018-08-02 21:15:55 WARN  AbstractEhcacheRegionFactory:178 - HHH020003: Could not find a specific ehcache configuration for cache named [org.hibernate.cache.internal.StandardQueryCache]; using defaults.
+2018-08-03 19:40:57 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-03 19:40:57 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-03 19:40:57 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-03 19:40:57 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-03 19:40:57 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-03 19:40:57 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-03 19:40:58 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-03 19:40:59 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-03 19:41:02 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-03 19:41:02 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-03 19:41:02 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-03 19:41:02 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
+2018-08-03 19:41:51 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+2018-08-03 19:41:51 INFO  Version:54 - HHH000412: Hibernate Core {4.3.11.Final}
+2018-08-03 19:41:51 INFO  Environment:239 - HHH000206: hibernate.properties not found
+2018-08-03 19:41:51 INFO  Environment:346 - HHH000021: Bytecode provider name : javassist
+2018-08-03 19:41:51 INFO  Configuration:2075 - HHH000043: Configuring from resource: /hibernate.cfg.xml
+2018-08-03 19:41:51 INFO  Configuration:2094 - HHH000040: Configuration resource: /hibernate.cfg.xml
+2018-08-03 19:41:51 INFO  Configuration:2216 - HHH000041: Configured SessionFactory: null
+2018-08-03 19:41:51 WARN  DriverManagerConnectionProviderImpl:93 - HHH000402: Using Hibernate built-in connection pool (not for production use!)
+2018-08-03 19:41:51 INFO  DriverManagerConnectionProviderImpl:166 - HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@patience.cvdumlvcautw.us-east-1.rds.amazonaws.com:1521:orcl]
+2018-08-03 19:41:51 INFO  DriverManagerConnectionProviderImpl:175 - HHH000046: Connection properties: {user=Patience, password=****}
+2018-08-03 19:41:51 INFO  DriverManagerConnectionProviderImpl:180 - HHH000006: Autocommit mode: false
+2018-08-03 19:41:51 INFO  DriverManagerConnectionProviderImpl:102 - HHH000115: Hibernate connection pool size: 5 (min=1)
