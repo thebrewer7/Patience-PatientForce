@@ -28,7 +28,9 @@ export class DoctorPageComponent implements OnInit {
   getAllDoctorsPatients() {
     this.ds.getPatients().subscribe(
       data => {
-        //console.log(data);
+        console.log("==============doctorpage.ts getAllDoctorsPatients() data================");
+        console.log(data);
+        console.log("==========================================================");  
         this.doctorsPatients = data;
       },
       error => {
