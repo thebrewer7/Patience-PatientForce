@@ -18,7 +18,7 @@ import com.revature.services.PatientService;
  * Servlet implementation class editPatientServlet
  */
 public class editPatientServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+	final static Logger logger = Logger.getLogger(editPatientServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
