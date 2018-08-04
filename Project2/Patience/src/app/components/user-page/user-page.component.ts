@@ -26,8 +26,9 @@ export class UserPageComponent implements OnInit {
   }
 
   public fetchUserPatientsByUserName() {
+    var username = localStorage.getItem('username');
 
-    this.us.getPatients().subscribe(
+    this.us.getPatients(username).subscribe(
       data => {
         this.patientsUsers = data;
       },
