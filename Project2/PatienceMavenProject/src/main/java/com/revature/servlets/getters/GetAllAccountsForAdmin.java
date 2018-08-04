@@ -42,7 +42,7 @@ public class GetAllAccountsForAdmin extends HttpServlet {
 		System.out.println("UPL: " + upl);
 		
 		out.println(ObjectToJSONService.allAccountsToJSON(upl));
-		logger.info("GetAllAccountsForAdmin returned JSON: " + ObjectToJSONService.allAccountsToJSON(upl));
+		logger.info("getallacountsforadmin return a list of accounts");
 	}
 
 	/**

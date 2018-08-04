@@ -43,16 +43,10 @@ public class editPatientServlet extends HttpServlet {
 		
 		Patient editpatient = ps.getById(patientid);
 		
-		String test = ObjectToJSONService.PatientToJSON(editpatient);
-		System.out.println("editpatient: " + test);
-		
 		editpatient.setLocation(patientlocation);
 		ps.saveOrUpdate(editpatient);
 		editpatient.setStatus(patientstatus);
 		ps.saveOrUpdate(editpatient);
-		
-		test = ObjectToJSONService.PatientToJSON(editpatient);
-		System.out.println("editpatient: " + test);
 		
 //		ps.getById(patientid).setLocation(patientlocation);
 //		ps.saveOrUpdate(ps.getById(patientid));
@@ -61,7 +55,6 @@ public class editPatientServlet extends HttpServlet {
 		
 		response.setContentType("text/json");
 		
-      	//String json = ObjectToJSONService.PatientToJSON(ps.getById(patientid));
 		String json = ObjectToJSONService.PatientToJSON(editpatient);
 		PrintWriter out = response.getWriter();
 		out.println(json);

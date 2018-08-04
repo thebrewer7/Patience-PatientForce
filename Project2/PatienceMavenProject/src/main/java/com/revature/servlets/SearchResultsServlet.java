@@ -50,8 +50,8 @@ public class SearchResultsServlet extends HttpServlet {
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.UserAccountToJSON(user));// TODO grab user using user dao
-		logger.info("SearchResultsServlet returned JSON: " + ObjectToJSONService.UserAccountToJSON(user));
+		out.println(ObjectToJSONService.UserAccountToJSON(user));
+		logger.info("searchresultsservlet returned a json");
 	}
 
 	/**

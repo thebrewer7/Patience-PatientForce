@@ -41,7 +41,7 @@ public class getUsersPatientsServlet extends HttpServlet {
 		pl = ps.getAll();
 		
 		out.println(ObjectToJSONService.patientsToJSON(pl));
-		logger.info("getUsersPatientsServlet returned JSON: " + ObjectToJSONService.patientsToJSON(pl));
+		logger.info("getuserspatientsservlet returned a list of patients");
 	}
 
 	/**
