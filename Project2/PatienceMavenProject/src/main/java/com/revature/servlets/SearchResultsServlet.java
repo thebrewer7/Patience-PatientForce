@@ -39,9 +39,9 @@ public class SearchResultsServlet extends HttpServlet {
 		UserAccount user = null;
 		List<UserAccount> receivedUsers = userService.getByName(name.toLowerCase());
 		
-		if(receivedUsers.size() > 1){
+		if( receivedUsers == null || receivedUsers.size() > 1){
 			logger.info("SearchResultsServlet found more than one of the same name.");
-			System.out.println("There is more than one user with the same name!");
+			System.out.println("There is no users or more than 1 user with that name");
 		} else {
 			user = receivedUsers.get(0);
 		}
