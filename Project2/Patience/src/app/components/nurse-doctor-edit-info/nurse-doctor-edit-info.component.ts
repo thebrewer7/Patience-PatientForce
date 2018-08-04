@@ -19,6 +19,13 @@ export class NurseDoctorEditInfoComponent implements OnInit {
   doctorsPatients = [];
 
   ngOnInit() {
+    if ( localStorage.getItem('role') === '' ) {
+      this.router.navigate(['/login']);
+    } else if ( localStorage.getItem('role') !== 'doctor' || localStorage.getItem('role') !== 'nurse' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
+    }
+
     this.route.paramMap.subscribe(params => {
       this.patientid = parseInt(params.get('patientid'));
     });

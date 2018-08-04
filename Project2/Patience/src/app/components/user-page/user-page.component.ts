@@ -16,7 +16,7 @@ export class UserPageComponent implements OnInit {
   ngOnInit() {
     if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
-    } else if ( localStorage.getItem('role') !== 'doctor' ) {
+    } else if ( localStorage.getItem('role') !== 'user' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
     }
