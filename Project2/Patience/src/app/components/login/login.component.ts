@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login/login.service';
 import { RegistrationService } from '../../services/registration/registration.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '../../../../node_modules/@angular/router';
+import { RegistrationValidator } from './register.validator';
+
 
 declare var $: any;
 @Component({
@@ -18,7 +20,29 @@ export class LoginComponent implements OnInit {
   register_password = '';
   password_confirm = '';
 
-  constructor(private loginService: LoginService, private registrationService: RegistrationService, private router: Router, public cookieService: CookieService) {}//
+  loginFormGroup: FormGroup;
+  registrationFormGroup: FormGroup;
+  registrationPasswordFormGroup: FormGroup;
+
+  constructor(private loginService: LoginService, private registrationService: RegistrationService, private router: Router, public cookieService: CookieService, private formBuilder: FormBuilder) {
+    this.registrationPasswordFormGroup = this.formBuilder.group({
+      password: ['', Validators.required],
+      passwordconfirm: ['', Validators.required]
+    },
+    {
+      validator: RegistrationValidator.validate.bind(this)
+    });
+
+    this.registrationFormGroup = this.formBuilder.group({
+      username: ['', Validators.required],
+      registrationPasswordFormGroup: this.registrationPasswordFormGroup
+    });
+
+    this.loginFormGroup = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
     $(document).ready(function() {
