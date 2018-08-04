@@ -1,13 +1,15 @@
 package com.revature.servlets.getters;
 
-import com.revature.beans.Admin;
+import static com.revature.services.ObjectToJSONService.DoctorToJSON;
+import static com.revature.services.ObjectToJSONService.NurseToJSON;
+import static com.revature.services.ObjectToJSONService.PatientToJSON;
+import static com.revature.services.ObjectToJSONService.UserAccountToJSON;
+
 import com.revature.beans.Patient;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
-import com.revature.services.AdminService;
-import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 import com.revature.services.UserPassService;
 import com.revature.services.UserService;
@@ -15,13 +17,11 @@ import com.revature.services.doctor.DoctorService;
 import com.revature.services.nurse.NurseService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static com.revature.services.ObjectToJSONService.*;
 
 public class GetProfileServlet extends HttpServlet {
 
@@ -36,7 +36,7 @@ public class GetProfileServlet extends HttpServlet {
         case "user":
           UserAccount user = new UserService().getByUserPass(up.getId());
           if (user != null) {
-            json = allAccountsToJSON(Arrays.asList(user.getUserPass())) + UserAccountToJSON(user);
+            json = UserAccountToJSON(user);
           }
           break;
         case "patient":
