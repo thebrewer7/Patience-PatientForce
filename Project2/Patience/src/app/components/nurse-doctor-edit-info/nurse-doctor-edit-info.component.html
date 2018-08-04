@@ -3,12 +3,12 @@
 
       <div class="form-group">
         <label for="patientlocation">Patient Location:</label>
-        <input type="text" class="form-control" id="patientlocation" [(ngModel)]="patientlocation" required>
+        <input type="text" class="form-control" id="patientlocation" name="patientlocation" [(ngModel)]="patientlocation" required>
       </div>
 
       <div class="form-group">
         <label for="patientstatus">Patient Status:</label>
-        <select class="form-control" id="patientstatus" [(ngModel)]="patientstatus" required>
+        <select class="form-control" id="patientstatus" name="patientstatus" [(ngModel)]="patientstatus" required>
           <option value="undetermined">Undetermined</option>
           <option value="good">Good</option>
           <option value="fair">Fair</option>
