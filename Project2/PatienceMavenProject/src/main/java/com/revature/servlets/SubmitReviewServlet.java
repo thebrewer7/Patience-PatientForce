@@ -23,7 +23,7 @@ import com.revature.services.nurse.NurseService;
  * Servlet implementation class SubmitReviewServlet
  */
 public class SubmitReviewServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+	final static Logger logger = Logger.getLogger(SubmitReviewServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**

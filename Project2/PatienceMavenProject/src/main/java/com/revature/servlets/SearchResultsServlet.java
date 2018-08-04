@@ -19,7 +19,7 @@ import com.revature.services.UserService;
  * Servlet implementation class SearchResultsServlet
  */
 public class SearchResultsServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+	final static Logger logger = Logger.getLogger(SearchResultsServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
