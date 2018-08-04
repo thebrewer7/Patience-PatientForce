@@ -14,7 +14,7 @@ export class NursePageComponent implements OnInit {
   constructor(private ns: NurseService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') == 'null' )
+    if ( localStorage.getItem('role') == '' )
     {
       this.router.navigate(['/login']);
     }
