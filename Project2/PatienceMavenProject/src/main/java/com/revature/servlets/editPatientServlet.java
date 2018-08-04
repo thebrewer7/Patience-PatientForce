@@ -41,18 +41,20 @@ public class editPatientServlet extends HttpServlet {
 		logger.info("patientstatus in editpatientservlet: " + patientstatus);
 		PatientService ps = new PatientService();
 		
-//		Patient editpatient = ps.getById(patientid);
-//		editpatient.setLocation(patientlocation);
-//		editpatient.setStatus(patientstatus);
-//		ps.saveOrUpdate(editpatient);
-		ps.getById(patientid).setLocation(patientlocation);
-		ps.getById(patientid).setStatus(patientstatus);
-		ps.saveOrUpdate(ps.getById(patientid));
+		Patient editpatient = ps.getById(patientid);
+		editpatient.setLocation(patientlocation);
+		ps.saveOrUpdate(editpatient);
+		editpatient.setStatus(patientstatus);
+		ps.saveOrUpdate(editpatient);
+//		ps.getById(patientid).setLocation(patientlocation);
+//		ps.saveOrUpdate(ps.getById(patientid));
+//		ps.getById(patientid).setStatus(patientstatus);
+//		ps.saveOrUpdate(ps.getById(patientid));
 		
 		response.setContentType("text/json");
 		
-		//String json = "{ \"editpatientid\": \"" + patientid + "\" }";
-      	String json = ObjectToJSONService.PatientToJSON(ps.getById(patientid));
+      	//String json = ObjectToJSONService.PatientToJSON(ps.getById(patientid));
+		String json = ObjectToJSONService.PatientToJSON(editpatient);
 		PrintWriter out = response.getWriter();
 		out.println(json);
 		logger.info("editPatientServlet updated a patient with patientid = " + patientid);
