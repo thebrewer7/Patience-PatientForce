@@ -14,13 +14,14 @@ export class NurseSidepanelComponent implements OnInit {
   constructor(private ns: NurseService) {}
 
   ngOnInit() {
-    this.getAllNurses();
+    if (localStorage.getItem('role') !== '') {
+      this.getAllNurses();
+    }
   }
 
   getAllNurses() {
     this.ns.getNurses().subscribe(
       data => {
-        console.log(data);
         this.randomizeNurses(data);
       },
       error => {

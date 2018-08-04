@@ -20,14 +20,14 @@ export class NursePageComponent implements OnInit {
     } else if ( localStorage.getItem('role') !== 'nurse' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      this.getAllNursesDoctors();
     }
-    this.getAllNursesDoctors();
   }
 
   getAllNursesDoctors() {
     this.ns.getNursesDoctors().subscribe(
       data => {
-        console.log(data);
         this.nursesDoctors = data;
       },
       error => {

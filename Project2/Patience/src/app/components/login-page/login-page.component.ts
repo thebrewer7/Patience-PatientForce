@@ -16,9 +16,9 @@ export class LoginPageComponent implements OnInit {
     if (localStorage.getItem('role') !== '' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      localStorage.setItem('role', '');
+      localStorage.setItem('username', '');
     }
-    localStorage.setItem('role', '');
-    localStorage.setItem('username', '');
   }
-
 }

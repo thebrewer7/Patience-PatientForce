@@ -19,10 +19,9 @@ export class UserPageComponent implements OnInit {
     } else if ( localStorage.getItem('role') !== 'user' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
+    }else {
+      this.fetchUserPatientsByUserName();
     }
-    console.log(localStorage.getItem('username'));
-    console.log(localStorage.getItem('role'));
-    this.fetchUserPatientsByUserName();
   }
 
   public fetchUserPatientsByUserName() {

@@ -75,8 +75,6 @@ export class LoginComponent implements OnInit {
         // this.cookieService.set('data', DATA);
         localStorage.setItem('username', DATA['username']);
         localStorage.setItem('role', DATA['role']);
-        console.log(localStorage.getItem('role'));
-        console.log(localStorage.getItem('username'));
         switch (DATA['role']) {
           case 'admin':
             this.router.navigate(['/adminpage']);
@@ -96,7 +94,6 @@ export class LoginComponent implements OnInit {
           default:
             this.router.navigate(['/login']);
         }
-        console.log(DATA);
       },
       ERROR => {
         console.log(ERROR + ' Error: login failed');
@@ -109,7 +106,6 @@ export class LoginComponent implements OnInit {
     // send email, username and password to register servlet
     this.registrationService.register(this.register_username, this.register_password, this.password_confirm).subscribe (
       DATA => {
-        console.log(DATA);
         localStorage.setItem('username', DATA['username']);
         localStorage.setItem('role', DATA['role']);
         this.router.navigate(['/userpage']);

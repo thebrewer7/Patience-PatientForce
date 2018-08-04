@@ -19,14 +19,14 @@ export class PatientPageComponent implements OnInit {
     } else if ( localStorage.getItem('role') !== 'patient' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      this.getHistory();
     }
-    this.getHistory();
   }
 
   getHistory() {
     this.hs.getHistory().subscribe(
       data => {
-        console.log(data);
         this.allHistories = data;
       },
       error => {

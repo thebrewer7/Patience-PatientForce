@@ -13,13 +13,14 @@ export class DoctorSidepanelComponent implements OnInit {
   constructor(private ds: DoctorService) { }
 
   ngOnInit() {
-    this.getAllDoctors();
+    if (localStorage.getItem('role') !== '') {
+      this.getAllDoctors();
+    }
   }
 
   getAllDoctors() {
     this.ds.getDoctors().subscribe(
       data => {
-        console.log(data);
         this.randomizeDoctors(data);
       },
       error => {
