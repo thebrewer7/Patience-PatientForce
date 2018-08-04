@@ -24,9 +24,10 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get() {
-		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass);
-		if(q.list().isEmpty()) return null;
-		else return (List<T>) q.list();
+		Query q = HibernateUtil.getSession().createQuery("FROM ?");
+		q.setParameter(0, tClass);
+		List<T> list = q.list();
+		return (list.isEmpty()) ? null : list;
 	}
 
 	/**
@@ -38,17 +39,19 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get(String columnName, String value) {
-		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE " + columnName + " = '" + value + "'");
-		
-		if(q.list().isEmpty()) return null;
-		else return (List<T>) q.list();
+		Query q = HibernateUtil.getSession().createQuery("FROM ? WHERE ? = ?'");
+		q.setParameter(0, tClass);
+		q.setParameter(1, columnName);
+		q.setParameter(2, value);
+		List<T> list = q.list();
+		return (list.isEmpty()) ? null : list;
 	}
 
 	@SuppressWarnings("unchecked")
 	public T getRoleByUserPass(Integer userpass_id) {
-		Query q = HibernateUtil.getSession()
-				.createQuery("FROM " + tClass + " WHERE userpass_id = '" + userpass_id + "'");
-		
+		Query q = HibernateUtil.getSession().createQuery("FROM ? WHERE userpass_id = ?");
+		q.setParameter(0, tClass);
+		q.setParameter(1, userpass_id);
 		return (T) q.uniqueResult();
 	}
 
@@ -61,8 +64,9 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T get(Integer id) {
-		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE id = " + id.toString());
-		
+		Query q = HibernateUtil.getSession().createQuery("FROM ? WHERE id = ?");
+		q.setParameter(0, tClass);
+		q.setParameter(1, id.toString());
 		return (T) q.uniqueResult();
 	}
 

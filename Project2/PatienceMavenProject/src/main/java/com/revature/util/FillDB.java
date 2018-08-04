@@ -1,8 +1,5 @@
 package com.revature.util;
 
-import java.util.function.Function;
-
-import com.revature.beans.Admin;
 import com.revature.beans.SuperBean;
 import com.revature.rnd.Generator;
 import com.revature.services.AdminService;
