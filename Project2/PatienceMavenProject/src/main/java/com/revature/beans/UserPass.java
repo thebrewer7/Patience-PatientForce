@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * Represents a username and password combo as well as an associated role string for easy database lookup.
  * @author Austin
@@ -19,6 +21,7 @@ public class UserPass {
 	private Integer id;
 
 	private String username;
+	@JsonIgnore
 	private String password;
 	private String role;
 
