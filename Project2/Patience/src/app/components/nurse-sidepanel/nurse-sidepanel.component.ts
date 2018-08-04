@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Nurse } from '../../objects/nurse';
 import { NurseService } from '../../services/nurse/nurse.service';
+import { Patient } from '../../objects/patient';
 
 @Component({
   selector: 'app-nurse-sidepanel',
@@ -11,24 +12,19 @@ export class NurseSidepanelComponent implements OnInit {
   // mock data to simulate pulling from backend
 
   newNurses = [];
-  patientsNurses = [];
+  patientsNurses: Nurse[];
 
-  constructor(private ns: NurseService) { }
+  constructor(private ns: NurseService) {}
 
   ngOnInit() {
     this.getAllNurses();
   }
 
-  getAllNurses()
-  {
+  getAllNurses() {
     this.ns.getNurses().subscribe(
       data => {
         console.log(data);
-        for ( var d in data )
-        {
-          this.patientsNurses[d] = data[d];
-          //console.log(data[d]);
-        }
+        this.patientsNurses = data;
       },
       error => {
         console.log('ERROR', error);
@@ -36,23 +32,17 @@ export class NurseSidepanelComponent implements OnInit {
     );
   }
 
-  randomizeNurses(nurses: Nurse[])
-  {
+  randomizeNurses(nurses: Nurse[]) {
     var i = 0;
     var random = 0;
     var randomList = [];
-    for (i = 0; i < 5; i++)
-    {
+    for (i = 0; i < 5; i++) {
       random = Math.ceil(Math.random() * 10 - 1);
-      if ( !randomList.includes(random) )
-      {
+      if (!randomList.includes(random)) {
         randomList[i] = random;
         this.newNurses[i] = nurses[random];
-      }
-      else
-      {
-        while ( randomList.includes(random) )
-        {
+      } else {
+        while (randomList.includes(random)) {
           random = Math.ceil(Math.random() * 10 - 1);
         }
         randomList[i] = random;
@@ -73,4 +63,3 @@ export class NurseSidepanelComponent implements OnInit {
     return stars;
   }
 }
-

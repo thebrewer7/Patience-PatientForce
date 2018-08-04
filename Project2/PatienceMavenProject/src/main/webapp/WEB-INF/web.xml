@@ -173,8 +173,17 @@
     <servlet-name>GetHistoryServlet</servlet-name>
     <servlet-class>com.revature.servlets.getters.GetHistoryServlet</servlet-class>
   </servlet>
+
   <servlet-mapping>
     <servlet-name>GetHistoryServlet</servlet-name>
     <url-pattern>/GetHistoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>GetProfileServlet</servlet-name>
+    <servlet-class>com.revature.servlets.getters.GetProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetProfileServlet</servlet-name>
+    <url-pattern>/GetProfileServlet</url-pattern>
   </servlet-mapping>
 </web-app>
