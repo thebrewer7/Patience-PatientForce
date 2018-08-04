@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-  userpassid: number;
+  username: string;
 
   public data: Details;
 
@@ -25,7 +25,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.userpassid = parseInt(params.get('userpassid'), 10);
+      this.username = params.get('username');
     });
   }
 

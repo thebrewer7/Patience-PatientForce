@@ -14,28 +14,23 @@ export class UserPageComponent implements OnInit {
   constructor(private us: UserService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') === '' )
-    {
+    if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
+    } else if ( localStorage.getItem('role') !== 'user' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
+    }else {
+      this.fetchUserPatientsByUserName();
     }
-    else if ( localStorage.getItem('role') != 'doctor' )
-    {
-      var redirect = localStorage.getItem('role');
-      this.router.navigate(['/'+ redirect + 'page']);
-    }
-    console.log(localStorage.getItem('userpassid'));
-    console.log(localStorage.getItem('role'));
-    this.fetchUserPatientsByUserName();
   }
 
   public fetchUserPatientsByUserName() {
+    var username = localStorage.getItem('username');
+    console.log("username in fetchuserpatientsbyusername: " + username);
 
-    this.us.getPatients().subscribe(
+    this.us.getPatients(username).subscribe(
       data => {
-        for ( var d in data )
-        {
-          this.patientsUsers[d] = data[d];
-         }
+        this.patientsUsers = data;
       },
       error => {
         console.log('ERROR', error);

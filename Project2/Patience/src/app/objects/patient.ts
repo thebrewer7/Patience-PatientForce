@@ -1,6 +1,7 @@
 import { Nurse } from './nurse';
 import { Doctor } from './doctor';
 import { User } from './user';
+import { UserPass } from './userpass';
 
 export class Patient {
   id: number;
@@ -14,4 +15,5 @@ export class Patient {
   doctors: Doctor[];
   users: User[];
   locked: boolean;
+  userPass: UserPass;
 }

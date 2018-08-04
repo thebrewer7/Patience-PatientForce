@@ -65,8 +65,8 @@ public class GetReviewsServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 
-		out.println(ObjectToJSONService.ReviewsToJSON(reviews)); 
-		logger.info("FetchReviewServlet returned JSON: " + reviews);
+		out.println(ObjectToJSONService.ReviewsToJSON(reviews));
+		logger.info("getreviewsservlet returned a list of reviews");
 	}
 
 	/**
