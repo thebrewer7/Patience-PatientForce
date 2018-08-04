@@ -9,9 +9,6 @@ import { Patient } from '../../objects/patient';
   styleUrls: ['./nurse-sidepanel.component.css']
 })
 export class NurseSidepanelComponent implements OnInit {
-  // mock data to simulate pulling from backend
-
-  newNurses = [];
   patientsNurses: Nurse[];
 
   constructor(private ns: NurseService) {}
@@ -24,7 +21,7 @@ export class NurseSidepanelComponent implements OnInit {
     this.ns.getNurses().subscribe(
       data => {
         console.log(data);
-        this.patientsNurses = this.randomizeNurses(data);
+        this.randomizeNurses(data);
       },
       error => {
         console.log('ERROR', error);
@@ -35,7 +32,6 @@ export class NurseSidepanelComponent implements OnInit {
   randomizeNurses(nurses: Nurse[]) {
     let i = 0;
     let random = 0;
-    let randomList: Nurse[];
     // shuffle the nurses
     for (i = 0; i < nurses.length; i++) {
       random = Math.ceil(Math.random() * nurses.length - 1);
@@ -44,13 +40,12 @@ export class NurseSidepanelComponent implements OnInit {
       nurses[random] = temp;
     }
     // take first 5
-    if (nurses.length < 5) {
-      return nurses;
+    if (nurses.length <= 5) {
+      this.patientsNurses = nurses;
     } else {
       for (i = 0; i < 5; ++i) {
-        randomList.push(nurses[i]);
+        this.patientsNurses.push(nurses[i]);
       }
-      return randomList;
     }
   }
 
