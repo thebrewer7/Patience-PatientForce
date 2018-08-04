@@ -41,7 +41,7 @@ public class GetDoctorsServlet extends HttpServlet {
 		dl = ds.getAll();
 		
 		out.println(ObjectToJSONService.doctorsToJSON(dl));
-		logger.info("GetDoctors returned JSON: " + ObjectToJSONService.doctorsToJSON(dl));
+		logger.info("getdoctors return a list of doctors");
 	}
 
 	/**

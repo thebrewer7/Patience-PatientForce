@@ -11,6 +11,6 @@ export class RegistrationService {
   register(username: string, password: string, passwordconfirm: string) {
     console.log('RegistrationService: register()');
     const params = new HttpParams().set('username', username).set('password', password);
-    return this.http.post<User>('http://localhost:8085/PatienceMavenProject/register.do', params);
+    return this.http.post<User>('http://18.205.153.39:8085/PatienceMavenProject/register.do', params);
   }
 }

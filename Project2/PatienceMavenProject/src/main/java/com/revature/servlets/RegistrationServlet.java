@@ -53,7 +53,7 @@ public class RegistrationServlet extends HttpServlet {
             response.addCookie(new Cookie("username", username));
             response.addCookie(new Cookie("role", "user"));
             String json = ObjectToJSONService.UserAccountToJSON(user);
-            logger.info(json);
+            logger.info("registrationservlet returned a useraccount");
             writer.println(json);
         }
     }

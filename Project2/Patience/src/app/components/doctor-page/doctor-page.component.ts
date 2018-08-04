@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../../node_modules/@angular/router';
 import { DoctorService } from '../../services/doctor/doctor.service';
+import { Patient } from '../../objects/patient';
 
 @Component({
   selector: 'app-doctor-page',
@@ -9,33 +10,25 @@ import { DoctorService } from '../../services/doctor/doctor.service';
 })
 export class DoctorPageComponent implements OnInit {
 
-  doctorsPatients = []
+  doctorsPatients: Patient[];
 
   constructor(private ds: DoctorService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') == 'null' )
-    {
+    if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
+    } else if ( localStorage.getItem('role') !== 'doctor' && localStorage.getItem('role') !== 'nurse' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      this.getAllDoctorsPatients();
     }
-    else if ( localStorage.getItem('role') != 'doctor' )
-    {
-      var redirect = localStorage.getItem('role');
-      this.router.navigate(['/'+ redirect + 'page']);
-    }
-    this.getAllDoctorsPatients();
-
   }
 
-  getAllDoctorsPatients()
-  {
+  getAllDoctorsPatients() {
     this.ds.getPatients().subscribe(
       data => {
-        //console.log(data);
-        for ( var d in data )
-        {
-          this.doctorsPatients[d] = data[d];
-        }
+        this.doctorsPatients = data;
       },
       error => {
         console.log('ERROR', error);

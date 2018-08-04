@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Patient;
+import com.revature.beans.UserAccount;
+import com.revature.beans.UserPass;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
+import com.revature.services.UserPassService;
+import com.revature.services.UserService;
 
 /**
  * Servlet implementation class getUsersPatientsServlet
@@ -34,14 +38,19 @@ public class getUsersPatientsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
+		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
+		UserService us = new UserService();
+		UserPassService ups = new UserPassService();
 		PatientService ps = new PatientService();
-		List<Patient> pl;
 		
-		pl = ps.getAll();
+		UserPass up = ups.getByUsername(username);
+		UserAccount ua = us.getByUserPass(up.getId());
+		List<Patient> pl = ps.getByUser(ua.getId());
+		//pl = ua.patients;
 		
 		out.println(ObjectToJSONService.patientsToJSON(pl));
-		logger.info("getUsersPatientsServlet returned JSON: " + ObjectToJSONService.patientsToJSON(pl));
+		logger.info("getuserspatientsservlet returned a list of patients");
 	}
 
 	/**

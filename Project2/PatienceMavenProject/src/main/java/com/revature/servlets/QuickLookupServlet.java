@@ -31,6 +31,7 @@ public class QuickLookupServlet extends HttpServlet {
             writer.println(ObjectToJSONService.PatientToJSON(patients.get(0)));
         } else {
             writer.println("{ \"status\": \"search failure\", \"message:\": \"No patient by username\" }");
+            logger.info("QuickLookup failed to find that patient by that name");
         }
 
     }

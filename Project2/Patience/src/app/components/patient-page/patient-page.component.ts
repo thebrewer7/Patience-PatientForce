@@ -9,37 +9,36 @@ import { Router } from '../../../../node_modules/@angular/router';
 })
 export class PatientPageComponent implements OnInit {
 
-  allHistories = [];
+  allHistories: History[];
+  username: string;
 
   constructor(private hs: HistoryService, private router: Router) { }
 
   ngOnInit() {
-    if ( localStorage.getItem('role') == 'null' )
-    {
+    if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
+    } else if ( localStorage.getItem('role') !== 'patient' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      this.getHistory();
     }
-    else if ( localStorage.getItem('role') != 'doctor' )
-    {
-      var redirect = localStorage.getItem('role');
-      this.router.navigate(['/'+ redirect + 'page']);
-    }
-    this.getHistory();
   }
 
-  getHistory()
-  {
-    this.hs.getHistory().subscribe(
+  getHistory() {
+    this.username = localStorage.getItem('username');
+    console.log("===================patientpage getHistory()===============")
+    console.log("username: " + this.username);
+
+    this.hs.getHistory(this.username).subscribe(
       data => {
+        console.log("===================data inside patientpage getHistory()================");
         console.log(data);
-        for ( var d in data )
-        {
-          this.allHistories[d] = data[d];
-          console.log("HISTORY: " + JSON.stringify(this.allHistories[d]));
-        }
-        
+        console.log("==================================================");
+        this.allHistories = data;
       },
       error => {
-        console.log("ERROR", error);
+        console.log('ERROR', error);
       }
   );
   }

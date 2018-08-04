@@ -15,6 +15,6 @@ export class DoctoreditinfoService {
       .set('patientlocation', patientlocation)
       .set('patientstatus', patientstatus);
 
-    return this.http.post('http://34.205.71.228:8085/PatienceMavenProject/editDoctorsPatient.do', params);
+    return this.http.post('http://18.205.153.39:8085/PatienceMavenProject/editDoctorsPatient.do', params);
   }
 }

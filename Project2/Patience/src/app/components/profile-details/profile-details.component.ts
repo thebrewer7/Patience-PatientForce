@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./profile-details.component.css']
 })
 export class ProfileDetailsComponent implements OnInit {
-  userpassid: number;
+  username: string;
 
   public data: Details;
   @Output() dataEvent = new EventEmitter<Details>();
@@ -26,7 +26,7 @@ export class ProfileDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.userpassid = parseInt(params.get('userpassid'));
+      this.username = params.get('username');
     });
     this.getDetails();
     this.userData.currentData.subscribe(data => this.data = data);
@@ -36,12 +36,24 @@ export class ProfileDetailsComponent implements OnInit {
   getDetails() {
     console.log('ProfileDetailsComponent: getDetails()');
     // send email, username and password to register servlet
-    this.profileDetailsService.getDetails(this.userpassid).subscribe (
+    this.profileDetailsService.getDetails(this.username).subscribe (
       DATA => {
         console.log(DATA);
         this.data = DATA;
       },
       FAIL => { console.log(FAIL); }
     );
+  }
+
+  ratingToStars(rating: number) {
+    let stars = '';
+    for (let i = 0; i < 5; ++i) {
+      if (i < rating) {
+        stars = stars + '\u2605';
+      } else {
+        stars = stars + '\u2606';
+      }
+    }
+    return stars;
   }
 }
