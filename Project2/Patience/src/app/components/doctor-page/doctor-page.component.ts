@@ -20,17 +20,14 @@ export class DoctorPageComponent implements OnInit {
     } else if ( localStorage.getItem('role') !== 'doctor' && localStorage.getItem('role') !== 'nurse' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      this.getAllDoctorsPatients();
     }
-    this.getAllDoctorsPatients();
-
   }
 
   getAllDoctorsPatients() {
     this.ds.getPatients().subscribe(
       data => {
-        console.log("==============doctorpage.ts getAllDoctorsPatients() data================");
-        console.log(data);
-        console.log("==========================================================");  
         this.doctorsPatients = data;
       },
       error => {

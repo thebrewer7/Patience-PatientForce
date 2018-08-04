@@ -20,8 +20,6 @@ export class UserPageComponent implements OnInit {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
     }
-    console.log(localStorage.getItem('username'));
-    console.log(localStorage.getItem('role'));
     this.fetchUserPatientsByUserName();
   }
 

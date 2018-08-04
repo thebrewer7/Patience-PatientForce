@@ -23,22 +23,18 @@ export class AdminPageComponent implements OnInit {
     } else if ( localStorage.getItem('role') !== 'admin' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
+    } else {
+      this.getAllAccounts();
     }
-    this.getAllAccounts();
   }
 
   getAllAccounts() {
-    //console.log("IN GETALLACCOUNTS");
     this.as.getAllAdminAccounts().subscribe(
       data => {
-        //console.log("DATA: " + JSON.stringify(data));
         for ( var d in data )
         {
           this.allaccounts[d] = data[d];
-          //console.log(data[d]);
         }
-        //console.log("AMOUNTOFACCOUNTS: " + d);
-        //console.log("allaccouts after");
       },
       error => {
         console.log('ERROR', error);

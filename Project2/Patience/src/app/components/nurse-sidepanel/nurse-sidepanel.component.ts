@@ -20,7 +20,6 @@ export class NurseSidepanelComponent implements OnInit {
   getAllNurses() {
     this.ns.getNurses().subscribe(
       data => {
-        console.log(data);
         this.randomizeNurses(data);
       },
       error => {
