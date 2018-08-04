@@ -8,27 +8,20 @@ import { DoctorService } from '../../services/doctor/doctor.service';
   styleUrls: ['./doctor-sidepanel.component.css']
 })
 export class DoctorSidepanelComponent implements OnInit {
-  // mock data to simulate pulling from backend
-  newDoctors = [];
   patientsDoctors = [];
-  patientsNurses = [];
 
   constructor(private ds: DoctorService) { }
 
   ngOnInit() {
-    this.getAllDoctors();
+    if (localStorage.getItem('role') !== '') {
+      this.getAllDoctors();
+    }
   }
 
-  getAllDoctors()
-  {
+  getAllDoctors() {
     this.ds.getDoctors().subscribe(
       data => {
-        //console.log(data);
-        for ( var d in data )
-        {
-          this.patientsDoctors[d] = data[d];
-          //console.log(data[d]);
-        }
+        this.randomizeDoctors(data);
       },
       error => {
         console.log('ERROR', error);
@@ -36,27 +29,22 @@ export class DoctorSidepanelComponent implements OnInit {
     );
   }
 
-  randomizeDoctors(doctors: Doctor[])
-  {
-    var i = 0;
-    var random = 0;
-    var randomList = [];
-    for (i = 0; i < 5; i++)
-    {
-      random = Math.ceil(Math.random() * 10 - 1);
-      if ( !randomList.includes(random) )
-      {
-        randomList[i] = random;
-        this.newDoctors[i] = doctors[random];
-      }
-      else
-      {
-        while ( randomList.includes(random) )
-        {
-          random = Math.ceil(Math.random() * 10 - 1);
-        }
-        randomList[i] = random;
-        this.newDoctors[i] = doctors[random];
+  randomizeDoctors(doctors: Doctor[]) {
+    let i = 0;
+    let random = 0;
+    // shuffle the doctors
+    for (i = 0; i < doctors.length; i++) {
+      random = Math.ceil(Math.random() * doctors.length - 1);
+      const temp = doctors[i];
+      doctors[i] = doctors[random];
+      doctors[random] = temp;
+    }
+    // take first 5
+    if (doctors.length <= 5) {
+      this.patientsDoctors = doctors;
+    } else {
+      for (i = 0; i < 5; ++i) {
+        this.patientsDoctors.push(doctors[i]);
       }
     }
   }

@@ -10,6 +10,8 @@ import { Router } from '../../../../node_modules/@angular/router';
 })
 export class NurseDoctorEditInfoComponent implements OnInit {
 
+  patientlocation: string;
+  patientstatus: string;
   patientid: number;
 
   constructor(private route: ActivatedRoute, private deis: DoctoreditinfoService, private router: Router) { }
@@ -17,16 +19,32 @@ export class NurseDoctorEditInfoComponent implements OnInit {
   doctorsPatients = [];
 
   ngOnInit() {
+    console.log("localstorage role: " + localStorage.getItem("role"));
+    if ( localStorage.getItem('role') === '' ) {
+      this.router.navigate(['/login']);
+    } else if ( localStorage.getItem('role') !== 'doctor' && localStorage.getItem('role') !== 'nurse' ) {
+      const redirect = localStorage.getItem('role');
+      this.router.navigate(['/' + redirect + 'page']);
+    }
+
     this.route.paramMap.subscribe(params => {
       this.patientid = parseInt(params.get('patientid'));
     });
+    console.log("patientid: " + this.patientid);
   }
 
-  public editPatientInfo(patientid,patientlocation,patientstatus)
+  public editPatientInfo()
   {
-    this.deis.editPatient(patientid,patientlocation,patientstatus).subscribe(
+
+    console.log("patientid in editPatientInfo: " + this.patientid);
+    console.log("patientlocation in editPatientInfo: "  + this.patientlocation);
+    console.log("patientstatus in editPatientInfo: " + this.patientstatus);
+
+    this.deis.editPatient(this.patientid,this.patientlocation,this.patientstatus).subscribe(
       data => {
+        console.log("=====================data received==================");
         console.log(data);
+        console.log("==============================================")
         this.router.navigate(['/doctorpage']);
       },
       error => {

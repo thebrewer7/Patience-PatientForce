@@ -17,11 +17,8 @@ import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.doctor.DoctorService;
-<<<<<<< HEAD:Project2/PatienceMavenProject/src/main/java/com/revature/servlets/FetchReviewServlet.java
 import com.revature.services.nurse.NurseService;
-=======
 import com.revature.servlets.FrontController;
->>>>>>> Development:Project2/PatienceMavenProject/src/main/java/com/revature/servlets/getters/GetReviewsServlet.java
 
 /**
  * Servlet implementation class FetchReviewServlet
@@ -68,8 +65,8 @@ public class GetReviewsServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 
-		out.println(ObjectToJSONService.ReviewsToJSON(reviews)); 
-		logger.info("FetchReviewServlet returned JSON: " + reviews);
+		out.println(ObjectToJSONService.ReviewsToJSON(reviews));
+		logger.info("getreviewsservlet returned a list of reviews");
 	}
 
 	/**

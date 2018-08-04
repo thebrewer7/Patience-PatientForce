@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login/login.service';
 import { RegistrationService } from '../../services/registration/registration.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '../../../../node_modules/@angular/router';
+import { RegistrationValidator } from './register.validator';
+
 
 declare var $: any;
 @Component({
@@ -18,7 +20,29 @@ export class LoginComponent implements OnInit {
   register_password = '';
   password_confirm = '';
 
-  constructor(private loginService: LoginService, private registrationService: RegistrationService, private router: Router, public cookieService: CookieService) {}//
+  loginFormGroup: FormGroup;
+  registrationFormGroup: FormGroup;
+  registrationPasswordFormGroup: FormGroup;
+
+  constructor(private loginService: LoginService, private registrationService: RegistrationService, private router: Router, public cookieService: CookieService, private formBuilder: FormBuilder) {
+    this.registrationPasswordFormGroup = this.formBuilder.group({
+      password: ['', Validators.required],
+      passwordconfirm: ['', Validators.required]
+    },
+    {
+      validator: RegistrationValidator.validate.bind(this)
+    });
+
+    this.registrationFormGroup = this.formBuilder.group({
+      username: ['', Validators.required],
+      registrationPasswordFormGroup: this.registrationPasswordFormGroup
+    });
+
+    this.loginFormGroup = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
   ngOnInit() {
     $(document).ready(function() {
@@ -49,10 +73,8 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.login_username, this.login_password).subscribe(
       DATA => {
         // this.cookieService.set('data', DATA);
-        localStorage.setItem('userpassid', DATA['userpassid']);
+        localStorage.setItem('username', DATA['username']);
         localStorage.setItem('role', DATA['role']);
-        console.log(localStorage.getItem('role'));
-        console.log(localStorage.getItem('userpassid'));
         switch (DATA['role']) {
           case 'admin':
             this.router.navigate(['/adminpage']);
@@ -72,7 +94,6 @@ export class LoginComponent implements OnInit {
           default:
             this.router.navigate(['/login']);
         }
-        console.log(DATA);
       },
       ERROR => {
         console.log(ERROR + ' Error: login failed');
@@ -84,8 +105,9 @@ export class LoginComponent implements OnInit {
     console.log('LoginComponent: register()');
     // send email, username and password to register servlet
     this.registrationService.register(this.register_username, this.register_password, this.password_confirm).subscribe (
-      PASS => {
-        console.log(PASS);
+      DATA => {
+        localStorage.setItem('username', DATA['username']);
+        localStorage.setItem('role', DATA['role']);
         this.router.navigate(['/userpage']);
       },
       FAIL => { console.log(FAIL); }

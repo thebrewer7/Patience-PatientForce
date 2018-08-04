@@ -9,22 +9,20 @@ import { Patient } from '../../objects/patient';
   styleUrls: ['./nurse-sidepanel.component.css']
 })
 export class NurseSidepanelComponent implements OnInit {
-  // mock data to simulate pulling from backend
-
-  newNurses = [];
   patientsNurses: Nurse[];
 
   constructor(private ns: NurseService) {}
 
   ngOnInit() {
-    this.getAllNurses();
+    if (localStorage.getItem('role') !== '') {
+      this.getAllNurses();
+    }
   }
 
   getAllNurses() {
     this.ns.getNurses().subscribe(
       data => {
-        console.log(data);
-        this.patientsNurses = data;
+        this.randomizeNurses(data);
       },
       error => {
         console.log('ERROR', error);
@@ -33,20 +31,21 @@ export class NurseSidepanelComponent implements OnInit {
   }
 
   randomizeNurses(nurses: Nurse[]) {
-    var i = 0;
-    var random = 0;
-    var randomList = [];
-    for (i = 0; i < 5; i++) {
-      random = Math.ceil(Math.random() * 10 - 1);
-      if (!randomList.includes(random)) {
-        randomList[i] = random;
-        this.newNurses[i] = nurses[random];
-      } else {
-        while (randomList.includes(random)) {
-          random = Math.ceil(Math.random() * 10 - 1);
-        }
-        randomList[i] = random;
-        this.newNurses[i] = nurses[random];
+    let i = 0;
+    let random = 0;
+    // shuffle the nurses
+    for (i = 0; i < nurses.length; i++) {
+      random = Math.ceil(Math.random() * nurses.length - 1);
+      const temp = nurses[i];
+      nurses[i] = nurses[random];
+      nurses[random] = temp;
+    }
+    // take first 5
+    if (nurses.length <= 5) {
+      this.patientsNurses = nurses;
+    } else {
+      for (i = 0; i < 5; ++i) {
+        this.patientsNurses.push(nurses[i]);
       }
     }
   }

@@ -42,7 +42,7 @@ public class GetAllDoctorsPatientsServlet extends HttpServlet {
 		//System.out.println("PL: " + pl);
 		
 		out.println(ObjectToJSONService.doctorsPatientsToJSON(pl));
-		logger.info("GetAllDoctorsPatients returned JSON: " + ObjectToJSONService.doctorsPatientsToJSON(pl));
+		logger.info("getalldoctorspatients return a list of patients");
 	}
 
 	/**

@@ -41,7 +41,7 @@ public class GetHistoryServlet extends HttpServlet {
 		hl = hs.getAll();
 		
 		out.println(ObjectToJSONService.historyToJSON(hl));
-		logger.info("GetHistory returned JSON: " + ObjectToJSONService.historyToJSON(hl));
+		logger.info("gethistory returned a list of histories");
 	}
 
 	/**
