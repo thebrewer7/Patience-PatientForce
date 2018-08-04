@@ -1,4 +1,5 @@
 import { Patient } from './patient';
+import { UserPass } from './userpass';
 
 export class User {
   id: number;
@@ -7,4 +8,5 @@ export class User {
   lastLoggedIn: String;
   patients: Patient[];
   locked: boolean;
+  userPass: UserPass;
 }
