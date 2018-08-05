@@ -51,4 +51,10 @@ public class DocCerts {
 	public void setCert(String cert) {
 		this.cert = cert;
 	}
+
+	@Override
+	public String toString() {
+		return "DocCerts [id=" + id + ", cert=" + cert + "]";
+	}
+	
 }

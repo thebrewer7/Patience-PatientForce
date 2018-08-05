@@ -55,7 +55,6 @@ public class getUsersPatientsServlet extends HttpServlet {
 		logger.info("getuserspatientsservlet returned a list of patients");
 		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

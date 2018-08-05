@@ -31,4 +31,9 @@ public class NurseCerts {
 		this.cert = cert;
 	}
 
+	@Override
+	public String toString() {
+		return "NurseCerts [id=" + id + ", cert=" + cert + "]";
+	}
+
 }

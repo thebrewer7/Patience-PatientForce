@@ -51,4 +51,10 @@ public class DocDegree {
 	public void setDegree(String degree) {
 		this.degree = degree;
 	}
+
+	@Override
+	public String toString() {
+		return "DocDegree [id=" + id + ", degree=" + degree + "]";
+	}
+	
 }
