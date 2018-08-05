@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from '../../services/history/history.service';
 import { Router } from '../../../../node_modules/@angular/router';
-
+import { History } from '../../objects/history';
 @Component({
   selector: 'app-patient-page',
   templateUrl: './patient-page.component.html',
@@ -44,7 +44,7 @@ export class PatientPageComponent implements OnInit {
         //   this.allHistories[d]['height'] = data[d]['height'];
         //   this.allHistories[d]['bloodPressureCondition'] = data[d]['bloodPressureCondition'];
         // }
-        
+
         console.log(this.allHistories);
         console.log("=======================================================");
       },

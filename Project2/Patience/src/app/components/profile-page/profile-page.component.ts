@@ -29,10 +29,10 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
-  // receiveData($event) {
-  //   this.data = $event;
-  //   this.fetchReviews();
-  // }
+  receiveData($event) {
+    this.data = $event;
+    //this.fetchReviews();
+  }
 
   public ratingToStars(rating: number) {
     let stars = '';
