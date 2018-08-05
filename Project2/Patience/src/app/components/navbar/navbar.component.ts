@@ -32,13 +32,13 @@ export class NavbarComponent implements OnInit {
 
   checkIfLoggedIn()
   {
-    console.log("getusername: " + this.getUsername);
-    if ( this.getUsername() != '' || this.getUsername() != null )
+    console.log("getusername: " + this.getUsername());
+    if ( this.getUsername() == '' || this.getUsername() == null )
     {
-      this.dropdownDisabled = false;
+      this.dropdownDisabled = true;
       return;
     }
-    this.dropdownDisabled = true;
+    this.dropdownDisabled = false;
   }
 
   public fetchSearchFill() {
@@ -78,7 +78,7 @@ export class NavbarComponent implements OnInit {
     this.toggleDropdown();
     console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
-    this.dropdownDisabled = false;
+    //this.dropdownDisabled = false;
     this.router.navigate(['profile']);
   }
 
@@ -88,7 +88,7 @@ export class NavbarComponent implements OnInit {
       data => {
         this.dataServ.changeData(data);
         if (data != null) {
-          this.dropdownDisabled = false;
+          //this.dropdownDisabled = false;
           this.router.navigate(['profile', data.userPass.username]);
         }
       },
