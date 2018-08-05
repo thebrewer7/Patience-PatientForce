@@ -46,7 +46,7 @@ public class GetHistoryServlet extends HttpServlet {
 		History history = new History();
         UserPass userPass = new UserPass();
         Patient patient = new Patient();        
-        userPass = new UserPassService().getByUsername("cellulating");
+        userPass = new UserPassService().getByUsername(username);
         patient = new PatientService().getByUserPass(userPass.getId());
         history = new HistoryService().getById(patient.getId());
 		
