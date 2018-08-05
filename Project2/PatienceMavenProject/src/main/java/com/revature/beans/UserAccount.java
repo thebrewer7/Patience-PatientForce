@@ -120,4 +120,9 @@ public class UserAccount {
 		this.lastLogin = lastLogin;
 	}
 
+	@Override
+	public String toString() {
+		return "UserAccount [id=" + id + ", patients=" + patients + ", name=" + name + ", lastLogin=" + lastLogin + "]";
+	}
+
 }

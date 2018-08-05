@@ -36,4 +36,9 @@ public class Vaccination {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "Vaccination [id=" + id + ", vaccination=" + vaccination + "]";
+	}
+
 }

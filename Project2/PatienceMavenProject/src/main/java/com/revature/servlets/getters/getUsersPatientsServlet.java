@@ -2,6 +2,7 @@ package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -40,16 +41,16 @@ public class getUsersPatientsServlet extends HttpServlet {
 		response.setContentType("text");
 		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
-		UserService us = new UserService();
-		UserPassService ups = new UserPassService();
-		PatientService ps = new PatientService();
 		
-		UserPass up = ups.getByUsername(username);
-		UserAccount ua = us.getByUserPass(up.getId());
-		List<Patient> pl = ps.getByUser(ua.getId());
-		//pl = ua.patients;
+		UserPass userPass = new UserPass();
+		UserAccount user = new UserAccount();
+		List<Patient> patients = new ArrayList<>();
 		
-		out.println(ObjectToJSONService.patientsToJSON(pl));
+		userPass = new UserPassService().getByUsername(username);
+		user = new UserService().getByUserPass(userPass.getId());
+		patients = user.patients;
+		
+		out.println(ObjectToJSONService.patientsToJSON(patients));
 		logger.info("getuserspatientsservlet returned a list of patients");
 	}
 

@@ -77,4 +77,10 @@ public class DocBackground {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "DocBackground [id=" + id + ", certifications=" + certifications + ", degrees=" + degrees
+				+ ", experience=" + experience + "]";
+	}
+
 }

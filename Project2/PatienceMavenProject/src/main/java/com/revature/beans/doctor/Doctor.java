@@ -176,5 +176,13 @@ public class Doctor {
 	public String getROLE() {
 		return ROLE;
 	}
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", background=" + background + ", userPass=" + userPass + ", patients=" + patients
+				+ ", rating=" + rating + ", name=" + name + ", department=" + department + "]";
+	}
+
+	
+	 
 
 }

@@ -24,7 +24,6 @@ public class GenericDaoImpl<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> get() {
 		Session session = getCurrentOrNewSession();
-
 		
 		List<T> list = session.createQuery("FROM " + tClass).list();
 

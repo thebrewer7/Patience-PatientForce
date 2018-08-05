@@ -52,4 +52,10 @@ public class DocExperience {
 	public void setExperience(String experience) {
 		this.experience = experience;
 	}
+
+	@Override
+	public String toString() {
+		return "DocExperience [id=" + id + ", experience=" + experience + "]";
+	}
+	
 }

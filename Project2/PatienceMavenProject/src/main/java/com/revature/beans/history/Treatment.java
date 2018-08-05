@@ -36,4 +36,9 @@ public class Treatment {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "Treatment [id=" + id + ", treatment=" + treatment + "]";
+	}
+
 }
