@@ -2,6 +2,7 @@ package com.revature.servlets.getters;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,6 +15,8 @@ import org.apache.log4j.Logger;
 import com.revature.beans.Patient;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
+import com.revature.beans.history.History;
+import com.revature.services.HistoryService;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 import com.revature.services.UserPassService;
@@ -40,17 +43,17 @@ public class getUsersPatientsServlet extends HttpServlet {
 		response.setContentType("text");
 		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
-		UserService us = new UserService();
-		UserPassService ups = new UserPassService();
-		PatientService ps = new PatientService();
 		
-		UserPass up = ups.getByUsername(username);
-		UserAccount ua = us.getByUserPass(up.getId());
-		List<Patient> pl = ps.getByUser(ua.getId());
-		//pl = ua.patients;
+		List<Patient> patientList = new ArrayList<Patient>();
+		UserPass userPass = new UserPass();
+		UserAccount user = new UserAccount();
+		userPass = new UserPassService().getByUsername(username);
+		user = new UserService().getByUserPass(userPass.getId());
+		patientList = user.patients;
 		
-		out.println(ObjectToJSONService.patientsToJSON(pl));
+		out.println(ObjectToJSONService.patientsToJSON(patientList));
 		logger.info("getuserspatientsservlet returned a list of patients");
+		
 	}
 
 	/**
