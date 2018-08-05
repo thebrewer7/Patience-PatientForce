@@ -13,10 +13,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let history of allHistories">
-                <td id="historyage">{{history.age}}</td>
-                <td id="historyweight">{{history.weight}}</td>
-                <td id="historyheight">{{history.height}}</td>
-                <td id="historybpcondition">{{history.bloodPressureCondition}}</td>
+                <td id="historyage">{{history[0].age}}</td>
+                <td id="historyweight">{{history[0].weight}}</td>
+                <td id="historyheight">{{history[0].height}}</td>
+                <td id="historybpcondition">{{history[0].bloodPressureCondition}}</td>
               </tr>
         </tbody>
       </table>
