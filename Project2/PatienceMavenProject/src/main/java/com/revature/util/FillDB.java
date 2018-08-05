@@ -11,7 +11,7 @@ import com.revature.services.nurse.NurseService;
 public class FillDB {
 	public static Boolean fill(int quantity) {
 		SuperBean data = Generator.generateAll(quantity);
-		
+
 		try {
 		data.getAdmins().forEach(new AdminService()::saveOrUpdate);
 		data.getPatients().forEach(new PatientService()::saveOrUpdate);

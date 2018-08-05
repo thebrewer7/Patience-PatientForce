@@ -6,7 +6,6 @@ import java.util.function.BiConsumer;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import com.revature.util.HibernateUtil;
 
@@ -24,9 +23,13 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get() {
-		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass);
-		if(q.list().isEmpty()) return null;
-		else return (List<T>) q.list();
+		Session session = getCurrentOrNewSession();
+
+		
+		List<T> list = session.createQuery("FROM " + tClass).list();
+
+		finishTransaction(session);
+		return (list.isEmpty()) ? null : list;
 	}
 
 	/**
@@ -38,18 +41,24 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get(String columnName, String value) {
-		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE " + columnName + " = '" + value + "'");
+		Session session = getCurrentOrNewSession();
 		
-		if(q.list().isEmpty()) return null;
-		else return (List<T>) q.list();
+		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE " + columnName + " = '" + value + "'");
+		List<T> list = q.list();
+
+		finishTransaction(session);
+		return (list.isEmpty()) ? null : list;
 	}
 
 	@SuppressWarnings("unchecked")
 	public T getRoleByUserPass(Integer userpass_id) {
-		Query q = HibernateUtil.getSession()
-				.createQuery("FROM " + tClass + " WHERE userpass_id = '" + userpass_id + "'");
-		
-		return (T) q.uniqueResult();
+		Session session = getCurrentOrNewSession();
+
+		T result = (T) session.createQuery("FROM " + tClass + " WHERE userpass_id = :id")
+				.setParameter("id", userpass_id).uniqueResult();
+
+		finishTransaction(session);
+		return result;
 	}
 
 	/**
@@ -61,9 +70,12 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T get(Integer id) {
-		Query q = HibernateUtil.getSession().createQuery("FROM " + tClass + " WHERE id = " + id.toString());
-		
-		return (T) q.uniqueResult();
+		Session session = getCurrentOrNewSession();
+
+		T result = (T) session.createQuery("FROM " + tClass + " WHERE id = :id").setInteger("id", id).uniqueResult();
+
+		finishTransaction(session);
+		return result;
 	}
 
 	/**
@@ -81,23 +93,40 @@ public class GenericDaoImpl<T> {
 	}
 
 	private Boolean doTransaction(BiConsumer<T, Session> c, List<T> item) {
-		Session session = HibernateUtil.getSession();
-		Transaction tx = null;
+		Session session = getCurrentOrNewSession();
 
 		try {
-			tx = session.beginTransaction();
 			item.forEach(t -> c.accept(t, session));
-			tx.commit();
+			finishTransaction(session);
 			return true;
 			// At this point, items is persistent
 		} catch (HibernateException | ClassCastException e) {
-			if (tx != null) {
-				tx.rollback();
-			}
+
+			session.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
-			session.close();
+			if (session.isOpen())
+				session.close();
 		}
 		return false;
+	}
+
+	private Session finishTransaction(Session session) {
+		session.getTransaction().commit();
+		if (session.isOpen())
+			session.close();
+		return session;
+	}
+
+	private Session getCurrentOrNewSession() {
+		Session session = null;
+
+		if (HibernateUtil.getSessionFactory().getCurrentSession() != null) {
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+		} else {
+			session = HibernateUtil.getSession();
+		}
+		session.beginTransaction();
+		return session;
 	}
 }

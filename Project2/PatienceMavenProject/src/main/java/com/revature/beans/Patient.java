@@ -4,6 +4,7 @@ import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,16 +32,16 @@ public class Patient {
 	private Integer id;
 
 	@JsonIgnore
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.LAZY)
 	public List<UserAccount> users;
 	@JsonIgnore
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.LAZY)
 	public List<Nurse> nurses;
 	@JsonIgnore
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.LAZY)
 	public List<Doctor> doctors;
 
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	private History history;
 	@OneToOne
 	private UserPass userPass;
@@ -293,9 +294,10 @@ public class Patient {
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", role=" + ROLE + ", location=" + location + ", status="
-				+ status + ", preferredDoctorName=" + preferredDoctorName + ", nurses=" + nurses + ", doctors="
-				+ doctors + ", users=" + users + ", history=" + history + "]";
+		return "Patient [id=" + id + ", history=" + history + ", userPass=" + userPass + ", name=" + name
+				+ ", location=" + location + ", status=" + status + ", condition=" + condition + "]";
 	}
+
+
 
 }

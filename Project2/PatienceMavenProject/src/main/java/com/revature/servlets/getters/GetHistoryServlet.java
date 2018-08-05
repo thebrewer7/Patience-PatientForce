@@ -11,9 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.revature.beans.Patient;
+import com.revature.beans.UserAccount;
+import com.revature.beans.UserPass;
 import com.revature.beans.history.History;
 import com.revature.services.HistoryService;
 import com.revature.services.ObjectToJSONService;
+import com.revature.services.PatientService;
+import com.revature.services.UserPassService;
+import com.revature.services.UserService;
 
 /**
  * Servlet implementation class GetHistoryServlet
@@ -33,15 +39,23 @@ public class GetHistoryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text");
+		response.setContentType("text/json");
+		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
-		HistoryService hs = new HistoryService();
-		List<History> hl;
 		
-		hl = hs.getAll();
+		History history = new History();
+        UserPass userPass = new UserPass();
+        Patient patient = new Patient();        
+        userPass = new UserPassService().getByUsername(username);
+        patient = new PatientService().getByUserPass(userPass.getId());
+        history = new HistoryService().getById(patient.getId());
 		
-		out.println(ObjectToJSONService.historyToJSON(hl));
+		out.println(ObjectToJSONService.oneHistoryToJSON(history));
 		logger.info("gethistory returned a list of histories");
+		
+		
+		
+
 	}
 
 	/**

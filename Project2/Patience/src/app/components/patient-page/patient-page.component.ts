@@ -10,6 +10,7 @@ import { Router } from '../../../../node_modules/@angular/router';
 export class PatientPageComponent implements OnInit {
 
   allHistories: History[];
+  username: string;
 
   constructor(private hs: HistoryService, private router: Router) { }
 
@@ -25,9 +26,18 @@ export class PatientPageComponent implements OnInit {
   }
 
   getHistory() {
-    this.hs.getHistory().subscribe(
+    this.username = localStorage.getItem('username');
+    console.log("===================patientpage getHistory()===============")
+    console.log("username: " + this.username);
+
+    this.hs.getHistory(this.username).subscribe(
       data => {
+        console.log("===================data inside patientpage getHistory()================");
+        console.log(data);
+        console.log("==================================================");
+        console.log("===================datainside allHistories==================");
         this.allHistories = data;
+        console.log("=======================================================");
       },
       error => {
         console.log('ERROR', error);

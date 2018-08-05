@@ -9,11 +9,11 @@ import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 
 public class PatientService extends RoleService<Patient> {
-	
+
 	public PatientService() {
 		super(new Patient());
 	}
-	
+
 	public List<Patient> getByUser(Integer id) {
 		List<Patient> patients = new ArrayList<>();
 		for (Patient patient : getDao().get()) {
@@ -23,7 +23,7 @@ public class PatientService extends RoleService<Patient> {
 				}
 			}
 		}
-
+		
 		return patients;
 	}
 

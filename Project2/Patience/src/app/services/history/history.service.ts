@@ -8,9 +8,11 @@ export class HistoryService {
 
   constructor(private http: HttpClient) {}
 
-  getHistory() {
-    const params = new HttpParams();
-    return this.http.post<History[]>('http://18.205.153.39:8085/PatienceMavenProject/getHistory.do', params);
+  getHistory(username: string) {
+    const params = new HttpParams()
+          .set('username', username);
+          
+    return this.http.post<any[]>('http://18.205.153.39:8085/PatienceMavenProject/getHistory.do', params);
   }
 
 }

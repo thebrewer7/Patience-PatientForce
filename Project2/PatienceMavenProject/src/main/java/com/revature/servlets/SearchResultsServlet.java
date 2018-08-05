@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.UserAccount;
+import com.revature.beans.doctor.Doctor;
+import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.UserService;
+import com.revature.services.doctor.DoctorService;
+import com.revature.services.nurse.NurseService;
 
 /**
  * Servlet implementation class SearchResultsServlet
@@ -34,24 +36,41 @@ public class SearchResultsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("===="+this.getServletName()+"====");
-		UserService userService = new UserService();
+		DoctorService doctorService = new DoctorService();
+		NurseService nurseService = new NurseService();
 		String name = request.getParameter("name");
-		UserAccount user = null;
-		List<UserAccount> receivedUsers = userService.getByName(name.toLowerCase());
+		Doctor doctor = null;
+		Nurse nurse = null;
 		
-		if(receivedUsers.size() > 1){
-			logger.info("SearchResultsServlet found more than one of the same name.");
-			System.out.println("There is more than one user with the same name!");
-		} else {
-			user = receivedUsers.get(0);
+		List<Doctor> receivedDoctors = doctorService.getByName(name);
+		if ( receivedDoctors != null )
+		{
+			doctor = receivedDoctors.get(0);
+			response.setContentType("text/json");
+			PrintWriter out = response.getWriter();
+			out.println(ObjectToJSONService.DoctorToJSON(doctor));
+			logger.info("searchresultsservlet returned a doctor");
+			return;
 		}
 		
-		System.out.println("returning user:" + name);
+		List<Nurse> receivedNurses = nurseService.getByName(name);
+		if ( receivedNurses != null )
+		{
+			nurse = receivedNurses.get(0);
+			response.setContentType("text/json");
+			PrintWriter out = response.getWriter();
+			out.println(ObjectToJSONService.NurseToJSON(nurse));
+			logger.info("searchresultsservlet returned a nurse");
+			return;
+		}
 		
+		logger.info("SearchResultsServlet found more than one of the same name.");
+		System.out.println("There is no users or more than 1 user with that name");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.UserAccountToJSON(user));
-		logger.info("searchresultsservlet returned a json");
+		out.println((String)null);
+		return;
+		
 	}
 
 	/**

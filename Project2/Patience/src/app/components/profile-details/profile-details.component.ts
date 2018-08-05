@@ -50,4 +50,16 @@ export class ProfileDetailsComponent implements OnInit {
       FAIL => { console.log(FAIL); }
     );
   }
+
+  ratingToStars(rating: number) {
+    let stars = '';
+    for (let i = 0; i < 5; ++i) {
+      if (i < rating) {
+        stars = stars + '\u2605';
+      } else {
+        stars = stars + '\u2606';
+      }
+    }
+    return stars;
+  }
 }
