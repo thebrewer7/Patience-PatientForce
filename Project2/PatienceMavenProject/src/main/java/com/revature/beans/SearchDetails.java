@@ -16,6 +16,7 @@ public class SearchDetails {
 	private List<Review> reviews;
 	private String department;
 	private List<Patient> patients;
+	private UserPass userPass;
 	
 	public SearchDetails() {
 		super();
@@ -23,7 +24,7 @@ public class SearchDetails {
 	}
 
 	public SearchDetails(int id, String name, String role, List<NurseCerts> certifications, String[] degrees, String experience,
-			int rating, List<Review> reviews, String department, List<Patient> patients) {
+			int rating, List<Review> reviews, String department, List<Patient> patients, UserPass userPass) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,6 +36,15 @@ public class SearchDetails {
 		this.reviews = reviews;
 		this.department = department;
 		this.patients = patients;
+		this.userPass = userPass;
+	}
+
+	public UserPass getUserPass() {
+		return userPass;
+	}
+
+	public void setUserPass(UserPass userPass) {
+		this.userPass = userPass;
 	}
 
 	public int getId() {

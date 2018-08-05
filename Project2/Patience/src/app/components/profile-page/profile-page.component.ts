@@ -56,6 +56,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   fetchReviews() {
+    console.log("fetchReviews this.data.id and this.data.role: " + this.data.id + " and " + this.data.role);
     this.conn.getReviewByName(this.data.id, this.data.role).subscribe(
         data => {
           console.log(data);
