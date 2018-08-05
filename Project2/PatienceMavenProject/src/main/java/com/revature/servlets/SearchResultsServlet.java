@@ -68,7 +68,7 @@ public class SearchResultsServlet extends HttpServlet {
 		System.out.println("There is no users or more than 1 user with that name");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println("null");
+		out.println();
 		return; 
 		
 	}

@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   public searchData: Details[];
 
   constructor(private conn: ConnectorService, private dataServ: UserDataService, private loginService: LoginService, private router: Router) {
-    
+
   }
 
   ngOnInit() {
@@ -69,7 +69,9 @@ export class NavbarComponent implements OnInit {
     this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
         this.dataServ.changeData(data);
-        this.router.navigate(['profile', data.userPass.username]);
+        if (data != null) {
+          this.router.navigate(['profile', data.userPass.username]);
+        }
       },
       error => {
         console.log('ERROR', error);
