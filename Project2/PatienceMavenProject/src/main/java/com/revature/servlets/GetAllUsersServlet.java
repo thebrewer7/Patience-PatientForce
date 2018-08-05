@@ -40,7 +40,7 @@ public class GetAllUsersServlet extends HttpServlet {
 		
 		List<Doctor> docs = new DoctorService().getAll();
 		List<Nurse> nurs = new NurseService().getAll();
-		List<SearchDetails> sdets = new ArrayList<SearchDetails>();
+		List<SearchDetails> sdets = new ArrayList<>();
 		
 		System.out.println(docs);
 		System.out.println(nurs);
@@ -56,7 +56,7 @@ public class GetAllUsersServlet extends HttpServlet {
 		
 		response.setContentType("text/json");
 		PrintWriter out = response.getWriter();
-		out.println(ObjectToJSONService.SeachDetailsToJSON(sdets));
+		out.println(ObjectToJSONService.toJson(sdets));
 	}
 
 	/**

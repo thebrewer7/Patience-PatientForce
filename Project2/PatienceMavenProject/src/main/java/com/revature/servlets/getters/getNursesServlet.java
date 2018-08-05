@@ -35,12 +35,12 @@ public class getNursesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		NurseService ns = new NurseService();
-		List<Nurse> nl = null;
+		//NurseService ns = new NurseService();
+		//List<Nurse> nl = null;
 		
-		nl = ns.getAll();
+		//nl = ns.getAll();
 		
-		out.println(ObjectToJSONService.nursesToJSON(nl));
+		out.println(ObjectToJSONService.toJson(new NurseService().getAll()));
 		logger.info("getnursesservlet return a list of nurses");
 	}
 

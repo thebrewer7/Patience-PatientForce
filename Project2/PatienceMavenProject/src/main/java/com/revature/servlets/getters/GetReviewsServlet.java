@@ -46,7 +46,7 @@ public class GetReviewsServlet extends HttpServlet {
 		
 		Doctor doc;
 		Nurse nur;
-		List<Review> reviews = new ArrayList<Review>();
+		List<Review> reviews = new ArrayList<>();
 		
 		System.out.println(id);
 		System.out.println(role);

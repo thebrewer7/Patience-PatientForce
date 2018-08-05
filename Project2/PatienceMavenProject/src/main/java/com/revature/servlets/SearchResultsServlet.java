@@ -36,30 +36,28 @@ public class SearchResultsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("===="+this.getServletName()+"====");
-		DoctorService doctorService = new DoctorService();
-		NurseService nurseService = new NurseService();
 		String name = request.getParameter("name");
-		Doctor doctor = null;
-		Nurse nurse = null;
-		
+
+		DoctorService doctorService = new DoctorService();
 		List<Doctor> receivedDoctors = doctorService.getByName(name);
 		if ( receivedDoctors != null )
 		{
-			doctor = receivedDoctors.get(0);
+			Doctor doctor = receivedDoctors.get(0);
 			response.setContentType("text/json");
 			PrintWriter out = response.getWriter();
-			out.println(ObjectToJSONService.DoctorToJSON(doctor));
+			out.println(ObjectToJSONService.toJson(doctor));
 			logger.info("searchresultsservlet returned a doctor");
 			return;
 		}
-		
+
+		NurseService nurseService = new NurseService();
 		List<Nurse> receivedNurses = nurseService.getByName(name);
 		if ( receivedNurses != null )
 		{
-			nurse = receivedNurses.get(0);
+			Nurse nurse = receivedNurses.get(0);
 			response.setContentType("text/json");
 			PrintWriter out = response.getWriter();
-			out.println(ObjectToJSONService.NurseToJSON(nurse));
+			out.println(ObjectToJSONService.toJson(nurse));
 			logger.info("searchresultsservlet returned a nurse");
 			return;
 		}

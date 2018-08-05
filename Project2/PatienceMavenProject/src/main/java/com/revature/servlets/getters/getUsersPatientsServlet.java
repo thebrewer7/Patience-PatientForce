@@ -44,14 +44,14 @@ public class getUsersPatientsServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
 		
-		List<Patient> patientList = new ArrayList<Patient>();
+		List<Patient> patientList = new ArrayList<>();
 		UserPass userPass = new UserPass();
 		UserAccount user = new UserAccount();
 		userPass = new UserPassService().getByUsername(username);
 		user = new UserService().getByUserPass(userPass.getId());
 		patientList = user.patients;
 		
-		out.println(ObjectToJSONService.patientsToJSON(patientList));
+		out.println(ObjectToJSONService.toJson(patientList));
 		logger.info("getuserspatientsservlet returned a list of patients");
 		
 	}

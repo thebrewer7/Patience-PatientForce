@@ -1,10 +1,5 @@
 package com.revature.servlets.getters;
 
-import static com.revature.services.ObjectToJSONService.DoctorToJSON;
-import static com.revature.services.ObjectToJSONService.NurseToJSON;
-import static com.revature.services.ObjectToJSONService.PatientToJSON;
-import static com.revature.services.ObjectToJSONService.UserAccountToJSON;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -13,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.revature.services.ObjectToJSONService;
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Patient;
@@ -41,26 +37,26 @@ public class GetProfileServlet extends HttpServlet {
         case "user":
           UserAccount user = new UserService().getByUserPass(up.getId());
           if (user != null) {
-            json = UserAccountToJSON(user);
+            json = ObjectToJSONService.toJson(user);
           }
           break;
         case "patient":
           Patient patient = new PatientService().getByUserPass(up.getId());
           if (patient != null) {
-            json = PatientToJSON(patient);
+            json = ObjectToJSONService.toJson(patient);
           }
           break;
         case "nurse":
           Nurse nurse = new NurseService().getByUserPass(up.getId());
           if (nurse != null) {
-            json = NurseToJSON(nurse);
+            json = ObjectToJSONService.toJson(nurse);
           }
           break;
         case "doctor":
 
           Doctor doctor = new DoctorService().getByUserPass(up.getId());
           if (doctor != null) {
-            json = DoctorToJSON(doctor);
+            json = ObjectToJSONService.toJson(doctor);
           }
           break;
       }
