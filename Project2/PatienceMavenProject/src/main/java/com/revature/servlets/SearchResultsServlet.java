@@ -37,7 +37,7 @@ public class SearchResultsServlet extends HttpServlet {
 		UserService userService = new UserService();
 		String name = request.getParameter("name");
 		UserAccount user = null;
-		List<UserAccount> receivedUsers = userService.getByName(name.toLowerCase());
+		List<UserAccount> receivedUsers = userService.getByName(name);
 		
 		if( receivedUsers == null || receivedUsers.size() > 1){
 			logger.info("SearchResultsServlet found more than one of the same name.");
