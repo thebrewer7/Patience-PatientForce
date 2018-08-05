@@ -44,7 +44,6 @@ export class NavbarComponent implements OnInit {
   }
 
   filterDropdown() {
-    this.toggleDropdown();
     var input, filter, ul, li, a, i;
     input = document.getElementById("searchArea");
     filter = input.value.toUpperCase();
@@ -64,7 +63,7 @@ export class NavbarComponent implements OnInit {
     console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
     this.dropdownDisabled = false;
-    this.router.navigate(['profile', this.data.userPass.username]);
+    this.router.navigate(['profile']);
   }
 
   public fetchSearchUserById(name) {

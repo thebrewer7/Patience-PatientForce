@@ -31,6 +31,15 @@ export class ProfilePageComponent implements OnInit {
 
   receiveData($event) {
     this.data = $event;
+    this.reviews = this.data.reviews;
+    this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+    this.sortedReviewsByDate.sort((a, b) => {
+      if (a.datePosted < b.datePosted) return -1;
+      else if (a.datePosted > b.datePosted) return 1;
+      else return 0;
+    });
+    console.log(this.data);
+    console.log(this.reviews);
     //this.fetchReviews();
   }
 
