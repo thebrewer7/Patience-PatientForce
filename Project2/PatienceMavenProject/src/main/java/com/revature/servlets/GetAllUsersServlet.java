@@ -42,6 +42,9 @@ public class GetAllUsersServlet extends HttpServlet {
 		List<Nurse> nurs = new NurseService().getAll();
 		List<SearchDetails> sdets = new ArrayList<>();
 		
+		System.out.println(docs);
+		System.out.println(nurs);
+		
 		for(Doctor doc: docs) {
 			sdets.add(new SearchDetails(doc.getId(), doc.getName(), doc.getROLE(), null, new String[] {}, "", doc.getRating(), 
 					doc.getReviews(), doc.getDepartment(), doc.patients));

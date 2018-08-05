@@ -14,6 +14,7 @@ import { SearchDetails } from '../../objects/searchDetails';
 export class NavbarComponent implements OnInit {
   public data: Details;
   public searchData: Details[];
+  dropdownDisabled: boolean = true;
 
   constructor(private conn: ConnectorService, private dataServ: UserDataService, private loginService: LoginService, private router: Router) {
 
@@ -62,6 +63,7 @@ export class NavbarComponent implements OnInit {
     this.toggleDropdown();
     console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
+    this.dropdownDisabled = false;
     this.router.navigate(['profile']);
   }
 
