@@ -8,7 +8,7 @@ import { DoctorService } from '../../services/doctor/doctor.service';
   styleUrls: ['./doctor-sidepanel.component.css']
 })
 export class DoctorSidepanelComponent implements OnInit {
-  patientsDoctors = [];
+  patientsDoctors: Doctor[];
 
   constructor(private ds: DoctorService) { }
 
@@ -32,6 +32,10 @@ export class DoctorSidepanelComponent implements OnInit {
   randomizeDoctors(doctors: Doctor[]) {
     let i = 0;
     let random = 0;
+     if (doctors == null) {
+      return;
+    }
+
     // shuffle the doctors
     for (i = 0; i < doctors.length; i++) {
       random = Math.ceil(Math.random() * doctors.length - 1);
