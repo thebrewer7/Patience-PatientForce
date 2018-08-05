@@ -35,7 +35,9 @@ export class PatientPageComponent implements OnInit {
         console.log("===================data inside patientpage getHistory()================");
         console.log(data);
         console.log("==================================================");
+        console.log("===================datainside allHistories==================");
         this.allHistories = data;
+        console.log("=======================================================");
       },
       error => {
         console.log('ERROR', error);
