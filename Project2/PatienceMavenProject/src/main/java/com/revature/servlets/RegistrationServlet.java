@@ -52,7 +52,7 @@ public class RegistrationServlet extends HttpServlet {
             us.saveOrUpdate(user);
             response.addCookie(new Cookie("username", username));
             response.addCookie(new Cookie("role", "user"));
-            String json = ObjectToJSONService.UserAccountToJSON(user);
+            String json = ObjectToJSONService.toJson(user);
             logger.info("registrationservlet returned a useraccount");
             writer.println(json);
         }

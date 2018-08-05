@@ -50,7 +50,7 @@ public class GetHistoryServlet extends HttpServlet {
         patient = new PatientService().getByUserPass(userPass.getId());
         history = new HistoryService().getById(patient.getId());
 		
-		out.println(ObjectToJSONService.oneHistoryToJSON(history));
+		out.println(ObjectToJSONService.toJson(history));
 		logger.info("gethistory returned a list of histories");
 		
 		

@@ -33,6 +33,10 @@ export class NurseSidepanelComponent implements OnInit {
   randomizeNurses(nurses: Nurse[]) {
     let i = 0;
     let random = 0;
+    if (nurses == null) {
+      return;
+    }
+
     // shuffle the nurses
     for (i = 0; i < nurses.length; i++) {
       random = Math.ceil(Math.random() * nurses.length - 1);

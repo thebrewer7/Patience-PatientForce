@@ -14,6 +14,7 @@ import { SearchDetails } from '../../objects/searchDetails';
 export class NavbarComponent implements OnInit {
   public data: Details;
   public searchData: Details[];
+  dropdownDisabled: boolean = true;
 
   constructor(private conn: ConnectorService, private dataServ: UserDataService, private loginService: LoginService, private router: Router) {
 
@@ -21,12 +22,12 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.dataServ.currentData.subscribe(data => this.data = data);
+    this.fetchSearchFill();
   }
 
   public fetchSearchFill() {
     // this.searchData = [{id:50, name:"logan", role:"doctor", certifications:[], degrees:[], experience:"sdjflksdjf slfjdslfj", rating:3, reviews:[{id:1, name:"logan", datePosted:"03-AUG-18 12.00.00 AM", rating:3, review:"sjfldjfs sljfdljfs"}], department:"The Department", patients:[]},
     //                   {id:51, name:"andrew", role:"doctor", certifications:[], degrees:[], experience:"sdjflksdjf slfjdslfj", rating:3, reviews:[{id:2, name:"logan", datePosted:"02-AUG-18 12.00.00 AM", rating:2, review:"sjfldjfs sljfdljfs"}], department:"The Department", patients:[]}];
-    this.toggleDropdown();
     this.conn.getSearchFill().subscribe(
         data => {
           this.searchData = data;
@@ -62,7 +63,8 @@ export class NavbarComponent implements OnInit {
     this.toggleDropdown();
     console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
-    this.router.navigate(['profile']);
+    this.dropdownDisabled = false;
+    this.router.navigate(['profile', this.data.userPass.username]);
   }
 
   public fetchSearchUserById(name) {
@@ -71,6 +73,7 @@ export class NavbarComponent implements OnInit {
       data => {
         this.dataServ.changeData(data);
         if (data != null) {
+          this.dropdownDisabled = false;
           this.router.navigate(['profile', data.userPass.username]);
         }
       },

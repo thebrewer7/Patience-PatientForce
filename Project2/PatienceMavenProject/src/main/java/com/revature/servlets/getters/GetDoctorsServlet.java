@@ -35,12 +35,12 @@ public class GetDoctorsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		DoctorService ds = new DoctorService();
-		List<Doctor> dl;
+		//DoctorService ds = new DoctorService();
+		//List<Doctor> dl;
 		
-		dl = ds.getAll();
+		//dl = ds.getAll();
 		
-		out.println(ObjectToJSONService.doctorsToJSON(dl));
+		out.println(ObjectToJSONService.toJson(new DoctorService().getAll()));
 		logger.info("getdoctors return a list of doctors");
 	}
 

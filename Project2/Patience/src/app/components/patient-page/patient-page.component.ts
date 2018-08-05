@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from '../../services/history/history.service';
 import { Router } from '../../../../node_modules/@angular/router';
-
+import { History } from '../../objects/history';
 @Component({
   selector: 'app-patient-page',
   templateUrl: './patient-page.component.html',
@@ -9,7 +9,7 @@ import { Router } from '../../../../node_modules/@angular/router';
 })
 export class PatientPageComponent implements OnInit {
 
-  allHistories: History[];
+  allHistories: History;
   username: string;
 
   constructor(private hs: HistoryService, private router: Router) { }
@@ -21,6 +21,7 @@ export class PatientPageComponent implements OnInit {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
     } else {
+      this.allHistories = new History();
       this.getHistory();
     }
   }
@@ -36,14 +37,15 @@ export class PatientPageComponent implements OnInit {
         console.log(data);
         console.log("==================================================");
         console.log("===================datainside allHistories==================");
-        for ( var d in data )
-        {
-          this.allHistories[d]['age'] = data[d]['age'];
-          this.allHistories[d]['weight'] = data[d]['weight'];
-          this.allHistories[d]['height'] = data[d]['height'];
-          this.allHistories[d]['bloodPressureCondition'] = data[d]['bloodPressureCondition'];
-        }
-        
+        this.allHistories = data;
+        // for ( var d in data )
+        // {
+        //   this.allHistories[d]['age'] = data[d]['age'];
+        //   this.allHistories[d]['weight'] = data[d]['weight'];
+        //   this.allHistories[d]['height'] = data[d]['height'];
+        //   this.allHistories[d]['bloodPressureCondition'] = data[d]['bloodPressureCondition'];
+        // }
+
         console.log(this.allHistories);
         console.log("=======================================================");
       },
