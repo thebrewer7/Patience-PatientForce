@@ -199,9 +199,8 @@ public class Nurse {
 
 	@Override
 	public String toString() {
-		return "Nurse [id=" + id + ", name=" + name + ", role=" + ROLE + ", certifications=" + certifications
-				+ ", department=" + department + ", rating=" + rating + ", reviews=" + reviews + ", patients="
-				+ patients + "]";
+		return "Nurse [id=" + id + ", certifications=" + certifications + ", name=" + name + ", department="
+				+ department + ", rating=" + rating + ", ROLE=" + ROLE + ", avg=" + avg + "]";
 	}
 
 }
