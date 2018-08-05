@@ -35,7 +35,7 @@ export class ProfileDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.username = params.get('username');
     });
-    //this.getDetails();
+    this.getDetails();
     this.sendData();
   }
 
