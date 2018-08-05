@@ -20,7 +20,7 @@ import com.revature.services.UserPassService;
 import com.revature.services.UserService;
 
 public class RegistrationServlet extends HttpServlet {
-    final static Logger logger = Logger.getLogger(LoginServlet.class);
+    final static Logger logger = Logger.getLogger(RegistrationServlet.class);
     private static final String usernameTakerError = "{ \"status\": \"failure\", \"message:\": \"User account taken\" }";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

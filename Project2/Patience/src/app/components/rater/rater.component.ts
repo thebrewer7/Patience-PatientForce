@@ -35,7 +35,7 @@ export class RaterComponent implements OnInit{
 
   submitReview(review, rate1) {
     
-    this.conn.submitReviewByName(rate1.control.value, review.control.value).pipe(
+    this.conn.submitReviewByName(rate1.control.value, review.control.value, this.data.role, Date.now().toLocaleString(), this.data.id).pipe(
       tap(
         data => {
           console.log(data);

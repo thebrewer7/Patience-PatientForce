@@ -3,6 +3,8 @@ import { tap } from 'rxjs/operators';
 import { Review } from '../../objects/review';
 import { Details } from '../../objects/details';
 import { ConnectorService } from '../../services/connector/connector.service';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { UserDataService } from '../../services/userData/user-data.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -19,7 +21,7 @@ export class ProfilePageComponent implements OnInit {
 
   reviews: Review[];
 
-  constructor(private conn: ConnectorService, private route: ActivatedRoute) {}
+  constructor(private conn: ConnectorService, private dataServ: UserDataService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

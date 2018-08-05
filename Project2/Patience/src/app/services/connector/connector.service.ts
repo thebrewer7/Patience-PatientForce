@@ -3,7 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { Details } from '../../objects/details';
 import { Review } from '../../objects/review';
+import { SearchDetails } from '../../objects/searchDetails';
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +14,26 @@ export class ConnectorService {
   constructor(private http: HttpClient) { }
 
   getSearchFill() {
-    return this.http.get("http://18.205.153.39:8085/PatienceMavenProject/SearchFill.do", { responseType: 'text' });
+    const params = new HttpParams();
+    return this.http.post<Details[]>("http://18.205.153.39:8085/PatienceMavenProject/SearchFill.do", params);
   }
 
   getSearchUserById(name) {
-    var params = new HttpParams();
-    params = params.append("name", name);
-
-    return this.http.get("http://18.205.153.39:8085/PatienceMavenProject/SearchResults.do", {params: params});
+    const params = new HttpParams().set('name', name);
+    return this.http.post<Details>("http://18.205.153.39:8085/PatienceMavenProject/SearchResults.do", params);
 
   }
 
-  submitReviewByName(rating, review) {
+  submitReviewByName(rating, review, role, date, id) {
     console.log("rating: "+rating);
     console.log("review: "+review);
 
     var params = new HttpParams();
     params = params.append("rating", rating);
     params = params.append("review", review);
+    params = params.append("role", role);
+    params = params.append("date", date);
+    params = params.append("id", id);
 
     return this.http.get("http://18.205.153.39:8085/PatienceMavenProject/SubmitReview.do", { responseType: 'text', params: params });
   }

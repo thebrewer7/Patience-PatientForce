@@ -2,22 +2,62 @@ import { Component, OnInit } from '@angular/core';
 import { ConnectorService } from '../../services/connector/connector.service';
 import { LoginService } from '../../services/login/login.service';
 import { tap } from 'rxjs/operators';
+import { Details } from '../../objects/details';
 import { Router } from '../../../../node_modules/@angular/router';
+import { UserDataService } from '../../services/userData/user-data.service';
+import { SearchDetails } from '../../objects/searchDetails';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private conn: ConnectorService, private loginService: LoginService, private router: Router) {}
+  public data: Details;
+  public searchData: Details[];
 
-  ngOnInit() {}
+  constructor(private conn: ConnectorService, private dataServ: UserDataService, private loginService: LoginService, private router: Router) {
+
+  }
+
+  ngOnInit() {
+    this.dataServ.currentData.subscribe(data => this.data = data);
+  }
+
+  toggleDropdown(){
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  filterDropdown() {
+    this.toggleDropdown();
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("searchArea");
+    filter = input.value.toUpperCase();
+    var div = document.getElementById("myDropdown");
+    li = div.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        if (li[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+  }
+
+  public setUserBySearchBar(id){
+    this.toggleDropdown();
+    console.log("index for profile change:"+id)
+    this.dataServ.changeData(this.searchData[id]);
+    this.router.navigate(['profile']);
+  }
 
   public fetchSearchUserById(name) {
     console.log(name.control.value);
     this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
-        console.log(data);
+        this.dataServ.changeData(data);
+        if (data != null) {
+          this.router.navigate(['profile', data.userPass.username]);
+        }
       },
       error => {
         console.log('ERROR', error);
@@ -40,6 +80,8 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     console.log('NavbarComponent: logout()');
+    localStorage.removeItem('userid');
+    localStorage.removeItem('role');
 
     this.loginService.logout().subscribe (
       PASS => {

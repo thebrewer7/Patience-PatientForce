@@ -1,37 +1,34 @@
-package com.revature.servlets.getters;
+package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-
-import com.revature.beans.Review;
+import com.revature.beans.SearchDetails;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.UserPassService;
 import com.revature.services.doctor.DoctorService;
 import com.revature.services.nurse.NurseService;
-import com.revature.servlets.FrontController;
 
 /**
- * Servlet implementation class FetchReviewServlet
+ * Servlet implementation class GetAllUsersServlet
  */
-public class GetReviewsServlet extends HttpServlet {
-	final static Logger logger = Logger.getLogger(FrontController.class);
+public class GetAllUsersServlet extends HttpServlet {
+	final static Logger logger = Logger.getLogger(GetAllUsersServlet.class);
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetReviewsServlet() {
+    public GetAllUsersServlet() {
         super();
     }
 
@@ -41,39 +38,29 @@ public class GetReviewsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("===="+this.getServletName()+"====");
 		
-		int id = Integer.parseInt(request.getParameter("id"));
-		String role = request.getParameter("role");
+		List<Doctor> docs = new DoctorService().getAll();
+		List<Nurse> nurs = new NurseService().getAll();
+		List<SearchDetails> sdets = new ArrayList<SearchDetails>();
 		
-		Doctor doc;
-		Nurse nur;
-		List<Review> reviews = new ArrayList<Review>();
-		
-		System.out.println(id);
-		System.out.println(role);
-		
-		switch(role.toLowerCase()) {
-		case "doctor":
-			doc = new DoctorService().getById(id);
-			reviews = doc.getReviews();
-			break;
-		case "nurse":
-			nur = new NurseService().getById(id);
-			reviews = nur.getReviews();
-			break;
+		for(Doctor doc: docs) {
+			sdets.add(new SearchDetails(doc.getId(), doc.getName(), doc.getROLE(), null, new String[] {}, "", doc.getRating(), 
+					doc.getReviews(), doc.getDepartment(), doc.patients));
+		}
+		for(Nurse nur: nurs) {
+			sdets.add(new SearchDetails(nur.getId(), nur.getName(), nur.getRole(), nur.getCertifications(), new String[] {}, "", 
+					nur.getRating(), nur.getReviews(), nur.getDepartment(), nur.patients));
 		}
 		
-		response.setContentType("application/json");
+		response.setContentType("text/json");
 		PrintWriter out = response.getWriter();
-		
-
-		out.println(ObjectToJSONService.ReviewsToJSON(reviews));
-		logger.info("getreviewsservlet returned a list of reviews");
+		out.println(ObjectToJSONService.SeachDetailsToJSON(sdets));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

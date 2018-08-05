@@ -42,6 +42,10 @@ const routes: Routes = [
     {
       path: 'profile/:username',
       component: ProfilePageComponent
+    },
+    {
+      path: 'profile',
+      component: ProfilePageComponent
     }
 ];
 
