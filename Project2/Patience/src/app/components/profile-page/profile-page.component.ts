@@ -6,6 +6,7 @@ import { ConnectorService } from '../../services/connector/connector.service';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { UserDataService } from '../../services/userData/user-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { ProfileDetailsService } from '../../services/profiledetails/profiledetails.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -21,12 +22,13 @@ export class ProfilePageComponent implements OnInit {
 
   reviews: Review[];
 
-  constructor(private conn: ConnectorService, private dataServ: UserDataService, private route: ActivatedRoute) {}
+  constructor(private conn: ConnectorService, private dataServ: UserDataService, private route: ActivatedRoute, private profileDetailsService: ProfileDetailsService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.username = params.get('username');
     });
+    this.getDetails();
   }
 
   receiveData($event) {
@@ -40,7 +42,7 @@ export class ProfilePageComponent implements OnInit {
     });
     console.log(this.data);
     console.log(this.reviews);
-    this.fetchReviews();
+    //this.fetchReviews();
   }
 
   public ratingToStars(rating: number) {
@@ -72,6 +74,29 @@ export class ProfilePageComponent implements OnInit {
         error => {
           console.log("ERROR", error);
         }
+    );
+  }
+
+  getDetails() {
+    console.log('ProfileDetailsComponent: getDetails()');
+    // send email, username and password to register servlet
+    this.profileDetailsService.getDetails(this.username).subscribe (
+      DATA => {
+        console.log(DATA);
+        this.data = DATA;
+        this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+        this.sortedReviewsByDate.sort((a, b) => {
+          if (a.datePosted < b.datePosted) {
+            return -1;
+          } else if (a.datePosted > b.datePosted) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+
+      },
+      FAIL => { console.log(FAIL); }
     );
   }
 
