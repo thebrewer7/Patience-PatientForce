@@ -15,6 +15,8 @@ import org.apache.log4j.Logger;
 import com.revature.beans.Patient;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
+import com.revature.beans.history.History;
+import com.revature.services.HistoryService;
 import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 import com.revature.services.UserPassService;
@@ -42,18 +44,17 @@ public class getUsersPatientsServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
 		
+		List<Patient> patientList = new ArrayList<Patient>();
 		UserPass userPass = new UserPass();
 		UserAccount user = new UserAccount();
-		List<Patient> patients = new ArrayList<>();
-		
 		userPass = new UserPassService().getByUsername(username);
 		user = new UserService().getByUserPass(userPass.getId());
-		patients = user.patients;
+		patientList = user.patients;
 		
-		out.println(ObjectToJSONService.patientsToJSON(patients));
+		out.println(ObjectToJSONService.patientsToJSON(patientList));
 		logger.info("getuserspatientsservlet returned a list of patients");
+		
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
