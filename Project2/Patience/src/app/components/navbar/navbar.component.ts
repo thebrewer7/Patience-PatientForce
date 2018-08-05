@@ -32,7 +32,8 @@ export class NavbarComponent implements OnInit {
 
   checkIfLoggedIn()
   {
-    if ( this.getUsername() != null )
+    console.log("getusername: " + this.getUsername);
+    if ( this.getUsername() != '' || this.getUsername() != null )
     {
       this.dropdownDisabled = false;
       return;
