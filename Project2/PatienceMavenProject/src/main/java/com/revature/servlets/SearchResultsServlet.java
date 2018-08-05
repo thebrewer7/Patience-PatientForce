@@ -46,7 +46,7 @@ public class SearchResultsServlet extends HttpServlet {
 		if ( receivedDoctors != null )
 		{
 			doctor = receivedDoctors.get(0);
-			response.setContentType("application/json");
+			response.setContentType("text/json");
 			PrintWriter out = response.getWriter();
 			out.println(ObjectToJSONService.DoctorToJSON(doctor));
 			logger.info("searchresultsservlet returned a doctor");
@@ -57,7 +57,7 @@ public class SearchResultsServlet extends HttpServlet {
 		if ( receivedNurses != null )
 		{
 			nurse = receivedNurses.get(0);
-			response.setContentType("application/json");
+			response.setContentType("text/json");
 			PrintWriter out = response.getWriter();
 			out.println(ObjectToJSONService.NurseToJSON(nurse));
 			logger.info("searchresultsservlet returned a nurse");
@@ -68,8 +68,8 @@ public class SearchResultsServlet extends HttpServlet {
 		System.out.println("There is no users or more than 1 user with that name");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		out.println();
-		return; 
+		out.println((String)null);
+		return;
 		
 	}
 
