@@ -9,7 +9,7 @@ import { History } from '../../objects/history';
 })
 export class PatientPageComponent implements OnInit {
 
-  allHistories: History[];
+  allHistories: History;
   username: string;
 
   constructor(private hs: HistoryService, private router: Router) { }
@@ -21,6 +21,7 @@ export class PatientPageComponent implements OnInit {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
     } else {
+      this.allHistories = new History();
       this.getHistory();
     }
   }
