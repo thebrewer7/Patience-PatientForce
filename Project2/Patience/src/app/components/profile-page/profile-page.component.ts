@@ -40,7 +40,7 @@ export class ProfilePageComponent implements OnInit {
     });
     console.log(this.data);
     console.log(this.reviews);
-    //this.fetchReviews();
+    this.fetchReviews();
   }
 
   public ratingToStars(rating: number) {
@@ -55,23 +55,23 @@ export class ProfilePageComponent implements OnInit {
     return stars;
   }
 
-  // fetchReviews() {
-  //   this.conn.getReviewByName(this.data.id, this.data.role).subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.reviews = data;
-  //         this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
-  //         this.sortedReviewsByDate.sort((a, b) => {
-  //           if (a.datePosted < b.datePosted) return -1;
-  //           else if (a.datePosted > b.datePosted) return 1;
-  //           else return 0;
-  //         });
-  //         console.log(this.sortedReviewsByDate);
-  //       },
-  //       error => {
-  //         console.log("ERROR", error);
-  //       }
-  //   );
-  // }
+  fetchReviews() {
+    this.conn.getReviewByName(this.data.id, this.data.role).subscribe(
+        data => {
+          console.log(data);
+          this.reviews = data;
+          this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+          this.sortedReviewsByDate.sort((a, b) => {
+            if (a.datePosted < b.datePosted) return -1;
+            else if (a.datePosted > b.datePosted) return 1;
+            else return 0;
+          });
+          console.log(this.sortedReviewsByDate);
+        },
+        error => {
+          console.log("ERROR", error);
+        }
+    );
+  }
 
 }
