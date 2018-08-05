@@ -36,13 +36,14 @@ export class PatientPageComponent implements OnInit {
         console.log(data);
         console.log("==================================================");
         console.log("===================datainside allHistories==================");
-        for ( var d in data )
-        {
-          this.allHistories[d]['age'] = data[d]['age'];
-          this.allHistories[d]['weight'] = data[d]['weight'];
-          this.allHistories[d]['height'] = data[d]['height'];
-          this.allHistories[d]['bloodPressureCondition'] = data[d]['bloodPressureCondition'];
-        }
+        this.allHistories = data;
+        // for ( var d in data )
+        // {
+        //   this.allHistories[d]['age'] = data[d]['age'];
+        //   this.allHistories[d]['weight'] = data[d]['weight'];
+        //   this.allHistories[d]['height'] = data[d]['height'];
+        //   this.allHistories[d]['bloodPressureCondition'] = data[d]['bloodPressureCondition'];
+        // }
         
         console.log(this.allHistories);
         console.log("=======================================================");
