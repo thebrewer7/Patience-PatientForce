@@ -70,7 +70,7 @@ export class NavbarComponent implements OnInit {
     this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
         this.dataServ.changeData(data);
-        this.router.navigate(['profile']);
+        this.router.navigate(['profile', data.userPass.username]);
       },
       error => {
         console.log('ERROR', error);
