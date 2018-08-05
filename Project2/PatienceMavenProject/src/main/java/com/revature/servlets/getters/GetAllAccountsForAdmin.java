@@ -41,7 +41,7 @@ public class GetAllAccountsForAdmin extends HttpServlet {
 		upl = ups.getAll();
 		System.out.println("UPL: " + upl);
 		
-		out.println(ObjectToJSONService.allAccountsToJSON(upl));
+		out.println(ObjectToJSONService.toJson(upl));
 		logger.info("getallacountsforadmin return a list of accounts");
 	}
 

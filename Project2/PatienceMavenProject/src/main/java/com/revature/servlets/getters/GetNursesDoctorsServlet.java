@@ -40,7 +40,7 @@ public class GetNursesDoctorsServlet extends HttpServlet {
 		
 		dl = ps.getAll();
 		
-		out.println(ObjectToJSONService.nursesDoctorsToJSON(dl));
+		out.println(ObjectToJSONService.toJson(dl));
 		logger.info("getallnursesdoctors return a list of doctors");
 	}
 

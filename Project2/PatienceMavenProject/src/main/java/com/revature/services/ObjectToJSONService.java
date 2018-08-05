@@ -16,7 +16,17 @@ import com.revature.beans.history.History;
 import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
-	
+
+	public static <T> String toJson(T type) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			return mapper.writeValueAsString(type);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public static String ReviewsToJSON(List<Review> reviews){
 		ObjectMapper mapper = new ObjectMapper();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm:ss a z");
@@ -85,22 +95,7 @@ public class ObjectToJSONService {
 		return null;
 	}
 	
-	public static String nurseToJSON(Nurse nurse)
-	{
-		ObjectMapper mapper = new ObjectMapper();
-		String json = "";
-		
-		try
-		{
-			json = mapper.writeValueAsString(nurse);
-		}
-		catch( Exception e)
-		{
-			e.printStackTrace();
-		}
-		return json;
-	}
-	
+
 	public static String allAccountsToJSON(List<UserPass> upl)
 	{
 		ObjectMapper mapper = new ObjectMapper();
@@ -152,33 +147,23 @@ public class ObjectToJSONService {
 	public static String nursesToJSON(List<Nurse> nl)
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		String json = "";
-		
-		try
-		{
-			json = mapper.writeValueAsString(nl);
-		}
-		catch ( Exception e )
-		{
+		try {
+			return mapper.writeValueAsString(nl);
+		} catch ( Exception e ) {
 			e.printStackTrace();
 		}
-		return json;
+		return null;
 	}
 	
 	public static String doctorsToJSON(List<Doctor> dl)
 	{
 		ObjectMapper mapper = new ObjectMapper();
-		String json = "";
-		
-		try
-		{
-			json = mapper.writeValueAsString(dl);
-		}
-		catch ( Exception e )
-		{
+		try {
+			return mapper.writeValueAsString(dl);
+		} catch ( Exception e ) {
 			e.printStackTrace();
 		}
-		return json;
+		return null;
 	}
 	
 	public static String historyToJSON(List<History> hl)

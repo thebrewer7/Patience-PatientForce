@@ -11,7 +11,7 @@ export class HistoryService {
   getHistory(username: string) {
     const params = new HttpParams()
           .set('username', username);
-          
+
     return this.http.post<any[]>('http://18.205.153.39:8085/PatienceMavenProject/getHistory.do', params);
   }
 
