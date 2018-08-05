@@ -9,7 +9,7 @@ import { Router } from '../../../../node_modules/@angular/router';
 })
 export class PatientPageComponent implements OnInit {
 
-  allHistories = [];
+  allHistories: History[];
   username: string;
 
   constructor(private hs: HistoryService, private router: Router) { }
