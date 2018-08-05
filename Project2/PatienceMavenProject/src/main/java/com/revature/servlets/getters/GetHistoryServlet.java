@@ -42,18 +42,20 @@ public class GetHistoryServlet extends HttpServlet {
 		response.setContentType("text");
 		String username = request.getParameter("username");
 		PrintWriter out = response.getWriter();
-		PatientService ps = new PatientService();
-		HistoryService hs = new HistoryService();
-		UserPassService ups = new UserPassService();
 		
-		History hl;
+		History history = new History();
+        UserPass userPass = new UserPass();
+        Patient patient = new Patient();        
+        userPass = new UserPassService().getByUsername("cellulating");
+        patient = new PatientService().getByUserPass(userPass.getId());
+        history = new HistoryService().getById(patient.getId());
 		
-		UserPass up = ups.getByUsername(username);
-		Patient patient = ps.getByUserPass(up.getId());
-		hl = hs.getById(patient.getId());
-		
-		out.println(ObjectToJSONService.oneHistoryToJSON(hl));
+		out.println(ObjectToJSONService.oneHistoryToJSON(history));
 		logger.info("gethistory returned a list of histories");
+		
+		
+		
+
 	}
 
 	/**
