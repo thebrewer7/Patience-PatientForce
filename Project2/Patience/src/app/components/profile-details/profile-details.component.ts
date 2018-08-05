@@ -24,10 +24,10 @@ export class ProfileDetailsComponent implements OnInit {
     this.dataEvent.emit(this.data);
   }
 
-  recieveData($event){
-    this.data = $event;
-    console.log(this.data);
-  }
+  //recieveData($event){
+  //  this.data = $event;
+  //  console.log(this.data);
+  //}
 
   ngOnInit() {
     this.userData.currentData.subscribe(data => this.data = data);
