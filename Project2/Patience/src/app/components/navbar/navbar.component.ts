@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
     console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
     this.dropdownDisabled = false;
-    this.router.navigate(['profile']);
+    this.router.navigate(['profile', this.data.userPass.username]);
   }
 
   public fetchSearchUserById(name) {
@@ -73,6 +73,7 @@ export class NavbarComponent implements OnInit {
       data => {
         this.dataServ.changeData(data);
         if (data != null) {
+          this.dropdownDisabled = false;
           this.router.navigate(['profile', data.userPass.username]);
         }
       },
