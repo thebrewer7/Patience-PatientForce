@@ -484,9 +484,6 @@ public class Generator {
 				users.get(a).patients.add(patients.get(a));
 				nurses.get(a).patients.add(patients.get(a));
 				doctors.get(a).patients.add(patients.get(a));
-				// patients.get(a).users.add(users.get(a));
-				// patients.get(a).nurses.add(nurses.get(a));
-				// patients.get(a).doctors.add(doctors.get(a));
 
 				new UserService().saveOrUpdate(users.get(a));
 				new NurseService().saveOrUpdate(nurses.get(a));

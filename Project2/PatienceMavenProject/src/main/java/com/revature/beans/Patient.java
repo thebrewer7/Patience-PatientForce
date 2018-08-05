@@ -294,9 +294,10 @@ public class Patient {
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", name=" + name + ", role=" + ROLE + ", location=" + location + ", status="
-				+ status + ", preferredDoctorName=" + preferredDoctorName + ", nurses=" + nurses + ", doctors="
-				+ doctors + ", users=" + users + ", history=" + history + "]";
+		return "Patient [id=" + id + ", history=" + history + ", userPass=" + userPass + ", name=" + name
+				+ ", location=" + location + ", status=" + status + ", condition=" + condition + "]";
 	}
+
+
 
 }

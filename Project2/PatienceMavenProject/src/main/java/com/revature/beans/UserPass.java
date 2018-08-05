@@ -85,4 +85,9 @@ public class UserPass {
 		this.role = role;
 	}
 
+	@Override
+	public String toString() {
+		return "UserPass [id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + "]";
+	}
+
 }

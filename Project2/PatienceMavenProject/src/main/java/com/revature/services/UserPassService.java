@@ -11,7 +11,7 @@ public class UserPassService extends GenericService<UserPass> {
 	}
 
 	public UserPass getByUsername(String username) {
-		List<UserPass> users = getDao().get("username", username);
+		List<UserPass> users = getDao().get("USERNAME", username);
 		return (users == null) ? null : users.get(0);
 	}
 }

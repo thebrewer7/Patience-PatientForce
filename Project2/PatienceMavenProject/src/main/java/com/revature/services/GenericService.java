@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.revature.beans.nurse.Nurse;
 import com.revature.dao.GenericDaoImpl;
 
 public class GenericService<T> {
