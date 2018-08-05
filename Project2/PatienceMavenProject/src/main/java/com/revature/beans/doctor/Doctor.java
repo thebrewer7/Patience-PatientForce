@@ -31,7 +31,7 @@ public class Doctor {
 	@GeneratedValue(generator = "doctor_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	private DocBackground background;
 	@OneToMany
 	private List<Review> reviews;

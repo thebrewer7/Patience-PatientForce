@@ -16,25 +16,11 @@ export class NavbarComponent implements OnInit {
   public searchData: Details[];
 
   constructor(private conn: ConnectorService, private dataServ: UserDataService, private loginService: LoginService, private router: Router) {
-    
+
   }
 
   ngOnInit() {
     this.dataServ.currentData.subscribe(data => this.data = data);
-  }
-
-  public fetchSearchFill() {
-    this.searchData = null;
-    // this.conn.getSearchFill().subscribe(
-    //     data => {
-    //       this.searchData = data;
-    //       console.log(this.searchData);
-    //       this.toggleDropdown();
-    //     },
-    //     error => {
-    //       console.log('ERROR', error);
-    //     }
-    //   );
   }
 
   toggleDropdown(){
@@ -69,13 +55,28 @@ export class NavbarComponent implements OnInit {
     this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
         this.dataServ.changeData(data);
-        this.router.navigate(['profile', data.userPass.username]);
+        if (data != null) {
+          this.router.navigate(['profile', data.userPass.username]);
+        }
       },
       error => {
         console.log('ERROR', error);
       }
     );
   }
+  public fetchSearchFill() {
+    this.conn.getSearchFill().pipe(
+    tap(
+      data => {
+        // grab the data
+      },
+      error => {
+        console.log('ERROR', error);
+      }
+    )
+  );
+}
+
 
   logout() {
     console.log('NavbarComponent: logout()');

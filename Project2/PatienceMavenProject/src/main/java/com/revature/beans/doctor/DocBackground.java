@@ -3,6 +3,7 @@ package com.revature.beans.doctor;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,11 +22,11 @@ public class DocBackground {
 	@SequenceGenerator(sequenceName = "docBackground_seq", name = "docBackground_seq")
 	@GeneratedValue(generator = "docBackground_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<DocCerts> certifications;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<DocDegree> degrees;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<DocExperience> experience;
 
 	/**

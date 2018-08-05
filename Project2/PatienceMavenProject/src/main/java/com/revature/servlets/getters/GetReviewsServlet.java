@@ -16,6 +16,7 @@ import com.revature.beans.Review;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
+import com.revature.services.UserPassService;
 import com.revature.services.doctor.DoctorService;
 import com.revature.services.nurse.NurseService;
 import com.revature.servlets.FrontController;

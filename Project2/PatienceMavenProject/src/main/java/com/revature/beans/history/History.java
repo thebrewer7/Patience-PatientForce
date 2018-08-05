@@ -3,6 +3,7 @@ package com.revature.beans.history;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,16 +20,16 @@ public class History {
 	@GeneratedValue(generator = "history_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	private BloodPressure bloodPressure;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Treatment> treatments;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Diagnosis> diagnoses;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Medication> medication;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Vaccination> vaccinations;
 
 	private Integer age;
@@ -42,15 +43,24 @@ public class History {
 
 	/**
 	 * 
-	 * @param age Integer
-	 * @param weight Integer
-	 * @param height Integer
-	 * @param bloodPressure BloodPressure
-	 * @param bpCondition BpConditions
-	 * @param treatments Treatment
-	 * @param diagnoses Diagnosis
-	 * @param medication Medication
-	 * @param vaccinations Vaccination
+	 * @param age
+	 *            Integer
+	 * @param weight
+	 *            Integer
+	 * @param height
+	 *            Integer
+	 * @param bloodPressure
+	 *            BloodPressure
+	 * @param bpCondition
+	 *            BpConditions
+	 * @param treatments
+	 *            Treatment
+	 * @param diagnoses
+	 *            Diagnosis
+	 * @param medication
+	 *            Medication
+	 * @param vaccinations
+	 *            Vaccination
 	 */
 	public History(Integer age, Integer weight, Integer height, BloodPressure bloodPressure, BpCategories bpCondition,
 			List<Treatment> treatments, List<Diagnosis> diagnoses, List<Medication> medication,
@@ -149,9 +159,9 @@ public class History {
 
 	@Override
 	public String toString() {
-		return "History [id=" + id + ", age=" + age + ", weight=" + weight + ", height=" + height + ", bloodPressure="
-				+ bloodPressure + ", bloodPressureCondition=" + bpCondition + ", treatments=" + treatments
-				+ ", diagnoses=" + diagnoses + ", medication=" + medication + ", vaccinations=" + vaccinations + "]";
+		return "History [id=" + id + ", bloodPressure=" + bloodPressure + ", treatments=" + treatments + ", diagnoses="
+				+ diagnoses + ", medication=" + medication + ", vaccinations=" + vaccinations + ", age=" + age
+				+ ", weight=" + weight + ", height=" + height + ", bpCondition=" + bpCondition + "]";
 	}
 
 }

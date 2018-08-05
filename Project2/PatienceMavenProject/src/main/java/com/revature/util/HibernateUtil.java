@@ -7,8 +7,8 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {	
-	public static SessionFactory sFactory = getSessionFactory();
-	public static SessionFactory getSessionFactory() {
+	public static SessionFactory sFactory = getNewSessionFactory();
+	public static SessionFactory getNewSessionFactory() {
 		SessionFactory sessionFactory = null;
 		if (sessionFactory == null) {
 			// loads configuration and mappings
@@ -22,6 +22,9 @@ public class HibernateUtil {
 		return sessionFactory;
 	}
 	
+	public static SessionFactory getSessionFactory() {
+		return sFactory;
+	}
 	public static Session getSession() {
 		
 		return sFactory.openSession();

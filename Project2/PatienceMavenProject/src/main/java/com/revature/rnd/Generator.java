@@ -71,7 +71,7 @@ public class Generator {
 			"gaspinsula", "mastocarcinomata", "contraception", "graspingly", "idiosyncratic", "aritype", "argantua",
 			"estoration", "gape", "onremonstrance", "uranic", "iscomfort", "reromantic", "edwing", "emima",
 			"rerational", "andan", "ingfishes", "ynamics", "eteorically", "ed", "econcilement", "utright", "ylphid",
-			"hildersburg", "ightclubber", "viduct", "cabrous", "urmi", "opyhold", "seudoindependent", "onzero",
+			"hildersburg", "nightclubber", "viduct", "cabrous", "urmi", "opyhold", "seudoindependent", "onzero",
 			"lackboard", "cme", "zold", "odeos", "occygius", "anitu", "ackintosh", "eakless", "onnautical", "eptimal",
 			"verbrilliant", "anthation" };
 
@@ -162,12 +162,10 @@ public class Generator {
 
 	private static DocBackground[] generateDocBackground(int quantity) {
 		List<DocBackground> backgrounds = new ArrayList<>();
-		List<DocCerts> certs = generateDocCerts(quantity);
-		List<DocDegree> degrees = generateDocDegrees(quantity);
-		List<DocExperience> experience = generateDocExperience(quantity);
 
 		for (int i = 0; i < quantity; i++) {
-			backgrounds.add(new DocBackground(certs, degrees, experience));
+			backgrounds.add(new DocBackground(generateDocCerts(quantity), generateDocDegrees(quantity),
+					generateDocExperience(quantity)));
 		}
 		backgrounds.forEach(new DocBackgroundService()::saveOrUpdate);
 		return (DocBackground[]) backgrounds.toArray(new DocBackground[backgrounds.size()]);
@@ -486,9 +484,6 @@ public class Generator {
 				users.get(a).patients.add(patients.get(a));
 				nurses.get(a).patients.add(patients.get(a));
 				doctors.get(a).patients.add(patients.get(a));
-				patients.get(a).users.add(users.get(a));
-				patients.get(a).nurses.add(nurses.get(a));
-				patients.get(a).doctors.add(doctors.get(a));
 
 				new UserService().saveOrUpdate(users.get(a));
 				new NurseService().saveOrUpdate(nurses.get(a));
