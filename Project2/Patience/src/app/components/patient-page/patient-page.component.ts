@@ -36,7 +36,11 @@ export class PatientPageComponent implements OnInit {
         console.log(data);
         console.log("==================================================");
         console.log("===================datainside allHistories==================");
-        this.allHistories = data;
+        for ( var d in data )
+        {
+          this.allHistories[d] = data[d];
+        }
+        
         console.log(this.allHistories);
         console.log("=======================================================");
       },
