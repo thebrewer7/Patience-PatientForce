@@ -28,7 +28,7 @@ export class ProfilePageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.username = params.get('username');
     });
-    this.getDetails();
+    //this.getDetails();
   }
 
   receiveData($event) {
@@ -84,7 +84,7 @@ export class ProfilePageComponent implements OnInit {
       DATA => {
         console.log(DATA);
         this.data = DATA;
-        this.sortedReviewsByDate = this.data.reviews.map(x => Object.assign({}, x));
+        this.sortedReviewsByDate = this.data.reviews;
         this.sortedReviewsByDate.sort((a, b) => {
           if (a.datePosted < b.datePosted) {
             return -1;
