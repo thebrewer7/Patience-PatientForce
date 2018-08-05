@@ -17,8 +17,7 @@ import com.revature.beans.nurse.Nurse;
 
 public class ObjectToJSONService {
 	
-	public static String ReviewsToJSON(List<Review> reviews)
-	{
+	public static String ReviewsToJSON(List<Review> reviews){
 		ObjectMapper mapper = new ObjectMapper();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm:ss a z");
 		mapper.setDateFormat(dateFormat);

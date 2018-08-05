@@ -23,6 +23,21 @@ export class NavbarComponent implements OnInit {
     this.dataServ.currentData.subscribe(data => this.data = data);
   }
 
+  public fetchSearchFill() {
+    // this.searchData = [{id:50, name:"logan", role:"doctor", certifications:[], degrees:[], experience:"sdjflksdjf slfjdslfj", rating:3, reviews:[{id:1, name:"logan", datePosted:"03-AUG-18 12.00.00 AM", rating:3, review:"sjfldjfs sljfdljfs"}], department:"The Department", patients:[]},
+    //                   {id:51, name:"andrew", role:"doctor", certifications:[], degrees:[], experience:"sdjflksdjf slfjdslfj", rating:3, reviews:[{id:2, name:"logan", datePosted:"02-AUG-18 12.00.00 AM", rating:2, review:"sjfldjfs sljfdljfs"}], department:"The Department", patients:[]}];
+    this.toggleDropdown();
+    this.conn.getSearchFill().subscribe(
+        data => {
+          this.searchData = data;
+          console.log(this.searchData);
+        },
+        error => {
+          console.log('ERROR', error);
+        }
+      );
+  }
+
   toggleDropdown(){
     document.getElementById("myDropdown").classList.toggle("show");
   }
@@ -64,18 +79,6 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
-  public fetchSearchFill() {
-    this.conn.getSearchFill().pipe(
-    tap(
-      data => {
-        // grab the data
-      },
-      error => {
-        console.log('ERROR', error);
-      }
-    )
-  );
-}
 
 
   logout() {
