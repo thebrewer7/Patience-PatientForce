@@ -34,7 +34,7 @@ public class GenericService<T> {
 		return getDao().delete(input);
 	}
 
-	public String toJSON(T t) {
+	public String toJSON(List<T> t) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			return mapper.writeValueAsString(t);

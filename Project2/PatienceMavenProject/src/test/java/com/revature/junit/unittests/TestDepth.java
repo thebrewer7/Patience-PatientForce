@@ -71,6 +71,7 @@ class TestDepth {
 	        
 	        doctors = new DoctorService().getAll();
 	        System.out.println("TestDepth: Test5: doctors: " + doctors.get(0));
+	        System.out.println("TestDepth: Test5: doctors JSON Format: " + new DoctorService().toJSON(doctors));
 	}
 
 }

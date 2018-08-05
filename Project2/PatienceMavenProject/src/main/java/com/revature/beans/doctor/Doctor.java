@@ -33,7 +33,7 @@ public class Doctor {
 
 	@OneToOne(fetch=FetchType.EAGER)
 	private DocBackground background;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<Review> reviews;
 	@OneToOne
 	private UserPass userPass;

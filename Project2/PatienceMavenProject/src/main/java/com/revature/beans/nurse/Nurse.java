@@ -28,9 +28,9 @@ public class Nurse {
 	@GeneratedValue(generator = "nurse_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<NurseCerts> certifications;
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<Review> reviews;
 	@OneToOne
 	private UserPass userPass;
