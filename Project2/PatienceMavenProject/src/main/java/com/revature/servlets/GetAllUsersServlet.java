@@ -42,9 +42,6 @@ public class GetAllUsersServlet extends HttpServlet {
 		List<Nurse> nurs = new NurseService().getAll();
 		List<SearchDetails> sdets = new ArrayList<>();
 		
-		System.out.println(docs);
-		System.out.println(nurs);
-		
 		for(Doctor doc: docs) {
 			sdets.add(new SearchDetails(doc.getId(), doc.getName(), doc.getROLE(), null, new String[] {}, "", doc.getRating(), 
 					doc.getReviews(), doc.getDepartment(), doc.patients, doc.getUserPass()));
@@ -57,6 +54,7 @@ public class GetAllUsersServlet extends HttpServlet {
 		response.setContentType("text/json");
 		PrintWriter out = response.getWriter();
 		out.println(ObjectToJSONService.toJson(sdets));
+		logger.info("GetAllUsersServlet returned the details of a nurse or doctor.");
 	}
 
 	/**

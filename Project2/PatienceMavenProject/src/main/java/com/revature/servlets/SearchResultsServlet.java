@@ -35,7 +35,6 @@ public class SearchResultsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
 		String name = request.getParameter("name");
 
 		DoctorService doctorService = new DoctorService();
@@ -63,7 +62,6 @@ public class SearchResultsServlet extends HttpServlet {
 		}
 		
 		logger.info("SearchResultsServlet found more than one of the same name.");
-		System.out.println("There is no users or more than 1 user with that name");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		out.println((String)null);
@@ -75,8 +73,6 @@ public class SearchResultsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("======POST======");
-		
 		doGet(request, response);
 	}
 

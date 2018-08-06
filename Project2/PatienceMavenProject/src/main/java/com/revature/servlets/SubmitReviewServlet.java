@@ -38,7 +38,6 @@ public class SubmitReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
 		int rating = Integer.parseInt(request.getParameter("rating"));
 		String review = request.getParameter("review");
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -46,31 +45,30 @@ public class SubmitReviewServlet extends HttpServlet {
 		String role = request.getParameter("role");
 		
 		Review inReview = new Review(rating, review, new Date(date));
-       new ReviewService().saveOrUpdate(inReview);
-       Doctor doc = new Doctor();
-       Nurse nur = new Nurse();
-       List<Review> reviews = new ArrayList<>();
+		new ReviewService().saveOrUpdate(inReview);
+		Doctor doc = new Doctor();
+		Nurse nur = new Nurse();
+		List<Review> reviews = new ArrayList<>();
        
-       switch(role.toLowerCase()) {
-       case "doctor":
-           doc = new DoctorService().getById(id);
-           reviews = doc.getReviews();
-           reviews.add(inReview);
-           doc.setReviews(reviews);
-           new DoctorService().saveOrUpdate(doc);
-           break;
-       case "nurse":
-           nur = new NurseService().getById(id);
-           reviews = nur.getReviews();
-           reviews.add(inReview);
-           nur.setReviews(reviews);
-           new NurseService().saveOrUpdate(nur);
-           break;
-       }
+		switch(role.toLowerCase()) {
+		case "doctor":
+			doc = new DoctorService().getById(id);
+			reviews = doc.getReviews();
+			reviews.add(inReview);
+			doc.setReviews(reviews);
+			new DoctorService().saveOrUpdate(doc);
+			break;
+		case "nurse":
+			nur = new NurseService().getById(id);
+			reviews = nur.getReviews();
+			reviews.add(inReview);
+			nur.setReviews(reviews);
+           	new NurseService().saveOrUpdate(nur);
+           	break;
+		}
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();
-		System.out.println("review: "+inReview);
 		out.println("server: received review");
 		logger.info("SubmitReviewServlet received a review");
 	}
@@ -79,7 +77,6 @@ public class SubmitReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

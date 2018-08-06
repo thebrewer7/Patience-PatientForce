@@ -20,7 +20,6 @@ public class SearchDetails {
 	
 	public SearchDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public SearchDetails(int id, String name, String role, List<NurseCerts> certifications, String[] degrees, String experience,

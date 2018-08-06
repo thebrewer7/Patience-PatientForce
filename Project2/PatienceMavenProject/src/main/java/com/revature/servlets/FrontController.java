@@ -33,9 +33,9 @@ public class FrontController extends HttpServlet {
 		RequestDispatcher rd;
 		
 		String[] tokens = url.split("/");
-		String action = (tokens[tokens.length-1]); //something.do
+		String action = (tokens[tokens.length-1]);
 		
-		action = action.substring(0, action.length()-3).toLowerCase();//something
+		action = action.substring(0, action.length()-3).toLowerCase();
 		
 		switch(action){
 		case "searchresults":

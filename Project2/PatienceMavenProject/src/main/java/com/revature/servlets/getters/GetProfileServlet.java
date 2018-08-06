@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.services.ObjectToJSONService;
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Patient;
@@ -16,6 +15,7 @@ import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
+import com.revature.services.ObjectToJSONService;
 import com.revature.services.PatientService;
 import com.revature.services.UserPassService;
 import com.revature.services.UserService;
@@ -32,6 +32,7 @@ public class GetProfileServlet extends HttpServlet {
     response.setContentType("text/json");
     PrintWriter writer = response.getWriter();
     String json = "";
+    
     if (up != null) {
       switch (up.getRole()) {
         case "user":
@@ -53,7 +54,6 @@ public class GetProfileServlet extends HttpServlet {
           }
           break;
         case "doctor":
-
           Doctor doctor = new DoctorService().getByUserPass(up.getId());
           if (doctor != null) {
             json = ObjectToJSONService.toJson(doctor);
