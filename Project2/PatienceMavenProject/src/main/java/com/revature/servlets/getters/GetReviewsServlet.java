@@ -16,7 +16,6 @@ import com.revature.beans.Review;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.nurse.Nurse;
 import com.revature.services.ObjectToJSONService;
-import com.revature.services.UserPassService;
 import com.revature.services.doctor.DoctorService;
 import com.revature.services.nurse.NurseService;
 import com.revature.servlets.FrontController;
@@ -38,18 +37,13 @@ public class GetReviewsServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===="+this.getServletName()+"====");
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String role = request.getParameter("role");
 		
 		Doctor doc;
 		Nurse nur;
 		List<Review> reviews = new ArrayList<>();
-		
-		System.out.println(id);
-		System.out.println(role);
 		
 		switch(role.toLowerCase()) {
 		case "doctor":
@@ -64,7 +58,6 @@ public class GetReviewsServlet extends HttpServlet {
 		
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
-		
 
 		out.println(ObjectToJSONService.ReviewsToJSON(reviews));
 		logger.info("getreviewsservlet returned a list of reviews");

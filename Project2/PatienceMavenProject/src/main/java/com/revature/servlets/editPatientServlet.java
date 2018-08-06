@@ -36,9 +36,6 @@ public class editPatientServlet extends HttpServlet {
 		Integer patientid = Integer.parseInt(request.getParameter("patientid"));
 		String patientlocation = request.getParameter("patientlocation");
 		String patientstatus = request.getParameter("patientstatus");
-		logger.info("patientid in editpatientservlet: " + patientid);
-		logger.info("patientlocation in editpatientservlet: " + patientlocation);
-		logger.info("patientstatus in editpatientservlet: " + patientstatus);
 		PatientService ps = new PatientService();
 		
 		Patient editpatient = ps.getById(patientid);
@@ -46,11 +43,6 @@ public class editPatientServlet extends HttpServlet {
 		editpatient.setLocation(patientlocation);
 		editpatient.setStatus(patientstatus);
 		ps.saveOrUpdate(editpatient);
-		
-//		ps.getById(patientid).setLocation(patientlocation);
-//		ps.saveOrUpdate(ps.getById(patientid));
-//		ps.getById(patientid).setStatus(patientstatus);
-//		ps.saveOrUpdate(ps.getById(patientid));
 		
 		response.setContentType("text/json");
 		
