@@ -17,6 +17,7 @@ export class ProfilePageComponent implements OnInit {
   username: string;
 
   public data: Details;
+  details: Details; // testing
 
   sortedReviewsByDate: Review[];
 
@@ -28,26 +29,26 @@ export class ProfilePageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.username = params.get('username');
     });
-    //this.getDetails();
+    this.getDetails();
   }
 
-  receiveData($event) {
-    this.data = $event;
-    this.reviews = this.data.reviews;
-    if (this.reviews === undefined) {
-      return;
-    }
-    this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+  // receiveData($event) {
+  //   this.data = $event;
+  //   this.reviews = this.data.reviews;
+  //   if (this.reviews === undefined) {
+  //     return;
+  //   }
+  //   this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
 
-    this.sortedReviewsByDate.sort((a, b) => {
-      if (a.datePosted < b.datePosted) return -1;
-      else if (a.datePosted > b.datePosted) return 1;
-      else return 0;
-    });
-    console.log("profile-page reveivedata thie.data:" + this.data);
-    console.log("profile-page reveivedata thie.reviews:" + this.reviews);
-    //this.fetchReviews();
-  }
+  //   this.sortedReviewsByDate.sort((a, b) => {
+  //     if (a.datePosted < b.datePosted) return -1;
+  //     else if (a.datePosted > b.datePosted) return 1;
+  //     else return 0;
+  //   });
+  //   console.log("profile-page reveivedata thie.data:" + this.data);
+  //   console.log("profile-page reveivedata thie.reviews:" + this.reviews);
+  //   //this.fetchReviews();
+  // }
 
   public ratingToStars(rating: number) {
     let stars = '';
@@ -61,25 +62,25 @@ export class ProfilePageComponent implements OnInit {
     return stars;
   }
 
-  fetchReviews() {
-    console.log("fetchReviews this.data.id and this.data.role: " + this.data.id + " and " + this.data.role);
-    this.conn.getReviewByName(this.data.id, this.data.role).subscribe(
-        data => {
-          console.log(data);
-          this.reviews = data;
-          this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
-          this.sortedReviewsByDate.sort((a, b) => {
-            if (a.datePosted < b.datePosted) return -1;
-            else if (a.datePosted > b.datePosted) return 1;
-            else return 0;
-          });
-          console.log(this.sortedReviewsByDate);
-        },
-        error => {
-          console.log("ERROR", error);
-        }
-    );
-  }
+  // fetchReviews() {
+  //   console.log("fetchReviews this.data.id and this.data.role: " + this.data.id + " and " + this.data.role);
+  //   this.conn.getReviewByName(this.data.id, this.data.role).subscribe(
+  //       data => {
+  //         console.log(data);
+  //         this.reviews = data;
+  //         this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+  //         this.sortedReviewsByDate.sort((a, b) => {
+  //           if (a.datePosted < b.datePosted) return -1;
+  //           else if (a.datePosted > b.datePosted) return 1;
+  //           else return 0;
+  //         });
+  //         console.log(this.sortedReviewsByDate);
+  //       },
+  //       error => {
+  //         console.log("ERROR", error);
+  //       }
+  //   );
+  // }
 
   getDetails() {
     console.log('ProfileDetailsComponent: getDetails()');
@@ -87,18 +88,7 @@ export class ProfilePageComponent implements OnInit {
     this.profileDetailsService.getDetails(this.username).subscribe (
       DATA => {
         console.log(DATA);
-        this.data = DATA;
-        this.sortedReviewsByDate = this.data.reviews;
-        this.sortedReviewsByDate.sort((a, b) => {
-          if (a.datePosted < b.datePosted) {
-            return -1;
-          } else if (a.datePosted > b.datePosted) {
-            return 1;
-          } else {
-            return 0;
-          }
-        });
-
+        this.details = DATA;
       },
       FAIL => { console.log(FAIL); }
     );
