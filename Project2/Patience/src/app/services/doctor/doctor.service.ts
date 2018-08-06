@@ -13,17 +13,17 @@ export class DoctorService {
 
   getDoctors() {
     const params = new HttpParams();
-    return this.http.post<Doctor[]>('http://18.205.153.39:8085/PatienceMavenProject/getDoctors.do', params);
+    return this.http.post<Doctor[]>('http://34.207.69.111:8085/PatienceMavenProject/getDoctors.do', params);
   }
 
   getPatients() {
     const params = new HttpParams();
-    return this.http.post<Patient[]>('http://18.205.153.39:8085/PatienceMavenProject/getAllDoctorsPatients.do', params);
+    return this.http.post<Patient[]>('http://34.207.69.111:8085/PatienceMavenProject/getAllDoctorsPatients.do', params);
   }
 
   getReviews(username: string) {
     console.log('DoctorService: getReviews()');
     const params = new HttpParams().set('username', username);
-    return this.http.post<Review[]>('http://18.205.153.39:8085/PatienceMavenProject/getDoctorsReviews.do', params);
+    return this.http.post<Review[]>('http://34.207.69.111:8085/PatienceMavenProject/getDoctorsReviews.do', params);
   }
 }
