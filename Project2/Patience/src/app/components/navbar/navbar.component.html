@@ -5,7 +5,7 @@
   </div>
 
   <div class="nav-item input-group searchbar mx-auto" placement="bottom right">
-    <input id="searchArea" (focus)="filterDropdown()" class="form-control"  ngModel name="searchArea" #searchArea="ngModel" type="text" placeholder="Search" aria-label="Search" (click)="toggleDropdown()">
+    <input id="searchArea" (keyup)="filterDropdown()" class="form-control"  ngModel name="searchArea" #searchArea="ngModel" type="text" placeholder="Search" aria-label="Search" (focus)="toggleDropdown()">
     <div id="myDropdown" class="dropdown-content dropdown-sb" role="menu">
         <li value="{{detail.id}}" *ngFor="let detail of searchData; let i = index" (click)="setUserBySearchBar(i)" class="dropdown-item">{{detail.name}}</li>
     </div>
