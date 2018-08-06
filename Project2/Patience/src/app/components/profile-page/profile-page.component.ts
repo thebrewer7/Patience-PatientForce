@@ -89,6 +89,7 @@ export class ProfilePageComponent implements OnInit {
       DATA => {
         console.log(DATA);
         this.details = DATA;
+        this.reviews = this.details.reviews;
       },
       FAIL => { console.log(FAIL); }
     );
