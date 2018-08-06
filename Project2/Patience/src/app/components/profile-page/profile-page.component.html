@@ -12,7 +12,7 @@
   <div id='recentReviews'>
     <h1>Recent Reviews</h1>
     <hr>
-    <div id='review' *ngFor='let review of sortedReviewsByDate'>
+    <div id='review' *ngFor='let review of reviews'>
       <table>
         <tr><th>Rating:</th><td>{{ratingToStars(review.rating)}}</td></tr>
         <tr><th>Comment:</th><td>{{review.review}}</td></tr>
