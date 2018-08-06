@@ -26,10 +26,10 @@ export class ProfilePageComponent implements OnInit {
   constructor(private conn: ConnectorService, private dataServ: UserDataService, private route: ActivatedRoute, private profileDetailsService: ProfileDetailsService) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.username = params.get('username');
+    this.route.params.subscribe(params => {
+      this.username = params['username'];
+      this.getDetails();
     });
-    this.getDetails();
   }
 
   // receiveData($event) {
