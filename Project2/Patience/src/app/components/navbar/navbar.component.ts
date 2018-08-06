@@ -25,6 +25,16 @@ export class NavbarComponent implements OnInit {
     this.fetchSearchFill();
   }
 
+  checkRole()
+  {
+    var role = localStorage.getItem('role');
+    if ( role != '' )
+    {
+      this.router.navigate(['/userpage']);
+    }
+    this.router.navigate(['/login']);
+  }
+
   getUsername()
   {
     return localStorage.getItem('username');
