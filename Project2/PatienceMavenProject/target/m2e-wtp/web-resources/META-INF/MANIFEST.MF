@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: Austin
-=======
-Built-By: Kevin
->>>>>>> Development
 Build-Jdk: 1.8.0_171
 Created-By: Maven Integration for Eclipse
 

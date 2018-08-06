@@ -13,7 +13,7 @@ import com.revature.util.HibernateUtil;
 
 public class GenericDaoImpl<T> {
 	private String tClass;
-	private static Session session = HibernateUtil.getSession();
+	//private static Session session = HibernateUtil.getSession();
 
 	public GenericDaoImpl(Class<?> clazz) {
 		tClass = clazz.getSimpleName();
@@ -26,11 +26,11 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get() {
-		startTransaction();
+		Session session = startTransaction();
 
 		List<T> list = session.createQuery("FROM " + tClass).list();
 
-		finishTransaction();
+		finishTransaction(session);
 		return (list.isEmpty()) ? null : list;
 	}
 
@@ -43,23 +43,23 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<T> get(String columnName, String value) {
-		startTransaction();
+		Session session = startTransaction();
 
 		Query q = session.createQuery("FROM " + tClass + " WHERE " + columnName + " = '" + value + "'");
 		List<T> list = q.list();
 
-		finishTransaction();
+		finishTransaction(session);
 		return (list.isEmpty()) ? null : list;
 	}
 
 	@SuppressWarnings("unchecked")
 	public T getRoleByUserPass(Integer userpass_id) {
-		startTransaction();
+		Session session = startTransaction();
 
 		T result = (T) session.createQuery("FROM " + tClass + " WHERE userpass_id = :id")
 				.setParameter("id", userpass_id).uniqueResult();
 
-		finishTransaction();
+		finishTransaction(session);
 		return result;
 	}
 
@@ -72,18 +72,18 @@ public class GenericDaoImpl<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T get(Integer id) {
-		startTransaction();
+		Session session = startTransaction();
 
 		T result = (T) session.createQuery("FROM " + tClass + " WHERE id = :id").setInteger("id", id).uniqueResult();
 
-		finishTransaction();
+		finishTransaction(session);
 		return result;
 	}
 
 	public <C> void init(Collection<C> collection) {
-		startTransaction();
+		Session session = startTransaction();
 		Hibernate.initialize(collection);
-		finishTransaction();
+		finishTransaction(session);
 	}
 
 	/**
@@ -101,10 +101,11 @@ public class GenericDaoImpl<T> {
 	}
 
 	private Boolean doTransaction(BiConsumer<T, Session> c, List<T> item) {
+		Session session = startTransaction();
 		try {
-			startTransaction();
+			
 			item.forEach(t -> c.accept(t, session));
-			finishTransaction();
+			finishTransaction(session);
 			return true;
 			// At this point, items is persistent
 		} catch (HibernateException | ClassCastException e) {
@@ -118,18 +119,14 @@ public class GenericDaoImpl<T> {
 		return false;
 	}
 
-	private void finishTransaction() {
+	private void finishTransaction(Session session) {
 		session.getTransaction().commit();
 		if (session.isOpen())
 			session.close();
 	}
 
 	private Session startTransaction() {
-		if (!session.isOpen()) {
-			session = HibernateUtil.getSession();
-		} else {
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
-		}
+		Session session = HibernateUtil.getSession();
 		session.beginTransaction();
 		return session;
 	}
