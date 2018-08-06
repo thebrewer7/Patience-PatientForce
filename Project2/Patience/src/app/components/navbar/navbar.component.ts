@@ -28,11 +28,11 @@ export class NavbarComponent implements OnInit {
   checkRole()
   {
     var role = localStorage.getItem('role');
-    if ( role != '' || role != null )
+    if ( role == '' || role == undefined || role == null )
     {
-      this.router.navigate(['/userpage']);
+      this.router.navigate(['/login']);
     }
-    this.router.navigate(['/login']);
+    this.router.navigate(['/userpage']);
   }
 
   getUsername()
