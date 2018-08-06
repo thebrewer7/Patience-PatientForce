@@ -44,7 +44,7 @@ export class ProfileDetailsComponent implements OnInit {
     // send email, username and password to register servlet
     this.profileDetailsService.getDetails(this.username).subscribe (
       DATA => {
-        console.log(DATA);
+        console.log("getDetails() DATA:" + DATA);
         this.data = DATA;
       },
       FAIL => { console.log(FAIL); }

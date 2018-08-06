@@ -41,8 +41,8 @@ export class ProfilePageComponent implements OnInit {
       else if (a.datePosted > b.datePosted) return 1;
       else return 0;
     });
-    console.log(this.data);
-    console.log(this.reviews);
+    console.log("profile-page reveivedata thie.data:" + this.data);
+    console.log("profile-page reveivedata thie.reviews:" + this.reviews);
     //this.fetchReviews();
   }
 
