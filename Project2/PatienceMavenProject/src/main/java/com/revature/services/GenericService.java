@@ -8,7 +8,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import com.revature.dao.GenericDaoImpl;
 
 public class GenericService<T> {
-	static Object type = null;
+	private Object type = null;
 
 	public GenericService() {
 		super();
