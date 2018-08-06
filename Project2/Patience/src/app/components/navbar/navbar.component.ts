@@ -25,6 +25,32 @@ export class NavbarComponent implements OnInit {
     this.fetchSearchFill();
   }
 
+  checkRole()
+  {
+    var role = localStorage.getItem('role');
+    if ( role != '' )
+    {
+      this.router.navigate(['/userpage']);
+    }
+    this.router.navigate(['/login']);
+  }
+
+  getUsername()
+  {
+    return localStorage.getItem('username');
+  }
+
+  checkIfLoggedIn()
+  {
+    console.log("getusername: " + this.getUsername());
+    if ( this.getUsername() == '' || this.getUsername() == null )
+    {
+      this.dropdownDisabled = true;
+      return;
+    }
+    this.dropdownDisabled = false;
+  }
+
   public fetchSearchFill() {
     // this.searchData = [{id:50, name:"logan", role:"doctor", certifications:[], degrees:[], experience:"sdjflksdjf slfjdslfj", rating:3, reviews:[{id:1, name:"logan", datePosted:"03-AUG-18 12.00.00 AM", rating:3, review:"sjfldjfs sljfdljfs"}], department:"The Department", patients:[]},
     //                   {id:51, name:"andrew", role:"doctor", certifications:[], degrees:[], experience:"sdjflksdjf slfjdslfj", rating:3, reviews:[{id:2, name:"logan", datePosted:"02-AUG-18 12.00.00 AM", rating:2, review:"sjfldjfs sljfdljfs"}], department:"The Department", patients:[]}];
@@ -44,7 +70,6 @@ export class NavbarComponent implements OnInit {
   }
 
   filterDropdown() {
-    this.toggleDropdown();
     var input, filter, ul, li, a, i;
     input = document.getElementById("searchArea");
     filter = input.value.toUpperCase();
@@ -63,7 +88,8 @@ export class NavbarComponent implements OnInit {
     this.toggleDropdown();
     console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
-    this.dropdownDisabled = false;
+    console.log(this.data);
+    //this.dropdownDisabled = false;
     this.router.navigate(['profile', this.data.userPass.username]);
   }
 
@@ -73,7 +99,8 @@ export class NavbarComponent implements OnInit {
       data => {
         this.dataServ.changeData(data);
         if (data != null) {
-          this.dropdownDisabled = false;
+          //this.dropdownDisabled = false;
+          console.log(data);
           this.router.navigate(['profile', data.userPass.username]);
         }
       },

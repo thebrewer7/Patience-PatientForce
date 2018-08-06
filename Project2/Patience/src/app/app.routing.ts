@@ -46,6 +46,10 @@ const routes: Routes = [
     {
       path: 'profile',
       component: ProfilePageComponent
+    },
+    {
+        path: '',
+        component: LoginPageComponent
     }
 ];
 

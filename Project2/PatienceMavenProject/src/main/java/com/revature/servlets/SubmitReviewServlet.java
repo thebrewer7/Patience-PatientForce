@@ -2,8 +2,9 @@ package com.revature.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,23 +46,27 @@ public class SubmitReviewServlet extends HttpServlet {
 		String role = request.getParameter("role");
 		
 		Review inReview = new Review(rating, review, new Date(date));
-		
-		Doctor doc = null;
-		Nurse nur = null;
-		
-		switch(role.toLowerCase()) {
-		case "doctor":
-			doc = new DoctorService().getById(id);
-			doc.setReviews(Arrays.asList(new Review[] {inReview}));
-			break;
-		case "nurse":
-			nur = new NurseService().getById(id);
-			nur.setReviews(Arrays.asList(new Review[] {inReview}));
-			break;
-		}
-		
-		new DoctorService().saveOrUpdate(doc);
-		new ReviewService().saveOrUpdate(inReview);
+       new ReviewService().saveOrUpdate(inReview);
+       Doctor doc = new Doctor();
+       Nurse nur = new Nurse();
+       List<Review> reviews = new ArrayList<>();
+       
+       switch(role.toLowerCase()) {
+       case "doctor":
+           doc = new DoctorService().getById(id);
+           reviews = doc.getReviews();
+           reviews.add(inReview);
+           doc.setReviews(reviews);
+           new DoctorService().saveOrUpdate(doc);
+           break;
+       case "nurse":
+           nur = new NurseService().getById(id);
+           reviews = nur.getReviews();
+           reviews.add(inReview);
+           nur.setReviews(reviews);
+           new NurseService().saveOrUpdate(nur);
+           break;
+       }
 		
 		response.setContentType("text");
 		PrintWriter out = response.getWriter();

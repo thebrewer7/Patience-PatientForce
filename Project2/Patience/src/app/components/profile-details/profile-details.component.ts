@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Doctor } from '../../objects/doctor';
 import { Details } from '../../objects/details';
 import { UserDataService } from '../../services/userData/user-data.service';
@@ -10,33 +10,37 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './profile-details.component.html',
   styleUrls: ['./profile-details.component.css']
 })
+
 export class ProfileDetailsComponent implements OnInit {
   username: string;
 
+  @Input() details: Details; // testing
+
+
   public data: Details;
-  @Output() dataEvent = new EventEmitter<Details>();
+  //@Output() dataEvent = new EventEmitter<Details>();
 
   constructor(private userData: UserDataService, private profileDetailsService: ProfileDetailsService, private route: ActivatedRoute) {
     //this.userData.changeData(this.data);
   }
 
-  sendData() {
-    this.dataEvent.emit(this.data);
-  }
+  //sendData() {
+  //  this.dataEvent.emit(this.data);
+  //}
 
-  recieveData($event){
-    this.data = $event;
-    console.log(this.data);
-  }
+  //recieveData($event){
+  //  this.data = $event;
+  //  console.log(this.data);
+  //}
 
   ngOnInit() {
-    this.userData.currentData.subscribe(data => this.data = data);
-    console.log(this.data);
-    this.route.paramMap.subscribe(params => {
-      this.username = params.get('username');
-    });
-    this.getDetails();
-    this.sendData();
+    //this.userData.currentData.subscribe(data => this.data = data);
+    //console.log(this.data);
+    //this.route.paramMap.subscribe(params => {
+    //  this.username = params.get('username');
+    //});
+    //this.getDetails();
+    //this.sendData();
   }
 
   getDetails() {
@@ -44,7 +48,7 @@ export class ProfileDetailsComponent implements OnInit {
     // send email, username and password to register servlet
     this.profileDetailsService.getDetails(this.username).subscribe (
       DATA => {
-        console.log(DATA);
+        console.log("getDetails() DATA:" + DATA);
         this.data = DATA;
       },
       FAIL => { console.log(FAIL); }

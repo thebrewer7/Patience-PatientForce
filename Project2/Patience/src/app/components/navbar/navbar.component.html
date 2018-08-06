@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <nav class="navbar navbar-expand-lg navbar-light bg-danger text-dark" style="padding-bottom: 0px;">
   <div class="pull-sm-left">
-    <a class="navbar-brand" href="#">Patience</a>
+    <a class="navbar-brand" (click)=checkRole()>Patience</a>
   </div>
 
   <div class="nav-item input-group searchbar mx-auto" placement="bottom right">
-    <input id="searchArea" (keyup)="filterDropdown()" class="form-control"  ngModel name="searchArea" #searchArea="ngModel" type="text" placeholder="Search" aria-label="Search">
+    <input id="searchArea" (keyup)="filterDropdown()" class="form-control"  ngModel name="searchArea" #searchArea="ngModel" type="text" placeholder="Search" aria-label="Search" (click)="toggleDropdown()">
     <div id="myDropdown" class="dropdown-content dropdown-sb" role="menu">
         <li value="{{detail.id}}" *ngFor="let detail of searchData; let i = index" (click)="setUserBySearchBar(i)" class="dropdown-item">{{detail.name}}</li>
     </div>
@@ -18,11 +18,11 @@
   </div>
 
   <div class="nav-item dropdown pull-sm-right" placement="bottom right">
-    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a (click)="checkIfLoggedIn()" class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <img dropdownToggle name="dropdownToggle" src="https://cdn2.iconfinder.com/data/icons/set-of-menu-icon/512/menu_lines_Bullet_Hamburger_-512.png" width="40" height="40">
     </a>
     <div [hidden]="dropdownDisabled" id="dropdown-alignment" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" role="menu" aria-labelledby="button-alignment">
-      <a name="profilePageLink" class="dropdown-item" routerLink="/profile">Profile</a>
+      <a name="profilePageLink" class="dropdown-item" [routerLink]="['/profile', getUsername()]">Profile</a>
       <a name="loginPageLink" class="dropdown-item" (click)=logout()>Logout</a>
     </div>
   </div>

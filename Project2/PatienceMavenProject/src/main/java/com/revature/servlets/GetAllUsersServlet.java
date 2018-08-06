@@ -47,11 +47,11 @@ public class GetAllUsersServlet extends HttpServlet {
 		
 		for(Doctor doc: docs) {
 			sdets.add(new SearchDetails(doc.getId(), doc.getName(), doc.getROLE(), null, new String[] {}, "", doc.getRating(), 
-					doc.getReviews(), doc.getDepartment(), doc.patients));
+					doc.getReviews(), doc.getDepartment(), doc.patients, doc.getUserPass()));
 		}
 		for(Nurse nur: nurs) {
 			sdets.add(new SearchDetails(nur.getId(), nur.getName(), nur.getRole(), nur.getCertifications(), new String[] {}, "", 
-					nur.getRating(), nur.getReviews(), nur.getDepartment(), nur.patients));
+					nur.getRating(), nur.getReviews(), nur.getDepartment(), nur.patients, nur.getUserPass()));
 		}
 		
 		response.setContentType("text/json");
