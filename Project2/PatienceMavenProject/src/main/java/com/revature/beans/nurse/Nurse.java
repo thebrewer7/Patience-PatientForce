@@ -28,14 +28,14 @@ public class Nurse {
 	@GeneratedValue(generator = "nurse_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany
 	private List<NurseCerts> certifications;
 	@OneToMany(fetch=FetchType.EAGER)
 	private List<Review> reviews;
 	@OneToOne
 	private UserPass userPass;
 	@JsonIgnore
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	public List<Patient> patients;
 
 	private String name;

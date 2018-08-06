@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
+import com.revature.beans.Patient;
 import com.revature.services.AdminService;
 import com.revature.services.HistoryService;
 import com.revature.services.PatientService;
@@ -19,151 +20,168 @@ import com.revature.services.nurse.NurseCertsService;
 import com.revature.services.nurse.NurseService;
 
 class TestServiceSelects {
-
+	DoctorService dService = new DoctorService();
+	NurseService nService = new NurseService();
+	AdminService aService = new AdminService();
+	UserPassService upService = new UserPassService();
+	HistoryService hService = new HistoryService();
+	PatientService pService = new PatientService();
+	ReviewService rService = new ReviewService();
+	UserService uService = new UserService();
+	DocBackgroundService dBackService = new DocBackgroundService();
+	DocCertsService dCertService = new DocCertsService();
+	DocDegreeService dDegService = new DocDegreeService();
+	DocExperienceService dExpService = new DocExperienceService();
+	NurseCertsService nCertService = new NurseCertsService();
+	
+	
 	@Test
 	void adminGetAll() {
-		assertNotNull(new AdminService().getAll());
+		assertNotNull(aService.getAll());
 	}
 
 	@Test
 	void historyGetAll() {
-		assertNotNull(new HistoryService().getAll());
+		assertNotNull(hService.getAll());
 	}
 
 	@Test
 	void patientGetAll() {
-		assertNotNull(new PatientService().getAll());
+		assertNotNull(pService.getAll());
 	}
 
 	@Test
 	void ReviewGetAll() {
-		assertNotNull(new ReviewService().getAll());
+		assertNotNull(rService.getAll());
 	}
 
 	@Test
 	void UserPassGetAll() {
-		assertNotNull(new UserPassService().getAll());
+		assertNotNull(upService.getAll());
 	}
 
 	@Test
 	void UserGetAll() {
-		assertNotNull(new UserService().getAll());
+		assertNotNull(uService.getAll());
 	}
 
 	@Test
 	void docBackgroundGetAll() {
-		assertNotNull(new DocBackgroundService().getAll());
+		assertNotNull(dBackService.getAll());
 	}
 
 	@Test
 	void docCertsGetAll() {
-		assertNotNull(new DocCertsService().getAll());
+		assertNotNull(dCertService.getAll());
 	}
 
 	@Test
 	void docDegreeGetAll() {
-		assertNotNull(new DocDegreeService().getAll());
+		assertNotNull(dDegService.getAll());
 	}
 
 	@Test
 	void docExperienceGetAll() {
-		assertNotNull(new DocExperienceService().getAll());
+		assertNotNull(dExpService.getAll());
 	}
 
 	@Test
 	void doctorGetAll() {
-		assertNotNull(new DoctorService().getAll());
+		assertNotNull(dService.getAll());
 	}
 
 	@Test
 	void nurseCertsGetAll() {
-		assertNotNull(new NurseCertsService().getAll());
+		assertNotNull(nCertService.getAll());
 	}
 
 	@Test
 	void NurseGetAll() {
-		assertNotNull(new NurseService().getAll());
+		assertNotNull(nService.getAll());
 	}
 
 	@Test
 	void adminGetById() {
-		assertNotNull(new AdminService().getById(50));
+		assertNotNull(aService.getById(50));
 	}
 
 	@Test
 	void historyGetById() {
-		assertNotNull(new HistoryService().getById(50));
+		assertNotNull(hService.getById(50));
 	}
 
 	@Test
 	void patientGetById() {
-		assertNotNull(new PatientService().getById(50));
+		assertNotNull(pService.getById(50));
 	}
 
 	@Test
 	void UserPassGetById() {
-		assertNotNull(new UserPassService().getById(50));
+		assertNotNull(upService.getById(50));
 	}
 
 	@Test
 	void UserGetById() {
-		assertNotNull(new UserService().getById(50));
+		assertNotNull(uService.getById(50));
 	}
 
 	@Test
 	void docBackgroundGetById() {
-		assertNotNull(new DocBackgroundService().getById(50));
+		assertNotNull(dBackService.getById(50));
 	}
 
 	@Test
 	void docCertsGetById() {
-		assertNotNull(new DocCertsService().getById(50));
+		assertNotNull(dCertService.getById(50));
 	}
 
 	@Test
 	void docDegreeGetById() {
-		assertNotNull(new DocDegreeService().getById(50));
+		assertNotNull(dDegService.getById(50));
 	}
 
 	@Test
 	void docExperienceGetById() {
-		assertNotNull(new DocExperienceService().getById(50));
+		assertNotNull(dExpService.getById(50));
 	}
 
 	@Test
 	void doctorGetById() {
-		assertNotNull(new DoctorService().getById(50));
+		assertNotNull(dService.getById(50));
 	}
 
 	@Test
 	void nurseCertsGetById() {
-		assertNotNull(new NurseCertsService().getById(50));
+		assertNotNull(nCertService.getById(50));
 	}
 
 	@Test
 	void NurseGetById() {
-		assertNotNull(new NurseService().getById(50));
+		assertNotNull(nService.getById(50));
 	}
 	
 	@Test
 	void DoctorGetByName() {
-		assertNotNull(new DoctorService().getByName("Frieda Summerford"));
+		assertNotNull(dService.getByName("Fernande Rost"));
 	}	
 	@Test
 	void NurseGetByName() {
-		assertNotNull(new NurseService().getByName("Britt Modisette"));
+		assertNotNull(nService.getByName("Gena Maravilla"));
 	}	
 	@Test
 	void PatientGetByName() {
-		assertNotNull(new PatientService().getByName("Bernetta Ginsburg"));
+		Patient p = new Patient();
+		p = pService.getByName("Fernande Rost").get(0);
+		System.out.println("PatientGetByName = " + p);
+		assertNotNull(p);
 	}	
 	@Test
 	void UserGetByName() {
-		assertNotNull(new UserService().getByName("Myles Sharif"));
+		assertNotNull(uService.getByName("Gena Maravilla"));
 	}	
 	@Test
 	void AdminGetByName() {
-		assertNotNull(new AdminService().getByName("Bobbye Fisk"));
+		assertNotNull(aService.getByName("Gina Pletcher"));
 	}
 
 }

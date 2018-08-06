@@ -2,21 +2,27 @@ package com.revature.junit.unittests;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import com.revature.beans.Patient;
+import com.revature.beans.Review;
 import com.revature.beans.UserAccount;
 import com.revature.beans.UserPass;
 import com.revature.beans.doctor.Doctor;
 import com.revature.beans.history.History;
+import com.revature.beans.nurse.Nurse;
 import com.revature.services.HistoryService;
 import com.revature.services.PatientService;
+import com.revature.services.ReviewService;
 import com.revature.services.UserPassService;
 import com.revature.services.UserService;
 import com.revature.services.doctor.DoctorService;
+import com.revature.services.nurse.NurseService;
 
 class TestDepth {
 
@@ -34,7 +40,7 @@ class TestDepth {
 		UserPass userPass = new UserPass();
 		Patient patient = new Patient();
 
-		userPass = new UserPassService().getByUsername("cellulating");
+		userPass = new UserPassService().getByUsername("ingfishes");
 		System.out.println("TestDepth: Test2: UserPass: " + ((userPass == null) ? "null" : userPass.toString()));
 		patient = new PatientService().getByUserPass(userPass.getId());
 		System.out.println("TestDepth: Test2: Patient: " + ((patient == null) ? "null" : patient.toString()));
@@ -74,4 +80,31 @@ class TestDepth {
 	        System.out.println("TestDepth: Test5: doctors JSON Format: " + new DoctorService().toJSON(doctors));
 	}
 
+	@Test
+	void test6() {
+		String role = "doctor";
+		Integer id = 50;
+		Review inReview = new Review(5, "TESTREVIEW", Date.valueOf(LocalDate.now()));
+        new ReviewService().saveOrUpdate(inReview);
+        Doctor doc = new Doctor();
+        Nurse nur = new Nurse();
+        List<Review> reviews = new ArrayList<>();
+        
+        switch(role.toLowerCase()) {
+        case "doctor":
+            doc = new DoctorService().getById(id);
+            reviews = doc.getReviews();
+            reviews.add(inReview);
+            doc.setReviews(reviews);
+            new DoctorService().saveOrUpdate(doc);
+            break;
+        case "nurse":
+            nur = new NurseService().getById(id);
+            reviews = nur.getReviews();
+            reviews.add(inReview);
+            nur.setReviews(reviews);
+            new NurseService().saveOrUpdate(nur);
+            break;
+        }
+	}
 }
