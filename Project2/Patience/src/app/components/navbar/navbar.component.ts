@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   checkRole()
   {
     var role = localStorage.getItem('role');
-    if ( role != '' )
+    if ( role != '' || role != null )
     {
       this.router.navigate(['/userpage']);
     }
