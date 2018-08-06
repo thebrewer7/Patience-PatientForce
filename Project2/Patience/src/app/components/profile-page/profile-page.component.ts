@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Review } from '../../objects/review';
 import { Details } from '../../objects/details';
 import { ConnectorService } from '../../services/connector/connector.service';
@@ -7,7 +7,7 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { UserDataService } from '../../services/userData/user-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileDetailsService } from '../../services/profiledetails/profiledetails.service';
-
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
@@ -34,7 +34,8 @@ export class ProfilePageComponent implements OnInit {
   receiveData($event) {
     this.data = $event;
     this.reviews = this.data.reviews;
-    this.sortedReviewsByDate = this.reviews.map(x => Object.assign({}, x));
+    this.sortedReviewsByDate = this.reviews;//.map(x => Object.assign({}, x));
+
     this.sortedReviewsByDate.sort((a, b) => {
       if (a.datePosted < b.datePosted) return -1;
       else if (a.datePosted > b.datePosted) return 1;
