@@ -11,7 +11,7 @@ export class ProfileDetailsService {
 
   getDetails(username) {
     const params = new HttpParams().set('username', username);
-    return this.http.post<Details>('http://localhost:8085/PatienceMavenProject/getProfileDetails.do', params);
+    return this.http.post<Details>('http://34.207.69.111:8085/PatienceMavenProject/getProfileDetails.do', params);
   }
 
 }

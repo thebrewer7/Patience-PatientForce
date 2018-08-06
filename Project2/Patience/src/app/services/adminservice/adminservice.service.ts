@@ -12,7 +12,7 @@ export class AdminserviceService {
 
     const params = new HttpParams();
 
-    return this.http.post('http://localhost:8085/PatienceMavenProject/getAllAccounts.do', params);
+    return this.http.post('http://34.207.69.111:8085/PatienceMavenProject/getAllAccounts.do', params);
   }
 
 }
