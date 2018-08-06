@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let doctor of patientsDoctors" [routerLink]="['/profile', doctor.userPass.username]">
+    <tr id="docRow{{i}}" *ngFor="let doctor of patientsDoctors; let i = index" [routerLink]="['/profile', doctor.userPass.username]">
       <td>{{doctor.name}}</td>
       <td>{{ratingToStars(doctor.rating)}}</td>
     </tr>

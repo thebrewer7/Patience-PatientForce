@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let patient of doctorsPatients" [routerLink]="['/nursedoctoreditinfo', patient.id]">
+          <tr id="patTabRow{{i}}"*ngFor="let patient of doctorsPatients; let i = index" [routerLink]="['/nursedoctoreditinfo', patient.id]">
             <td id="patientname">{{patient.name}}</td>
             <td id="patientstatus">{{patient.status}}</td>
             <td id="patientlocation">{{patient.location}}</td>

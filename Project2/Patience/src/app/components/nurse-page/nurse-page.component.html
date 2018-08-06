@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let doctor of nursesDoctors" routerLink="/doctorpage">
+          <tr id="docTabRow{{i}}" *ngFor="let doctor of nursesDoctors; let i = index" routerLink="/doctorpage">
             <td id="doctorname">{{doctor.name}}</td>
             <td id="doctordepartment">{{doctor.department}}</td>
             <td id="doctorrating">{{doctor.rating}}</td>
