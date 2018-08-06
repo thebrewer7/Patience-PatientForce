@@ -25,10 +25,8 @@ export class ConnectorService {
   }
 
   submitReviewByName(rating, review, role, date, id) {
-    console.log("rating: "+rating);
-    console.log("review: "+review);
 
-    var params = new HttpParams();
+    let params = new HttpParams();
     params = params.append("rating", rating);
     params = params.append("review", review);
     params = params.append("role", role);
@@ -39,7 +37,7 @@ export class ConnectorService {
   }
 
   getReviewByName(id, role) {
-    var params = new HttpParams();
+    let params = new HttpParams();
     params = params.append("id", id);
     params = params.append("role", role);
 

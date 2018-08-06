@@ -29,9 +29,6 @@ export class NursePageComponent implements OnInit {
     this.ns.getNursesDoctors().subscribe(
       data => {
         this.nursesDoctors = data;
-      },
-      error => {
-        console.log('ERROR', error);
       }
     );
   }

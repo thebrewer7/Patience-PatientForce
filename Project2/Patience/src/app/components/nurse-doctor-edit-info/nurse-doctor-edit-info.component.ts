@@ -19,7 +19,6 @@ export class NurseDoctorEditInfoComponent implements OnInit {
   doctorsPatients = [];
 
   ngOnInit() {
-    console.log("localstorage role: " + localStorage.getItem("role"));
     if ( localStorage.getItem('role') === '' ) {
       this.router.navigate(['/login']);
     } else if ( localStorage.getItem('role') !== 'doctor' && localStorage.getItem('role') !== 'nurse' ) {
@@ -30,25 +29,14 @@ export class NurseDoctorEditInfoComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.patientid = parseInt(params.get('patientid'));
     });
-    console.log("patientid: " + this.patientid);
   }
 
   public editPatientInfo()
   {
 
-    console.log("patientid in editPatientInfo: " + this.patientid);
-    console.log("patientlocation in editPatientInfo: "  + this.patientlocation);
-    console.log("patientstatus in editPatientInfo: " + this.patientstatus);
-
     this.deis.editPatient(this.patientid,this.patientlocation,this.patientstatus).subscribe(
       data => {
-        console.log("=====================data received==================");
-        console.log(data);
-        console.log("==============================================")
         this.router.navigate(['/doctorpage']);
-      },
-      error => {
-        console.log('ERROR', error);
       }
     );
   }

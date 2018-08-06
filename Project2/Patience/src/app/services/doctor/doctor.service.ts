@@ -22,7 +22,6 @@ export class DoctorService {
   }
 
   getReviews(username: string) {
-    console.log('DoctorService: getReviews()');
     const params = new HttpParams().set('username', username);
     return this.http.post<Review[]>('http://34.207.69.111:8085/PatienceMavenProject/getDoctorsReviews.do', params);
   }

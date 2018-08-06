@@ -13,38 +13,32 @@ declare var $: any;
 })
 export class RaterComponent implements OnInit{
   public data: Details;
+  public rateVal: number;
 
-  constructor(private conn: ConnectorService, private userData: UserDataService) { 
-    
-  }
+  constructor(private conn: ConnectorService, private userData: UserDataService) { }
 
   ngOnInit() {
-    this.userData.currentData.subscribe(data => this.data = data)
+    this.userData.currentData.subscribe(data => this.data = data);
   }
-  public rateVal: number;
 
   rating() {
     $('.rating input').change(function () {
       this.rateVal = $(this).val();
-      var $radio = $(this);
-      console.log("in rating: "+this.rateVal);
+      const $radio = $(this);
+
       $('.rating .selected').removeClass('selected');
       $radio.closest('label').addClass('selected');
     });
   }
 
   submitReview(review, rate1) {
-    
     this.conn.submitReviewByName(rate1.control.value, review.control.value, this.data.role, Date.now().toLocaleString(), this.data.id).pipe(
       tap(
         data => {
           console.log(data);
-        },
-        error => {
-          console.log("ERROR", error);
         }
       )
-    ).subscribe();  
+    ).subscribe();
   }
 
 }

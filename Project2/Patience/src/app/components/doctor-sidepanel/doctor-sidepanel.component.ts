@@ -22,9 +22,6 @@ export class DoctorSidepanelComponent implements OnInit {
     this.ds.getDoctors().subscribe(
       data => {
         this.randomizeDoctors(data);
-      },
-      error => {
-        console.log('ERROR', error);
       }
     );
   }

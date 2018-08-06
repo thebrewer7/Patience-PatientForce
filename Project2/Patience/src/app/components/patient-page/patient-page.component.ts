@@ -28,29 +28,10 @@ export class PatientPageComponent implements OnInit {
 
   getHistory() {
     this.username = localStorage.getItem('username');
-    console.log("===================patientpage getHistory()===============")
-    console.log("username: " + this.username);
 
     this.hs.getHistory(this.username).subscribe(
       data => {
-        console.log("===================data inside patientpage getHistory()================");
-        console.log(data);
-        console.log("==================================================");
-        console.log("===================datainside allHistories==================");
         this.allHistories = data;
-        // for ( var d in data )
-        // {
-        //   this.allHistories[d]['age'] = data[d]['age'];
-        //   this.allHistories[d]['weight'] = data[d]['weight'];
-        //   this.allHistories[d]['height'] = data[d]['height'];
-        //   this.allHistories[d]['bloodPressureCondition'] = data[d]['bloodPressureCondition'];
-        // }
-
-        console.log(this.allHistories);
-        console.log("=======================================================");
-      },
-      error => {
-        console.log('ERROR', error);
       }
   );
   }

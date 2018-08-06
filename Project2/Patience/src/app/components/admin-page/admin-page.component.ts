@@ -35,9 +35,6 @@ export class AdminPageComponent implements OnInit {
         {
           this.allaccounts[d] = data[d];
         }
-      },
-      error => {
-        console.log('ERROR', error);
       }
     );
   }

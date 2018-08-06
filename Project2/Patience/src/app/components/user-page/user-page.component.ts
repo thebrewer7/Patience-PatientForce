@@ -19,21 +19,17 @@ export class UserPageComponent implements OnInit {
     } else if ( localStorage.getItem('role') !== 'user' ) {
       const redirect = localStorage.getItem('role');
       this.router.navigate(['/' + redirect + 'page']);
-    }else {
+    } else {
       this.fetchUserPatientsByUserName();
     }
   }
 
   public fetchUserPatientsByUserName() {
-    var username = localStorage.getItem('username');
-    console.log("username in fetchuserpatientsbyusername: " + username);
+    const username = localStorage.getItem('username');
 
     this.us.getPatients(username).subscribe(
       data => {
         this.patientsUsers = data;
-      },
-      error => {
-        console.log('ERROR', error);
       }
     );
   }

@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('LoginComponent: login()');
     // send username and password to login servlet
     this.loginService.login(this.login_username, this.login_password).subscribe(
       DATA => {
@@ -94,23 +93,18 @@ export class LoginComponent implements OnInit {
           default:
             this.router.navigate(['/login']);
         }
-      },
-      ERROR => {
-        console.log(ERROR + ' Error: login failed');
       }
     );
   }
 
   register() {
-    console.log('LoginComponent: register()');
     // send email, username and password to register servlet
     this.registrationService.register(this.register_username, this.register_password, this.password_confirm).subscribe (
       DATA => {
         localStorage.setItem('username', DATA['username']);
         localStorage.setItem('role', DATA['role']);
         this.router.navigate(['/userpage']);
-      },
-      FAIL => { console.log(FAIL); }
+      }
     );
   }
 }

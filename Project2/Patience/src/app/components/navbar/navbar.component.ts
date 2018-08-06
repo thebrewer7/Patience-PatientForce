@@ -42,7 +42,6 @@ export class NavbarComponent implements OnInit {
 
   checkIfLoggedIn()
   {
-    console.log("getusername: " + this.getUsername());
     if ( this.getUsername() == '' || this.getUsername() == null )
     {
       this.dropdownDisabled = true;
@@ -57,10 +56,6 @@ export class NavbarComponent implements OnInit {
     this.conn.getSearchFill().subscribe(
         data => {
           this.searchData = data;
-          console.log(this.searchData);
-        },
-        error => {
-          console.log('ERROR', error);
         }
       );
   }
@@ -86,42 +81,30 @@ export class NavbarComponent implements OnInit {
 
   public setUserBySearchBar(id){
     this.toggleDropdown();
-    console.log("index for profile change:"+id)
     this.dataServ.changeData(this.searchData[id]);
-    console.log(this.data);
-    //this.dropdownDisabled = false;
     this.router.navigate(['profile', this.data.userPass.username]);
   }
 
   public fetchSearchUserById(name) {
-    console.log(name.control.value);
     this.conn.getSearchUserById(name.control.value).subscribe(
       data => {
         this.dataServ.changeData(data);
         if (data != null) {
-          //this.dropdownDisabled = false;
-          console.log(data);
           this.router.navigate(['profile', data.userPass.username]);
         }
-      },
-      error => {
-        console.log('ERROR', error);
       }
     );
   }
 
 
   logout() {
-    console.log('NavbarComponent: logout()');
     localStorage.removeItem('userid');
     localStorage.removeItem('role');
 
     this.loginService.logout().subscribe (
       PASS => {
-        console.log(PASS);
         this.router.navigate(['/login']);
-      },
-      FAIL => { console.log(FAIL); }
+      }
     );
   }
 }
