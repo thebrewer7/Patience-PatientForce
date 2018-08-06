@@ -20,7 +20,6 @@ import com.revature.beans.Patient;
 import com.revature.beans.Review;
 import com.revature.beans.UserPass;
 
-
 @Entity
 public class Nurse {
 	@Id
@@ -28,14 +27,14 @@ public class Nurse {
 	@GeneratedValue(generator = "nurse_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<NurseCerts> certifications;
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<Review> reviews;
 	@OneToOne
 	private UserPass userPass;
 	@JsonIgnore
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	public List<Patient> patients;
 
 	private String name;

@@ -1,7 +1,6 @@
 package com.revature.services.doctor;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.revature.beans.Patient;
@@ -23,19 +22,6 @@ public class DoctorService extends RoleService<Doctor> {
 			}
 		}
 
-		return doctors;
-	}
-	
-	public List<Doctor> getWithReviews(String name){
-		return initializeReviews(getDao().get("name", name));
-	}
-	
-	public Doctor getWithReviews(Integer userpass_id) {
-		return initializeReviews(Arrays.asList(getDao().getRoleByUserPass(userpass_id))).get(0);
-	}
-	
-	private List<Doctor> initializeReviews(List<Doctor> doctors){
-		doctors.forEach(doc -> getDao().init(doc.getReviews()));
 		return doctors;
 	}
 }

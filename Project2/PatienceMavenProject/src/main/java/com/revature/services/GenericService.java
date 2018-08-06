@@ -44,6 +44,9 @@ public class GenericService<T> {
 		return null;
 	}
 
+	public T loadItem(Integer id) {
+		return getDao().load(type.getClass(), id).get(0);
+	}
 	protected GenericDaoImpl<T> getDao() {
 		GenericDaoImpl<T> gdi = new GenericDaoImpl<>(type.getClass());
 		return gdi;

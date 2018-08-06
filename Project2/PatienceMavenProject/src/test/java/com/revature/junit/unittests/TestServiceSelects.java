@@ -162,26 +162,26 @@ class TestServiceSelects {
 	
 	@Test
 	void DoctorGetByName() {
-		assertNotNull(dService.getByName("Fernande Rost"));
+		assertNotNull(dService.getByName("Bernetta Ginsburg"));
 	}	
 	@Test
 	void NurseGetByName() {
-		assertNotNull(nService.getByName("Gena Maravilla"));
+		assertNotNull(nService.getByName("Argentina Cowher"));
 	}	
 	@Test
 	void PatientGetByName() {
 		Patient p = new Patient();
-		p = pService.getByName("Fernande Rost").get(0);
+		p = pService.getByName("Stacee Gerhart").get(0);
 		System.out.println("PatientGetByName = " + p);
 		assertNotNull(p);
 	}	
 	@Test
 	void UserGetByName() {
-		assertNotNull(uService.getByName("Gena Maravilla"));
+		assertNotNull(uService.getByName("Brain Rubino"));
 	}	
 	@Test
 	void AdminGetByName() {
-		assertNotNull(aService.getByName("Gina Pletcher"));
+		assertNotNull(aService.getByName("Modesto Orme"));
 	}
 
 }
