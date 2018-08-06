@@ -20,8 +20,8 @@ import org.testng.annotations.Test;
 
 public class PatienceSeleniumTests {
 	public static WebDriver driver;
-	//public final String url = "http://34.205.71.228:8085/Patience";
-	public final String url = "http://localhost:4200/Patience";
+	public final String url = "http://34.207.69.111:8085/Patience";
+	//public final String url = "http://localhost:4200/Patience";
 	
 	@BeforeTest
 	public void setup() {
